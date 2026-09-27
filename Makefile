@@ -16,16 +16,13 @@ CXXFLAGS ?= -O3 -std=c++17 -march=native $(OMPFLAGS)
 
 .PHONY: all clean test
 
-all: engine_cf
-
-engine_cf: engine_cf.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $<
+all: engine_b9
 
 engine_b9: engine_b9.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-test: engine_cf
-	./engine_cf --selftest
+test: engine_b9
+	./engine_b9 --selftest
 
 clean:
-	rm -f engine_cf engine_b9
+	rm -f engine_b9

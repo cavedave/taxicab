@@ -1,6 +1,6 @@
 # Taxicab numbers
 
-Search engines and result tables for numbers that are a sum of two positive cubes in several ways:
+Magnification search (`engine_b9`) and result tables for numbers that are a sum of two positive cubes in several ways:
 
 ```
 N = a³ + b³ = c³ + d³ = …
@@ -37,7 +37,7 @@ What *is* here instead:
 
 ## Cubefree / squarefree (A080642 and friends)
 
-These cannot come from the magnification engine (`N = seed × m³`). `engine_cf` constructs candidates from split primes `p ≡ 1 (mod 3)` and sieves the median window.
+These cannot come from the magnification engine (`N = seed × m³`).
 
 | N | k | class |
 | ---: | ---: | --- |
@@ -51,21 +51,14 @@ A local exhaustive split-prime search below 208,438,080,643 found no smaller squ
 
 Prime taxicab numbers do not exist: `a³ + b³ = (a+b)(a² − ab + b²)` is composite for `a, b ≥ 1`.
 
-## Engines
+## Engine
+
+`engine_b9` is the magnification / splitting search. It never produces cubefree hits (`N = seed × m³`).
 
 ```bash
-# magnification / splitting (never cubefree)
-g++ -O3 -std=c++17 -o engine_b9 engine_b9.cpp
-./engine_b9 --selftest
-
-# construct-and-sieve cubefree / squarefree
 make
-./engine_cf --selftest
-./engine_cf --sieve 1729
-./engine_cf --ub 1e15 --pmax 500 --omega-min 5 --omega-max 8 --kmin 3 --out results/cf_hits.csv
+./engine_b9 --selftest
 ```
-
-On an 8-core Apple M3, keep `pmax ≤ 500` and `ω ≤ 8` for runs under a few minutes. Full 8-prime enumerations toward A080642(5) are a server job.
 
 ## Result formats
 
@@ -82,12 +75,6 @@ seed;multiplier;N;k;new_a:new_b,...
 ```
 
 Only **new** (non-scaled) pairs are stored. Scaled seed pairs are `m·(a,b)`.
-
-`engine_cf` hits:
-
-```
-N;k;squarefree;p:e,...;a:b,...
-```
 
 ## References
 
