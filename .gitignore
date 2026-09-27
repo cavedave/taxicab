@@ -1,0 +1,10 @@
+.DS_Store
+engine_cf
+engine_b9
+engine_b
+engine_b8
+count_cf
+*.o
+*.pdf
+*.html
+*_files/
