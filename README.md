@@ -33,7 +33,7 @@ What *is* here instead:
 | 4 | 6,963,472,309,248 | Ta(4); not stored as a full k=4 census |
 | 5 | 48,988,659,276,962,496 | Ta(5) |
 | 6 | 24,153,319,581,254,312,065,344 | Ta(6) |
-| 7 | ≤ 24,885,189,317,885,898,975,235,988,544 | Boyer upper bound; see `results/Found7of9.txt` |
+| 7 | ≤ 24,885,189,317,885,898,975,235,988,544 | Boyer upper bound; see `results/found_known.txt` |
 
 ## Cubefree / squarefree (A080642 and friends)
 
