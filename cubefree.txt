@@ -1,0 +1,133 @@
+# Cubefree Taxicab Numbers: Background and Search Plan
+
+As of 13 Oct 2026. Online version: https://claude.ai/code/artifact/d2a8b86d-06a7-42ac-a89f-76d08f88a9aa
+
+## What a cubefree taxicab number is
+
+The cubefree taxicab number for n is the smallest number that is a sum of two positive cubes in n different ways and is divisible by no cube except 1. It is the same race as the ordinary taxicab numbers Ta(n), with one rule added.
+
+The rule exists because ordinary records are dominated by scaling. If N = a³ + b³ in k ways, then m³N = (ma)³ + (mb)³ in at least the same k ways, and for some m a new pair appears. Every known ordinary record was built this way:
+
+- Ta(6) = 79³ × Ta(5).
+- Boyer's Ta(7) upper bound = 101³ × Ta(6).
+- Ta(3) = 87,539,319 = 3³ × 7 × 31 × 67 × 223, so even Ta(3) carries a cube.
+
+A cubefree number cannot be any of these. Each of its pairs must be a genuinely different solution, not a scaled copy. Of the ordinary records, only Ta(1) = 2 and Ta(2) = 1729 = 7 × 13 × 19 are cubefree.
+
+## Known records
+
+Only four cubefree taxicab numbers are known, and the five-way value is open: no one has published even an upper bound we could find. Bill Butler's exhaustive five-way list shows it is above 10²³ (see Phase 3 below). The values are OEIS [A080642](https://oeis.org/A080642).
+
+| n | smallest cubefree n-way | factorization | pairs (a, b) | found by |
+| --: | --: | --- | --- | --- |
+| 1 | 2 | 2 | 1, 1 | trivial |
+| 2 | 1,729 | 7 × 13 × 19 | 1, 12 · 9, 10 | Hardy–Ramanujan |
+| 3 | 15,170,835,645 | 3² × 5 × 7 × 31 × 37 × 199 × 211 | 517, 2468 · 709, 2456 · 1733, 2152 | Paul Vojta, 1981 (unpublished) |
+| 4 | 1,801,049,058,342,701,083 | 7 × 31 × 37 × 43 × 163 × 193 × 9151 × 18121 | 92227, 1216500 · 136635, 1216102 · 341995, 1207602 · 600259, 1165884 | Stuart Gascoigne, and independently Duncan Moore, 2003 |
+| 5 | unknown |  |  |  |
+
+I checked every factorization and pair above with exact arithmetic. Two patterns stand out. The four-way record is squarefree, and all eight of its primes are ≡ 1 (mod 3). The three-way record carries one prime ≡ 2 (mod 3), namely 5, plus 3². The next section explains why that split matters.
+
+For scale, an exhaustive run of our `seedgen` finds only 6 cubefree three-ways below 10¹³, against 651 ordinary ones. Cubefree records are rare and grow quickly: the three-way to four-way step is a factor of about 10⁸.
+
+## The number theory we can use
+
+A cubefree n-way is a product of two coprime parts, and the larger part may only contain 3 and primes ≡ 1 (mod 3). That one fact turns the search from "look everywhere" into "build n from the right primes".
+
+Every representation factors as:
+
+    n = a³ + b³ = (a + b) · (a² − ab + b²) = s · t
+
+The facts, each with a one-line reason:
+
+1. **Every pair is coprime.** If a prime p divides both a and b, then p³ divides n.
+2. **s and t share at most a 3.** t = s² − 3ab and gcd(s, ab) = 1, so gcd(s, t) divides 3.
+3. **t is built from split primes.** For coprime a, b, a prime p ≠ 3 dividing a² − ab + b² makes −3 a square mod p, so p ≡ 1 (mod 3). Also 9 never divides t.
+4. **So primes ≡ 2 (mod 3) live only in s.** That covers 2, 5, 11, 17 and so on. In the three-way record 15,170,835,645, the 5 sits in every s.
+5. **The window fixes t's size.** s lies in (n^(1/3), (4n)^(1/3)], so t lies in [n^(2/3) / 4^(1/3), n^(2/3)).
+6. **Exactness test.** A divisor s in the window gives a pair exactly when 4(n/s) − s² = 3d² for a whole number d. Then a = (s − d)/2 and b = (s + d)/2.
+
+Why many primes ≡ 1 (mod 3) are needed: each such prime p splits as p = ππ̄ in the Eisenstein integers, and a + bω must be a product of one factor from each pair. With r split primes there are about 2^r ways to pick t's factors, and each candidate t is one chance of hitting fact 6. That is why the four-way record uses eight of them.
+
+All of these are exact. They come from the same algebra as the parity filter that made `engine_b12` 15× faster.
+
+## Where our current tools stand
+
+`engine_b12` can never find a cubefree record: every number it reports is seed × m³ with m ≥ 2, so m³ divides it. What carries over is the code for counting representations, the parity pruning, and `seedgen`.
+
+| tool | cubefree use |
+| --- | --- |
+| `engine_b12` | None for finding records. Its rep counter (`reps_at` at m = 1) is reusable as an exact checker. |
+| `seedgen` | Already enumerates every multi-way ≤ B. Filtering its output for cubefree numbers gives the exact cubefree records below B. Today: 6 cubefree three-ways ≤ 10¹³. |
+| `results/cf_sf3.csv` | 208,438,080,643, the smallest three-way whose primes are all ≡ 1 (mod 3). It is the "all split primes" analogue of the record, the shape the four-way record also has. |
+
+The gap: `seedgen` stores sums in 64 bits, so it tops out near 4 × 10¹⁸. That is just enough to re-find the four-way record (1.8 × 10¹⁸) and nowhere near a five-way.
+
+## How we plan to search
+
+The plan has four phases: prove we can reproduce the known records exactly, rule out everything below 10²³ using Bill Butler's exhaustive data, then switch to a constructive search that must first pass the same test. Each phase has a gate, and nothing moves on until the gate passes.
+
+Phases 1 and 3 give proven results; Phase 4 can only give an upper bound, so it runs last and only after passing its own test.
+
+1. **Exact baseline to 4 × 10¹⁸ (about 20 minutes on 7of9).** Add a `--cubefree` filter to `seedgen` so it keeps only cubefree multi-ways, then run it to 3.9 × 10¹⁸. That is about 1.1 × 10¹² pairs. **Gate:** the smallest cubefree three-way and four-way it finds must be exactly 15,170,835,645 and 1,801,049,058,342,701,083.
+2. **Learn the shape (minutes of compute).** From the complete list of cubefree three-ways and four-ways below 4 × 10¹⁸, measure how many primes they use, how large, which part (s or t) each prime sits in, and what small cofactors appear. This turns the facts in the previous section into concrete generator settings.
+3. **Exact search with 128-bit sums is not needed below 10²³.** Bill Butler's exhaustive search lists every primitive five-way below 10²³, 27 of them, and I checked all 27: none is cubefree. A cubefree five-way has coprime pairs, so it would be on his list. Extending an exact search past 10²³ would take months (about 10¹⁶ pairs at 10²⁴), so it is dropped. **Result: A080642(5) > 10²³, resting on Butler's stated completeness**.
+4. **Constructive search beyond 10²³.** Build candidates n directly from primes ≡ 1 (mod 3) plus a small cubefree cofactor, using facts 3 and 4 to place primes into s or t, and score each candidate by how many window divisors survive before the exact test. **Gate:** before hunting, the generator must re-find the four-way record from scratch, early in its search. A generator that cannot do that is not trusted to find a five-way.
+
+Naive extrapolation (three-way to four-way grew by about 10⁸) puts a cubefree five-way somewhere around 10²⁶, but two data points make that a guess, not an estimate. Butler's data already rules out anything below 10²³.
+
+| phase | output | proven or found | 7of9 time |
+| --- | --- | --- | --- |
+| 1 | all cubefree 3- and 4-ways ≤ 3.9 × 10¹⁸ | proven | ~20 min |
+| 2 | generator settings | analysis | minutes |
+| 3 | no cubefree 5-way < 10²³ (Butler's list) | proven | done |
+| 4 | best cubefree five-way found | upper bound only | open-ended |
+
+Times scale from the 7of9 run of `engine_b12` (about 3.95 µs per unit of work per thread) and the measured `seedgen` rate on the Mac. They are planning figures.
+
+## Second goal: the coprime cabtaxi six-way
+
+If negative cubes are allowed, the smallest number that is a sum of two coprime cubes in six ways is unknown, and nobody seems to have searched past 2.5 × 10¹⁷ since Bernstein in 1999. That makes it a likelier early result than the positive cubefree five-way.
+
+These are OEIS [A047697](https://oeis.org/A047697) ("two coprime cubes, not necessarily positive"); Bernstein notes all four nontrivial terms are squarefree, so they are cubefree too:
+
+| k | smallest | found by |
+| ---: | ---: | --- |
+| 2 | 91 | classical |
+| 3 | 3,367 | classical |
+| 4 | 16,776,487 | Rathbun; this filled the "Unknown!" in Silverman's 1993 table |
+| 5 | 506,433,677,359,393 | Bernstein, 1999 (sortedsums paper, section 7) |
+| 6 | unknown, > 2.5 × 10¹⁷ | open |
+
+All the number theory above still applies: coprime pairs, t = a² − ab + b² built from 3 and primes ≡ 1 (mod 3). The changes are small: s = a + b may now be any divisor, not only one in the positive window, and b may be negative. Exhaustive search with signed pairs is the first step, starting where Bernstein stopped.
+
+## Risks and what counts as success
+
+Any cubefree five-way at all would be the first known value for that slot. Making it the proven smallest is a much higher bar.
+
+| outcome | what we could claim | where it goes |
+| --- | --- | --- |
+| Phase 1 passes | Exact list of cubefree 3- and 4-ways below 3.9 × 10¹⁸ | repo; a count is a candidate OEIS b-file or comment |
+| Five-way found below a proven exhaustive bound | The true A080642(5), proven by exhaustive search | OEIS submission for the data line |
+| Five-way found in Phase 4 | Upper bound on A080642(5) | OEIS comment, as Boyer's bounds are recorded on A011541 |
+| Already true: nothing below 10²³ | Lower bound: A080642(5) > 10²³, from Butler's list | OEIS comment |
+
+Open risks:
+
+- **The five-way may be far out of reach.** With only two growth steps to go on, the real value could sit well past 10³⁰, beyond 128-bit sums and any constructive search we have designed.
+- **A generator can look good and still miss everything.** That is why Phase 4's gate is re-finding the four-way record, a test it cannot pass by luck.
+- **Prior claims, checked.** Meyrignac's taxicab page (euler.free.fr) has no cubefree section, and neither OEIS A080642, Wikipedia, Boyer 2008 nor Su 2016 gives a cubefree five-way. A080642 is the place a bound would be recorded, so it is the one to recheck just before announcing.
+- **Hardware assumptions.** Times assume 7of9 behaves as it did for `engine_b12`: 64 threads at about 1.3× the Mac's per-core time.
+
+## Sources
+
+- [OEIS A080642, cubefree taxicab numbers](https://oeis.org/A080642): terms 2, 1729, 15170835645, 1801049058342701083
+- [OEIS A011541, taxicab numbers Ta(n)](https://oeis.org/A011541): ordinary records and upper bounds
+- [Wikipedia, Taxicab number](https://en.wikipedia.org/wiki/Taxicab_number): cubefree section, discoverers of the three-way and four-way records
+- [Boyer, New upper bounds for Taxicab and Cabtaxi numbers, JIS 11 (2008)](https://cs.uwaterloo.ca/journals/JIS/VOL11/Boyer/boyer.html): magnification and splitting factors
+- [Su, More upper bounds on Taxicab and Cabtaxi numbers, JIS 19 (2016)](https://cs.uwaterloo.ca/journals/JIS/VOL19/Su/su3.pdf): the s ≡ n (mod 6) condition
+- Our repo: `engine_b12.cpp`, `seedgen.cpp`, `results/cf_sf3.csv`, `results/sixways.csv`
+- [Bill Butler, primitive five-way list](http://www.durangobill.com/RamanujanPics/Rama5way.html) and [six-way list](http://www.durangobill.com/RamanujanPics/Rama6way.html): exhaustive and complete to 10²³; no cubefree five-way below 10²³
+- Meyrignac's taxicab page and Boyer's taxicab page (2011): no cubefree records
+- [Bernstein, Enumerating solutions to p(a)+q(b)=r(c)+s(d), Math. Comp. 70 (2001)](https://cr.yp.to/papers/sortedsums.pdf): section 7, coprime cabtaxi records to k = 5; no 6-way below 2.5 × 10¹⁷
+- [OEIS A047697](https://oeis.org/A047697): smallest number that is a sum of two coprime cubes, not necessarily positive, in n ways

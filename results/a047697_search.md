@@ -1,0 +1,215 @@
+# The search for A047697(6)
+
+*Status, 20 October 2026: complete to 10²³. No six-way exists for n ≤ 10²³, and there is no five-way between 10²² and 10²³.*
+
+[OEIS A047697](https://oeis.org/A047697) is the smallest positive number that can be written in *n* ways as
+x³ + y³ with **gcd(x, y) = 1**, where x and y may be negative:
+
+| n | a(n) | found by |
+| ---: | ---: | --- |
+| 1 | 1 | |
+| 2 | 91 | classical |
+| 3 | 3,367 | classical |
+| 4 | 16,776,487 | Rathbun |
+| 5 | 506,433,677,359,393 | Bernstein, 1999 |
+| 6 | **unknown**: > 10²³ (this search) | |
+
+Bernstein's 1999 search (*Enumerating solutions to p(a)+q(b)=r(c)+s(d)*, Math. Comp. 70, 2001, §7) found no
+six-way below 2.5 × 10¹⁷. Nobody seems to have searched further since.
+
+## Results so far
+
+**No six-way exists for n ≤ 10²³**, so a(6) > 10²³. That is 400,000 times past Bernstein's 2.5 × 10¹⁷.
+
+Up to 10²³ there are exactly **eleven** numbers with five coprime representations: Bernstein's two and nine new ones.
+
+| n | representations | source |
+| ---: | --- | --- |
+| 506,433,677,359,393 | 28065³ + 78532³ = 36489³ + 77074³ = 80025³ − 18218³ = 95866³ − 72087³ = 139264³ − 129951³ | Bernstein 1999 |
+| 137,904,678,696,613,339 | 310998³ + 475963³ = 369286³ + 444027³ = 516931³ − 61128³ = 539755³ − 268446³ = 1365216³ − 1340093³ | Bernstein 1999 |
+| 39,673,716,067,958,900,347 | 418491³ + 3408526³ = 1202338³ + 3360075³ = 3526755³ − 1612412³ = 3819196³ − 2521629³ = 14705344³ − 14643933³ | new |
+| 95,793,117,931,950,826,933 | 5029461³ − 3155822³ = 5073261³ − 3264272³ = 5625154³ − 4348011³ = 23578300³ − 23520723³ = 26192350³ − 26145723³ | new |
+| 118,371,660,133,721,558,473 | 752526³ + 4904113³ = 1138980³ + 4889497³ = 2936497³ + 4531470³ = 5004913³ − 1912674³ = 5682073³ − 4022364³ | new |
+| 624,256,195,206,357,000,469 | 1807245³ + 8519464³ = 2355597³ + 8486416³ = 3095128³ + 8408973³ = 8884936³ − 4256883³ = 96589720³ − 96567411³ | new |
+| 633,753,337,814,536,954,807 | 1019818³ + 8584815³ = 9764199³ − 6673148³ = 10245412³ − 7615641³ = 10475362³ − 8019441³ = 75791818³ − 75755025³ | new |
+| 921,288,078,249,108,802,505 | 7544409³ + 7893776³ = 9742196³ − 1495911³ = 9846873³ − 3222808³ = 10393689³ − 5862904³ = 22982553³ − 22385788³ | new |
+| 1,038,246,186,276,942,167,105 | 6530217³ + 9124898³ = 10125896³ − 46911³ = 10251009³ − 3390124³ = 11696457³ − 8251942³ = 31043073³ − 30679708³ | new |
+| 2,724,248,230,569,896,697,541 | 3515718³ + 13891669³ = 7975069³ + 13039368³ = 8518752³ + 12818077³ = 10230894³ + 11824693³ = 41571781³ − 41039550³ | new |
+| 5,306,775,242,131,114,520,041 | 9848424³ + 16326073³ = 13667257³ + 14016672³ = 17446393³ − 1518156³ = 18167545³ − 8834844³ = 61604281³ − 61134600³ | new |
+
+Each new five-way was recounted by a separate Python program: an exhaustive search for every coprime
+representation, sharing no code with the GPU search. Each has exactly five, the same five the GPU reported.
+None of the nine new numbers appears in the OEIS. Rendered images are in `out/a047697/`.
+
+## The runs
+
+| range of n | hardware | raw pairs | coprime pairs | time | raw pairs/s |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 0 – 2.5 × 10¹⁷ (validation) | 7of9 CPU, Threadripper 3970X, 64 threads | 5.25 × 10¹¹ (est.) | 319,497,814,847 | 2,550 s | ≈ 2 × 10⁸ |
+| 0 – 10¹⁹ | 7of9 CPU, Threadripper 3970X, 64 threads | *see cab2.log* | *see cab2.log* | ≈ 8 h | ≈ 2 × 10⁸ |
+| 10¹⁹ – 10²⁰ | 1 × RTX 5090 (vast.ai) | 22,390,033,902,596 | 13,612,807,252,351 | 6,385 s | 3.51 × 10⁹ |
+| 10²⁰ – 10²¹ | 1 × RTX 5090 (vast.ai) | 103,933,863,545,587 | 63,188,318,807,907 | 24,632 s | 4.22 × 10⁹ |
+| 10²¹ – 10²² | 4 × RTX 5090 (vast.ai) | 482,445,237,654,261 | 293,304,518,606,519 | 24,825 s (wall) | 1.94 × 10¹⁰ (4 GPUs) |
+| 10²² – 2 × 10²² | 1 × RTX 5090 (vast.ai), v3 code | 361,217,191,042,592 | 219,601,584,685,459 | 27,102 s | 1.33 × 10¹⁰ |
+| 2 × 10²² – 3 × 10²² | 1 × RTX 5090 (vast.ai), v3 code | 302,973,499,093,645 | 184,191,835,825,468 | 22,775 s | 1.33 × 10¹⁰ |
+| 3 × 10²² – 10²³ | 4 × RTX 5090 (vast.ai), v3 code | 1,575,207,039,548,206 | 957,638,204,314,922 | 33,612 s (wall) | 4.75 × 10¹⁰ (4 GPUs) |
+
+"Raw pairs" counts every (x, y) generated. About 60.8% of them are coprime, close to 6/π² ≈ 0.608 as expected.
+
+The work grows as B^(2/3), so each power of ten costs 10^(2/3) ≈ 4.64 times the one before. The measured raw
+pair counts follow that: 1.04 × 10¹⁴ / 2.24 × 10¹³ = 4.64, and 4.82 × 10¹⁴ / 1.04 × 10¹⁴ = 4.64.
+
+### The 4 × RTX 5090 run (10²¹ – 10²²)
+
+The machine, as listed by vast.ai (instance 56520933):
+
+| item | value |
+| --- | --- |
+| GPUs | 4 × NVIDIA GeForce RTX 5090, 32,607 MiB each (sm_120) |
+| GPU memory in use | 91.1 / 127 GB |
+| GPU memory bandwidth | 1,453.5 GB/s per card (as measured by vast.ai) |
+| peak FP32 | 432.4 TFLOPS in total (unused here: this search is pure integer arithmetic) |
+| CPU | Xeon Platinum 8469C, 96 of 192 threads allocated (the search uses 4) |
+| RAM | 515.8 GB (the search uses about 0.5 GB) |
+| bus | PCIe 5.0 ×16, 44 GB/s |
+| CUDA | driver supports 13.0 |
+
+Each GPU searches one quarter of the range with `--part k/4`. The parts are equal shares of work, not of n.
+Status about 11.5 minutes in:
+
+| part | GPU | covers n from | speed (raw pairs/s) | ETA at that point |
+| --- | --- | --- | ---: | ---: |
+| 1/4 | 0 | 10²¹ | 4.77 × 10⁹ | 24,574 s |
+| 2/4 | 1 | about 2.6 × 10²¹ | 4.90 × 10⁹ | 23,914 s |
+| 3/4 | 2 | about 4.7 × 10²¹ | 5.26 × 10⁹ | 22,230 s |
+| 4/4 | 3 | about 7.2 × 10²¹ | 5.33 × 10⁹ | 21,947 s |
+| **total** | | | **2.03 × 10¹⁰** | about 6.8 h |
+
+Before the run, the script checked each card: every GPU passed the self-test, and GPU 0 reproduced the 10¹⁵
+benchmark exactly (13,223,067,998 raw and 8,044,700,766 coprime pairs) in 12 seconds.
+
+All four parts finished on 18 October 2026 (archive written 14:58 UTC). The four ranges join exactly, so
+together they cover 10²¹ < n ≤ 10²² with no gaps:
+
+| part | covers n | raw pairs | coprime pairs | time | raw pairs/s | five-ways |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| 1/4 | 10²¹ – 2,640,495,989,778,755,354,624 | 120,609,058,777,811 | 73,325,268,347,667 | 24,825 s | 4.86 × 10⁹ | 1 |
+| 2/4 | – 4,737,586,505,830,182,682,624 | 120,611,014,216,745 | 73,326,016,681,776 | 23,748 s | 5.08 × 10⁹ | 1 |
+| 3/4 | – 7,207,278,944,116,045,512,704 | 120,612,177,019,639 | 73,326,461,698,592 | 22,742 s | 5.30 × 10⁹ | 1 |
+| 4/4 | – 10²² | 120,612,987,640,066 | 73,326,771,878,484 | 22,229 s | 5.43 × 10⁹ | 0 |
+| **total** | | **482,445,237,654,261** | **293,304,518,606,519** | 26.0 GPU-h | 1.94 × 10¹⁰ | **3** |
+
+The coprime fraction is 0.60795 (6/π² = 0.60793). No number had six or more representations.
+
+### The 10²² – 3 × 10²² runs (one RTX 5090, v3)
+
+This was an overnight run on 19–20 October 2026 with the faster v3 code (see `experiments/cabtaxi_gpu_speedup_plan.md`).
+v3 was validated on the same card that evening: its outputs and pair counts were identical to the original code
+at 10¹⁵ and 10²¹, and it ran 2.7 times faster.
+
+- **Time:** 27,102 s, at 1.33 × 10¹⁰ raw pairs/s.
+- **Pairs:** 3.612 × 10¹⁴ raw, matching the 3.61 × 10¹⁴ predicted from the B^(2/3) law. The coprime fraction is
+  0.60795.
+- **Result:** no five-way and no six-way in this range.
+
+A second overnight run on the same card covered 2 × 10²² – 3 × 10²², 20 October 2026. Its files are named
+`*_2e22_3.5e22*`, but the range searched was (2 × 10²², 3 × 10²²], as the log's `search` line and the DONE
+line confirm.
+- **Time:** 22,775 s at 1.33 × 10¹⁰ raw pairs/s.
+- **Pairs:** 3.03 × 10¹⁴ raw (predicted 3.03 × 10¹⁴).
+- **Result:** again no five-way and no six-way.
+
+### The 3 × 10²² – 10²³ run (4 × RTX 5090, v3)
+
+This ran on 20 October 2026, launched with `MIN=3e22 TAG=3e22_1e23 bash run_4x5090.sh`.
+- **Checks before launch:** every GPU passed the selftest, including the windows up to 10²⁴, and the 10¹⁵
+  benchmark reproduced the expected pair counts.
+- **The four parts** cover the range with no gaps:
+
+  | part | covers n | time | raw pairs/s |
+  | --- | --- | ---: | ---: |
+  | 1/4 | 3 × 10²² – 4.487 × 10²² | 32,547 s | 1.21 × 10¹⁰ |
+  | 2/4 | – 6.161 × 10²² | 33,374 s | 1.18 × 10¹⁰ |
+  | 3/4 | – 8.004 × 10²² | 33,612 s | 1.17 × 10¹⁰ |
+  | 4/4 | – 10²³ | 33,155 s | 1.19 × 10¹⁰ |
+
+- **Totals:** 1.5752 × 10¹⁵ raw pairs (predicted 1.5751 × 10¹⁵), coprime fraction 0.60794, 36.9 GPU-hours.
+- **Padding** of the interleaved layout: 3.5–4.5%.
+- **Result:** no five-way and no six-way.
+
+### Five-ways per decade
+
+| range | five-ways |
+| --- | ---: |
+| up to 10¹⁹ | 2 |
+| 10¹⁹ – 10²⁰ | 2 |
+| 10²⁰ – 10²¹ | 4 |
+| 10²¹ – 10²² | 3 |
+| 10²² – 10²³ | **0** |
+
+The last decade costs 4.6 times the work of the one before, and before it ran the trend suggested roughly 4–8
+five-ways in it. Finding none suggests the coprime five-ways thin out faster than the small counts from
+10¹⁹–10²² implied, although numbers this small are noisy. It also makes a six-way just above 10²³ less likely.
+
+## How the computation works
+
+### What is counted
+Every positive n ≤ B and every unordered representation n = x³ + y³ with gcd(x, y) = 1, written in one of two forms:
+
+- **sums:** n = a³ + b³ with 1 ≤ a ≤ b
+- **differences:** n = (c + d)³ − c³ = d³ + 3dc(c + d) with c, d ≥ 1
+
+Each representation is generated exactly once. A number is reported if it is hit k ≥ 5 times. The search is
+exhaustive: every pair with value in the range is generated, so "no six-way found" is a proof, not an estimate.
+
+### Splitting the range
+The range of n is cut into segments. Each segment holds about as many pairs as one GPU can sort at once,
+around 1.4 billion on a 32 GB RTX 5090. Pair density falls like n^(−1/3), so the segment boundaries are equally
+spaced in n^(2/3). If a segment turns out to be too big, it is split in half automatically. Segments are
+independent, which is what lets `--part k/N` give each GPU its own share.
+
+### What the GPU does for one segment [lo, hi)
+1. **Count.** One thread per stream (each a for sums, each d for differences) works out how many of its values
+   fall in [lo, hi). It uses exact integer cube roots for sums and an exact quadratic bound for differences.
+2. **Scan.** A prefix sum turns those counts into write positions.
+3. **Write.** Each thread writes its values in order. Consecutive values come from additions alone:
+   (b+1)³ − b³ = 3b² + 3b + 1 for sums, and steps of 3d(2c + d + 1), each 6d more than the last, for differences.
+   Each value is stored as the 64-bit **offset n − lo**, so 128-bit numbers up to 10²² sort as 64-bit keys.
+   Pairs with gcd(x, y) > 1 are marked as discarded; the coprime test is a binary gcd (shifts and subtractions only).
+4. **Sort.** CUB radix sort of the 64-bit keys.
+5. **Find repeats.** One thread per sorted entry spots the start of each run of equal values and keeps those of
+   length ≥ 5.
+
+### What the CPU checks
+For every value the GPU reports, the CPU **independently re-derives all its representations** by direct search:
+every a with 2a³ ≤ n, and every d using the exact quadratic. That takes about n^(1/3) steps. It checks each
+identity with exact 128-bit arithmetic and requires the count to equal the GPU's multiplicity. Any mismatch
+stops the run. Results are written in increasing n, and a progress file allows `--resume` after an interruption.
+
+### Validation before any result was trusted
+- **Brute force:** every n ≤ 10⁷ with two or more representations matches an independent brute-force count,
+  including the total of coprime pairs (36,368).
+- **Known terms:** 91, 3,367, 16,776,487 and both of Bernstein's five-ways are recovered with exact
+  representation sets.
+- **Split ranges:** (0, 10¹²] gives exactly the same pairs as (0, 10¹¹] plus (10¹¹, 10¹²]: 80,226,285 coprime pairs.
+- **Above 2⁶⁴:** a window just below 10²¹ gives 39 coprime pairs, matching a separate Python count.
+- **Against the CPU program:** byte-identical output at 10¹² (63,974 numbers) and 10¹⁵ (91 numbers). The CPU
+  program itself matches brute force to 10⁸ and reproduces Bernstein's 2.5 × 10¹⁷ search exactly.
+- **On every GPU before every run:** the self-test above, and the 10¹⁵ pair counts reproduced exactly.
+
+### Number theory used
+Writing n = s · t with s = a + b and t = a² − ab + b²: for coprime a and b, every prime factor of t is 3 or
+≡ 1 (mod 3), and gcd(s, t) divides 3. This is what makes the independent divisor-based checks possible, and
+it explains the structure of the hits. The search itself does not rely on any filter that could skip a
+genuine solution.
+
+## Code and data
+| file | role |
+| --- | --- |
+| `experiments/cabtaxi.cpp` | CPU reference (OpenMP), used for 0 – 10¹⁹ |
+| `experiments/cabtaxi_gpu.cu` | GPU search (CUDA; also builds as plain C++ with `-DHOST_ONLY`) |
+| `experiments/run_5090.sh`, `experiments/run_4x5090.sh` | build, self-test, benchmark and run scripts |
+| `experiments/render_cabtaxi_png.py` | renders the identities as images (`out/a047697/`) |
+| `a047697/` | logs and result files of the GPU runs |
+
+Search cost: about 86 GPU-hours on RTX 5090s (9 for 10¹⁹–10²¹, 26 for 10²¹–10²², 13.9 for 10²²–3 × 10²², 36.9 for 3 × 10²²–10²³), plus about 9 CPU-hours on 7of9.

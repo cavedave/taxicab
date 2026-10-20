@@ -1,0 +1,18 @@
+GPU 0: NVIDIA GeForce RTX 5090 (sm_120), 33.1 GB free, segment cap 1399013629 pairs
+search 50000000000000000000000 < n <= 50100000000000000000000, kmin=5, 3103 segments
+  513/3103 segments, n <= 50016527792534223585279, raw=396233499408 coprime=240888170912, 30s, 1.32e+10 raw pairs/s, ETA 151s
+    time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%
+  1026/3103 segments, n <= 50033057405786902233087, raw=792467097442 coprime=481776308788, 60s, 1.32e+10 raw pairs/s, ETA 121s
+    time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%
+  1540/3103 segments, n <= 50049621066352145989631, raw=1189472922021 coprime=723133903737, 90s, 1.32e+10 raw pairs/s, ETA 91s
+    time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%
+  2053/3103 segments, n <= 50066154323988073938943, raw=1585706464485 coprime=964022065403, 120s, 1.32e+10 raw pairs/s, ETA 61s
+    time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%
+  2566/3103 segments, n <= 50082689401740528189439, raw=1981939977388 coprime=1204910152933, 150s, 1.32e+10 raw pairs/s, ETA 31s
+    time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%
+  3079/3103 segments, n <= 50099226299409155227647, raw=2378173538953 coprime=1445798272603, 180s, 1.32e+10 raw pairs/s, ETA 1s
+    time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%
+  3103/3103 segments, n <= 50100000000000000000000, raw=2396710687003 coprime=1457067816147, 181s, 1.32e+10 raw pairs/s, ETA 0s
+    time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%
+DONE 50000000000000000000000 < n <= 50100000000000000000000 raw pairs=2396710687003 coprime pairs=1457067816147 kmin=5 time=182s (1.32e+10 raw pairs/s)
+time split: count 6% scan 1% write 13% select 11% sort 65% runs 4% host 0%; slots/raw 1.038 (padding of the interleaved layout)

@@ -16,13 +16,19 @@ CXXFLAGS ?= -O3 -std=c++17 -march=native $(OMPFLAGS)
 
 .PHONY: all clean test
 
-all: engine_b9
+all: engine_b12 seedgen cabtaxi
 
-engine_b9: engine_b9.cpp
+engine_b12: engine_b12.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $<
 
-test: engine_b9
-	./engine_b9 --selftest
+seedgen: seedgen.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+cabtaxi: experiments/cabtaxi.cpp
+	$(CXX) $(CXXFLAGS) -o $@ $<
+
+test: engine_b12
+	./engine_b12 --selftest
 
 clean:
-	rm -f engine_b9
+	rm -f engine_b12 seedgen cabtaxi
