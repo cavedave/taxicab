@@ -8,6 +8,56 @@ N = a³ + b³ = c³ + d³ = …
 
 Repo: [github.com/cavedave/taxicab](https://github.com/cavedave/taxicab)
 
+## New results (October 2026)
+
+### Coprime cabtaxi: A047697(6) > 10²³
+
+[OEIS A047697](https://oeis.org/A047697) is the smallest n that is x³ + y³ with gcd(x, y) = 1 in k ways
+(negative cubes allowed). The known terms are 1, 91, 3367, 16776487 and 506433677359393. Bernstein (1999)
+showed there is no six-way below 2.5 × 10¹⁷.
+
+An exhaustive GPU search (`experiments/cabtaxi_gpu.cu`, checked against brute force, a CPU program and
+independent Python recounts) shows **there is no coprime six-way up to 10²³**. Up to 10²³ there are exactly
+11 five-ways: Bernstein's two and these **nine new ones**, each recounted independently.
+
+| n | the five representations |
+| ---: | --- |
+| 39,673,716,067,958,900,347 | 418491³ + 3408526³ = 1202338³ + 3360075³ = 3526755³ − 1612412³ = 3819196³ − 2521629³ = 14705344³ − 14643933³ |
+| 95,793,117,931,950,826,933 | 5029461³ − 3155822³ = 5073261³ − 3264272³ = 5625154³ − 4348011³ = 23578300³ − 23520723³ = 26192350³ − 26145723³ |
+| 118,371,660,133,721,558,473 | 752526³ + 4904113³ = 1138980³ + 4889497³ = 2936497³ + 4531470³ = 5004913³ − 1912674³ = 5682073³ − 4022364³ |
+| 624,256,195,206,357,000,469 | 1807245³ + 8519464³ = 2355597³ + 8486416³ = 3095128³ + 8408973³ = 8884936³ − 4256883³ = 96589720³ − 96567411³ |
+| 633,753,337,814,536,954,807 | 1019818³ + 8584815³ = 9764199³ − 6673148³ = 10245412³ − 7615641³ = 10475362³ − 8019441³ = 75791818³ − 75755025³ |
+| 921,288,078,249,108,802,505 | 7544409³ + 7893776³ = 9742196³ − 1495911³ = 9846873³ − 3222808³ = 10393689³ − 5862904³ = 22982553³ − 22385788³ |
+| 1,038,246,186,276,942,167,105 | 6530217³ + 9124898³ = 10125896³ − 46911³ = 10251009³ − 3390124³ = 11696457³ − 8251942³ = 31043073³ − 30679708³ |
+| 2,724,248,230,569,896,697,541 | 3515718³ + 13891669³ = 7975069³ + 13039368³ = 8518752³ + 12818077³ = 10230894³ + 11824693³ = 41571781³ − 41039550³ |
+| 5,306,775,242,131,114,520,041 | 9848424³ + 16326073³ = 13667257³ + 14016672³ = 17446393³ − 1518156³ = 18167545³ − 8834844³ = 61604281³ − 61134600³ |
+
+There is no five-way at all between 10²² and 10²³. The details of the runs (hardware, pair counts,
+validation) are in [`results/a047697_search.md`](results/a047697_search.md), and images are in `out/a047697/`.
+
+### Upper bounds for Ta(23) – Ta(28)
+
+Published taxicab bounds stop at Ta(22) (Boyer & Wroblewski 2008). The only bounds beyond that are Su's
+Ta(23) and Ta(24) (JIS 19, 2016). On the Boyer–Wroblewski record curve x³ + y³ = 3956875867, an exact
+integer program over all rational points of height ≤ 80 (`experiments/curve_ilp.py`) gives:
+
+| k | upper bound for Ta(k) | previous best |
+| ---: | --- | --- |
+| 23 | 1.4191 × 10¹⁷³ (174 digits) | 5.0563 × 10¹⁷³ (Su), **3.6× smaller** |
+| 24 | 1.5331 × 10¹⁸⁷ (188 digits) | 3.8149 × 10¹⁸⁸ (Su), **25× smaller** |
+| 25 | 1.1567 × 10²⁰² (203 digits) | none found |
+| 26 | 2.3713 × 10²¹⁷ (218 digits) | none found |
+| 27 | 2.5983 × 10²³³ (234 digits) | none found |
+| 28 | 5.7381 × 10²⁴⁹ (250 digits) | none found |
+
+- The same program reproduces every published Ta(11)–Ta(22) bound on that curve as the exact optimum.
+- Every representation was re-verified with exact integer arithmetic.
+- The full numbers and all their representations are in
+  [`results/taxicab_23_28_bounds.txt`](results/taxicab_23_28_bounds.txt). The method and the literature
+  checked are described in [`results/taxicab_23_28.md`](results/taxicab_23_28.md).
+- The literature search covered Boyer's lists, MathWorld, OEIS A011541 and Su 2016; work after 2016 has not
+  been fully checked.
+
 ## Files
 
 | file | what it is |
@@ -116,3 +166,7 @@ Engine outputs (appended, resumable from `<out>.ckpt`):
 - [OEIS A011541](https://oeis.org/A011541) — taxicab numbers Ta(n)
 - [OEIS A080642](https://oeis.org/A080642) — cubefree taxicab numbers
 - [OEIS A023050](https://oeis.org/A023050) — 3 or more ways, coprime pairs
+- [OEIS A047697](https://oeis.org/A047697) — coprime cabtaxi: smallest n = x³ + y³, gcd(x, y) = 1, in k ways
+- D. J. Bernstein, *Enumerating solutions to p(a) + q(b) = r(c) + s(d)*, Math. Comp. 70 (2001)
+- C. Boyer, *New upper bounds for Taxicab and Cabtaxi numbers*, JIS 11 (2008), Article 08.1.6
+- P.-C. Su, *More upper bounds on Taxicab and Cabtaxi numbers*, JIS 19 (2016), Article 16.4.3
