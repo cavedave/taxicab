@@ -1,0 +1,1 @@
+# cabtaxi_gpu: n = x^3 + y^3, gcd(x,y)=1, signs allowed; all 61612813998399338577920 < n <= 80036380185948449669120 with >= 5 representations

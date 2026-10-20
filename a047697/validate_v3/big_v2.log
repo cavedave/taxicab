@@ -1,0 +1,26 @@
+GPU 0: NVIDIA GeForce RTX 5090 (sm_120), 33.1 GB free, segment cap 1399013629 pairs
+search 50000000000000000000000 < n <= 50100000000000000000000, kmin=5, 3103 segments
+  307/3103 segments, n <= 50009890682405965004799, raw=237122212409 coprime=144157200781, 30s, 7.9e+09 raw pairs/s, ETA 273s
+    time split: count 4% scan 1% write 48% select 6% sort 39% runs 2% host 0%
+  617/3103 segments, n <= 50019878678105593741311, raw=476561572043 coprime=289723094992, 60s, 7.93e+09 raw pairs/s, ETA 242s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  930/3103 segments, n <= 50029964006357112717311, raw=718318056764 coprime=436697730918, 90s, 7.96e+09 raw pairs/s, ETA 211s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  1240/3103 segments, n <= 50039953338139857125375, raw=957757421835 coprime=582263624588, 120s, 7.97e+09 raw pairs/s, ETA 181s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  1551/3103 segments, n <= 50049975561551557427199, raw=1197969200763 coprime=728299177051, 150s, 7.97e+09 raw pairs/s, ETA 150s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  1860/3103 segments, n <= 50059933995935333351423, raw=1436636195238 coprime=873395516616, 180s, 7.97e+09 raw pairs/s, ETA 120s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  2169/3103 segments, n <= 50069893090707467403263, raw=1675303073738 coprime=1018491799543, 210s, 7.97e+09 raw pairs/s, ETA 91s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  2479/3103 segments, n <= 50079885079113292054527, raw=1914742481240 coprime=1164057757863, 240s, 7.97e+09 raw pairs/s, ETA 60s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  2787/3103 segments, n <= 50089813261241647366143, raw=2152637115212 coprime=1308684502555, 270s, 7.96e+09 raw pairs/s, ETA 31s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  3095/3103 segments, n <= 50099742099360414957567, raw=2390531637702 coprime=1453311274699, 300s, 7.96e+09 raw pairs/s, ETA 1s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+  3103/3103 segments, n <= 50100000000000000000000, raw=2396710687003 coprime=1457067816147, 301s, 7.96e+09 raw pairs/s, ETA 0s
+    time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%
+DONE 50000000000000000000000 < n <= 50100000000000000000000 raw pairs=2396710687003 coprime pairs=1457067816147 kmin=5 time=301s (7.96e+09 raw pairs/s)
+time split: count 4% scan 1% write 48% select 7% sort 39% runs 2% host 0%

@@ -1,0 +1,10 @@
+GPU 0: NVIDIA GeForce RTX 5090 (sm_120), 33.1 GB free, segment cap 1461840058 pairs
+[selftest] ok    every n <= 1e7 with >= 2 reps: 384 numbers, coprime pairs 36368 (brute force 36368)
+[selftest] ok    n=91 has 2 coprime representations (exact pairs match)
+[selftest] ok    n=3367 has 3 coprime representations (exact pairs match)
+[selftest] ok    n=16776487 has 4 coprime representations
+[selftest] ok    n=506433677359393 has 5 coprime representations (exact pairs match)
+[selftest] ok    n=137904678696613339 has 5 coprime representations (exact pairs match)
+[selftest] ok    split ranges: coprime 80226285 = 17251624 + 62974661 (CPU reference 80226285)
+[selftest] ok    window just below 1e21 (above 2^64): 39 coprime pairs, all 39 values re-derived independently
+[selftest] PASSED

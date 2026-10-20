@@ -45,11 +45,22 @@ Treat `results/` as a partial list until it is regenerated with `seedgen` seeds.
 29 min) with UB = Boyer's Ta(7) bound and the 231,842 `seedgen` roots ≤ 1e15. All 20
 six-ways are primitive (pairs share no common factor). It contains all 9 of Boyer's
 six-ways < 1e26 (JIS 2008, Fig. A4) and all 16 primitive six-ways from `k5plus.csv`, plus
-four the b9 run missed: 869,296,828,638,589,225,875,000 (Boyer's), and
-2,750,085,916,337,189,154,400,203,528, 6,226,444,077,409,337,733,141,345,792 and
-14,557,204,209,713,206,885,991,784,000 (not found in the references checked). The list is
-complete for six-ways ≤ the bound that have a multi-way cube-quotient ≤ 1e15. No 7-way
-below Boyer's bound exists among those.
+four the b9 run missed: 869,296,828,638,589,225,875,000, 2,750,085,916,337,189,154,400,203,528,
+6,226,444,077,409,337,733,141,345,792 and 14,557,204,209,713,206,885,991,784,000. None is new:
+all 20 are in Bill Butler's list of 23 primitive six-ways below 2.5e28
+([Rama6way](http://www.durangobill.com/RamanujanPics/Rama6way.html), complete to 1e23).
+
+The list is complete for six-ways ≤ the bound that have a multi-way cube-quotient ≤ 1e15.
+Butler's other three fall outside that, as expected:
+
+| six-way N | smallest multi-way cube-quotient | reached with seeds to |
+| ---: | --- | --- |
+| 18,739,897,591,304,984,193,957,312 | N/36³ ≈ 4.0e20 (3-way) | beyond `seedgen`'s 64-bit range |
+| 809,496,453,559,886,879,612,245,056 | N/4788³ ≈ 7.4e15 (2-way) | 1e16 |
+| 12,045,605,906,025,760,342,134,168,000 | N/4620³ ≈ 1.2e17 (2-way) | 1e18 |
+
+No 7-way below Boyer's bound exists among the reachable families; Butler's exhaustive search
+shows Ta(7) > 1e23 (2010).
 
 ## Formats
 

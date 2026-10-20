@@ -1,0 +1,8 @@
+GPU 0: NVIDIA GeForce RTX 5090 (sm_120), 33.1 GB free, segment cap 1461114343 pairs
+search 0 < n <= 1000000000000000, kmin=4, 16 segments
+  16/16 segments, n <= 1000000000000000, raw=13223067998 coprime=8044700766, 4s, 3.65e+09 raw pairs/s, ETA 0s
+    time split: count 0% scan 0% write 74% select 3% sort 16% runs 1% host 5%
+DONE 0 < n <= 1000000000000000 raw pairs=13223067998 coprime pairs=8044700766 kmin=4 time=4s (3.62e+09 raw pairs/s)
+time split: count 0% scan 0% write 74% select 3% sort 16% runs 1% host 5%; slots/raw 1.043 (padding of the interleaved layout)
+  k=5: 1 numbers, smallest: 506433677359393
+  k=4: 90 numbers, smallest: 16776487 442245349 1026062947 1066365937

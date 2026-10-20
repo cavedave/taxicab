@@ -1,0 +1,9 @@
+==PROF== Connected to process 1702 (/workspace/cabtaxi_gpu)
+GPU 0: NVIDIA GeForce RTX 5090 (sm_120), 33.0 GB free, segment cap 1393129547 pairs
+search 50000000000000000000000 < n <= 50010000000000000000000, kmin=5, 311 segments
+==ERROR== ERR_NVGPUCTRPERM - The user does not have permission to access NVIDIA GPU Performance Counters on the target device 0. For instructions on enabling permissions and to get more information see https://developer.nvidia.com/ERR_NVGPUCTRPERM
+  311/311 segments, n <= 50010000000000000000000, raw=239742912567 coprime=145750439399, 18s, 1.31e+10 raw pairs/s, ETA 0s
+    time split: count 6% scan 1% write 13% select 11% sort 64% runs 4% host 0%
+DONE 50000000000000000000000 < n <= 50010000000000000000000 raw pairs=239742912567 coprime pairs=145750439399 kmin=5 time=18s (1.31e+10 raw pairs/s)
+time split: count 6% scan 1% write 13% select 11% sort 64% runs 4% host 0%; slots/raw 1.037 (padding of the interleaved layout)
+==PROF== Disconnected from process 1702

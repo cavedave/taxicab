@@ -6,3 +6,5 @@ engine_b9
 *_files/
 engine_b12
 seedgen
+cabtaxi
+__pycache__/

@@ -1,0 +1,20 @@
+=== Sun Oct 18 08:02:49 UTC 2026 run_4x5090.sh run  (4 GPUs)
+0, NVIDIA GeForce RTX 5090, 32607 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB
+2, NVIDIA GeForce RTX 5090, 32607 MiB
+3, NVIDIA GeForce RTX 5090, 32607 MiB
+--- build (sm_120)
+--- selftest on every GPU
+GPU 0 selftest PASSED
+GPU 1 selftest PASSED
+GPU 2 selftest PASSED
+GPU 3 selftest PASSED
+--- benchmark to 1e15 on GPU 0 (must match the CPU program exactly)
+DONE 0 < n <= 1000000000000000 raw pairs=13223067998 coprime pairs=8044700766 kmin=4 time=12s (1.11e+09 raw pairs/s)
+benchmark OK
+--- launching 4 parts: 1000000000000000000000 < n <= 10000000000000000000000, kmin 5
+part 1 on GPU 0: pid 2022
+part 2 on GPU 1: pid 2023
+part 3 on GPU 2: pid 2024
+part 4 on GPU 3: pid 2025
+=== launched. Check with:  bash /workspace/run_4x5090.sh status

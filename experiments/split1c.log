@@ -1,0 +1,1261 @@
+nohup: ignoring input
+=== Fri 16 Oct 2026 13:12:50 IST batch: ranks 10001..60000   data in /mnt/scratch/dcurran
+reusing 394383 scores from /mnt/scratch/dcurran/ranked_split.csv (--rescore to recompute)
+curves ranked 10001..60000 of 394383 (S from 12.70 down to 6.56) -> 50000 seed lines in /mnt/scratch/dcurran/batch_hunt_split_10000_50000.csv
+best 10 overall: 82652823799 (44.7), 116776387 (39.9), 89359770409 (39.7), 452993703751 (35.0), 1762168681 (34.9), 2088807472999 (33.1), 564185788777 (33.1), 1355944861 (33.1), 75726813243913 (32.6), 3956875867 (32.6)
+50000 distinct curves from /mnt/scratch/dcurran/batch_hunt_split_10000_50000.csv; 10000 done, 50000 to run
+[     65s] 500/50000 curves, 0 failed, ETA 6419s
+[    130s] 1000/50000 curves, 0 failed, ETA 6390s
+[    193s] 1500/50000 curves, 0 failed, ETA 6255s
+[    260s] 2000/50000 curves, 0 failed, ETA 6240s
+[    319s] 2500/50000 curves, 0 failed, ETA 6055s
+[    385s] 3000/50000 curves, 0 failed, ETA 6024s
+[    448s] 3500/50000 curves, 0 failed, ETA 5956s
+[    509s] 4000/50000 curves, 0 failed, ETA 5857s
+[    572s] 4500/50000 curves, 0 failed, ETA 5785s
+[    639s] 5000/50000 curves, 0 failed, ETA 5753s
+[    706s] 5500/50000 curves, 0 failed, ETA 5711s
+[    765s] 6000/50000 curves, 0 failed, ETA 5613s
+[    826s] 6500/50000 curves, 0 failed, ETA 5529s
+[    891s] 7000/50000 curves, 0 failed, ETA 5472s
+[    955s] 7500/50000 curves, 0 failed, ETA 5410s
+[   1016s] 8000/50000 curves, 0 failed, ETA 5335s
+[   1082s] 8500/50000 curves, 0 failed, ETA 5284s
+[   1148s] 9000/50000 curves, 0 failed, ETA 5232s
+[   1211s] 9500/50000 curves, 0 failed, ETA 5161s
+[   1270s] 10000/50000 curves, 0 failed, ETA 5078s
+[   1331s] 10500/50000 curves, 0 failed, ETA 5009s
+[   1395s] 11000/50000 curves, 0 failed, ETA 4946s
+[   1456s] 11500/50000 curves, 0 failed, ETA 4876s
+[   1522s] 12000/50000 curves, 0 failed, ETA 4818s
+[   1582s] 12500/50000 curves, 0 failed, ETA 4746s
+[   1642s] 13000/50000 curves, 0 failed, ETA 4674s
+[   1711s] 13500/50000 curves, 0 failed, ETA 4626s
+[   1773s] 14000/50000 curves, 0 failed, ETA 4559s
+[   1841s] 14500/50000 curves, 0 failed, ETA 4506s
+[   1902s] 15000/50000 curves, 0 failed, ETA 4437s
+[   1970s] 15500/50000 curves, 0 failed, ETA 4384s
+[   2032s] 16000/50000 curves, 0 failed, ETA 4318s
+[   2100s] 16500/50000 curves, 0 failed, ETA 4264s
+[   2165s] 17000/50000 curves, 0 failed, ETA 4202s
+[   2224s] 17500/50000 curves, 0 failed, ETA 4131s
+[   2286s] 18000/50000 curves, 0 failed, ETA 4064s
+[   2345s] 18500/50000 curves, 0 failed, ETA 3992s
+[   2406s] 19000/50000 curves, 0 failed, ETA 3925s
+[   2474s] 19500/50000 curves, 0 failed, ETA 3870s
+[   2538s] 20000/50000 curves, 0 failed, ETA 3807s
+[   2602s] 20500/50000 curves, 0 failed, ETA 3745s
+[   2673s] 21000/50000 curves, 0 failed, ETA 3691s
+[   2734s] 21500/50000 curves, 0 failed, ETA 3624s
+[   2801s] 22000/50000 curves, 0 failed, ETA 3565s
+[   2863s] 22500/50000 curves, 0 failed, ETA 3500s
+[   2928s] 23000/50000 curves, 0 failed, ETA 3437s
+[   2997s] 23500/50000 curves, 0 failed, ETA 3380s
+[   3064s] 24000/50000 curves, 0 failed, ETA 3319s
+[   3134s] 24500/50000 curves, 0 failed, ETA 3262s
+[   3197s] 25000/50000 curves, 0 failed, ETA 3197s
+[   3259s] 25500/50000 curves, 0 failed, ETA 3131s
+[   3317s] 26000/50000 curves, 0 failed, ETA 3062s
+[   3384s] 26500/50000 curves, 0 failed, ETA 3001s
+[   3446s] 27000/50000 curves, 0 failed, ETA 2935s
+[   3508s] 27500/50000 curves, 0 failed, ETA 2870s
+[   3573s] 28000/50000 curves, 0 failed, ETA 2807s
+[   3637s] 28500/50000 curves, 0 failed, ETA 2744s
+[   3696s] 29000/50000 curves, 0 failed, ETA 2676s
+[   3758s] 29500/50000 curves, 0 failed, ETA 2612s
+[   3822s] 30000/50000 curves, 0 failed, ETA 2548s
+[   3884s] 30500/50000 curves, 0 failed, ETA 2483s
+[   3950s] 31000/50000 curves, 0 failed, ETA 2421s
+[   4010s] 31500/50000 curves, 0 failed, ETA 2355s
+[   4078s] 32000/50000 curves, 0 failed, ETA 2294s
+[   4144s] 32500/50000 curves, 0 failed, ETA 2231s
+[   4206s] 33000/50000 curves, 0 failed, ETA 2167s
+[   4270s] 33500/50000 curves, 0 failed, ETA 2103s
+[   4334s] 34000/50000 curves, 0 failed, ETA 2040s
+[   4399s] 34500/50000 curves, 0 failed, ETA 1977s
+[   4465s] 35000/50000 curves, 0 failed, ETA 1914s
+[   4526s] 35500/50000 curves, 0 failed, ETA 1849s
+[   4592s] 36000/50000 curves, 0 failed, ETA 1786s
+[   4661s] 36500/50000 curves, 0 failed, ETA 1724s
+[   4730s] 37000/50000 curves, 0 failed, ETA 1662s
+[   4797s] 37500/50000 curves, 0 failed, ETA 1599s
+[   4859s] 38000/50000 curves, 0 failed, ETA 1534s
+[   4918s] 38500/50000 curves, 0 failed, ETA 1469s
+[   4981s] 39000/50000 curves, 0 failed, ETA 1405s
+[   5045s] 39500/50000 curves, 0 failed, ETA 1341s
+[   5110s] 40000/50000 curves, 0 failed, ETA 1278s
+[   5169s] 40500/50000 curves, 0 failed, ETA 1212s
+[   5236s] 41000/50000 curves, 0 failed, ETA 1149s
+[   5297s] 41500/50000 curves, 0 failed, ETA 1085s
+[   5361s] 42000/50000 curves, 0 failed, ETA 1021s
+[   5423s] 42500/50000 curves, 0 failed, ETA 957s
+[   5490s] 43000/50000 curves, 0 failed, ETA 894s
+[   5555s] 43500/50000 curves, 0 failed, ETA 830s
+[   5620s] 44000/50000 curves, 0 failed, ETA 766s
+[   5683s] 44500/50000 curves, 0 failed, ETA 702s
+[   5743s] 45000/50000 curves, 0 failed, ETA 638s
+[   5805s] 45500/50000 curves, 0 failed, ETA 574s
+[   5867s] 46000/50000 curves, 0 failed, ETA 510s
+[   5938s] 46500/50000 curves, 0 failed, ETA 447s
+[   5999s] 47000/50000 curves, 0 failed, ETA 383s
+[   6068s] 47500/50000 curves, 0 failed, ETA 319s
+[   6130s] 48000/50000 curves, 0 failed, ETA 255s
+[   6199s] 48500/50000 curves, 0 failed, ETA 192s
+[   6257s] 49000/50000 curves, 0 failed, ETA 128s
+[   6321s] 49500/50000 curves, 0 failed, ETA 64s
+[   6401s] 50000/50000 curves, 0 failed, ETA 0s
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 3 <= r <= 5
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 3 <= r <= 5
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 3 <= r <= 5
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 2 <= r <= 4
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 3 <= r <= 5
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 0 <= r <= 2
+  gp: WARN rank only bounded: 1 <= r <= 3
+  gp: WARN rank only bounded: 0 <= r <= 2
+
+rank distribution: {0: 16212, 1: 17767, 2: 9779, 3: 5102, 4: 1074, 5: 66}
+
+  k                                                          best n               curve M  vs published
+  6                                         24153319581254312065344           82652823799  equals published
+  7                                   24885189317885898975235988544           82652823799  equals published
+  8                             50974398750539071400590819921724352           82652823799  equals published
+  9                      136897813798023990395783317207361432493888           82652823799  equals published
+ 10               7335345315241855602572782233444632535674275447104           82652823799  equals published
+ 11           87039729655193781808322993393446581825405320183232000            3956875867  equals published
+ 12     16119148654034302034428760115512552827992287460693283776000            3956875867  equals published
+ 13  98785992977316717572070208794037178343163969803121800608526912000            3956875867  equals published
+ 14  6181115942163278484307116174514304039670628856329988877227399275142976000            3956875867  equals published
+ 15  786630615595626829796137755567437844038832146564530660386728812791938555036352000            3956875867  equals published
+ 16  1407430328457240141244921568479580896498768360005757901394557724136294559835243494681088000            3956875867  equals published
+ 17  108883358434560363503260016942467566965657808716401027019007732065428469239764403684536752685040128000            3956875867  equals published
+ 18  32704115261272222010108668321371490956498583891096244871994833214348230808345220932546725287574509356813791744000            3956875867  equals published
+ 19  89155799373431424956779039683208074195259067508030416952016859893056008200986665364956362114476625742414288155368000000000            3956875867  equals published
+ 20  6897380753715950027554119762858815120976857451913869723850868496922922856256366585322070924221550029921862628606999892276808000000000            3956875867  equals published
+ 21  108017480260055891349349434078007118409816211596074421874782013152781209964290521967447172971431469705047741717793222992124981940703226072000000000            3956875867  equals published
+ 22  4680247859298792255465896583920257161776853980641720488623945439873944558056759119053262369879441902130153472288312996410513410535472957059046536164424000000000            3956875867  equals published
+=== Fri 16 Oct 2026 14:59:34 IST batch done
