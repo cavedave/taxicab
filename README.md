@@ -58,6 +58,29 @@ integer program over all rational points of height ≤ 80 (`experiments/curve_il
 - The literature search covered Boyer's lists, MathWorld, OEIS A011541 and Su 2016; work after 2016 has not
   been fully checked.
 
+### Cabtaxi upper bounds: Ca(33), Ca(34), Ca(45) – Ca(57) improved, Ca(58) – Ca(70) new
+
+The same exact integer program, allowing negative cubes, runs on the record curve x³ + y³ = 3956875867.
+
+- **Validation:** on their own curves it reproduces every published Cabtaxi bound from Ca(10) to Ca(44).
+- **Improvements:** it beats the published bound for:
+  - **Ca(33)**, by 1.9×;
+  - **Ca(34)**, by 568×;
+  - **every k from 45 to 57** (Su 2016): by 12.7× at k = 45, growing to **3 × 10¹⁹ at k = 57**.
+- **New bounds** for Ca(58) – Ca(70), where nothing is published.
+
+| k | Ca(k) ≤ | best published |
+| ---: | --- | --- |
+| 33 | 6.411 × 10¹⁰⁰ | 1.234 × 10¹⁰¹ |
+| 34 | 1.564 × 10¹⁰⁵ | 8.874 × 10¹⁰⁷ |
+| 45 | 1.894 × 10¹⁸² | 2.396 × 10¹⁸³ |
+| 50 | 1.134 × 10²²⁷ | 4.056 × 10²³⁵ |
+| 57 | 1.961 × 10²⁹⁶ | 5.954 × 10³¹⁵ |
+| 70 | 1.379 × 10⁴³⁵ | none |
+
+The full table, method and literature checked are in [`results/cabtaxi_bounds.md`](results/cabtaxi_bounds.md).
+Every number and representation is in [`results/cabtaxi_bounds.txt`](results/cabtaxi_bounds.txt).
+
 ## Files
 
 | file | what it is |
