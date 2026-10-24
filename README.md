@@ -78,7 +78,9 @@ The same exact integer program, allowing negative cubes, runs on the record curv
 | 57 | 1.961 × 10²⁹⁶ | 5.954 × 10³¹⁵ |
 | 70 | 1.379 × 10⁴³⁵ | none |
 
-The full table, method and literature checked are in [`results/cabtaxi_bounds.md`](results/cabtaxi_bounds.md).
+The published Ca(31)–Ca(42) come from Boyer and Wroblewski's
+[`TaxibigUpdated.txt`](http://www.christianboyer.com/taxicab/TaxibigUpdated.txt) (April 2008). Boyer's PDF paper
+only goes up to Ca(30). The full table, method and literature checked are in [`results/cabtaxi_bounds.md`](results/cabtaxi_bounds.md).
 Every number and representation is in [`results/cabtaxi_bounds.txt`](results/cabtaxi_bounds.txt).
 
 ## Files

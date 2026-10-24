@@ -45,7 +45,7 @@ that shares nothing with PARI or the solver:
 ## What has been checked, and what has not
 
 **Literature checked (20 October 2026):**
-- Boyer's lists, which stop at Ta(22) for taxicab;
+- Boyer's lists, which stop at Ta(22) for taxicab ([`TaxibigUpdated.txt`](http://www.christianboyer.com/taxicab/TaxibigUpdated.txt), April 2008);
 - Boyer's web page;
 - MathWorld, which lists only Ta(2)–Ta(6);
 - OEIS A011541, which has Su's Ta(23) only;

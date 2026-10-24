@@ -44,7 +44,17 @@ For every other k from 10 to 44, the exact optimum on the record curves **equals
 - **Verification:** every representation was re-checked from the text file alone, using exact integer
   arithmetic shared with neither PARI nor the solver: x³ + y³ = n, all pairs distinct, at least k of them.
 - **Literature checked:**
-  - Boyer's `CabtaxiUpdated.txt` (Ca(10)–Ca(22)) and `TaxibigUpdated.txt` (Ca(23)–Ca(42)), both 2008;
+  - Boyer, [`CabtaxiUpdated.txt`](http://www.christianboyer.com/taxicab/CabtaxiUpdated.txt): Ca(10)–Ca(22),
+    18 April 2008, with all representations;
+  - Boyer and Wroblewski, [`TaxibigUpdated.txt`](http://www.christianboyer.com/taxicab/TaxibigUpdated.txt),
+    section "Big Cabtaxi Upper Bounds": Ca(23)–Ca(42), 18 April 2008. This is the source of the Ca(33) and
+    Ca(34) bounds improved here;
   - Su, JIS 19 (2016), Theorem 11 (Ca(43)–Ca(57));
   - OEIS A047696, whose bound comments stop at a(44), 2014.
-- **Published table:** the values compared against are in `experiments/cabtaxi_known.csv`.
+- **Published table:** the values compared against are in `experiments/cabtaxi_known.csv`. Copies of both
+  Boyer text files are in `refs/boyer_lists/`.
+
+**A note on Boyer's PDF.** Boyer's journal paper ([JIS 11 (2008), Article 08.1.6](http://www.christianboyer.com/taxicab/TaxicabUpperBounds.pdf),
+dated March 2008) only gives Cabtaxi bounds up to **Ca(30)**. The bounds for Ca(31)–Ca(42), including the
+Ca(33) and Ca(34) compared here, appear only in the later `TaxibigUpdated.txt` on the same site. Su (2016)
+uses those same values, calling them BCa(n).
