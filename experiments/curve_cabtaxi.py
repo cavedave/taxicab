@@ -33,15 +33,16 @@ print("#VECTORS ", #V);
     if(P == [0], next);
     x = (36*M + P[2])/(6*P[1]); y = (36*M - P[2])/(6*P[1]);
     if(x == 0 || y == 0, next);
-    w = lcm(denominator(x), denominator(y)); F = factor(w);
+    w = lcm(denominator(x), denominator(y)); F = factor(w, %(flim)s);
     print("P;", w, ";", numerator(x*w), ";", numerator(y*w), ";", Vec(F[,1]), ";", Vec(F[,2])));
 }
 quit;
 """
 
-def points(gp, M, hmax, effort):
+def points(gp, M, hmax, effort, flim="0"):
+    """flim = 0: full factorisation; else trial division to flim, any cofactor kept as one unit (still exact)."""
     with tempfile.NamedTemporaryFile("w", suffix=".gp", delete=False) as f:
-        f.write(GP % dict(M=M, hmax=hmax, effort=effort)); path = f.name
+        f.write(GP % dict(M=M, hmax=hmax, effort=effort, flim=flim)); path = f.name
     try:
         out = subprocess.run([gp, "-q", path], capture_output=True, text=True, check=True).stdout
     finally:
@@ -78,6 +79,7 @@ def main():
     ap.add_argument("--kmax", type=int, default=57)
     ap.add_argument("--hmax", default="80")
     ap.add_argument("--effort", type=int, default=1)
+    ap.add_argument("--flim", default="0", help="0 = factor denominators fully; else trial-divide to this bound")
     ap.add_argument("--slack", type=float, default=1e6, help="search up to this factor above the published bound")
     ap.add_argument("--tlim", type=float, default=600)
     ap.add_argument("--nolimit", type=float, default=600, help="digits allowed when there is no published bound")
@@ -86,7 +88,7 @@ def main():
     a = ap.parse_args()
     M = a.curve; known = load_known(a.known)
     t = time.time()
-    pts, fac, info = points(a.gp, M, a.hmax, a.effort)
+    pts, fac, info = points(a.gp, M, a.hmax, a.effort, a.flim)
     print(f"curve M={M}: {' '.join(info.values())}; {len(pts)} points (both signs), {time.time()-t:.0f}s", flush=True)
     ws = [w for w, _, _ in pts]
     for k in range(a.kmin, a.kmax + 1):
