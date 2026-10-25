@@ -41,6 +41,33 @@ Each new five-way was recounted by a separate Python program: an exhaustive sear
 representation, sharing no code with the GPU search. Each has exactly five, the same five the GPU reported.
 None of the nine new numbers appears in the OEIS. Rendered images are in `out/a047697/`.
 
+## Five-ways beyond 10²³ found by the line method (not exhaustive)
+
+The exhaustive search stops at 10²³. Above it, the line method in `experiments/mining/` (F12–F14 in its
+`FINDINGS.md`) has found **seven new coprime five-ways**.
+
+**How the method works:**
+- it enumerates collinear coprime triples on the cheapest line directions;
+- it keeps numbers with the typical prime profile (at least 4 primes ≡ 1 (mod 3) below 200);
+- it counts all representations of each kept number exactly, from its divisors.
+
+**Each number below has exactly 5 coprime representations, by that exhaustive count.** The search itself is
+**not** exhaustive, so there may be other five-ways between 10²³ and these numbers that it has not found. It
+does not affect the bound a(6) > 10²³.
+
+| n | the five representations |
+| ---: | --- |
+| 867,568,642,528,959,824,806,171 | 79186278³ + 71857339³ = 82498848³ + 67392259³ = 97363267³ − 38120748³ = 98534347³ − 44664678³ = 100778875³ − 53829834³ |
+| 15,442,272,835,364,300,840,226,739 | 208066083³ + 185999278³ = 229129762³ + 150558771³ = 997367115³ − 992165396³ = 1359827104³ − 1357037685³ = 3716031604³ − 3715658805³ |
+| 36,382,243,612,093,946,470,090,369 | 327379905³ + 108983764³ = 331356993³ + 4456108³ = 331560514³ − 40613655³ = 340899562³ − 147889719³ = 742131514³ − 719424375³ |
+| 581,834,611,748,164,220,101,952,821 | 879096213³ − 460320926³ = 914740341³ − 568334390³ = 1378449904³ − 1267724307³ = 1443979966³ − 1344232635³ = 1749407062³ − 1683590043³ |
+| 1,441,335,932,043,659,816,048,279,479 | 1110168886³ + 418087647³ = 1129711558³ − 76993377³ = 1134621759³ − 268413890³ = 1140344500³ − 346361241³ = 16593139390³ − 16591394241³ |
+| 4,006,751,594,615,544,419,200,755,017 | 1310961369³ + 1205921552³ = 1498106073³ + 863797640³ = 1588105089³ + 112584722³ = 2031165105³ − 1635294802³ = 4259754201³ − 4184840344³ |
+| 34,501,269,164,386,329,986,697,851,653 | 3112812834³ + 1631078149³ = 3180904861³ + 1323131988³ = 4220557686³ − 3439222187³ = 4654339933³ − 4047865344³ = 32212272037³ − 32201184870³ |
+
+**Rediscovery check:** the same method rediscovered 8 of the 11 known five-ways ≤ 10²³ (directions searched so far: the 1,000 cheapest). The 3 it missed have no
+line in the directions searched so far.
+
 ## The runs
 
 | range of n | hardware | raw pairs | coprime pairs | time | raw pairs/s |

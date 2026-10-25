@@ -32,7 +32,19 @@ independent Python recounts) shows **there is no coprime six-way up to 10²³**.
 | 2,724,248,230,569,896,697,541 | 3515718³ + 13891669³ = 7975069³ + 13039368³ = 8518752³ + 12818077³ = 10230894³ + 11824693³ = 41571781³ − 41039550³ |
 | 5,306,775,242,131,114,520,041 | 9848424³ + 16326073³ = 13667257³ + 14016672³ = 17446393³ − 1518156³ = 18167545³ − 8834844³ = 61604281³ − 61134600³ |
 
-There is no five-way at all between 10²² and 10²³. The details of the runs (hardware, pair counts,
+There is no five-way at all between 10²² and 10²³. Above 10²³, the line method in `experiments/mining/` (enumerating collinear representations, then counting
+each candidate exactly) has found **seven more coprime five-ways**:
+
+- 867568642528959824806171 (8.7 × 10²³)
+- 15442272835364300840226739 (1.5 × 10²⁵)
+- 36382243612093946470090369 (3.6 × 10²⁵)
+- 581834611748164220101952821 (5.8 × 10²⁶)
+- 1441335932043659816048279479 (1.4 × 10²⁷)
+- 4006751594615544419200755017 (4.0 × 10²⁷)
+- 34501269164386329986697851653 (3.5 × 10²⁸)
+
+Each has exactly 5 coprime representations (an exhaustive count for that number), but the search is not
+exhaustive. Their representations are in [`results/a047697_search.md`](results/a047697_search.md). The details of the runs (hardware, pair counts,
 validation) are in [`results/a047697_search.md`](results/a047697_search.md), and images are in `out/a047697/`.
 
 ### Upper bounds for Ta(23) – Ta(28)

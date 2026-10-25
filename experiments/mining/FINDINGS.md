@@ -364,7 +364,138 @@ follow the cost order:
 - **Total from the line methods so far: 3 new coprime five-ways beyond 10²³** (5.8 × 10²⁶, 8.7 × 10²³,
   1.4 × 10²⁷), and no six-way.
 
+## F14 (25 October 2026): directions 201–500, two more new five-ways
+
+- **Run:** `line_enum.py --skip 200 --dirs 300 --height 600 --nmax 1e32 --rmin 4` (the split-prime filter
+  applied while enumerating: 34,663,721 triples generated, 14,637,249 written), then `cheap_search.py --procs 6`
+  (parallel PARI counting, about 7,800 numbers per second; 31 min).
+- **Results:** 3 five-ways, 325 four-ways, **no six-way**.
+  - **137904678696613339**: Bernstein's second five-way. Its only line, direction (12, 109), is beyond rank 200.
+  - **NEW: 36382243612093946470090369 (3.6 × 10²⁵)** = 327379905³ + 108983764³ = 331356993³ + 4456108³ =
+    331560514³ − 40613655³ = 340899562³ − 147889719³ = 742131514³ − 719424375³.
+    - n = 7²·13·43·157·181·193·829·1789·3319·49201: all primes ≡ 1 (mod 3); n ≡ 1 (mod 9).
+  - **NEW: 4006751594615544419200755017 (4.0 × 10²⁷)** = 1310961369³ + 1205921552³ = 1498106073³ + 863797640³ =
+    1588105089³ + 112584722³ = 2031165105³ − 1635294802³ = 4259754201³ − 4184840344³.
+    - n = 7·13·53·61·103·109²·127·199·571·13723·56197; n ≡ 8 (mod 9).
+    - **Off-profile:** contains 53 ≡ 2 (mod 3), so 53 divides every s (TOPROVE item 1). Three of its five
+      representations are sums.
+  - Both have exactly 5 coprime representations (exhaustive divisor count), proven-prime factorisations, and
+    every identity exact.
+- **Running total from the line methods:** 5 new coprime five-ways beyond 10²³ (8.7 × 10²³, 3.6 × 10²⁵,
+  5.8 × 10²⁶, 1.4 × 10²⁷, 4.0 × 10²⁷). Of the 11 known five-ways ≤ 10²³, all but 3 (11837…, 27242…, 53067…, whose
+  cheapest lines rank 61,599, 2,683 and 1,838) have now been rediscovered.
+
+## F14b (25 October 2026): directions 501–1000, two more new five-ways
+
+- **Run:** `line_enum.py --skip 500 --dirs 500 --height 600 --nmax 1e32 --rmin 4` (55,788,955 triples,
+  23,386,963 candidates), then `cheap_search.py --procs 6` (76 min, about 5,100 per second).
+- **Results:** 2 five-ways, 280 four-ways, no six-way. k ≥ 4 saved in `multi_501_1000.txt`.
+- **Predictions made before the run:** user 2 new five-ways (**correct**); Claude 3.
+- **NEW: 15442272835364300840226739 (1.5 × 10²⁵)** = 208066083³ + 185999278³ = 229129762³ + 150558771³ =
+  997367115³ − 992165396³ = 1359827104³ − 1357037685³ = 3716031604³ − 3715658805³.
+  - n = 7·19·37·109·157·163·421·2803·6781·140587: all ≡ 1 (mod 3); n ≡ 1 (mod 9).
+  - Three of its representations are near-diagonal differences.
+- **NEW: 34501269164386329986697851653 (3.5 × 10²⁸)** = 3112812834³ + 1631078149³ = 3180904861³ + 1323131988³ =
+  4220557686³ − 3439222187³ = 4654339933³ − 4047865344³ = 32212272037³ − 32201184870³.
+  - n = 7·13·19·43·73·151·163·199·1669·2131·2671·136621: all ≡ 1 (mod 3); n ≡ 1 (mod 9).
+- **Running total:** 7 new coprime five-ways beyond 10²³ from the 1,000 cheapest directions. No six-way.
+
+## F15 (25 October 2026): divisors (user's question): many split-prime divisors are needed, more as n grows
+
+Every representation has s = x + y dividing n with s³ ≤ 4n, so the divisors s ≤ (4n)^(1/3) are the "candidates".
+
+- **Same size (10¹³–10¹⁵, medians):**
+
+  | k | divisors τ(n) | split-prime divisors | candidate divisors | k / candidates |
+  | ---: | ---: | ---: | ---: | ---: |
+  | 1 | 32 | 8 | 13 | 0.109 |
+  | 2 | 96 | 48 | 25 | 0.113 |
+  | 3 | 128 | 64 | 31 | 0.122 |
+  | 4 | 128 | 128 | 33 | 0.123 |
+
+  At fixed size each candidate succeeds about 11–12% of the time whatever k is: multi-way numbers simply have
+  more candidates.
+- **The 18 five-ways (all sizes):** τ(n) = 256 to 4,096, always a power of 2: 8–12 distinct primes, almost all
+  ≡ 1 (mod 3), almost all to the first power. Candidate divisors and success rate by size:
+
+  | size | candidates | success per candidate |
+  | --- | ---: | ---: |
+  | 10¹⁵ | 55–58 | ≈ 0.09 |
+  | 10²⁰ to 10²² | 102–191 | 0.03–0.05 |
+  | 10²⁴ to 10²⁸ | 279–692 | 0.007–0.018 |
+
+  **Larger n needs many more divisors for the same k.** A six-way near 10²⁵–10³⁰ probably needs ≥ 13 split
+  primes.
+
+## F16 (25 October 2026): more about the four-way n values (user's question)
+
+**Four-ways ≤ 10¹⁵ (90) against size-matched three-ways (1,672):**
+
+| feature | four-ways | three-ways |
+| --- | ---: | ---: |
+| squarefree | 74% | 58% |
+| distinct primes (median) | 7 | 6 |
+| largest prime as a power of n (median) | 0.24 | 0.27 |
+| smallest s / n^(1/3) (median) | 0.065 | 0.076 |
+
+- **Squarefree and smoother** both maximise the number of divisors for a given size (F15).
+- **Sign patterns:** four-ways with 3 of their 4 representations as sums are relatively common: 3 of 90, and 11
+  of all 204 four-ways ≤ 10¹⁷, against 3 of 1,672 three-ways. These are near-misses for the cubefree four-way
+  (A080642(4) ≈ 1.8 × 10¹⁸, beyond 10¹⁷).
+- **Near-diagonal differences** (|x + y| < 1% of x): about 10–12% in both groups. Not special.
+- **Small-prime cores** (10¹²–10¹⁵: k = 4: 79, k = 3: 11,480, k = 2: 30,000 sampled):
+
+  | core | k = 4 | k = 3 | k = 2 |
+  | --- | ---: | ---: | ---: |
+  | 7·13 | 53% | 33% | 25% |
+  | 7·19 | 46% | 25% | 19% |
+  | 7·37 | 42% | 24% | 11% |
+  | **7·13·19 = 1729** | **32%** | **12%** | **8%** |
+  | 7·67 | 25% | 11% | 6% |
+
+  Cores are typically 1.6–2.7 times more frequent at k = 4 than at k = 3.
+- **The enriched cores are the fingerprints of the cheap line directions** (F11: E = a² + ab + b² divides n):
+
+  | direction | E | core |
+  | --- | --- | --- |
+  | (3, 4) | 37 | 37 |
+  | (4, 9) | 133 = 7·19 | 7·19 |
+  | (12, 13) | 469 = 7·67 | 7·67 |
+  | (1, 4) | 21 = 3·7 | 7 |
+  | (4, 7) | 93 = 3·31 | 31 |
+
+  A four-way with a (3, 4) line is automatically divisible by 37, and so on. This links F1 (prime enrichment)
+  to F11 (E | n).
+
+**Four-ways against ordinary integers of the same size** (all 204 four-ways ≤ 10¹⁷; 4,080 random integers with
+matching digit counts; 4,000 coprime sums at 10¹⁵):
+
+| property | integers | coprime sums | four-ways |
+| --- | ---: | ---: | ---: |
+| even | 50% | 33% | 0.5% |
+| 3 \| n | 33% | 26% | 18% |
+| n ≡ 1 (mod 3) | 34% | 37% | 71% |
+| 7 \| n | 15% | 37.5% | 84% |
+| squarefree | 61% | 54% | 72% |
+| no prime ≡ 2 (mod 3) | 9% | 19% | 88% |
+| distinct primes (median) | 4 | 5 | 8 |
+| primes ≡ 1 (mod 3) (median) | 1 | 3 | 7 |
+| divisors (median) | 16 | 32 | 256 |
+| largest prime, as a power of n | 0.61 | 0.47 | 0.22 |
+
+**Coprime four-ways are highly composite, smooth numbers built almost entirely from primes ≡ 1 (mod 3).**
+- The only even four-way is 89369647088939126 = 2·7·13·19·43·103·1171·1549·3217. It contains 1729 = 7·13·19,
+  and 2 divides every s (all four representations have x and y odd), as TOPROVE item 1 requires.
+
 ## Negative results
+
+- **N3 (25 October 2026): divisor-richness alone does not make multi-way numbers.** Of 20,000 random products
+  of 12 of the 20 smallest split primes (20–30 digits): 19,861 have no coprime representation, 136 have one,
+  3 have two, none has ≥ 3.
+  - Reasons: the square condition (4n/s − s²)/3 = d² almost never holds by chance; and there are local
+    obstructions (for example, n ≡ 4 or 5 (mod 9) is never a sum of two cubes).
+  - The line method works because it guarantees three representations by construction and then uses
+    divisor-richness (the split-prime filter) to pick candidates. Structure first, divisors second.
 
 - **N2 (25 October 2026): shared coefficient 676 is not a rich vein.** The new five-way's lines share b = 676
   (= 2²·13²), and 95793117931950826933 has a (633, 676) line. The full family (a, 676), 124 allowed

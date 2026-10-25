@@ -84,6 +84,8 @@ def triples(a, b, P0, H, nmax):
             out.append((n, cc, pts))
     return out
 
+SP200 = [p for p in range(7, 200) if p % 3 == 1 and all(p % q for q in range(2, int(p**0.5) + 1))]
+
 def run_dir(job):
     a, b, P0, H, nmax = job
     return (a, b), triples(a, b, P0, H, nmax)
@@ -91,19 +93,22 @@ def run_dir(job):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dirs", type=int, default=50)
+    ap.add_argument("--skip", type=int, default=0, help="skip the cheapest SKIP directions")
+    ap.add_argument("--rmin", type=int, default=0, help="only write triples whose n has >= RMIN split primes < 200")
     ap.add_argument("--height", type=int, default=200)
     ap.add_argument("--nmax", type=float, default=1e17)
     ap.add_argument("--gp", default="gp")
     ap.add_argument("--procs", type=int, default=6)
     ap.add_argument("--out", required=True)
     a_ = ap.parse_args()
-    dirs = directions(a_.dirs)
+    dirs = directions(a_.skip + a_.dirs)[a_.skip:]
     P = conic_points(dirs, a_.gp)
     t0 = time.time(); total = 0
     jobs = [(a, b, P0, a_.height, int(a_.nmax)) for (a, b), P0 in zip(dirs, P)]
     with open(a_.out, "w") as f, Pool(a_.procs) as pool:
         for (a, b), T in pool.imap(run_dir, jobs):
             for n, c, pts in T:
+                if a_.rmin and sum(1 for p in SP200 if n % p == 0) < a_.rmin: continue
                 f.write(f"{n};{a};{b};{c};" + ",".join(f"{x}:{y}" for x, y in pts) + "\n")
             f.flush(); total += len(T)
             print(f"  ({a},{b}) D={b**3-a**3}: {len(T)} triples  [{time.time()-t0:.0f}s]", flush=True)
