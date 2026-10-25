@@ -352,7 +352,17 @@ follow the cost order:
     97363267³ − 38120748³ = 98534347³ − 44664678³ = 100778875³ − 53829834³.
     - n = 7²·13·31·37·43·241·691·907·1399·130681: all primes ≡ 1 (mod 3), proven prime; n ≡ 1 (mod 9).
     - Exactly 5 coprime representations (exhaustive divisor count).
+- **Completed (resumed with --start 3980000):** all 9,034,986 candidates counted. Totals: 9 five-ways (7 known
+  and 2 new), 713 four-ways, **no six-way**. Four-ways thin out sharply with size: 636 in the first 3.98 million
+  candidates (sorted by n), 77 in the remaining 5.05 million.
+  - **NEW: 1441335932043659816048279479 (1.4 × 10²⁷)** = 1110168886³ + 418087647³ = 1129711558³ − 76993377³ =
+    1134621759³ − 268413890³ = 1140344500³ − 346361241³ = 16593139390³ − 16591394241³.
+    - n = 7·31·37·61²·67·73·79·271·859·1153·465187: all primes ≡ 1 (mod 3), proven prime; n ≡ 1 (mod 9).
+    - Exactly 5 coprime representations. The last is a near-diagonal difference (the cubes differ by about
+      1.7 × 10⁶).
 - **The 4 known five-ways missed** all lack a line in the 200 cheapest directions.
+- **Total from the line methods so far: 3 new coprime five-ways beyond 10²³** (5.8 × 10²⁶, 8.7 × 10²³,
+  1.4 × 10²⁷), and no six-way.
 
 ## Negative results
 
