@@ -487,6 +487,119 @@ matching digit counts; 4,000 coprime sums at 10¹⁵):
 - The only even four-way is 89369647088939126 = 2·7·13·19·43·103·1171·1549·3217. It contains 1729 = 7·13·19,
   and 2 divides every s (all four representations have x and y odd), as TOPROVE item 1 requires.
 
+## F17 (25 October 2026): every four-way ≤ 10¹⁷ is a line + free point, a hub, or independent (exact)
+
+All 204 exhaustive four-ways (`results/fourways.md`) were run through `relations.py`: exact generators,
+coordinates and `matkerint`; 204 of 204 verified (`fourways_relations.txt`).
+
+| shape | count | relation |
+| --- | ---: | --- |
+| line + free point | 184 (90%) | one 3-term ±1 relation; span 3 |
+| hub | 11 (5%) | one 4-term ±1 relation P₁ ± P₂ ± P₃ ± P₄ = 0; span 3 |
+| independent | 9 (4%) | no relation; span 4 |
+
+- Curve ranks: 3 (22), 4 (136), 5 (30), 6 (11), 7 (3), 3–5 (2).
+- **Geometry:** a line meets the cubic in at most 3 points, and two lines share at most one point. So a
+  four-way has at most one line, and two lines need at least 5 points (the five-way bowtie).
+- **The fourth point is never tied to the line triple by any further relation.**
+- **Line directions** among the 184: (3, 4) 48; (12, 13) 9; (4, 7) 7; (12, 31), (9, 16), (12, 19), (27, 28) 4
+  each. 62 (34%) are in the (3k², 3k² + 1) family.
+- **The hierarchy:** line (3) → line + free point (4) → second line through a shared point (5, bowtie).
+  Six-way candidates: a bowtie + free point, two disjoint lines, a triangle of three lines, or a hub + line.
+
+## F18 (25 October 2026): geometry of the 18 five-ways, and a mod-3 law for same-line chords
+
+**Tool:** `fives_geometry.py`, rank-free with exact rationals. It finds lines, hubs and chord third points using
+Werebrusow's chord formula (PARI ranks fail on the larger five-ways).
+
+**Five-ways (11 known ≤ 10²³ + 7 new):**
+- 17 of 18 are **bowties** (two lines sharing a point). The exception is 137904678696613339 (Bernstein): one
+  line + two free points.
+- The two "hubs" in each bowtie are consequences of the two line relations (A + B = C + D), not new structure.
+- The shared point is a difference in 14 of 18. Its position on the two lines (middle or end) shows no pattern:
+  end/end 7, end/middle 7, middle/middle 3.
+- The smallest denominator of a non-representation chord point ranges from 12 to 44,226. **All 18 are divisible
+  by 3.**
+
+**The law behind it (exact, no exceptions):**
+- **Chords between two points on the same line** (third point = Q − P, which is not a representation): 33,168
+  cases (all k ≥ 3 ≤ 10¹⁵), **100.00%** with denominator divisible by 3.
+- **Chords between points not on a common line:** 10,820 cases, 52.7%, close to the 51–64% seen for chords in
+  general.
+- **Consequence:** a same-line "swapped chord" can never produce a new representation. A sixth representation
+  of a five-way would have to come from a cross-line chord or a new point. Near-miss hunting should look only
+  at cross-line chords.
+- **Correction (F20 below):** the five-ways' smallest chord denominators are not same-line chords but the
+  cross-line "hub" chords (differences), which are also always divisible by 3.
+- **Proposed reason** (TOPROVE item 11): x³ ≡ x (mod 3) gives x + y ≡ n (mod 3) for every representation. The
+  curve reduces mod 3 to (x + y)³ = n, which is additive and degenerate, so differences of collinear points
+  land in the kernel of reduction mod 3.
+
+## F19 (25 October 2026): the free point in "line + free point" four-ways (user's question)
+
+**184 four-ways ≤ 10¹⁷ with a line:** the free point against the three line points.
+- **Essentially ordinary:** sum 36% against 30%; largest s of the four 32% against 23%; x prime 10% against 11%;
+  near-diagonal 11% against 11%; s / n^(1/3) median 0.61 against 0.52; max(|x|, |y|) / n^(1/3) about 1.0 for
+  both.
+- **The one strong difference, the line's E = a² + ab + b²:**
+
+  | | free point | line points |
+  | --- | ---: | ---: |
+  | gcd(s, E) > 1 | 64.7% | 19.0% |
+  | E \| s | 26% (48) | 0% (0 of 552) |
+  | s = E exactly | 9 (5%) | 0 |
+
+  - When E | s, the multiplier s/E is 1, 7, 9, 13, 19, 21, 31, 43, 67, 79, 103, 109, 111, 163, 199, …
+    (3s and split primes).
+  - Example: A047697(4) = 16776487 has line direction (3, 16), E = 313, and free point s = 313. Also
+    265370336497: E = s = 7333.
+- **Exact law behind it (PROVED, given TOPROVE item 8):** every point on a line has E | t = x² − xy + y²
+  (33,465 of 33,465).
+  - **Proof:** E | c gives a·x ≡ −b·y (mod E), so a²·t ≡ y²(b² + ab + a²) = E·y² ≡ 0 (mod E), and gcd(a, E) = 1.
+  - Since gcd(s, t) | 3, E never divides a line point's s, apart from a factor of 3.
+- **Interpretation:** E | n, and each representation places E's primes in s or in t. Line points must put
+  them in t. The free point can put them in s, and in about a quarter of cases puts all of E there.
+
+## F20 (25 October 2026): cross-line chords in the 17 bowties: no near-misses for a sixth representation
+
+For a bowtie with lines A + S + B = 0 and C + S + D = 0, take the 8 chords between {A, B} and {C, D} (both
+orientations).
+- **4 are "hub" chords** (differences, e.g. A − C = D − B). Their denominators are always divisible by 3, and
+  they include every small one: 12, 30, 90, 114, 156, 180, 366, 618, 1308, 1488, 1830, 2286, 3288, 10758, 44226.
+- **4 are "live" chords** (A + C, A + D, B + C, B + D). Their smallest denominators range from 368,771 to about
+  10¹³, so nowhere near an integer point.
+- **Conclusion:** bowties are not near-misses for a six-way via chords. Likelier six-way shapes are a bowtie
+  plus a free point, or two disjoint lines (A + B + C = 0, D + E + F = 0). The cheap-line search catches
+  either, provided one line is cheap.
+- **E in five-ways:** points off a line have E | s in 11 of 68 cases (16%). The free point of a four-way: 26%.
+
+## F21 (25 October 2026): census of all enumerated lines: two cheap lines almost never share an n
+
+- **Method:** the n values of all 60.9 million collinear triples from directions 1–1000 (n ≤ 10³²), sorted
+  externally to find repeats (`cut | sort | uniq -d`).
+- **Result:** exactly one n lies on two enumerated lines, 506433677359393 (Bernstein's bowtie, directions
+  (3, 4) and (9, 52)). There are **no disjoint pairs**, so no "two opposite lines" six-way with both lines among
+  the 1,000 cheapest directions, up to 10³².
+- **Meaning:** the other five-ways found pair a cheap line with an expensive one (e.g. (3, 4) with (273, 304),
+  rank 1,042), and the exact count catches the expensive line's points for free. A disjoint-line six-way would
+  most likely also be cheap + expensive. `cheap_search.py` already tests that shape; extending directions and
+  slopes is the way to test it further.
+
+## F22 (25 October 2026): mining the 204 four-ways for polynomial families: none visible, two cheap hints
+
+| idea | result |
+| --- | --- |
+| line-parameter clustering, direction (3, 4), 48 four-ways | none; the conic-slope heights, denominators and residues mod 3 match three-way lines |
+| free points with small s = x + y (quadratic families n = s(3x² − 3sx + s²)) | no enrichment: s ≤ 1000 for 10% of free points, 6% of line points, 9% of three-way representations |
+| free point's s = E × (small norm) | yes, 26% (F19); multipliers 1, 7, 9, 13, 19, 31, 43, …, 1729 |
+| the line's multiplier q = c/E is a norm | 88% of four-way lines, against 68% of three-way lines (10,075 lines, n > 10¹²); prime 39% against 29%. About 3.5× in odds |
+
+- **No explicit polynomial family of four-ways** is visible in 204 examples spread over dozens of directions.
+  A complete list up to 10²³ (a GPU `--kmin 4` run) would be needed for a proper family search.
+- **Usable without the GPU** (ordering only, results unchanged):
+  1. prioritise lines whose q is a norm;
+  2. test s = E·m with small norm m first for extra representations.
+
 ## Negative results
 
 - **N3 (25 October 2026): divisor-richness alone does not make multi-way numbers.** Of 20,000 random products
@@ -509,3 +622,12 @@ matching digit counts; 4,000 coprime sums at 10¹⁵):
   - The k ≥ 4 "never" cases rest on 90 numbers, too few to separate a wall from a slope.
   - **Conclusion:** first-order structure is local (the singular series). New structure, if any, must be
     global: rank, relations between the k points, or deviations from a local-density model.
+- **N4 (25 October 2026): the F9 family never gains a fourth representation.** For all k = 1 … 1,000,000
+  (n(k) up to about 10⁵⁰), n(k) = (9k² − 3k + 1)(9k² + 3k + 1)(27k⁴ + 9k² + 1) has exactly 3 coprime
+  representations (exact divisor count, factoring the three polynomial factors separately; `family_k.py`,
+  124 s).
+  - **Reason (F15):** n(k) has few divisors (three mostly-prime polynomial factors), far below the hundreds
+    multi-ways need.
+  - **Lesson for the "polynomial family" idea:** useful families must have n factoring into many polynomial
+    pieces, so that every member is automatically divisor-rich.
+

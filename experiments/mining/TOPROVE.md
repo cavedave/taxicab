@@ -279,6 +279,38 @@ two rational cubes. This is Sylvester's conjecture.
 
 ---
 
+## 11. Same-line chords have denominators divisible by 3. Status: OPEN (exact empirical law)
+
+**Statement.** Let P, Q, R be coprime integer points of x³ + y³ = n on one line (P + Q + R = 0). Then the third
+intersection of the line through P and −Q (that is, the point Q − P, if it is not itself a representation)
+has denominator divisible by 3.
+
+**Evidence.** 33,168 such chords from all coprime k ≥ 3 numbers ≤ 10¹⁵: 100% divisible by 3. Chords between
+points not on a common line: 52.7% (F18).
+
+**Why it may hold.**
+- For integers x³ ≡ x (mod 3), so every representation has x + y ≡ n (mod 3).
+- Reduction mod 3 turns x³ + y³ = n into (x + y)³ = n, a curve with additive reduction.
+- For collinear integer points the difference Q − P should lie in the kernel of reduction, E₁(Q₃), so its
+  denominator is divisible by 3.
+- Tools: the reduction of points modulo a prime and the filtration E₀ ⊃ E₁ (Silverman, *The Arithmetic of
+  Elliptic Curves*, ch. VII); the component group at p = 3 for these CM curves.
+
+**Use.** It shows that a five-way's same-line near-misses can never close into a sixth representation, so
+near-miss searches can ignore them.
+
+## 12. Points on a line carry the line's E in their t. Status: PROVED (given item 8)
+
+**Statement.** If (x, y) lies on a x + b y = c, a line through three coprime representations, then
+E = a² + ab + b² divides t = x² − xy + y². Hence E (apart from a factor of 3) never divides s = x + y for those
+points.
+
+**Proof.** By item 8, E | c, so a·x ≡ −b·y (mod E). Then a²t = (ax)² − (ax)(ay) + a²y² ≡ b²y² + aby² + a²y² =
+E·y² ≡ 0 (mod E). Since gcd(a, E) = gcd(a, b²) = 1, E | t. Then gcd(s, t) | 3 gives the second part.
+
+**Evidence.** 33,465 of 33,465 line points (F19). By contrast, the free point of a "line + free point" four-way
+has E | s in 26% of cases.
+
 ## Conjectures (statistical; not expected to be proved soon)
 
 - **C1, local-density model.** The number of coprime representations of n behaves like a Poisson variable
