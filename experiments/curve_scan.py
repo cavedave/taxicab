@@ -25,6 +25,7 @@ from curve_ilp import solve
 def best_known():
     ta = dict(cb.KNOWN); ca = load_known(os.path.join(HERE, "cabtaxi_known.csv"))
     for path, d in ((os.path.join(ROOT, "results", "taxicab_23_28_bounds.txt"), ta),
+                    (os.path.join(ROOT, "results", "taxicab_29_30_bounds.txt"), ta),
                     (os.path.join(ROOT, "results", "cabtaxi_bounds.txt"), ca)):
         if os.path.exists(path):
             for line in open(path):

@@ -56,13 +56,15 @@ No bound for Ta(25) or higher was found.
 **Not checked:** work after 2016 outside these sources, such as later arXiv papers, Boyer's newer pages, or
 private lists. A wider search is advisable before submitting anything to the OEIS.
 
-For k ≥ 29 no bound exists on this curve at height ≤ 80; it would need points of greater height or other
-curves.
+*Correction (25 October 2026): an earlier version said no bound exists here for k ≥ 29 at height ≤ 80.
+That was wrong: the search had been capped at 10²⁶⁰, which is below the true Ta(29) value. See the addendum.*
 
-## Addendum, 24 October 2026: Ta(29) and Ta(30)
+## Addendum, 24–25 October 2026: Ta(29) and Ta(30)
 
-With points of height ≤ 110 instead of 80 (26,551 points on the same curve, with denominators factored by
-trial division to 10⁶), the exact program also finds:
+The same exact program on the same curve also gives Ta(29) and Ta(30). They first came out of a run with
+points of height ≤ 110 (26,551 points, denominators factored by trial division to 10⁶). A rerun on
+25 October showed that **height 80 gives exactly the same two values**; the earlier "none" at height 80 was
+only an artificial cap. Height 80 also continues with Ta(31) (301 digits), and so on.
 
 | k | upper bound | previous best published |
 | ---: | --- | --- |
@@ -72,5 +74,5 @@ trial division to 10⁶), the exact program also finds:
 The exact values and every representation are in `taxicab_29_30_bounds.txt`, re-verified with exact integer
 arithmetic.
 
-At height 110 the bounds for Ta(20)–Ta(28) are unchanged: the extra points do not improve them. The
+At height 110 the bounds for Ta(20)–Ta(30) are unchanged: the extra points do not improve them. The
 height-110 cabtaxi run was still in progress when this was written; its partial output is in `height110/`.
