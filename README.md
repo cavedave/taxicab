@@ -33,11 +33,12 @@ independent Python recounts) shows **there is no coprime six-way up to 10²³**.
 | 5,306,775,242,131,114,520,041 | 9848424³ + 16326073³ = 13667257³ + 14016672³ = 17446393³ − 1518156³ = 18167545³ − 8834844³ = 61604281³ − 61134600³ |
 
 There is no five-way at all between 10²² and 10²³. Above 10²³, the line method in `experiments/mining/` (enumerating collinear representations, then counting
-each candidate exactly) has found **seven more coprime five-ways**:
+each candidate exactly) has found **eight more coprime five-ways**:
 
 - 867568642528959824806171 (8.7 × 10²³)
 - 15442272835364300840226739 (1.5 × 10²⁵)
 - 36382243612093946470090369 (3.6 × 10²⁵)
+- 357308079971019656068684549 (3.6 × 10²⁶)
 - 581834611748164220101952821 (5.8 × 10²⁶)
 - 1441335932043659816048279479 (1.4 × 10²⁷)
 - 4006751594615544419200755017 (4.0 × 10²⁷)

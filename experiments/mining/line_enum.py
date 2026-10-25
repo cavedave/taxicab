@@ -51,7 +51,20 @@ def conic_points(dirs, gp="gp"):
         pts.append((F(X, Z), F(Y, Z)))
     return pts
 
-def triples(a, b, P0, H, nmax):
+SP_ALL = [p for p in range(2, 200) if all(p % q for q in range(2, int(p**0.5) + 1))]
+HERO_CORE = 1729
+def hero_ok(n, rmin):
+    """six-way profile: HERO_CORE | n (1729 or 7), odd, n = 1 (mod 9), no prime = 2 (mod 3) below 200,
+    >= rmin split primes below 200"""
+    if n % HERO_CORE or n % 2 == 0 or n % 9 != 1: return False
+    split = 0
+    for p in SP_ALL:
+        if n % p == 0:
+            if p % 3 == 2: return False
+            if p % 3 == 1: split += 1
+    return split >= rmin
+
+def triples(a, b, P0, H, nmax, old_h=0, old_n=0, hero=0):
     D = b**3 - a**3
     s0 = F(-3 * a * a, D)
     M = 3 * a * b**3
@@ -60,6 +73,7 @@ def triples(a, b, P0, H, nmax):
     for s in range(0, H + 1):
         for r in range(-H, H + 1):
             if (s == 0 and r != 1) or gcd(r, s) != 1: continue
+            covered = max(abs(r), s) <= old_h
             Q = s*s + s*r + r*r
             Bv = 2*X0*s + X0*r + Y0*s + 2*Y0*r
             m = -Bv / Q
@@ -75,6 +89,8 @@ def triples(a, b, P0, H, nmax):
             if n < 0: pts = [(-x, -y) for x, y in pts]; n = -n; cc = -c
             else: cc = c
             if n == 0 or n > nmax: continue
+            if covered and n <= old_n: continue                 # already searched in an earlier run
+            if hero and not hero_ok(n, hero): continue
             if any(gcd(abs(x), abs(y)) != 1 or x == 0 or y == 0 for x, y in pts): continue
             if len({tuple(sorted(p)) for p in pts}) < 3: continue
             key = frozenset(tuple(sorted(p)) for p in pts)
@@ -87,13 +103,19 @@ def triples(a, b, P0, H, nmax):
 SP200 = [p for p in range(7, 200) if p % 3 == 1 and all(p % q for q in range(2, int(p**0.5) + 1))]
 
 def run_dir(job):
-    a, b, P0, H, nmax = job
-    return (a, b), triples(a, b, P0, H, nmax)
+    global HERO_CORE
+    a, b, P0, H, nmax, old_h, old_n, hero, core = job
+    HERO_CORE = core
+    return (a, b), triples(a, b, P0, H, nmax, old_h, old_n, hero)
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dirs", type=int, default=50)
     ap.add_argument("--skip", type=int, default=0, help="skip the cheapest SKIP directions")
+    ap.add_argument("--old-height", type=int, default=0, help="skip triples already covered: slope <= OLD_HEIGHT and n <= OLD_NMAX")
+    ap.add_argument("--old-nmax", type=float, default=0)
+    ap.add_argument("--core", type=int, default=1729, help="hero filter: required divisor (1729 or 7)")
+    ap.add_argument("--hero", type=int, default=0, help="six-way profile filter with >= HERO split primes below 200")
     ap.add_argument("--rmin", type=int, default=0, help="only write triples whose n has >= RMIN split primes < 200")
     ap.add_argument("--height", type=int, default=200)
     ap.add_argument("--nmax", type=float, default=1e17)
@@ -104,7 +126,7 @@ def main():
     dirs = directions(a_.skip + a_.dirs)[a_.skip:]
     P = conic_points(dirs, a_.gp)
     t0 = time.time(); total = 0
-    jobs = [(a, b, P0, a_.height, int(a_.nmax)) for (a, b), P0 in zip(dirs, P)]
+    jobs = [(a, b, P0, a_.height, int(a_.nmax), a_.old_height, int(a_.old_nmax), a_.hero, a_.core) for (a, b), P0 in zip(dirs, P)]
     with open(a_.out, "w") as f, Pool(a_.procs) as pool:
         for (a, b), T in pool.imap(run_dir, jobs):
             for n, c, pts in T:

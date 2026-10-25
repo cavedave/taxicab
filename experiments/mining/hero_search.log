@@ -1,0 +1,10 @@
+161740 triples; 161740 distinct n pass the filter (>= 6 split primes < 200) [0s]
+  [9s] 20000/161740 counted; reps histogram {3: 19985, 4: 15}
+  [12s] 40000/161740 counted; reps histogram {3: 39980, 4: 20}
+  [13s] 60000/161740 counted; reps histogram {3: 59977, 4: 23}
+  [14s] 80000/161740 counted; reps histogram {3: 79976, 4: 24}
+  [15s] 100000/161740 counted; reps histogram {3: 99976, 4: 24}
+  [15s] 120000/161740 counted; reps histogram {3: 119976, 4: 24}
+  [22s] 140000/161740 counted; reps histogram {3: 139976, 4: 24}
+  [25s] 160000/161740 counted; reps histogram {3: 159976, 4: 24}
+  [25s] 161740/161740 counted; reps histogram {3: 161716, 4: 24}

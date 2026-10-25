@@ -600,6 +600,81 @@ orientations).
   1. prioritise lines whose q is a norm;
   2. test s = E·m with small norm m first for extra representations.
 
+## Six-way profile (25 October 2026): bets, not proofs; factors overlap, so the odds do not multiply
+
+| # | trait | evidence | rough effect |
+| --- | --- | --- | --- |
+| 1 | at least one cheap line (top ~1,000; the (3k², 3k² + 1) family, (3, 4) richest), likely paired with an expensive second line | 7 of 11 known five-ways have a top-200 line; bowties are cheap + expensive | strong; also what makes it findable |
+| 2 | very many divisors: five-ways have τ = 256–4,096 (8–12 distinct primes); at 10²⁵–10³⁰ a six-way likely needs ≥ 13 primes (τ ≳ 8,000) | F15 | strong (~10×+) |
+| 3 | primes almost all ≡ 1 (mod 3), none ≡ 2 (mod 3) | four-ways 88%, five-ways 16/18; integers 9% | strong (~5–10×) |
+| 4 | odd | 203/204 four-ways, 18/18 five-ways | ~2× |
+| 5 | n ≡ 1 (mod 9) (never ±2) | five-ways: 14 ≡ 1, 4 ≡ 8 | ~2–3× |
+| 6 | 7 \| n, often 1729 = 7·13·19 \| n | four-ways: 7 in 84%; 1729 in 32% against 12% of three-ways | ~2× each |
+| 7 | squarefree and smooth (largest prime ≈ n^0.2) | 72% against 54–61%; 0.22 against 0.61 | ~1.5× |
+| 8 | the cheap line's q = c/E is a norm | 88% against 68% (F22) | ~1.5–3× |
+| 9 | the extra point's s is a multiple of E (×1, ×7, ×13, …, ×1729) | 26% of four-way free points, 16% of five-way off-line points | weak |
+| — | small s = x + y (quadratic families) | no enrichment (F22) | dropped |
+
+- **Likely shapes, most believed first:** bowtie + free point; two disjoint lines (cheap + expensive); line +
+  three free points (high rank); hub mixtures. Not chord completion of a bowtie (F20).
+- **No edge:** position of the shared point, near-diagonal points, prime coordinates, root number (implied by
+  #3 and #5).
+- **Suggested change for six-way hunting:** tighten the `cheap_search.py` filter from "≥ 4 split primes below
+  200" towards "≥ 8 split primes overall". That needs a cheap partial factorisation first.
+
+## F23 (25 October 2026): "hero" search on the six-way profile: four-ways enriched about 12×, no five- or six-way
+
+- **Run** (about 13 min on the Mac): `line_enum.py --dirs 120 --height 800 --nmax 1e40 --old-height 600
+  --old-nmax 1e32 --hero 6`, i.e. only new territory (slopes > 600 or n > 10³²), keeping only n with:
+  - 1729 | n, n odd, n ≡ 1 (mod 9);
+  - no prime ≡ 2 (mod 3) below 200;
+  - ≥ 6 split primes below 200.
+
+  Then `cheap_search.py --rmin 6` for the exact count. Files: `hero_120.log`, `hero_search.log`,
+  `hero_multi.txt`.
+- **Result:** 161,740 candidates; 24 four-ways, **no five-way, no six-way**.
+- **The profile works:**
+
+  | candidates | four-way rate |
+  | --- | ---: |
+  | hero (profile) | 24 / 161,740 = 1.5 × 10⁻⁴ |
+  | tranche 501–1000 (only ≥ 4 split primes) | 280 / 23.4 M = 1.2 × 10⁻⁵ |
+
+  That is about 12× enrichment, although hero candidates are larger (up to 10⁴⁰).
+- **Expected five-ways** at that enrichment: about 0.2, so none is unsurprising. A hero search expecting a
+  five-way or six-way needs 10–100× more profile candidates (more directions and/or larger slopes): hours,
+  better on 7of9.
+
+## F24 (25 October 2026): hero search with 7 | n instead of 1729 | n finds a new five-way
+
+- **Run** (about 19 min on the Mac): the same territory as F23 (`--dirs 120 --height 800 --nmax 1e40
+  --old-height 600 --old-nmax 1e32`), with the looser profile `--core 7 --hero 4`:
+  - 7 | n (84% of four-ways, against 32% for 1729), n odd, n ≡ 1 (mod 9);
+  - no prime ≡ 2 (mod 3) below 200;
+  - ≥ 4 split primes below 200.
+
+  Enumeration about 12 min (as in F23: the filter does not change it); exact counting of 1,740,042
+  candidates 6.5 min. Files: `hero7_120.log`, `hero7_search.log`, `hero7_multi.txt`.
+- **Result:** 113 four-ways and **4 five-ways**, no six-way:
+  - 39673716067958900347 and 624256195206357000469 (known, exhaustive range);
+  - 867568642528959824806171 (our F14 line-method five-way);
+  - **357308079971019656068684549 (new)**, on the line 36x + 37y = 3086151649 (direction (36, 37), slope
+    height > 600, which is why the H = 600 sweep missed it).
+    n = 7 · 13² · 43 · 61 · 79 · 151 · 277 · 571 · 631 · 2251 · 42967: all eleven primes ≡ 1 (mod 3). Not
+    divisible by 19 (so not by 1729) and not squarefree.
+- **Recall against cost:**
+
+  | filter | candidates | four-ways | five-ways | four-way rate |
+  | --- | ---: | ---: | ---: | ---: |
+  | 1729, ≥ 6 split (F23) | 161,740 | 24 | 0 | 1.5 × 10⁻⁴ |
+  | 7, ≥ 4 split (F24) | 1,740,042 | 113 | 4 | 6.5 × 10⁻⁵ |
+
+  The 1729 filter is denser per candidate but loses most hits; since enumeration dominates the time, the
+  looser filter is the better use of a run. Two of the four five-ways are not divisible by 1729, and a third
+  (624256195206357000469, divisible by 1729) failed F23's ≥ 6 split-prime threshold.
+- **Lesson for the six-way profile:** 1729 | n should be a preference, not a requirement. Keep 7 | n as the
+  hard filter.
+
 ## Negative results
 
 - **N3 (25 October 2026): divisor-richness alone does not make multi-way numbers.** Of 20,000 random products
