@@ -56,6 +56,9 @@ HERO_CORE = 1729
 def hero_ok(n, rmin):
     """six-way profile: HERO_CORE | n (1729 or 7), odd, n = 1 (mod 9), no prime = 2 (mod 3) below 200,
     >= rmin split primes below 200"""
+    if HERO_CORE == 0:                       # F24 profile: >= 2 of {7, 13, 19, 37}, no mod-9 / p = 2 (mod 3) rule
+        if (n % 7 == 0) + (n % 13 == 0) + (n % 19 == 0) + (n % 37 == 0) < 2: return False
+        return sum(1 for p in SP_ALL if p % 3 == 1 and n % p == 0) >= rmin
     if n % HERO_CORE or n % 2 == 0 or n % 9 != 1: return False
     split = 0
     for p in SP_ALL:
@@ -114,7 +117,7 @@ def main():
     ap.add_argument("--skip", type=int, default=0, help="skip the cheapest SKIP directions")
     ap.add_argument("--old-height", type=int, default=0, help="skip triples already covered: slope <= OLD_HEIGHT and n <= OLD_NMAX")
     ap.add_argument("--old-nmax", type=float, default=0)
-    ap.add_argument("--core", type=int, default=1729, help="hero filter: required divisor (1729 or 7)")
+    ap.add_argument("--core", type=int, default=1729, help="hero filter: required divisor (1729 or 7); 0 = at least two of {7, 13, 19, 37}, no mod-9 or p = 2 (mod 3) rule")
     ap.add_argument("--hero", type=int, default=0, help="six-way profile filter with >= HERO split primes below 200")
     ap.add_argument("--rmin", type=int, default=0, help="only write triples whose n has >= RMIN split primes < 200")
     ap.add_argument("--height", type=int, default=200)

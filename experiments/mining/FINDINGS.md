@@ -675,6 +675,29 @@ orientations).
 - **Lesson for the six-way profile:** 1729 | n should be a preference, not a requirement. Keep 7 | n as the
   hard filter.
 
+## F25 (26 October 2026): directions 1001–1400 are thin: 148 four-ways, no new five-way
+
+- **Run:** `line_enum.py --skip 1000 --dirs 400 --height 600 --nmax 1e32 --hero 4 --core 0`. The F24
+  profile: at least two of {7, 13, 19, 37} divide n, and ≥ 4 split primes below 200 (no mod-9 or
+  p ≡ 2 (mod 3) rule). Then `cheap_search.py --rmin 4`. About 1 h on the Mac, paused overnight.
+  Files: `lines_1001_1400.log`, `search_1001_1400.log`, `multi_1001_1400.txt`.
+- **Result:** 14,457,800 candidates; 148 four-ways (124 of them above 10²³) and one five-way, the known
+  39673716067958900347 (also on a cheap direction, F24: the second line of its bowtie). No six-way.
+- **Yield per direction is tiny:** the best direction has 7 four-ways (`rank_dirs.py`), against 48 for
+  (3, 4) in F24.
+- **Five-ways per tranche keep falling:**
+
+  | directions | five-ways |
+  | --- | --- |
+  | 1–200 | 9 |
+  | 201–500 | 3 |
+  | 501–1000 | 2 |
+  | 1001–1400 | 0 new |
+
+- **Lesson:** more expensive directions are not worth it on the Mac. Better uses of time:
+  - deeper slopes on the few productive cheap directions;
+  - the structural route (UlasPaperPlan goal C).
+
 ## Negative results
 
 - **N3 (25 October 2026): divisor-richness alone does not make multi-way numbers.** Of 20,000 random products
