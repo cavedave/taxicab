@@ -6,6 +6,8 @@
 #   bash run_4x5090.sh status     # progress and time split per part
 #
 # Defaults: 1e22 < n <= 1e23, kmin 5 (override with MIN=... MAX=... KMIN=... TAG=...).
+# 1e23..2.5e23 (26 Oct 2026):
+#   MIN=100000000000000000000000 MAX=250000000000000000000000 KMIN=4 TAG=1e23_2.5e23 bash run_4x5090.sh
 # 1e21..1e22 was run with cabtaxi_gpu_v1.cu (files cab_1e21_1e22_partK.txt, run_1e22_partK.log);
 # anything above 1e22 needs v2 (limit 1e24).
 # Each GPU g searches part g+1 of NGPU equal-work pieces (--part), writing
@@ -26,6 +28,7 @@ if [ "$MODE" = "status" ]; then
     echo "part $k: $(grep -E '^DONE| segments, ' "$L" 2>/dev/null | tail -n 1)"
     echo "        $(grep 'time split' "$L" 2>/dev/null | tail -n 1 | sed 's/^ *//')"
   done
+  for k in 4 5; do echo "k=$k so far: $(cat "$DIR"/cab_${TAG}_part*.txt 2>/dev/null | grep -c ";$k;")"; done
   grep -h ";[6-9];" "$DIR"/cab_${TAG}_part*.txt 2>/dev/null && echo "*** SIX-WAY OR MORE FOUND ***" || true
   exit 0
 fi
@@ -50,6 +53,13 @@ if [ "$MODE" != "resume" ]; then
     || { cat "$DIR/bench_4x.txt"; echo "BENCHMARK MISMATCH: stopping"; exit 1; }
   grep "^DONE" "$DIR/bench_4x.txt"
   echo "benchmark OK"
+  echo "--- smoke window near 2.36e23, kmin 4: must find the line-method five-way 236191447138323830299237"
+  ./cabtaxi_gpu --min 236191447138000000000000 --max 236191447139000000000000 --kmin 4 \
+      --out "$DIR/smoke_2.36e23.txt" > "$DIR/smoke_2.36e23.log"
+  grep -q "^236191447138323830299237;5;" "$DIR/smoke_2.36e23.txt" \
+    || { cat "$DIR/smoke_2.36e23.log"; echo "SMOKE WINDOW FAILED: stopping"; exit 1; }
+  grep "^DONE" "$DIR/smoke_2.36e23.log"
+  echo "smoke window OK"
   RESUME=""
 else
   RESUME="--resume"

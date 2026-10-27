@@ -22,7 +22,7 @@ literature.
 
 ---
 
-## 1. Primes ≢ 1 (mod 3) divide every s. Status: PROVED (p ≠ 3); SKETCH (p = 3)
+## 1. Primes ≢ 1 (mod 3) divide every s. Status: PROVED (THEOREMS.md Theorem 5)
 
 **Statement.** If a prime p ≡ 2 (mod 3), or p = 2, divides n, then p divides s = x + y in **every** coprime
 representation of n.
@@ -149,7 +149,7 @@ six-way built from relations must use lines or hubs, which constrains the shapes
 
 ---
 
-## 6. Which line directions can carry coprime triples. Status: norm part SKETCH; parity part OPEN
+## 6. Which line directions can carry coprime triples. Status: PROVED, both parts (THEOREMS.md Theorem 1)
 
 **Statement.** Suppose a line a x + b y = c (gcd(a, b) = 1) passes through three coprime integer points of
 x³ + y³ = n. Then:
@@ -205,7 +205,7 @@ J. London Math. Soc. 11 (1936), whose identity has the same 9k³ and 9k⁴ ingre
 
 ---
 
-## 8. A line's E = a² + ab + b² divides c and n. Status: SKETCH
+## 8. A line's E = a² + ab + b² divides c and n. Status: PROVED (THEOREMS.md Theorem 2)
 
 **Statement.** For any line a x + b y = c through three coprime integer points of x³ + y³ = n, the number
 E = a² + ab + b² divides c and divides n. (The factor 3 needs care.)
@@ -279,7 +279,7 @@ two rational cubes. This is Sylvester's conjecture.
 
 ---
 
-## 11. Same-line chords have denominators divisible by 3. Status: OPEN (exact empirical law)
+## 11. Same-line chords have denominators divisible by 3. Status: HALF PROVED (THEOREMS.md Lemma 6: 3 | Δ always); numerator step OPEN
 
 **Statement.** Let P, Q, R be coprime integer points of x³ + y³ = n on one line (P + Q + R = 0). Then the third
 intersection of the line through P and −Q (that is, the point Q − P, if it is not itself a representation)
@@ -299,7 +299,7 @@ points not on a common line: 52.7% (F18).
 **Use.** It shows that a five-way's same-line near-misses can never close into a sixth representation, so
 near-miss searches can ignore them.
 
-## 12. Points on a line carry the line's E in their t. Status: PROVED (given item 8)
+## 12. Points on a line carry the line's E in their t. Status: PROVED (THEOREMS.md Theorem 3)
 
 **Statement.** If (x, y) lies on a x + b y = c, a line through three coprime representations, then
 E = a² + ab + b² divides t = x² − xy + y². Hence E (apart from a factor of 3) never divides s = x + y for those
@@ -324,10 +324,91 @@ has E | s in 26% of cases.
 
 ---
 
-## Next steps for this file
+## Proof plan (26 October 2026)
 
-1. Write the PROVED items (1, 4, 7) out in full, in the style of 34Family's `THEOREMS.md`.
-2. Add a `verify_theorems.py` that checks items 1, 2(a), 4, 5, 6, 8 and 10 against every dataset in
-   `FINDINGS.md`.
-3. Attack item 6(b) (parity) and the p = 3 parts of items 1 and 8.
-4. Look up the exact duplication formula (item 5) and the Birch–Stephens formula (item 10).
+Planning only: no proofs have been attempted under this plan yet. The items are grouped by what a proof would
+buy us, and worked in that order.
+
+### Group 1: make the line method a theorem (first; short, and certain to pay off)
+
+The line search (`line_enum.py`, FINDINGS F12–F26) is our most productive tool. Proving the rules it runs
+on turns "we searched these lines" into an exact coverage statement, and gives the paper a rigorous method
+section.
+
+- **1a. Item 6(a), the norm condition for directions. Expected: provable now.**
+  - A direction (a, b) carries rational collinear triples exactly when the conic X² + XY + Y² = 3ab³ has a
+    rational point.
+  - X² + XY + Y² is the norm form of Q(√−3). 3 is a norm (ramified), and b² is a norm, so the conic has a
+    rational point if and only if a·b is a norm: every prime ≡ 2 (mod 3) divides a·b to an even power.
+  - **Steps:**
+    - necessity from the norm map;
+    - sufficiency from Hasse–Minkowski, or directly by multiplicativity of norms;
+    - then say what integrality and coprimality of the points add on top of rationality.
+- **1b. Completeness of the slope parametrisation.**
+  - Every rational point of the conic other than the base point P₀ is the second intersection of exactly one
+    line of slope r/s through P₀ (standard for conics).
+  - The map from conic points to triples (x₁, x₂, x₃) is a bijection up to the scaling by c.
+  - c, the least positive integer making all six coordinates integral, is canonical.
+  - **Consequence:** `line_enum.py` with height H finds *every* coprime collinear triple in direction (a, b)
+    whose slope (for the chosen P₀) has height ≤ H. Coverage claims ("searched to height 15,000") are then
+    exact.
+  - **Also state:** the 6 orderings of a triple give up to 6 slopes, which is why the same triple can appear
+    at several heights. Coverage is by the *smallest* of them.
+- **1c. Item 8, E = a² + ab + b² divides c and n (currently SKETCH).**
+  - From the root relations x₁ + x₂ + x₃ = −3a²c/D and Σxᵢxⱼ = −3ac²/D (D = b³ − a³), plus integrality
+    and coprimality of the points.
+  - Item 12 (E | t on the line) then follows, as already noted.
+- **1d. Check:** `verify_theorems.py` re-tests 1a–1c against the 60.9 M lines of F14/F21, the F23–F26 runs and
+  the server output (`~/linesearch/`).
+
+### Group 2: the local laws (next; computer-assisted)
+
+These are statements about residues. A proof often reduces to a finite check over residue classes mod 2ᵏ or
+3ᵏ, which a program can do exhaustively and rigorously (the program is then part of the proof).
+
+- **2a. Item 6(b), parity: lines need 4 | a·b.** Enumerate coprime collinear triples on a x + b y = c mod 2ᵏ for
+  increasing k, and show that a, b both odd forces a contradiction. If the pattern stabilises at small k, write
+  the hand proof from it.
+- **2b. Item 11, same-line chord denominators are divisible by 3** (exact in 33,168 cases).
+  - 3-adic analysis of the chord formula x₂ = (x₁²y − x²y₁)/(xy − x₁y₁) for points on one line.
+  - **Value:** it shows a five-way's sixth point cannot come from closing a same-line chord, so it constrains
+    where six-ways come from.
+- **2c. Item 1 at p = 3, and item 3 (the 3 | n anomaly):** compute the exact 3-adic local densities by v₃(n)
+  and n mod 27, and compare them with the counts per k.
+- **2d. Item 5, no tangent relations:** finish the sketch (exact duplication formula, then size and
+  integrality).
+
+### Group 3: existence results (in parallel, when there is mining time)
+
+- **Infinitely many coprime four-ways**, via a genus-1 (or genus-0 Pell) curve with positive rank:
+  UlasPaperPlan A2, C2.
+- **Today's data for Ulas step 1** (shape mining): about 1,500 four-ways and 34 five-ways, each with its known
+  lines and slopes. Look for recurring parametric shapes.
+
+### Group 4: read, do not attempt
+
+- **Item 9, an explicit constant in Silverman's N(A) ≤ c^(rank).** Check whether Silverman 1982
+  (`refs/Thuebf01389220.pdf`) states c explicitly. If it does, "a six-way needs rank ≥ r₀" becomes a theorem.
+- **Conjectures C1–C3, and anything that would prune the exhaustive GPU search:** out of reach. Nothing here
+  changes its B^(2/3) cost, and mined patterns must not prune it unless proved.
+
+### How the work is done
+
+- **Write-ups:** proofs go into a new `THEOREMS.md` (34Family layering). This file keeps the statements,
+  evidence and status labels.
+- **Regression test:** `verify_theorems.py` checks every PROVED or SKETCH statement against every dataset.
+- **Literature check per item, before anything is claimed as new:**
+  - Werebrusow and Dickson vol. 2 ch. XXI for items 6 and 8;
+  - Ireland–Rosen ch. 8 and Cassels for local densities;
+  - Silverman, *Arithmetic of Elliptic Curves* ch. VII, for item 11.
+
+  Several may be classical in another form. The line mechanism itself is (Werebrusow 1905; FINDINGS,
+  literature status).
+- **First session:** 1a + 1b + 1c together (the "line method is exact" package), then 1d.
+
+### Earlier next steps (still valid, folded into the groups above)
+
+1. Write the PROVED items (1, 4, 7) out in full in `THEOREMS.md`.
+2. `verify_theorems.py` for items 1, 2(a), 4, 5, 6, 8 and 10.
+3. Item 6(b) and the p = 3 parts of items 1 and 8 (now 2a, 2c).
+4. Look up the exact duplication formula (item 5) and the Birch–Stephens formula (item 10, done).

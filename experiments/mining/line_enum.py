@@ -67,13 +67,13 @@ def hero_ok(n, rmin):
             if p % 3 == 1: split += 1
     return split >= rmin
 
-def triples(a, b, P0, H, nmax, old_h=0, old_n=0, hero=0):
+def triples(a, b, P0, H, nmax, old_h=0, old_n=0, hero=0, s_lo=0, s_hi=None):
     D = b**3 - a**3
     s0 = F(-3 * a * a, D)
     M = 3 * a * b**3
     X0, Y0 = P0
     seen = set(); out = []
-    for s in range(0, H + 1):
+    for s in range(s_lo, (H if s_hi is None else s_hi) + 1):
         for r in range(-H, H + 1):
             if (s == 0 and r != 1) or gcd(r, s) != 1: continue
             covered = max(abs(r), s) <= old_h
@@ -107,9 +107,9 @@ SP200 = [p for p in range(7, 200) if p % 3 == 1 and all(p % q for q in range(2, 
 
 def run_dir(job):
     global HERO_CORE
-    a, b, P0, H, nmax, old_h, old_n, hero, core = job
+    a, b, P0, H, nmax, old_h, old_n, hero, core, s_lo, s_hi = job
     HERO_CORE = core
-    return (a, b), triples(a, b, P0, H, nmax, old_h, old_n, hero)
+    return (a, b, s_lo, s_hi), triples(a, b, P0, H, nmax, old_h, old_n, hero, s_lo, s_hi)
 
 def main():
     ap = argparse.ArgumentParser()
@@ -124,19 +124,31 @@ def main():
     ap.add_argument("--nmax", type=float, default=1e17)
     ap.add_argument("--gp", default="gp")
     ap.add_argument("--procs", type=int, default=6)
+    ap.add_argument("--only", default="", help="explicit directions 'a,b;a,b;...' instead of --dirs/--skip")
+    ap.add_argument("--chunks", type=int, default=1, help="split each direction's slope range into CHUNKS jobs")
+    ap.add_argument("--s-min", type=int, default=0, help="only slopes r/s with S_MIN <= s <= S_MAX (a band; |r| still up to --height)")
+    ap.add_argument("--s-max", type=int, default=-1)
     ap.add_argument("--out", required=True)
     a_ = ap.parse_args()
-    dirs = directions(a_.skip + a_.dirs)[a_.skip:]
+    if a_.only:
+        dirs = [tuple(map(int, d.split(","))) for d in a_.only.split(";")]
+        assert all(allowed(a, b) and gcd(a, b) == 1 for a, b in dirs), "direction not allowed (F10)"
+    else:
+        dirs = directions(a_.skip + a_.dirs)[a_.skip:]
     P = conic_points(dirs, a_.gp)
     t0 = time.time(); total = 0
-    jobs = [(a, b, P0, a_.height, int(a_.nmax), a_.old_height, int(a_.old_nmax), a_.hero, a_.core) for (a, b), P0 in zip(dirs, P)]
+    H, k = a_.height, a_.chunks
+    lo_s, hi_s = a_.s_min, (H if a_.s_max < 0 else min(a_.s_max, H))
+    cuts = [lo_s - 1 + round((hi_s - lo_s + 1) * i / k) for i in range(k + 1)]
+    jobs = [(a, b, P0, H, int(a_.nmax), a_.old_height, int(a_.old_nmax), a_.hero, a_.core,
+             cuts[i] + 1, cuts[i + 1]) for (a, b), P0 in zip(dirs, P) for i in range(k) if cuts[i + 1] > cuts[i]]
     with open(a_.out, "w") as f, Pool(a_.procs) as pool:
-        for (a, b), T in pool.imap(run_dir, jobs):
+        for (a, b, lo, hi), T in pool.imap_unordered(run_dir, jobs):
             for n, c, pts in T:
                 if a_.rmin and sum(1 for p in SP200 if n % p == 0) < a_.rmin: continue
                 f.write(f"{n};{a};{b};{c};" + ",".join(f"{x}:{y}" for x, y in pts) + "\n")
             f.flush(); total += len(T)
-            print(f"  ({a},{b}) D={b**3-a**3}: {len(T)} triples  [{time.time()-t0:.0f}s]", flush=True)
+            print(f"  ({a},{b}) s={lo}..{hi} D={b**3-a**3}: {len(T)} triples  [{time.time()-t0:.0f}s]", flush=True)
     print(f"{total} triples from {len(dirs)} directions -> {a_.out}")
 
 if __name__ == "__main__":

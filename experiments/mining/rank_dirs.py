@@ -16,9 +16,11 @@ def main():
     kof = {}
     for l in open(a.multi):
         n, k, _ = l.split(";", 2); kof[int(n)] = int(k)
-    cand = Counter(); hits = defaultdict(Counter)
+    cand = Counter(); hits = defaultdict(Counter); seen = set()
     for l in open(a.lines):
         n, A, B, _ = l.split(";", 3)
+        if (n, A, B) in seen: continue                          # chunked runs repeat triples
+        seen.add((n, A, B))
         d = (int(A), int(B)); cand[d] += 1
         k = kof.get(int(n))
         if k: hits[d][min(k, 5)] += 1
