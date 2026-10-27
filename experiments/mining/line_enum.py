@@ -14,7 +14,7 @@ Directions follow finding F10: a b even and a norm (primes = 2 mod 3 to even pow
 Output: n;a;b;c;x:y,x:y,x:y   (one line per primitive coprime triple with n <= --nmax)
 Usage: python3 line_enum.py --dirs 200 --height 400 --nmax 1e17 --out lines.txt
 """
-import argparse, subprocess, sys, time
+import argparse, gzip, subprocess, sys, time
 from multiprocessing import Pool
 from fractions import Fraction as F
 from math import gcd
@@ -51,6 +51,10 @@ def conic_points(dirs, gp="gp"):
         pts.append((F(X, Z), F(Y, Z)))
     return pts
 
+def out_open(path):
+    """--out path; a name ending in .gz is written gzip-compressed (level 1)"""
+    return gzip.open(path, "wt", compresslevel=1) if path.endswith(".gz") else open(path, "w")
+
 SP_ALL = [p for p in range(2, 200) if all(p % q for q in range(2, int(p**0.5) + 1))]
 HERO_CORE = 1729
 def hero_ok(n, rmin):
@@ -67,34 +71,39 @@ def hero_ok(n, rmin):
             if p % 3 == 1: split += 1
     return split >= rmin
 
+def chord_points(a, b, P0):
+    """integer form of the conic parametrisation: returns pts(s, r) -> ([(x, y)] * 3, c) with a x + b y = c > 0,
+    the three points of the line in direction (a, b) through slope r/s. Same results as the Fraction version:
+    with P0 = (x0/Z, y0/Z), W = Z Q, T = W D the points are (b p_i, T - a p_i) / G, G = gcd of all six (sign of b T)."""
+    D = b**3 - a**3; X0, Y0 = P0
+    Z = X0.denominator * Y0.denominator // gcd(X0.denominator, Y0.denominator)
+    x0, y0 = int(X0 * Z), int(Y0 * Z); a2 = a * a
+    def pts(s, r):
+        Q = s*s + s*r + r*r
+        Bn = 2*x0*s + x0*r + y0*s + 2*y0*r
+        NX = x0*Q - Bn*s; NY = y0*Q - Bn*r; W = Z*Q; T = W*D
+        p1 = NX - a2*W; p2 = NY - a2*W; p3 = -a2*W - NX - NY
+        P = ((b*p1, T - a*p1), (b*p2, T - a*p2), (b*p3, T - a*p3))
+        G = gcd(gcd(gcd(P[0][0], P[0][1]), gcd(P[1][0], P[1][1])), gcd(P[2][0], P[2][1]))
+        if b * T < 0: G = -G
+        return [(x // G, y // G) for x, y in P], b * T // G
+    return pts
+
 def triples(a, b, P0, H, nmax, old_h=0, old_n=0, hero=0, s_lo=0, s_hi=None):
-    D = b**3 - a**3
-    s0 = F(-3 * a * a, D)
-    M = 3 * a * b**3
-    X0, Y0 = P0
+    pts_of = chord_points(a, b, P0)
     seen = set(); out = []
     for s in range(s_lo, (H if s_hi is None else s_hi) + 1):
         for r in range(-H, H + 1):
             if (s == 0 and r != 1) or gcd(r, s) != 1: continue
             covered = max(abs(r), s) <= old_h
-            Q = s*s + s*r + r*r
-            Bv = 2*X0*s + X0*r + Y0*s + 2*Y0*r
-            m = -Bv / Q
-            X1, Y1 = X0 + m*s, Y0 + m*r
-            u1 = X1 / D + s0 / 3; u2 = Y1 / D + s0 / 3; u3 = s0 - u1 - u2
-            us = (u1, u2, u3)
-            vals = []
-            for u in us: vals += [u, (1 - a*u) / b]
-            c = 1
-            for v in vals: c = c * v.denominator // gcd(c, v.denominator)
-            pts = [(int(c*u), int(c*(1 - a*u) / b)) for u in us]
+            pts, c = pts_of(s, r)
             n = pts[0][0]**3 + pts[0][1]**3
             if n < 0: pts = [(-x, -y) for x, y in pts]; n = -n; cc = -c
             else: cc = c
             if n == 0 or n > nmax: continue
             if covered and n <= old_n: continue                 # already searched in an earlier run
             if hero and not hero_ok(n, hero): continue
-            if any(gcd(abs(x), abs(y)) != 1 or x == 0 or y == 0 for x, y in pts): continue
+            if any(gcd(x, y) != 1 or x == 0 or y == 0 for x, y in pts): continue
             if len({tuple(sorted(p)) for p in pts}) < 3: continue
             key = frozenset(tuple(sorted(p)) for p in pts)
             if key in seen: continue
@@ -129,6 +138,7 @@ def main():
     ap.add_argument("--s-min", type=int, default=0, help="only slopes r/s with S_MIN <= s <= S_MAX (a band; |r| still up to --height)")
     ap.add_argument("--s-max", type=int, default=-1)
     ap.add_argument("--out", required=True)
+    ap.add_argument("--short", action="store_true", help="write only n;a;b (enough for exact counting and per-direction yields)")
     a_ = ap.parse_args()
     if a_.only:
         dirs = [tuple(map(int, d.split(","))) for d in a_.only.split(";")]
@@ -142,11 +152,11 @@ def main():
     cuts = [lo_s - 1 + round((hi_s - lo_s + 1) * i / k) for i in range(k + 1)]
     jobs = [(a, b, P0, H, int(a_.nmax), a_.old_height, int(a_.old_nmax), a_.hero, a_.core,
              cuts[i] + 1, cuts[i + 1]) for (a, b), P0 in zip(dirs, P) for i in range(k) if cuts[i + 1] > cuts[i]]
-    with open(a_.out, "w") as f, Pool(a_.procs) as pool:
+    with out_open(a_.out) as f, Pool(a_.procs) as pool:
         for (a, b, lo, hi), T in pool.imap_unordered(run_dir, jobs):
             for n, c, pts in T:
                 if a_.rmin and sum(1 for p in SP200 if n % p == 0) < a_.rmin: continue
-                f.write(f"{n};{a};{b};{c};" + ",".join(f"{x}:{y}" for x, y in pts) + "\n")
+                f.write(f"{n};{a};{b}\n" if a_.short else f"{n};{a};{b};{c};" + ",".join(f"{x}:{y}" for x, y in pts) + "\n")
             f.flush(); total += len(T)
             print(f"  ({a},{b}) s={lo}..{hi} D={b**3-a**3}: {len(T)} triples  [{time.time()-t0:.0f}s]", flush=True)
     print(f"{total} triples from {len(dirs)} directions -> {a_.out}")

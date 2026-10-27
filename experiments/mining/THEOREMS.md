@@ -232,6 +232,35 @@ numerators are prime to 3, so the 3 in Δ survives reduction. This step is still
 
 ---
 
+## Theorem 7 (denominators of D-lines; FINDINGS F30–F31)
+
+**Statement.** Let P₁ = (x₁, y₁) and P₂ = (x₂, y₂) be distinct integer points of x³ + y³ = n on the line
+a x + b y = c (a, b coprime, a ≠ b, c ≠ 0), and let R = (x_R, y_R) be the third intersection, with common
+denominator D (R = (X/D, Y/D) in lowest terms). Then
+
+  **D divides (b − a)·E**, where E = a² + ab + b².
+
+In particular, if D is even then a and b are both odd.
+
+**Proof.** Substituting y = (c − a x)/b into x³ + y³ = n and multiplying by b³ gives the cubic in x of the setting:
+
+    (b³ − a³) x³ + 3a²c x² − 3ac² x + (c³ − b³ n) = 0,
+
+whose three roots are x₁, x₂, x_R. By Vieta, x₁ + x₂ + x_R = −3a²c / (b³ − a³) = −3a²c / ((b − a) E).
+Since x₁ + x₂ is an integer, the denominator of x_R divides (b − a)E. Exchanging the roles of x and y (the line is
+b y + a x = c, the cubic in y has leading coefficient a³ − b³), the denominator of y_R also divides (b − a)E.
+So D, the lcm of the two denominators, divides (b − a)E.
+For the last sentence: a, b coprime, so not both even, and then E = a² + ab + b² is odd (one of the three terms is
+odd and the other two even, or all three odd). So an even D needs b − a even, i.e. a and b both odd. ∎
+
+**Checked:** 32 directions (16 of each parity), thousands of D-lines at slope height 120, and 561,055 D-lines
+≤ 10¹⁷: no exception (`dline_analyse.py` reports the check).
+
+**Open half of the parity rule (observed, F30–F31):** if a and b are both odd, D is always even (never an odd
+divisor of (b − a)E alone, e.g. (1, 3) gives D ∈ {2, 26}, never 13). Not proved.
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).

@@ -28,15 +28,28 @@ def divisors(fac):
         ds = [d * p**k for d in ds for k in range(e + 1)]
     return ds
 
+SQ64 = {(i * i) % 64 for i in range(64)}
+
 def all_reps(n, fac):
+    """every coprime (x, y) with x^3 + y^3 = n: s = x + y runs over the divisors of n up to (4n)^(1/3)
+    (generated pruned at that bound), and 4 n / s - s^2 = 3 d^2 must hold"""
     smax = icbrt(4 * n)
+    ds = [1]
+    for p, e in fac:
+        new = []
+        for d in ds:
+            for k in range(e + 1):
+                if d > smax: break
+                new.append(d); d *= p
+        ds = new
     reps = set()
-    for s in divisors(fac):
-        if s > smax: continue
+    for s in ds:
         t = 4 * (n // s) - s * s
         if t < 0 or t % 3: continue
-        d = isqrt(t // 3)
-        if d * d * 3 != t or (s + d) % 2: continue
+        m = t // 3
+        if (m & 63) not in SQ64: continue                    # quick square test mod 64
+        d = isqrt(m)
+        if d * d != m or (s + d) % 2: continue
         x, y = (s + d) // 2, (s - d) // 2
         if y != 0 and gcd(abs(x), abs(y)) == 1 and x**3 + y**3 == n:
             reps.add(tuple(sorted((x, y), reverse=True)))

@@ -85,11 +85,19 @@ def main():
     ap.add_argument("--nolimit", type=float, default=600, help="digits allowed when there is no published bound")
     ap.add_argument("--known", default=os.path.join(os.path.dirname(os.path.abspath(__file__)), "cabtaxi_known.csv"))
     ap.add_argument("--out", help="append k;n;M;L;pairs for every bound found")
+    ap.add_argument("--taxicab", action="store_true", help="Ta(k) instead: positive points only, compared with curve_bounds.KNOWN")
     a = ap.parse_args()
-    M = a.curve; known = load_known(a.known)
+    M = a.curve
+    if a.taxicab:
+        from curve_bounds import KNOWN
+        known = dict(KNOWN)
+        for l in open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "results", "taxicab_23_28_bounds.txt")):
+            if l[0] != "#" and ";" in l: k_, n_ = l.split(";")[:2]; known.setdefault(int(k_), int(n_))
+    else: known = load_known(a.known)
     t = time.time()
     pts, fac, info = points(a.gp, M, a.hmax, a.effort, a.flim)
     print(f"curve M={M}: {' '.join(info.values())}; {len(pts)} points (both signs), {time.time()-t:.0f}s", flush=True)
+    if a.taxicab: pts = [p for p in pts if p[1] > 0 and p[2] > 0]
     ws = [w for w, _, _ in pts]
     for k in range(a.kmin, a.kmax + 1):
         ref = known.get(k)

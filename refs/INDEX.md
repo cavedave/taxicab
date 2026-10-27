@@ -99,6 +99,37 @@ listed once, with all their locations.
 | `refs/jacobian.pdf` | *A counterexample to the Jacobian conjecture* |
 | `refs/halmos__naive_set_theory.pdf` | P. Halmos, *Naive Set Theory* |
 
+## Choudhry papers and the x³ + y³ = n tables (added 27 October 2026, for the hub question, F29)
+
+31 Choudhry papers and 2 modern Selmer-group papers were sorted; the 30 not relevant (Tarry–Escott, biquadrates,
+fifth powers, triangles, magic squares, matrices, circles, sums of three cubes; Kane–Thorne on y² = x³ − Dx;
+Shu on Fermat-curve parity) were deleted (moved to the Trash) to avoid confusion. Kept:
+- `ch1604.02693v1.pdf`, Choudhry–Zargar, *A parametrised family of Mordell curves* (2016). **Method for hubs:** an
+  ansatz for three points, eliminating the curve constant leaves an auxiliary plane cubic; its tangent at a known
+  point gives a family. A hub family (two chords through R with equal b − a) could be built the same way.
+- `ch1910.02284v1.pdf`, Choudhry–Zargar, *A sextic diophantine chain and a related Mordell curve* (2019): 9 points
+  on y² = x³ + k/4 with built-in relations.
+- `ch1809.06603v1.pdf`, Choudhry, *Symmetric diophantine systems and families of elliptic curves of high rank* (2018).
+- `1951selmer.pdf`: E. S. Selmer, *The diophantine equation ax³ + by³ + cz³ = 0*, Acta Math. 85 (1951), 160 pp.;
+  generators for x³ + y³ = D z³, D ≤ 500.
+- `stephens1968_X3Y3DZ3.pdf`: N. M. Stephens, *The diophantine equation X³ + Y³ = DZ³ and the conjectures of Birch
+  and Swinnerton-Dyer*, J. reine angew. Math. 231 (1968) 121–162 (extracted from the scanned volume, which has no
+  text layer; page 1 is the Göttingen terms of use).
+- `numerical.pdf`: C. Delaunay, S. Duquesne, *Numerical investigations related to the derivatives of the L-series
+  of certain elliptic curves* (Experimental Math.), follow-up to Zagier–Kramarz on x³ + y³ = m.
+
+Still wanted (optional): D. Zagier, G. Kramarz, J. Indian Math. Soc. 52 (1987); Selmer's completion, Acta Math. 92 (1954).
+
+## The group law, orchard configurations and integral points (added 27 October 2026, for FINDINGS F33)
+- `Def1208.4714v3.pdf`: B. Green, T. Tao, *On sets defining few ordinary lines* (2013). Extremal 3-point-line
+  configurations lie on cubic curves, where collinearity is P + Q + R = 0: our bowties and stars are small cases.
+- `Me34.pdf`: S. A. Burr, B. Grünbaum, N. J. A. Sloane, *The orchard problem* (1974). The cubic-curve group-law
+  construction of many 3-point lines.
+- `on-the-elliptic-logarithm-method-...pdf`: R. J. Stroeker, N. Tzanakis, *On the elliptic logarithm method for
+  elliptic Diophantine equations: reflections and an improvement*: proving lists of integral points complete.
+- `Joseph H. Silverman.pdf`: J. H. Silverman, J. T. Tate, *Rational Points on Elliptic Curves* (book). Chapter 1:
+  the chord-and-tangent law; chapter 3: integral points.
+
 ## Still wanted
 - A. Rosenstiel, J. A. Dardis, C. R. Rosenstiel, Bull. IMA 27 (1991) 155–157: the smallest non-cube-free
   five-way 6963472309248; possible families (goal C).

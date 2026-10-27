@@ -803,7 +803,295 @@ orientations).
     1 of 1 is consistent with that but is no measurement.
 - **Six-way chance:** none found among about 2,600 four-ways and 26 distinct five-way n from this day's runs.
 
+## F28 (27 October 2026): line structure of the exhaustive four-ways at 10²³ and of all 43 five-ways
+
+**Tool:** `line_structure.py` (exact). For each n it finds every collinear triple among the representations and
+their swaps, the direction's cost rank (among all allowed directions, ordered by D = b³ − a³), and the smallest
+slope height at which `line_enum.py` produces the triple; also hubs and the `--core 0` filter verdict.
+It reproduces F17 exactly on the 204 four-ways ≤ 10¹⁷ (184 line + free, 11 hub, 9 independent), and the
+slope height 1,750 of 236191447138323830299237 on (3, 4) (F26).
+
+**Shapes:**
+
+| set | line + free point | hub | independent |
+| --- | ---: | ---: | ---: |
+| 204 four-ways ≤ 10¹⁷ | 184 (90%) | 11 (5%) | 9 (4%) |
+| 214 four-ways 10²³ – 2.5 × 10²³ | 188 (88%) | 24 (11%) | 2 (1%) |
+
+Five-ways (all 43): 40 bowties, 3 one line + two free points (137904678696613339, 236191447138323830299237 and
+153461072317103291251148239). No five-way has two disjoint lines or a third line.
+
+**The lines move to expensive directions as n grows:**
+
+| direction rank | ≤ 10¹⁷ (184 lines) | 10²³ (188 lines) | five-ways (83 lines) |
+| --- | ---: | ---: | ---: |
+| 1, i.e. (3, 4) | 48 (26%) | 26 (14%) | 15 |
+| 2–32 | 53 | 27 | 16 |
+| 33–1400 | 53 | 43 | 15 |
+| > 1400 | 30 (16%) | **92 (49%)** | 37 |
+
+**Slope height grows like n^(1/6):**
+- Median line height: 13 (≤ 10¹⁷) → 75 (10²³). On (3, 4): 5–181 at ≤ 10¹⁷, but **1,196–2,495** for every
+  (3, 4) four-way in 10²³ – 2.5 × 10²³.
+- On (3, 4), log n against log h has slope 5.86, and n / h⁶ lies in 938 – 7.8 × 10⁴ (89 lines). Other cheap
+  directions behave the same, with larger constants.
+- Reason: the triple's common denominator c grows like Q = s² + sr + r² ≈ h², and n ≈ c³.
+- **Consequence:** each n range lives in a band of heights in each direction, and enumerating a direction to
+  height H costs about H² ∝ N^(1/3) slopes. An exhaustive search costs N^(2/3). (Heuristic, not a bound: n / h⁶
+  can be small when one point is near the asymptote x + y = 0.)
+- By this rule, (3, 4) to height 15,000 covers its lines to about 5 × 10²⁷, and to about 32,500 roughly 10³⁰.
+
+**Why the line method misses four-ways in 10²³ – 2.5 × 10²³** (214 four-ways):
+
+| reason | count | |
+| --- | ---: | --- |
+| no line at all (24 hubs, 2 independent) | 26 (12%) | out of reach of any line search |
+| line, but n fails the `--core 0` filter | 50 (23%) | 1 found anyway, by an earlier, looser sweep |
+| line direction ranked > 1400 (not searched) | 73 (34%) | |
+| line inside a searched region | 65 (30%) | 48 found; the other 17 lie in directions ranked ≤ 500, whose sweeps (F13, F14) kept only five-ways. Re-running 3 of them generates the triples. |
+
+- **So within the region searched the line method missed nothing.** Its recall is set by three choices: the
+  filter (−23%), the number of directions (−34%) and the shapes without a line (−12%).
+- For five-ways a bowtie has two lines and either suffices, so the direction limit hurts less: of the 43, 38 have
+  a line inside the searched region; the other 5 were found by the exhaustive search.
+
+**Pointers:**
+- Hubs doubled their share (5% → 11%). A hub is two chords P₁P₂ and P₃P₄ meeting the curve at the same
+  non-integral point R: a "rational bowtie". A search over small-height R would reach them; not tried.
+- A six-way that is a bowtie + free point or two disjoint lines needs at least one line, so the gaps that matter
+  most are the filter and the direction count, not the hubs.
+
+## F29 (27 October 2026): hubs, first look: two chords with the same b − a
+
+A hub is a four-way with P₁ + P₂ = P₃ + P₄: the chords P₁P₂ and P₃P₄ meet the curve again at the same
+non-integral point R (a "rational bowtie"). 35 hubs (11 ≤ 10¹⁷, 24 in 10²³ – 2.5 × 10²³), 105 chord-pair views.
+
+- **R's denominator** ranges from 2 to 2.8 × 10⁷; 18 of the 105 views have a denominator ≤ 12.
+- **Chord directions are mostly not "allowed" directions** (Theorem 1 is about lines with three integer points,
+  and these lines have only two).
+- **Pattern:** in **24 of the 35 hubs (69%)** the two chords through R have directions (a, b) and (a′, b′) with
+  |b − a| = |b′ − a′| (or a + b = a′ + b′). Examples: (171, 193) and (417, 439); (31, 37) and (463, 469);
+  (259, 403) and (6349, 6493); (4, 39) and (796, 831). Often R's denominator equals that common difference.
+- **Control:** among the 383 non-hub four-ways, only 12 (3%) have any pairing of their points with this property.
+- **Not in bowties:** only 4 of the 40 bowtie five-ways (two lines through an integer point) have equal b − a or
+  a + b, three of them with b − a = 1, which is common among cheap directions anyway. So the pattern belongs to
+  the non-integral hub point R.
+- Since b − a = s_Q − s_P for a chord PQ (s = x + y), up to the gcd, this says that the two chords change
+  s = x + y by the same amount. Not explained yet; a lead for a constructive hub search.
+
+## F30 (27 October 2026): hubs explained: two lines through a point of small denominator, i.e. a bowtie on D³n
+
+**Tool:** `hub_geometry.py` (coordinates s = x + y, v = x − y, where the curve is s(s² + 3v²) = 4n). 35 hubs
+(11 ≤ 10¹⁷, 24 in 10²³ – 2.5 × 10²³). Each hub P₁ + P₂ = P₃ + P₄ has 3 meeting points R (the 3 ways to pair the
+points); in 11 hubs the two lines meet the curve at R and its mirror (s_R, −v_R) rather than at R itself.
+
+**1. The F29 pattern (equal b − a) is a side effect.**
+- For a line PQ, b − a = Δs and a + b = Δv: (b − a, a + b) is the line's direction in the (s, v) plane.
+- If R has integer s_R = S and v_R = w/d, then each line from R to an integer point has direction
+  (d(S − sᵢ), w − d·vᵢ), so its b − a is a **multiple of d** (checked: all 57 cases). Equal b − a = the case where
+  both multiples are 1 (18 of 57).
+- **Integer s_R** happens in 33 of 35 hubs. Write R = (X/D, Y/D) in lowest terms, so X³ + Y³ = D³ n =
+  (X + Y)(X² − XY + Y²). Primes ≡ 2 (mod 3), and 3, cannot sit in the second factor, so they force D | X + Y,
+  i.e. integer s. Primes ≡ 1 (mod 3) can go either way: the 8 non-integer cases have s-denominators 7, 43, 103,
+  229, 1171, all ≡ 1 (mod 3). Matched by denominator size, random chords have integer s just as often
+  (D ≤ 12: 94% random vs 100% hubs; D ≤ 1000: 41% vs 62%).
+
+**2. The real property: a meeting point of small denominator.**
+
+| smallest denominator D | hubs (35) | non-hub four-ways (383; smallest of all 12 chord points) |
+| --- | ---: | ---: |
+| ≤ 2 | 4 | 15 |
+| ≤ 6 | **20 (57%)** | 54 (14%) |
+| ≤ 12 | 23 (66%) | 71 (19%) |
+| ≤ 100 | 31 (89%) | 147 (38%) |
+| ≤ 1000 | 35 (100%) | 233 (61%) |
+
+Typical smallest denominators: 2, 3, 5, 6, 12, 15.
+
+**3. Unification: a hub of n is a bowtie of D³n.**
+- Multiply all coordinates by D. P₁, …, P₄ become integer points divisible by D, and R becomes an integer
+  point (X, Y) of x³ + y³ = D³n. The two chords become two lines, each with three integer points, through the
+  shared point (X, Y): a bowtie on D³n, whose four outer points are multiples of D.
+- Bowtie five-ways are the case D = 1. The hierarchy line → line + point → bowtie extends to "D-lines" (two
+  integer points and one point of denominator D) and hubs (two D-lines sharing that point).
+- `line_enum.py` already generates such triples (on D³n), but drops them because two points are not coprime.
+
+**Consequences:**
+- **A hub search is a line search that keeps D-lines for small D** (2, 3, 4, 5, 6, …), indexed by (n, R).
+  Two D-lines with the same n and R give a hub; a D-line plus an ordinary line through the same n gives more.
+- **Direction rule for D-lines (21 cases with D ≤ 6, no exception):** a·b > 0 and every prime ≡ 2 (mod 3) divides
+  a·b to an even power, as in Theorem 1(a). Parity depends on D: **D odd (3, 5): a·b even**, the usual allowed
+  directions, e.g. (1, 4), (4, 7), (37, 76), (12, 67); **D even (2, 4, 6): a·b odd**, e.g. (1, 3), (7, 9), (1, 7),
+  (31, 37), (1, 13). Conjecture, to prove alongside Theorem 1. Cost scaling not measured yet.
+- **Six-way shapes this adds:** hub + line (6 points), hub + bowtie pieces, two hubs sharing points.
+
+## F31 (27 October 2026): D-line search (`dline_enum.py`): validated; the line ∩ D-line join; a five-way of shape line + D-line
+
+**Tool:** `dline_enum.py` enumerates D-lines (two coprime integer points of n, one point R of denominator
+2 ≤ D ≤ --dmax) with the conic of `line_enum.py`, on the F30 directions (`--parity even` for odd D, `odd` for even
+D). Output `n;D;a;b;c;x1:y1,x2:y2;X:Y` with R = (X/D, Y/D).
+
+- **Validation:** every hub line with D ≤ 6 has a computed direction and slope height. Typically one line is in
+  a cheap direction at large height and the other in an expensive direction at small height. Running
+  (4,7), (1,4), (7,9), (1,3), (1,7) to height 300–400 re-finds all 6 hubs aimed at, each through 2–3 D-lines
+  (≈ 3 s).
+- **Calibration ≤ 10¹⁷** (30 cheapest directions of each parity, height 600, D ≤ 12; 3 min): 561,055 D-lines,
+  237,148 distinct n. Exact count of all: **33 four-ways (7 of the 11 hubs, 26 line + free), all in the exhaustive
+  list of 204**, no false hits. But 236,394 of the n are two-ways: as a candidate source D-lines are weak
+  (4-way rate 1.4 × 10⁻⁴, against 4 × 10⁻³ for ordinary lines on the same directions: 102 four-ways and 1 five-way
+  among 25,027 n).
+- **The join:** n carrying both an ordinary line and a D-line. ≤ 10¹⁷: 8 such n, **all 8 four-ways** (the D-line
+  shares one point with the line). If the D-line is disjoint from the line, n has ≥ 5 representations.
+- **Five-ways of that shape exist:**
+  - 236191447138323830299237: the (3, 4) line + the line through its two free points, which meets the curve at
+    a point of denominator **24**: a line + disjoint D-line (D = 24).
+  - 137904678696613339 (Bernstein): line + free pair whose chord point has denominator 129.
+  - 153461072317103291251148239: no small D (smallest 194,271,019).
+- **The star picture** (lines through one point C):
+
+  | centre C | 2 lines | 3 lines |
+  | --- | --- | --- |
+  | integer point (D = 1) | bowtie, 5 points (40 of 43 five-ways) | 7 points |
+  | point of small denominator D | hub, 4 points | **6 points** |
+
+  Six-way shapes with three relations on six points: a 3-line star around a small-D point; a bowtie + a D-line
+  to a sixth point; a line + a hub sharing a point; a triangle of three lines. With two relations: bowtie + free
+  point, two disjoint lines, line + disjoint D-line + free point.
+
+## F32 (27 October 2026): Mac test, deep against wide. Breadth wins; exact counting of every candidate is cheap
+
+**Setup.** M3, 8 cores. Filters `--hero 4 --core 0`, n ≤ 10⁴⁰. Every candidate n was counted exactly
+(`count_all.py`, about 10,000 n/s), not sampled. Results are in `linesearch_mac/` (`union_4plus.txt`: all 1,108 four- and five-ways; reports, stars, run scripts; `mac1` is the deep run, `mac2` the
+wide run). The bulky triple files were not kept.
+
+| | deep: 8 directions per parity, height 3,000 | wide: 1,000 directions per parity, height 200 |
+| --- | --- | --- |
+| line stage | 14.3M triples, 6.7M n; 4,888 CPU-s; 2.3 GB | 4.5M triples and n; 2,795 CPU-s; 50 MB |
+| line hits | 503 four-ways, 4 five-ways | 559 four-ways, 7 five-ways |
+| line four-ways > 10²³ | 230 (0.047 per CPU-s) | 192 (0.069 per CPU-s) |
+| D-line stages (even + odd) | 11.1M n; 9,323 CPU-s | 7.1M n; 5,537 CPU-s |
+| D-line hits | 84 four-ways, 2,664 three-ways | 144 four-ways, 3,636 three-ways |
+| joins (line ∩ D-line) | 7 | 57 (50 four-ways, the five-way 3.6e25) |
+| stars (hubs found directly) | 0 | 4 (D = 3, 6, 6, 2) |
+
+- **Union:** 1,098 four-ways and 10 five-ways, all ten already known; no six-way.
+  - The run found **130 of the 204 exhaustive four-ways ≤ 10¹⁷**, and 51 of the 214 at 10²³–2.5·10²³.
+  - 917 of the four-ways lie in ranges we have not covered exhaustively (10¹⁷–10²³ and above 2.5·10²³, up to
+    10²⁹).
+- **Yield per direction falls slowly with rank.** At height ≤ 200, four- and five-ways per direction:
+  - rank 1–10: 9.5;
+  - rank 11–30: 2.75;
+  - rank 31–100: 1.3;
+  - rank 101–300: 0.62;
+  - rank 301–1000: 0.29.
+
+  That is roughly rank^−0.7. Cumulative yield over R directions grows like R^0.3.
+- **Depth: hits per height band in the 8 deep directions.** The bands are 0–100, 100–200, …, 1600–3000, each
+  about double the last. They gave 51, 36, 54, 78, 122 and 166 hits, about ×1.5 per doubling of height for
+  ×4 the slopes. Cumulative yield grows like h^0.6, that is about cost^0.3. The cost per slope also grows with
+  height: 56 µs per slope at h ≤ 3,000 against 19 µs at h ≤ 300.
+- **Breadth reaches large n too.** Expensive directions (large b³ − a³) give large n at small height.
+  - The wide run's four-ways > 10²³ came at 1.5× the deep run's rate per CPU-second.
+  - Its five-ways reach 3.6·10²⁵.
+- **D-lines are a complementary source, not a better one.**
+  - 122 of the four-ways were found only by the D-line search: 57 hubs, 59 line + free whose line lies
+    outside the line-searched region, and **6 "independent" four-ways** (no line, no hub). The six are
+    955453440097, 13427849422198295, 266890627295626663, 925841207022664807, 3550033331173949893 and
+    46124514427057530170833.
+  - **Every hub came from the D-line search.**
+  - Stars need two D-lines in *different* directions, for example (4,7) with (316,337), or (1,7) with
+    (67,109). So stars are a breadth-only phenomenon; the deep run found none.
+- **Infrastructure:**
+  - exact counting at about 0.1 ms per n means every candidate can be counted, so sampling is not needed;
+  - the deep odd-parity stage ran at about 30 % idle at the end of each direction; use more chunks;
+  - peak memory in the deep line stage was 2.3 GB, from holding one direction's triples per chunk.
+
+**Conclusion.** For the six-way hunt, spend on breadth (thousands of directions, small to moderate height)
+rather than depth. Always run the D-line enumeration alongside, because it alone finds hubs and stars. The
+six-way most expected from the star picture (F31) is a 3-D-line star, and those can only come from a wide
+search.
+
+## F33 (27 October 2026): every relation among the integral points is a line or a hub; "independent" four-ways sit on high-rank curves
+
+**Language.** x³ + y³ = n is an elliptic curve, and the point at infinity (1 : −1 : 0) is a flex. Taking it as zero:
+- three points are collinear exactly when P + Q + R = 0;
+- −(x, y) = (y, x), which is why the line finder must include swaps, and why "mirror" hubs exist.
+
+So a line is a 3-term relation among the integral points, a hub a 4-term relation P₁ + P₂ = P₃ + P₄, and a D-line
+point R = −(P₁ + P₂) is a rational point of small height. This is the chord-and-tangent law of the Ta(k) upper
+bound literature (Boyer, Su) and of Choudhry's constructions. Bowties and stars are small "orchard" configurations
+(Sylvester; Burr–Grünbaum–Sloane; Green–Tao: extremal 3-point-line configurations lie on cubics).
+
+**Method** (`curve_relations/`):
+- **Data:** 1,378 coprime k ≥ 4 numbers: the exhaustive four-ways ≤ 10¹⁷ and at 10²³–2.5·10²³, the 43 five-ways,
+  and the Mac line-search union.
+- **Relations:** for each, the height-pairing matrix of the k integral points. LLL on [identity; 10²⁰·H] gives
+  candidate integer relations with |cᵢ| ≤ 1,000, and each is checked *exactly* with the group law (`elladd`).
+  This takes under a second for all 1,378.
+- **Ranks:** the curve rank by PARI `ellrank`, with the points as hints, for the 453 smallest curves. 358 are exact;
+  the screen was stopped before the large n.
+
+**Results:**
+
+| shape (`line_structure.py`) | curves | rank of the integral points | relations found |
+| --- | ---: | ---: | --- |
+| line + free (k = 4) | 1,233 | 3 | one 3-term, coefficients ±1 |
+| hub (k = 4) | 87 | 3 | one 4-term, coefficients ±1 |
+| independent (k = 4) | 15 | **4** | **none** |
+| bowtie (k = 5) | 40 | 3 | two (a 3-term and a 3- or 4-term; the basis choice varies) |
+| line + 2 free (k = 5) | 3 | 4 | one 3-term |
+
+- **Lines and hubs are the only relations.** All 1,403 relations found have every coefficient ±1 and 3 or 4
+  terms. There is no 2P = Q + R (a tangent through an integral point), and no 5-term relation. The geometric
+  search (lines + D-lines) therefore sees *all* the structure there is.
+- **The "independent" four-ways are a different mechanism: rank.** Twelve of the 15 have an exact curve rank:
+
+  | group | curves | mean rank | rank ≥ 6 |
+  | --- | ---: | ---: | ---: |
+  | independent | 12 | **5.83** (4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 7, 8) | 8 of 12 |
+  | line + free, size-matched (10¹¹–4·10¹⁸) | 235 | 4.12 | 10 of 235 |
+  | hub, size-matched | 16 | 3.88 | 0 |
+
+  So four integral points arise either from **structure** (one relation, so the points span rank 3, on curves
+  of typical rank 4) or from **rank** (no relation, on curves of rank about 6–8). These are the "1 % with no
+  pattern". 266890627295626663 has rank 8.
+- **Six-way consequence (a guess, not a theorem).** On this evidence, a six-way comes either:
+  - by structure: three relations, so the points span rank 3, as in a star of three D-lines or two bowtie lines
+    plus a hub; any curve of rank ≥ 3 can carry it, which is the geometric search;
+  - or by rank: few relations, needing rank around 8–10 or more, which the line searches cannot target.
+
+  A rank-targeted search would mean high-rank curves of the right size, Elkies-style, where the integral points
+  are then counted directly.
+
+## Predictions for the night of 27–28 October 2026 (to check in the morning)
+
+Number of **new** coprime five-ways found by the night's runs:
+- 7of9 GPUs (exhaustive four-ways 0–10²²): 11 rediscovered, 0 new (certain unless a run was wrong);
+- 7of9 D-lines at height 550; worf lines, ranks 1,401–20,000 at height 800; worf deep, ranks 31–1,400 at heights
+  600–2,500.
+
+| | 7of9 | worf | total new |
+| --- | ---: | ---: | ---: |
+| user | 3 | 7 | **10** |
+| Claude | 0–1 | 2–8 | **5** (range 2–9) |
+
+All known coprime k ≥ 4 numbers are now in one file, `results/a047697_catalogue.txt` (4,169 four-ways, 43 five-ways,
+recounted exactly, 27 October). Exhaustive ratios of five-ways to four-ways: 1 : 203 for n ≤ 10¹⁷, and 1 : 214 at
+10²³–2.5·10²³. In the targeted searches it is about 1 : 100.
+
 ## Negative results
+
+- **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
+  small generator heights are.
+  - The best curve found, M = 619538684309181 (rank 7, a four-way), gives Ca(12) ≤ 1.9·10⁸³, which is 10⁵⁶ times
+    the published bound, and nothing at all within 10⁶⁰ of the published bounds for k ≥ 16.
+  - The record curve M = 3956875867 (rank 6), run through the same pipeline (`curve_cabtaxi.py`), reproduces the
+    published Ca(19) and Ca(22) exactly.
+  - Points of canonical height ≤ 80: 10,191 on the record curve, 4,486 on ours.
+  - Integral points have height about ⅓·log n, so curves with large n cannot compete. A better Ta(19) needs
+    high-rank curves with *small* M (Elkies-style constructions), not our multi-way curves.
+  - `curve_cabtaxi.py --taxicab` (positive points only, compared with the Ta bounds) was added for this.
+
 
 - **N3 (25 October 2026): divisor-richness alone does not make multi-way numbers.** Of 20,000 random products
   of 12 of the 20 smallest split primes (20–30 digits): 19,861 have no coprime representation, 136 have one,
