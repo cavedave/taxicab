@@ -698,6 +698,111 @@ orientations).
   - deeper slopes on the few productive cheap directions;
   - the structural route (UlasPaperPlan goal C).
 
+## F26 (26 October 2026): deep search of 8 cheap directions to slope height 4,000: five new five-ways
+
+- **Run:** `line_enum.py --only "3,4;12,13;12,19;3,16;36,37;12,49;57,64;48,49" --chunks 6 --height 4000
+  --nmax 1e40 --old-height 600 --old-nmax 1e32 --hero 4 --core 0`, then `cheap_search.py --rmin 4`.
+  - The directions are the most productive ones from F24.
+  - New `line_enum.py` options: `--only` (an explicit list of directions) and `--chunks` (split each
+    direction's slope range across processes).
+  - Time: about 28 min enumeration plus 21 min counting, on the Mac.
+  - Files: `deep8.log`, `deep8_search.log`, `deep8_multi.txt`.
+- **Result:** 30.6 M triples, 15,315,926 distinct n. **500 four-ways, 9 five-ways, no six-way.**
+- **The five new five-ways** (each verified by the exact divisor count; all prime factors ≡ 1 (mod 3)):
+
+  | n | direction | slope height | factorisation |
+  | --- | --- | ---: | --- |
+  | 236191447138323830299237 (2.36 × 10²³) | (3, 4) | 1,750 | 7² · 13 · 19 · 37 · 97 · 349 · 787 · 1447 · 3607 · 3793 |
+  | 459803710089257980965337 (4.60 × 10²³) | (12, 13) | 1,192 | 7 · 13 · 31 · 67 · 181 · 241 · 4273 · 24007 · 543661 |
+  | 2851826724766078018833601 (2.85 × 10²⁴) | (3, 4) | 3,459 | 7 · 13 · 37 · 61 · 229 · 751 · 6997 · 24733 · 466537 |
+  | 153461072317103291251148239 (1.53 × 10²⁶) | (12, 19) | 1,487 | 7 · 19 · 37 · 43 · 97 · 307 · 577 · 733 · 853 · 2251 · 29989 |
+  | 889713631299214636707596167 (8.90 × 10²⁶) | (3, 16) | 1,459 | 7 · 13 · 19 · 31 · 79 · 97 · 103 · 151 · 163 · 313 · 24571 · 111103 |
+
+  The other four were known: 39673716067958900347, 624256195206357000469, 867568642528959824806171 and
+  357308079971019656068684549.
+- **Per direction** (`rank_dirs.py`, deduplicated):
+
+  | direction | distinct n | four-ways | five-ways |
+  | --- | ---: | ---: | ---: |
+  | (3, 4) | 3,332,066 | 291 | 3 |
+  | (12, 13) | 2,201,302 | 61 | 1 |
+  | (12, 19) | 1,404,092 | 38 | 1 |
+  | (3, 16) | 2,275,606 | 45 | 1 |
+  | (36, 37) | 1,567,680 | 24 | 1 |
+  | (12, 49) | 2,431,360 | 18 | 1 |
+  | (57, 64) | 1,408,379 | 10 | 1 |
+  | (48, 49) | 695,441 | 13 | 0 |
+
+- **A rich seam:**
+  - Five-ways per candidate are about 5–10× those of the broad sweeps (F25: 0 new in 14.5 M).
+  - The new five-ways sit at slope heights 1,192–3,459, across the whole new range, so the seam very likely
+    continues above 4,000.
+  - The cheapest direction, (3, 4), carries 58% of the four-ways and 3 of the 9 five-ways.
+- **Consequences:**
+  1. **Depth beats breadth.** Higher slopes on cheap directions are far better than more expensive
+     directions.
+  2. **The 10²²–10²³ gap was a fluctuation:** three five-ways are now known in 10²³–10²⁴ (2.36, 4.60 and
+     8.68 × 10²³).
+  3. **A pool of 50–100 five-ways looks reachable** (the top ~25 directions to height 10,000 on 7of9). That
+     revises the pessimism of UlasPaperPlan C0.
+  4. **A test of recall:** 2.36 × 10²³ lies in the planned GPU window 10²³–2.5 × 10²³. That run would show
+     what the line method misses in an exhaustive range.
+- **Caution:** 9 five-ways is a small sample, so the 5–10× figure is rough.
+
+## F27 (26 October 2026): line search on the rental's spare CPUs: 19 new five-ways; recall measured against the 10²³–2.5 × 10²³ exhaustive run
+
+- **Setting:** the 4 × RTX 5090 vast.ai machine (96 threads, 80 used at nice 19) while its GPUs ran the exhaustive
+  10²³–2.5 × 10²³ search. Results copied to `linesearch_4x5090/`.
+- **Run 1, `deep_cpu.sh`** (09:36–15:58 UTC): the 30 cheapest directions plus (12, 49) and (57, 64), slope height
+  15,000, n ≤ 10⁴⁰, `--hero 4 --core 0`. Skipped: slopes already searched (height 4,000 for the F26 directions,
+  600 for the rest).
+  - 760 M triples counted exactly. **1,996 distinct four-ways, 21 five-way hits, no six-way.**
+  - Five-ways by direction: (3,4) 7 hits; (12,13), (27,28), (12,19) 2 each; (1,4), (1,12), (16,19), (9,16), (36,37),
+    (16,25), (63,64), (12,49) 1 each. **14 of them are new.**
+- **Run 2, `solo_band.sh`** (direction (3, 4) only, height 50,000, slopes above 15,000, in bands of 2,500 in s):
+  13 of 20 bands done (s ≤ 32,499) before the GPU run ended. 735 M triples counted.
+  **927 distinct four-ways, 9 distinct five-ways, no six-way.** 5 of the 9 are new; 4 were also found by run 1
+  (other orderings of the same triples).
+  - Most five-way "hits" per band are re-finds: one triple has 6 orderings, hence 6 slopes, often in different bands.
+- **The 19 new five-ways** (all verified on the Mac: exact divisor count = 5, every prime factor proven):
+
+  | n | found in |
+  | --- | --- |
+  | 36254160765497504708872903 (3.6 × 10²⁵) | (3,4) |
+  | 182392325742867193833098401 (1.8 × 10²⁶) | (3,4), solo |
+  | 201297892510496465061972139 (2.0 × 10²⁶) | (3,4), solo |
+  | 1875257556360663546196170409 (1.9 × 10²⁷) | (3,4), solo |
+  | 9027370398769170672971729619 (9.0 × 10²⁷, 3² ‖ n) | (16,19) |
+  | 34547209243400012474421281413 (3.5 × 10²⁸) | (12,13) |
+  | 104153248919447127324401999977 (1.0 × 10²⁹) | solo |
+  | 278052073362590568252158271051 (2.8 × 10²⁹, 3² ‖ n) | (1,4) |
+  | 498424028328865332465535957193 (5.0 × 10²⁹, 11 \| n) | (1,12) |
+  | 650942832109065456723121976491 (6.5 × 10²⁹) | (27,28), solo |
+  | 2575932492706922775209751529471 (2.6 × 10³⁰) | solo |
+  | 3598085549085232075646572993861 (3.6 × 10³⁰) | solo |
+  | 5155590025407314470961337159897 (5.2 × 10³⁰, 3³ ‖ n) | (16,25) |
+  | 7016830156515525773263162950169 (7.0 × 10³⁰) | solo |
+  | 7621954168931821961653299403879 (7.6 × 10³⁰) | solo |
+  | 12134354169911534158461101130403 (1.2 × 10³¹) | (12,19) |
+  | 19008553084548906511372979784727 (1.9 × 10³¹) | (63,64) |
+  | 241472402714194053046481660069701 (2.4 × 10³²) | (9,16) |
+  | 378855256022502299689661564666966839 (3.8 × 10³⁵, 7 ∤ n) | (12,49) |
+
+  Representations are in `results/a047697_search.md`; images in `out/a047697/`.
+- **Pool of coprime five-ways now 43:** Bernstein 2 + 9 exhaustive (≤ 10²³) + 32 from the line method (> 10²³).
+- **Exceptions to earlier "rules" of the five-way profile:** 11 | n (498…193), 3² and 3³ ‖ n (three cases), 7 ∤ n
+  (3.8 × 10³⁵), and prime factors up to 3.84 × 10⁶ (so a smoothness filter would need a bound of at least 10⁷).
+  The `--core 0` filter (≥ 2 of {7, 13, 19, 37}, ≥ 4 split primes below 200) is the only one consistent with all 43.
+- **Recall, measured against the exhaustive GPU run 10²³ < n ≤ 2.5 × 10²³** (`a047697/cab_1e23_2.5e23_part*.txt`,
+  kmin 4: 214 four-ways, 1 five-way, verified independently on the Mac):
+  - **five-ways: 1 of 1.** 236191447138323830299237 had been found by F26 and again by run 1.
+  - **four-ways: 49 of 214 (23%)**, combining every line-search file in `experiments/mining/`.
+    159 of the 214 (74%) pass the `--core 0` filter; the searches found 48 of those (30%) and 1 of the 55 that fail it.
+  - So the filter keeps about 3/4 of four-ways, and the directions and heights searched so far catch about 1/3 of
+    those. For five-ways (two lines through a hub) the catch rate should be higher, since either line suffices;
+    1 of 1 is consistent with that but is no measurement.
+- **Six-way chance:** none found among about 2,600 four-ways and 26 distinct five-way n from this day's runs.
+
 ## Negative results
 
 - **N3 (25 October 2026): divisor-richness alone does not make multi-way numbers.** Of 20,000 random products

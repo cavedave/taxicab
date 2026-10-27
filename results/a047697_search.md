@@ -1,6 +1,6 @@
 # The search for A047697(6)
 
-*Status, 20 October 2026: complete to 10²³. No six-way exists for n ≤ 10²³, and there is no five-way between 10²² and 10²³.*
+*Status, 26 October 2026: complete to 2.5 × 10²³. No six-way exists for n ≤ 2.5 × 10²³. There is no five-way between 10²² and 10²³, and exactly one between 10²³ and 2.5 × 10²³.*
 
 [OEIS A047697](https://oeis.org/A047697) is the smallest positive number that can be written in *n* ways as
 x³ + y³ with **gcd(x, y) = 1**, where x and y may be negative:
@@ -12,16 +12,18 @@ x³ + y³ with **gcd(x, y) = 1**, where x and y may be negative:
 | 3 | 3,367 | classical |
 | 4 | 16,776,487 | Rathbun |
 | 5 | 506,433,677,359,393 | Bernstein, 1999 |
-| 6 | **unknown**: > 10²³ (this search) | |
+| 6 | **unknown**: > 2.5 × 10²³ (this search) | |
 
 Bernstein's 1999 search (*Enumerating solutions to p(a)+q(b)=r(c)+s(d)*, Math. Comp. 70, 2001, §7) found no
 six-way below 2.5 × 10¹⁷. Nobody seems to have searched further since.
 
 ## Results so far
 
-**No six-way exists for n ≤ 10²³**, so a(6) > 10²³. That is 400,000 times past Bernstein's 2.5 × 10¹⁷.
+**No six-way exists for n ≤ 2.5 × 10²³**, so a(6) > 2.5 × 10²³. That is a million times past Bernstein's 2.5 × 10¹⁷.
 
-Up to 10²³ there are exactly **eleven** numbers with five coprime representations: Bernstein's two and nine new ones.
+Up to 10²³ there are exactly **eleven** numbers with five coprime representations: Bernstein's two and nine new ones
+(table below). Between 10²³ and 2.5 × 10²³ there is exactly **one**, 236,191,447,138,323,830,299,237, which the line
+method had found first (next section). So up to 2.5 × 10²³ there are exactly **twelve**.
 
 | n | representations | source |
 | ---: | --- | --- |
@@ -43,8 +45,9 @@ None of the nine new numbers appears in the OEIS. Rendered images are in `out/a0
 
 ## Five-ways beyond 10²³ found by the line method (not exhaustive)
 
-The exhaustive search stops at 10²³. Above it, the line method in `experiments/mining/` (F12–F14 in its
-`FINDINGS.md`) has found **eight new coprime five-ways**.
+The exhaustive search stops at 2.5 × 10²³. Above 10²³, the line method in `experiments/mining/` (F12–F14 in its
+`FINDINGS.md`) has found **thirty-two new coprime five-ways** (13 by 26 October 2026 morning, 19 more on the spare CPUs of the
+4 × RTX 5090 rental the same day; FINDINGS F26–F27).
 
 **How the method works:**
 - it enumerates collinear coprime triples on the cheapest line directions;
@@ -52,21 +55,51 @@ The exhaustive search stops at 10²³. Above it, the line method in `experiments
 - it counts all representations of each kept number exactly, from its divisors.
 
 **Each number below has exactly 5 coprime representations, by that exhaustive count.** The search itself is
-**not** exhaustive, so there may be other five-ways between 10²³ and these numbers that it has not found. It
-does not affect the bound a(6) > 10²³.
+**not** exhaustive, so there may be other five-ways between 2.5 × 10²³ and these numbers that it has not found. It
+does not affect the bound a(6) > 2.5 × 10²³.
 
 | n | the five representations |
 | ---: | --- |
+| 236,191,447,138,323,830,299,237 | 61736565³ + 9613558³ = 61857514³ − 7922043³ = 62141349³ − 15564158³ = 168364485³ − 165539942³ = 218687536³ − 217028739³ |
+| 459,803,710,089,257,980,965,337 | 76134102³ + 26447809³ = 76599049³ + 21803592³ = 78197089³ − 26378418³ = 118734025³ − 106679892³ = 1256265265³ − 1256168142³ |
 | 867,568,642,528,959,824,806,171 | 79186278³ + 71857339³ = 82498848³ + 67392259³ = 97363267³ − 38120748³ = 98534347³ − 44664678³ = 100778875³ − 53829834³ |
+| 2,851,826,724,766,078,018,833,601 | 141276225³ + 31780576³ = 141812938³ − 5433591³ = 533144193³ − 529778636³ = 541153702³ − 537887943³ = 35577954550³ − 35577953799³ |
 | 15,442,272,835,364,300,840,226,739 | 208066083³ + 185999278³ = 229129762³ + 150558771³ = 997367115³ − 992165396³ = 1359827104³ − 1357037685³ = 3716031604³ − 3715658805³ |
+| 36,254,160,765,497,504,708,872,903 | 294244287³ + 220895650³ = 330766876³ + 40420503³ = 332226735³ − 74604338³ = 395112304³ − 294062121³ = 585346546³ − 547707777³ |
 | 36,382,243,612,093,946,470,090,369 | 327379905³ + 108983764³ = 331356993³ + 4456108³ = 331560514³ − 40613655³ = 340899562³ − 147889719³ = 742131514³ − 719424375³ |
+| 153,461,072,317,103,291,251,148,239 | 494803854³ + 318527815³ = 535294572³ + 42656431³ = 535525807³ − 49494084³ = 561275095³ − 285851646³ = 922950103³ − 858503742³ |
+| 182,392,325,742,867,193,833,098,401 | 560392929³ + 185725408³ = 566852926³ + 62985465³ = 566965642³ + 52072617³ = 568693768³ − 115239711³ = 2392061926³ − 2381389095³ |
+| 201,297,892,510,496,465,061,972,139 | 489586611³ + 437858752³ = 539188654³ + 354480075³ = 584713372³ + 111612531³ = 979060900³ − 903358221³ = 3200502658³ − 3193938597³ |
 | 357,308,079,971,019,656,068,684,549 | 846426900³ − 629207651³ = 1083838668³ − 971136227³ = 1215221461³ − 1128533418³ = 2022747541³ − 1993208538³ = 2119473205³ − 2092621026³ |
 | 581,834,611,748,164,220,101,952,821 | 879096213³ − 460320926³ = 914740341³ − 568334390³ = 1378449904³ − 1267724307³ = 1443979966³ − 1344232635³ = 1749407062³ − 1683590043³ |
+| 889,713,631,299,214,636,707,596,167 | 769234300³ + 757432023³ = 962557023³ − 128278550³ = 977285572³ − 352174761³ = 1005378496³ − 502003689³ = 2573785222³ − 2528213361³ |
 | 1,441,335,932,043,659,816,048,279,479 | 1110168886³ + 418087647³ = 1129711558³ − 76993377³ = 1134621759³ − 268413890³ = 1140344500³ − 346361241³ = 16593139390³ − 16591394241³ |
+| 1,875,257,556,360,663,546,196,170,409 | 1207119244³ + 488147385³ = 1233162561³ − 6675638³ = 1233192244³ − 51389895³ = 1252231744³ − 445380615³ = 3519138118³ − 3467922447³ |
 | 4,006,751,594,615,544,419,200,755,017 | 1310961369³ + 1205921552³ = 1498106073³ + 863797640³ = 1588105089³ + 112584722³ = 2031165105³ − 1635294802³ = 4259754201³ − 4184840344³ |
+| 9,027,370,398,769,170,672,971,729,619 | 2108482492³ − 702242389³ = 2294140139³ − 1449721760³ = 6261916798³ − 6184215997³ = 6401494571³ − 6327205148³ = 280338678275³ − 280338639986³ |
 | 34,501,269,164,386,329,986,697,851,653 | 3112812834³ + 1631078149³ = 3180904861³ + 1323131988³ = 4220557686³ − 3439222187³ = 4654339933³ − 4047865344³ = 32212272037³ − 32201184870³ |
+| 34,547,209,243,400,012,474,421,281,413 | 3009879517³ + 1938067200³ = 3273732498³ − 813542459³ = 3274969189³ − 833101686³ = 3309374101³ − 1192760442³ = 28538987485³ − 28524841608³ |
+| 104,153,248,919,447,127,324,401,999,977 | 4566097281³ + 2076500746³ = 4685537728³ + 1087381305³ = 4941984417³ − 2548178846³ = 5400565480³ − 3764776647³ = 21784073734³ − 21710666703³ |
+| 278,052,073,362,590,568,252,158,271,051 | 5686474795³ + 4549643726³ = 5901626792³ + 4169835667³ = 6537360650³ − 1101282149³ = 6808394174³ − 3348526997³ = 6840095204³ − 3475331117³ |
+| 498,424,028,328,865,332,465,535,957,193 | 6319209305³ + 6266529432³ = 7581618978³ + 3971154881³ = 7928696064³ − 193770151³ = 8241075630³ − 3942324943³ = 9842056296³ − 7691018407³ |
+| 650,942,832,109,065,456,723,121,976,491 | 8699769675³ − 1958118194³ = 8726002774³ − 2380059477³ = 10358713762³ − 7722672933³ = 15296921728³ − 14306950221³ = 179885417164³ − 179878711437³ |
+| 2,575,932,492,706,922,775,209,751,529,471 | 12967638766³ + 7339083735³ = 13703290599³ + 1396967938³ = 13745372542³ − 2761248873³ = 13903794628³ − 4818656961³ = 45438516016³ − 45018773505³ |
+| 3,598,085,549,085,232,075,646,572,993,861 | 15386595285³ − 3547636154³ = 18568644922³ − 14101779483³ = 20137915846³ − 16593055275³ = 23066846596³ − 20547625635³ = 26452601488³ − 24613721571³ |
+| 5,155,590,025,407,314,470,961,337,159,897 | 16898989774³ + 6907955297³ = 17275238488³ + 419526665³ = 18821942345³ − 11478536012³ = 19635702881³ − 13416804914³ = 27416737865³ − 24907904012³ |
+| 7,016,830,156,515,525,773,263,162,950,169 | 18532209489³ + 8671605370³ = 19252446153³ − 4921681952³ = 19321401472³ − 5810453559³ = 26945469142³ − 23237088639³ = 27365113114³ − 23796613935³ |
+| 7,621,954,168,931,821,961,653,299,403,879 | 15977212575³ + 15245486434³ = 19667909278³ + 2403386703³ = 19790098143³ − 5050134062³ = 27227685934³ − 23246995185³ = 28637269552³ − 25126440009³ |
+| 12,134,354,169,911,534,158,461,101,130,403 | 22057691364³ + 11193189019³ = 22953757363³ + 3436791486³ = 23117727643³ − 6040810284³ = 32454415195³ − 28041404088³ = 66610022515³ − 65685628338³ |
+| 19,008,553,084,548,906,511,372,979,784,727 | 23856656350³ + 17577371103³ = 26138219962³ + 10479173199³ = 37417606215³ − 32197665272³ = 41565306136³ − 37516206009³ = 291974927584³ − 291900583353³ |
+| 241,472,402,714,194,053,046,481,660,069,701 | 61386644829³ + 21650020708³ = 62386748068³ − 11034203811³ = 62531784310³ − 14487717099³ = 110438541238³ − 103400090091³ = 120994399480³ − 115225584099³ |
+| 378,855,256,022,502,299,689,661,564,666,966,839 | 626270232288³ + 510732064423³ = 677911772862³ + 406782587071³ = 750757691215³ − 353834410446³ = 760522164031³ − 393706007778³ = 794957352679³ − 498023881260³ |
 
-**Rediscovery check:** the same method rediscovered 8 of the 11 known five-ways ≤ 10²³ (directions searched so far: the 1,000 cheapest). The 3 it missed have no
+**Rediscovery check:** the same method rediscovered 8 of the 11 known five-ways ≤ 10²³ (directions searched so far: the 1,000 cheapest).
+
+**Recall against the exhaustive run 10²³ – 2.5 × 10²³:** the only five-way in that range (236,191,447,138,323,830,299,237)
+had already been found by the line method, so recall there is 1 of 1. For four-ways it is 49 of 214 (23%): 159 of the 214
+pass the `--core 0` prime filter, and the line searches found 48 of those (30%).
+
+The five found on 26 October 2026 came from a deep search (slope height 4,000) of the 8 most productive cheap directions (`experiments/mining/FINDINGS.md` F26). The 3 it missed have no
 line in the directions searched so far.
 
 ## The runs
@@ -81,6 +114,7 @@ line in the directions searched so far.
 | 10²² – 2 × 10²² | 1 × RTX 5090 (vast.ai), v3 code | 361,217,191,042,592 | 219,601,584,685,459 | 27,102 s | 1.33 × 10¹⁰ |
 | 2 × 10²² – 3 × 10²² | 1 × RTX 5090 (vast.ai), v3 code | 302,973,499,093,645 | 184,191,835,825,468 | 22,775 s | 1.33 × 10¹⁰ |
 | 3 × 10²² – 10²³ | 4 × RTX 5090 (vast.ai), v3 code | 1,575,207,039,548,206 | 957,638,204,314,922 | 33,612 s (wall) | 4.75 × 10¹⁰ (4 GPUs) |
+| 10²³ – 2.5 × 10²³ | 4 × RTX 5090 (vast.ai), v3 code, kmin 4 | 2,403,447,083,666,895 | 1,461,155,509,448,848 | 49,484 s (wall) | 4.92 × 10¹⁰ (4 GPUs) |
 
 "Raw pairs" counts every (x, y) generated. About 60.8% of them are coprime, close to 6/π² ≈ 0.608 as expected.
 
@@ -165,6 +199,35 @@ This ran on 20 October 2026, launched with `MIN=3e22 TAG=3e22_1e23 bash run_4x50
 - **Padding** of the interleaved layout: 3.5–4.5%.
 - **Result:** no five-way and no six-way.
 
+### The 10²³ – 2.5 × 10²³ run (4 × RTX 5090, v3, kmin 4)
+
+This ran on 26 October 2026, launched 09:30 UTC, last part finished about 23:15 UTC. It used `--kmin 4`, so it
+also kept every four-way (for the mining work, and to measure the line method's recall).
+- **Checks before launch:** every GPU passed the selftest, the 10¹⁵ benchmark matched the CPU program, and a
+  smoke window 236191447138 × 10¹² – 236191447139 × 10¹² found the line-method five-way 236191447138323830299237
+  with the same five representations.
+- **The four parts** cover the range with no gaps:
+
+  | part | covers n | raw pairs | time | raw pairs/s | four-ways | five-ways |
+  | --- | --- | ---: | ---: | ---: | ---: | ---: |
+  | 1/4 | 10²³ – 1.3318 × 10²³ | 600,859,433,593,448 | 48,271 s | 1.24 × 10¹⁰ | 78 | 0 |
+  | 2/4 | – 1.6939 × 10²³ | 600,861,191,009,199 | 48,500 s | 1.24 × 10¹⁰ | 48 | 0 |
+  | 3/4 | – 2.0839 × 10²³ | 600,862,626,406,603 | 48,987 s | 1.23 × 10¹⁰ | 50 | 0 |
+  | 4/4 | – 2.5 × 10²³ | 600,863,832,657,645 | 49,484 s | 1.21 × 10¹⁰ | 38 | 1 |
+
+- **Totals:** 2.4034 × 10¹⁵ raw pairs, coprime fraction 0.60795, 54.2 GPU-hours. Time split: sort 60–61%,
+  write 14%, select 10–11%, count 8–10% (the sort is the target of the next speed-up, see below).
+- **Result:** no six-way; one five-way (236,191,447,138,323,830,299,237); 214 four-ways.
+- **Independent check:** all 215 numbers were refactored on the Mac (PARI) and their representations counted
+  from the divisors of n (`experiments/mining/collisions.py`): every count and representation set matches.
+- **Spare CPUs:** the line searches of FINDINGS F27 ran on the same machine (nice 19) without slowing the GPUs.
+
+**Possible speed-up for later runs.** The radix sort moves about 51 GB per segment (7 passes over 56-bit keys)
+and runs near the card's memory bandwidth. The keys are spread almost evenly over a segment and only values
+occurring ≥ K times are needed, so one scatter pass into 65,536 buckets plus an exact duplicate count per bucket
+in shared memory should do the same job with about a third of the traffic: an estimated 2–2.5× overall.
+Not implemented yet.
+
 ### Five-ways per decade
 
 | range | five-ways |
@@ -174,6 +237,7 @@ This ran on 20 October 2026, launched with `MIN=3e22 TAG=3e22_1e23 bash run_4x50
 | 10²⁰ – 10²¹ | 4 |
 | 10²¹ – 10²² | 3 |
 | 10²² – 10²³ | **0** |
+| 10²³ – 2.5 × 10²³ | 1 |
 
 The last decade costs 4.6 times the work of the one before, and before it ran the trend suggested roughly 4–8
 five-ways in it. Finding none suggests the coprime five-ways thin out faster than the small counts from
@@ -239,5 +303,6 @@ genuine solution.
 | `experiments/run_5090.sh`, `experiments/run_4x5090.sh` | build, self-test, benchmark and run scripts |
 | `experiments/render_cabtaxi_png.py` | renders the identities as images (`out/a047697/`) |
 | `a047697/` | logs and result files of the GPU runs |
+| `experiments/mining/linesearch_4x5090/` | line-search results (n with ≥ 4 representations) from the rental's CPUs |
 
-Search cost: about 86 GPU-hours on RTX 5090s (9 for 10¹⁹–10²¹, 26 for 10²¹–10²², 13.9 for 10²²–3 × 10²², 36.9 for 3 × 10²²–10²³), plus about 9 CPU-hours on 7of9.
+Search cost: about 140 GPU-hours on RTX 5090s (9 for 10¹⁹–10²¹, 26 for 10²¹–10²², 13.9 for 10²²–3 × 10²², 36.9 for 3 × 10²²–10²³, 54.2 for 10²³–2.5 × 10²³), plus about 9 CPU-hours on 7of9.

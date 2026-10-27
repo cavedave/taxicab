@@ -1,0 +1,55 @@
+=== Mon Oct 26 09:36:00 UTC 2026 deep_cpu.sh height 15000, 80 processes, gp /usr/bin/gp
+(3,4) skip<=4000: [776s] 46428865/46428865 counted; reps histogram {3: 46428241, 4: 617, 5: 7}  enum 450s count 779s
+  *** 236191447138323830299237 has 5 representations
+  *** 2851826724766078018833601 has 5 representations
+  *** 15442272835364300840226739 has 5 representations
+  *** 36254160765497504708872903 has 5 representations
+  *** 182392325742867193833098401 has 5 representations
+  *** 201297892510496465061972139 has 5 representations
+  *** 1875257556360663546196170409 has 5 representations
+(1,4) skip<=600: [128s] 9388017/9388017 counted; reps histogram {3: 9387954, 4: 62, 5: 1}  enum 211s count 129s
+  *** 278052073362590568252158271051 has 5 representations
+(4,7) skip<=600: [411s] 23393083/23393083 counted; reps histogram {3: 23392954, 4: 129}  enum 298s count 412s
+(12,13) skip<=4000: [499s] 30657547/30657547 counted; reps histogram {3: 30657425, 4: 120, 5: 2}  enum 325s count 501s
+  *** 459803710089257980965337 has 5 representations
+  *** 34547209243400012474421281413 has 5 representations
+(4,9) skip<=600: [150s] 9689471/9689471 counted; reps histogram {3: 9689440, 4: 31}  enum 220s count 151s
+(7,12) skip<=600: [155s] 9869163/9869163 counted; reps histogram {3: 9869108, 4: 55}  enum 208s count 155s
+(1,12) skip<=600: [613s] 32062199/32062199 counted; reps histogram {3: 32062110, 4: 88, 5: 1}  enum 382s count 614s
+  *** 498424028328865332465535957193 has 5 representations
+(13,16) skip<=600: [94s] 5664662/5664662 counted; reps histogram {3: 5664623, 4: 39}  enum 187s count 94s
+(4,13) skip<=600: [696s] 30316670/30316670 counted; reps histogram {3: 30316613, 4: 57}  enum 320s count 698s
+(27,28) skip<=600: [318s] 19915716/19915716 counted; reps histogram {3: 19915643, 4: 71, 5: 2}  enum 279s count 319s
+  *** 633753337814536954807 has 5 representations
+  *** 650942832109065456723121976491 has 5 representations
+(16,19) skip<=600: [111s] 6274813/6274813 counted; reps histogram {3: 6274787, 4: 25, 5: 1}  enum 185s count 112s
+  *** 9027370398769170672971729619 has 5 representations
+(9,16) skip<=600: [446s] 24348071/24348071 counted; reps histogram {3: 24348008, 4: 62, 5: 1}  enum 330s count 447s
+  *** 241472402714194053046481660069701 has 5 representations
+(7,16) skip<=600: [160s] 8918845/8918845 counted; reps histogram {3: 8918804, 4: 41}  enum 222s count 161s
+(36,37) skip<=4000: [385s] 21842315/21842315 counted; reps histogram {3: 21842260, 4: 54, 5: 1}  enum 266s count 386s
+  *** 357308079971019656068684549 has 5 representations
+(3,16) skip<=4000: [603s] 31695397/31695397 counted; reps histogram {3: 31695308, 4: 89}  enum 360s count 606s
+(1,16) skip<=600: [54s] 2040167/2040167 counted; reps histogram {3: 2040165, 4: 2}  enum 182s count 54s
+(12,19) skip<=4000: [307s] 19435930/19435930 counted; reps histogram {3: 19435872, 4: 56, 5: 2}  enum 259s count 308s
+  *** 153461072317103291251148239 has 5 representations
+  *** 12134354169911534158461101130403 has 5 representations
+(16,21) skip<=600: [174s] 9947755/9947755 counted; reps histogram {3: 9947721, 4: 34}  enum 217s count 175s
+(25,28) skip<=600: [1118s] 44130427/44130427 counted; reps histogram {3: 44130381, 4: 46}  enum 439s count 1120s
+(4,19) skip<=600: [463s] 17324757/17324757 counted; reps histogram {3: 17324742, 4: 15}  enum 262s count 465s
+(48,49) skip<=4000: [138s] 9681511/9681511 counted; reps histogram {3: 9681494, 4: 17}  enum 213s count 139s
+(28,31) skip<=600: [905s] 36793919/36793919 counted; reps histogram {3: 36793877, 4: 42}  enum 380s count 907s
+(4,21) skip<=600: [291s] 16527980/16527980 counted; reps histogram {3: 16527948, 4: 32}  enum 259s count 292s
+(16,25) skip<=600: [112s] 5167951/5167951 counted; reps histogram {3: 5167944, 4: 6, 5: 1}  enum 209s count 112s
+  *** 5155590025407314470961337159897 has 5 representations
+(63,64) skip<=600: [347s] 19933659/19933659 counted; reps histogram {3: 19933635, 4: 23, 5: 1}  enum 274s count 348s
+  *** 19008553084548906511372979784727 has 5 representations
+(12,25) skip<=600: [633s] 32294234/32294234 counted; reps histogram {3: 32294187, 4: 47}  enum 394s count 636s
+(19,28) skip<=600: [803s] 31015534/31015534 counted; reps histogram {3: 31015507, 4: 27}  enum 351s count 804s
+(4,25) skip<=600: [364s] 15930257/15930257 counted; reps histogram {3: 15930247, 4: 10}  enum 264s count 364s
+(16,27) skip<=600: [964s] 40076629/40076629 counted; reps histogram {3: 40076604, 4: 25}  enum 438s count 967s
+(31,36) skip<=600: [288s] 14518754/14518754 counted; reps histogram {3: 14518733, 4: 21}  enum 245s count 289s
+(12,49) skip<=4000: [748s] 33938762/33938762 counted; reps histogram {3: 33938720, 4: 41, 5: 1}  enum 402s count 749s
+  *** 378855256022502299689661564666966839 has 5 representations
+(57,64) skip<=4000: [357s] 19506946/19506946 counted; reps histogram {3: 19506934, 4: 12}  enum 264s count 358s
+=== Mon Oct 26 15:58:42 UTC 2026 DONE

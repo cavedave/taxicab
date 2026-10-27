@@ -10,15 +10,16 @@ Repo: [github.com/cavedave/taxicab](https://github.com/cavedave/taxicab)
 
 ## New results (October 2026)
 
-### Coprime cabtaxi: A047697(6) > 10²³
+### Coprime cabtaxi: A047697(6) > 2.5 × 10²³
 
 [OEIS A047697](https://oeis.org/A047697) is the smallest n that is x³ + y³ with gcd(x, y) = 1 in k ways
 (negative cubes allowed). The known terms are 1, 91, 3367, 16776487 and 506433677359393. Bernstein (1999)
 showed there is no six-way below 2.5 × 10¹⁷.
 
 An exhaustive GPU search (`experiments/cabtaxi_gpu.cu`, checked against brute force, a CPU program and
-independent Python recounts) shows **there is no coprime six-way up to 10²³**. Up to 10²³ there are exactly
-11 five-ways: Bernstein's two and these **nine new ones**, each recounted independently.
+independent Python recounts) shows **there is no coprime six-way up to 2.5 × 10²³**. Up to 10²³ there are exactly
+11 five-ways: Bernstein's two and these **nine new ones**, each recounted independently. Between 10²³ and
+2.5 × 10²³ there is exactly one more (236191447138323830299237, below).
 
 | n | the five representations |
 | ---: | --- |
@@ -33,16 +34,41 @@ independent Python recounts) shows **there is no coprime six-way up to 10²³**.
 | 5,306,775,242,131,114,520,041 | 9848424³ + 16326073³ = 13667257³ + 14016672³ = 17446393³ − 1518156³ = 18167545³ − 8834844³ = 61604281³ − 61134600³ |
 
 There is no five-way at all between 10²² and 10²³. Above 10²³, the line method in `experiments/mining/` (enumerating collinear representations, then counting
-each candidate exactly) has found **eight more coprime five-ways**:
+each candidate exactly) has found **thirty-two more coprime five-ways** (the first, 2.36 × 10²³, is also confirmed
+by the exhaustive search, which found no other five-way in 10²³–2.5 × 10²³):
 
+- 236191447138323830299237 (2.4 × 10²³)
+- 459803710089257980965337 (4.6 × 10²³)
 - 867568642528959824806171 (8.7 × 10²³)
+- 2851826724766078018833601 (2.9 × 10²⁴)
 - 15442272835364300840226739 (1.5 × 10²⁵)
+- 36254160765497504708872903 (3.6 × 10²⁵)
 - 36382243612093946470090369 (3.6 × 10²⁵)
+- 153461072317103291251148239 (1.5 × 10²⁶)
+- 182392325742867193833098401 (1.8 × 10²⁶)
+- 201297892510496465061972139 (2.0 × 10²⁶)
 - 357308079971019656068684549 (3.6 × 10²⁶)
 - 581834611748164220101952821 (5.8 × 10²⁶)
+- 889713631299214636707596167 (8.9 × 10²⁶)
 - 1441335932043659816048279479 (1.4 × 10²⁷)
+- 1875257556360663546196170409 (1.9 × 10²⁷)
 - 4006751594615544419200755017 (4.0 × 10²⁷)
+- 9027370398769170672971729619 (9.0 × 10²⁷)
 - 34501269164386329986697851653 (3.5 × 10²⁸)
+- 34547209243400012474421281413 (3.5 × 10²⁸)
+- 104153248919447127324401999977 (1.0 × 10²⁹)
+- 278052073362590568252158271051 (2.8 × 10²⁹)
+- 498424028328865332465535957193 (5.0 × 10²⁹)
+- 650942832109065456723121976491 (6.5 × 10²⁹)
+- 2575932492706922775209751529471 (2.6 × 10³⁰)
+- 3598085549085232075646572993861 (3.6 × 10³⁰)
+- 5155590025407314470961337159897 (5.2 × 10³⁰)
+- 7016830156515525773263162950169 (7.0 × 10³⁰)
+- 7621954168931821961653299403879 (7.6 × 10³⁰)
+- 12134354169911534158461101130403 (1.2 × 10³¹)
+- 19008553084548906511372979784727 (1.9 × 10³¹)
+- 241472402714194053046481660069701 (2.4 × 10³²)
+- 378855256022502299689661564666966839 (3.8 × 10³⁵)
 
 Each has exactly 5 coprime representations (an exhaustive count for that number), but the search is not
 exhaustive. Their representations are in [`results/a047697_search.md`](results/a047697_search.md). The details of the runs (hardware, pair counts,
