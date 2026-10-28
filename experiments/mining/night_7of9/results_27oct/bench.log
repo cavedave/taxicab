@@ -1,0 +1,42 @@
+== machine
+Tue 27 Oct 2026 18:12:47 GMT
+64
+              total        used        free      shared  buff/cache   available
+Mem:            251           3         150           0          97         245
+/dev/nvme0n1p3  1.8T  1.6T  113G  94% /
+Python 3.8.10
+2.19.0
+index, name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]
+0, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 125 MiB, 0 %
+1, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 11 MiB, 0 %
+2, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 11 MiB, 0 %
+3, NVIDIA GeForce RTX 2080 Ti, 11264 MiB, 11 MiB, 0 %
+== build (/usr/local/cuda-12.8/bin/nvcc)
+== self-test, all 4 GPUs in parallel
+GPU 0: 11 ok, 0 FAIL
+GPU 0: NVIDIA GeForce RTX 2080 Ti (sm_75), 11.0 GB free, segment cap 487161680 pairs
+GPU 1: 11 ok, 0 FAIL
+GPU 1: NVIDIA GeForce RTX 2080 Ti (sm_75), 11.2 GB free, segment cap 492762117 pairs
+GPU 2: 11 ok, 0 FAIL
+GPU 2: NVIDIA GeForce RTX 2080 Ti (sm_75), 11.2 GB free, segment cap 492762117 pairs
+GPU 3: 11 ok, 0 FAIL
+GPU 3: NVIDIA GeForce RTX 2080 Ti (sm_75), 11.2 GB free, segment cap 492762117 pairs
+== validation: 0 < n <= 1e15 at kmin 4 must equal the 90 known four-ways
+VALIDATION OK (91 numbers)
+  k=4: 90 numbers, smallest: 16776487 442245349 1026062947 1066365937
+== GPU timing, about 3e11 raw pairs per window, GPU 0
+GPU 0: NVIDIA GeForce RTX 2080 Ti (sm_75), 11.0 GB free, segment cap 470429502 pairs
+DONE 1000000000000000000000 < n <= 1003400000000000000000 raw pairs=300113363376 coprime pairs=182457264657 kmin=4 time=91s (3.29e+09 raw pairs/s)
+DONE 250000000000000000000000 < n <= 250021400000000000000000 raw pairs=300044578441 coprime pairs=182409316828 kmin=4 time=154s (1.95e+09 raw pairs/s)
+time split: count 31% scan 3% write 17% select 5% sort 42% runs 2% host 0%; slots/raw 1.256 (padding of the interleaved layout)
+== CPU timing (56 processes)
+	User time (seconds): 122.90
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:12.23
+	Maximum resident set size (kbytes): 208716
+1001188 D-lines from 224 directions -> /home/dcurran/taxi/bench/dl.txt
+	User time (seconds): 219.44
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:22.36
+	Maximum resident set size (kbytes): 1383584
+2329569 triples from 224 directions -> /home/dcurran/taxi/bench/l.txt
+3330681 n in 50s: {2: 1000045, 3: 2330539, 4: 97}
+== bench done Tue 27 Oct 2026 18:19:53 GMT

@@ -19,14 +19,9 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import line_enum as L
 
-def all_directions(dmax=10**10, amax=2200):
-    c = []
-    for a in range(1, amax):
-        for b in range(a + 1, amax):
-            if b**3 - a**3 > dmax: break
-            if gcd(a, b) == 1 and L.allowed(a, b): c.append((b**3 - a**3, a, b))
-    c.sort()
-    return {(a, b): i + 1 for i, (_, a, b) in enumerate(c)}
+def all_directions(dmax=10**10):
+    """rank of every allowed direction with cost <= DMAX, in true cost order (L.dirs_by_cost, complete)"""
+    return {(a, b): i + 1 for i, (_, a, b) in enumerate(L.dirs_by_cost(dmax, L.allowed_f))}
 
 def lines_of(pts):
     """all collinear triples among the points and their swaps, as (a, b, c, triple) with 0 < a < b"""

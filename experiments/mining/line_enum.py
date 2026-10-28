@@ -27,11 +27,48 @@ def factor(n):
     if n > 1: f[n] = f.get(n, 0) + 1
     return f
 
-def allowed(a, b):
-    f = factor(a * b)
+def allowed_f(f):
+    """F10 rule on the factorisation of a b: 4 | a b, every prime = 2 (mod 3) to an even power"""
     return f.get(2, 0) >= 2 and all(e % 2 == 0 for p, e in f.items() if p % 3 == 2)
 
-def directions(count, amax=2000):
+def allowed(a, b):
+    return allowed_f(factor(a * b))
+
+def dirs_by_cost(cmax, ok):
+    """every coprime direction (a, b), 0 < a < b, with cost b^3 - a^3 <= cmax and ok(factorisation of a b), sorted by
+    cost: [(cost, a, b)]. Complete: near-diagonal directions (cost about 3 b^2) are included however large b is."""
+    from math import isqrt
+    bmax = isqrt(cmax // 3) + 2
+    spf = list(range(bmax + 1))
+    for p in range(2, isqrt(bmax) + 1):
+        if spf[p] == p:
+            for q in range(p * p, bmax + 1, p):
+                if spf[q] == q: spf[q] = p
+    def fac(n, f):
+        while n > 1:
+            p = spf[n]; f[p] = f.get(p, 0) + 1; n //= p
+        return f
+    out = []
+    for d in range(1, bmax):
+        if (d + 1)**3 - 1 > cmax: break
+        for b in range(d + 1, bmax + 1):
+            a = b - d; c = b**3 - a**3
+            if c > cmax: break
+            if gcd(a, b) == 1 and ok(fac(b, fac(a, {}))): out.append((c, a, b))
+    out.sort()
+    return out
+
+def directions(count):
+    """the COUNT cheapest allowed directions in true cost order (complete; see legacy_directions)"""
+    cmax = 10**7
+    while True:
+        L = dirs_by_cost(cmax, allowed_f)
+        if len(L) >= count: return [(a, b) for _, a, b in L[:count]]
+        cmax *= 2
+
+def legacy_directions(count, amax=2000):
+    """the direction order used by every run before 28 October 2026: only b < AMAX, so near-diagonal directions
+    with b >= 2000 (cost >= 1.2e7, from about rank 1,400 on) are missing. Kept to know what was searched."""
     c = []
     for a in range(1, amax):
         for b in range(a + 1, amax):
@@ -134,14 +171,16 @@ def main():
     ap.add_argument("--gp", default="gp")
     ap.add_argument("--procs", type=int, default=6)
     ap.add_argument("--only", default="", help="explicit directions 'a,b;a,b;...' instead of --dirs/--skip")
+    ap.add_argument("--dirs-file", default="", help="explicit directions, one 'a,b' per line (instead of --dirs/--skip)")
     ap.add_argument("--chunks", type=int, default=1, help="split each direction's slope range into CHUNKS jobs")
     ap.add_argument("--s-min", type=int, default=0, help="only slopes r/s with S_MIN <= s <= S_MAX (a band; |r| still up to --height)")
     ap.add_argument("--s-max", type=int, default=-1)
     ap.add_argument("--out", required=True)
     ap.add_argument("--short", action="store_true", help="write only n;a;b (enough for exact counting and per-direction yields)")
     a_ = ap.parse_args()
-    if a_.only:
-        dirs = [tuple(map(int, d.split(","))) for d in a_.only.split(";")]
+    if a_.only or a_.dirs_file:
+        src = a_.only.split(";") if a_.only else [l.strip() for l in open(a_.dirs_file) if l.strip() and l[0] != "#"]
+        dirs = [tuple(map(int, d.split(","))) for d in src]
         assert all(allowed(a, b) and gcd(a, b) == 1 for a, b in dirs), "direction not allowed (F10)"
     else:
         dirs = directions(a_.skip + a_.dirs)[a_.skip:]

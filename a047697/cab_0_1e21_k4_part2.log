@@ -1,0 +1,531 @@
+GPU 1: NVIDIA GeForce RTX 2080 Ti (sm_75), 11.2 GB free, segment cap 476049049 pairs
+search 124999999999999672320 < n <= 353553390593272840192, kmin=4, 126037 segments
+  491/126037 segments, n <= 125731151196967321599, raw=129014865473 coprime=78437824557, 30s, 4.3e+09 raw pairs/s, ETA 7674s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  986/126037 segments, n <= 126469696230650986495, raw=259080806454 coprime=157514670418, 60s, 4.31e+09 raw pairs/s, ETA 7616s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  1479/126037 segments, n <= 127206688965098586111, raw=388621270882 coprime=236272041221, 90s, 4.31e+09 raw pairs/s, ETA 7587s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  1960/126037 segments, n <= 127927117159806992383, raw=515008615411 coprime=313112395550, 120s, 4.29e+09 raw pairs/s, ETA 7604s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  2446/126037 segments, n <= 128656410327688200191, raw=642709801346 coprime=390751522622, 150s, 4.28e+09 raw pairs/s, ETA 7587s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  2935/126037 segments, n <= 129391598730048323583, raw=771199277807 coprime=468869918799, 180s, 4.28e+09 raw pairs/s, ETA 7558s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  3424/126037 segments, n <= 130128182197853372415, raw=899688795405 coprime=546988304432, 210s, 4.28e+09 raw pairs/s, ETA 7529s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  3912/126037 segments, n <= 130864647521664860159, raw=1027915580162 coprime=624946973593, 240s, 4.28e+09 raw pairs/s, ETA 7501s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  4388/126037 segments, n <= 131584336560081469439, raw=1152989266328 coprime=700988612324, 270s, 4.27e+09 raw pairs/s, ETA 7493s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  4875/126037 segments, n <= 132322017457418682367, raw=1280953327986 coprime=778787523006, 300s, 4.27e+09 raw pairs/s, ETA 7463s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  5362/126037 segments, n <= 133061071741209968639, raw=1408917404745 coprime=856586463235, 330s, 4.27e+09 raw pairs/s, ETA 7434s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  5849/126037 segments, n <= 133801496864014483455, raw=1536881523287 coprime=934385420816, 360s, 4.26e+09 raw pairs/s, ETA 7405s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  6330/126037 segments, n <= 134534142838794977279, raw=1663269128064 coprime=1011225859692, 390s, 4.26e+09 raw pairs/s, ETA 7384s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  6816/126037 segments, n <= 135275757884555608063, raw=1790970532038 coprime=1088865060168, 420s, 4.26e+09 raw pairs/s, ETA 7355s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  7302/126037 segments, n <= 136018730654048485375, raw=1918671967337 coprime=1166504299129, 451s, 4.26e+09 raw pairs/s, ETA 7326s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  7780/126037 segments, n <= 136750795400143536127, raw=2044271346080 coprime=1242865511713, 481s, 4.25e+09 raw pairs/s, ETA 7304s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  8263/126037 segments, n <= 137491846977402339327, raw=2171184530456 coprime=1320025479422, 511s, 4.25e+09 raw pairs/s, ETA 7278s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  8748/126037 segments, n <= 138237309153148977151, raw=2298623269723 coprime=1397504982538, 541s, 4.25e+09 raw pairs/s, ETA 7249s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  9233/126037 segments, n <= 138984113745259790335, raw=2426062059960 coprime=1474984486859, 571s, 4.25e+09 raw pairs/s, ETA 7220s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  9715/126037 segments, n <= 139727626532628807679, raw=2552712556809 coprime=1551984734546, 601s, 4.25e+09 raw pairs/s, ETA 7193s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  10198/126037 segments, n <= 140474007120072130559, raw=2679625846147 coprime=1629144750657, 631s, 4.25e+09 raw pairs/s, ETA 7164s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  10679/126037 segments, n <= 141218613157607899135, raw=2806013654416 coprime=1705985286676, 661s, 4.25e+09 raw pairs/s, ETA 7138s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  11160/126037 segments, n <= 141964530202134249471, raw=2932401482746 coprime=1782825826425, 691s, 4.25e+09 raw pairs/s, ETA 7111s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  11639/126037 segments, n <= 142708646279375077375, raw=3058263790346 coprime=1859346863429, 721s, 4.24e+09 raw pairs/s, ETA 7085s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  12118/126037 segments, n <= 143454057943151673343, raw=3184126144722 coprime=1935867907889, 751s, 4.24e+09 raw pairs/s, ETA 7059s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  12597/126037 segments, n <= 144200762945529905151, raw=3309988509814 coprime=2012388972592, 781s, 4.24e+09 raw pairs/s, ETA 7033s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  13081/126037 segments, n <= 144956573743766700031, raw=3437164711200 coprime=2089708802196, 811s, 4.24e+09 raw pairs/s, ETA 7003s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  13565/126037 segments, n <= 145713700444102033407, raw=3564340931739 coprime=2167028648368, 841s, 4.24e+09 raw pairs/s, ETA 6973s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  14043/126037 segments, n <= 146462730578608078847, raw=3689940599120 coprime=2243389970268, 871s, 4.24e+09 raw pairs/s, ETA 6947s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  14526/126037 segments, n <= 147220894951487487999, raw=3816854109979 coprime=2320550062441, 901s, 4.24e+09 raw pairs/s, ETA 6917s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  15010/126037 segments, n <= 147981936789721939967, raw=3944030399539 coprime=2397869920562, 931s, 4.24e+09 raw pairs/s, ETA 6887s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  15493/126037 segments, n <= 148742709054328143871, raw=4070943924694 coprime=2475030021476, 961s, 4.24e+09 raw pairs/s, ETA 6858s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  15976/126037 segments, n <= 149504780574287134719, raw=4197857519554 coprime=2552190190107, 991s, 4.24e+09 raw pairs/s, ETA 6828s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  16453/126037 segments, n <= 150258658351814934527, raw=4323194546557 coprime=2628391796550, 1021s, 4.23e+09 raw pairs/s, ETA 6802s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  16930/126037 segments, n <= 151013799029622505471, raw=4448531592884 coprime=2704593416768, 1051s, 4.23e+09 raw pairs/s, ETA 6775s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  17413/126037 segments, n <= 151779723003320664063, raw=4575445230957 coprime=2781753579700, 1081s, 4.23e+09 raw pairs/s, ETA 6745s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  17890/126037 segments, n <= 152537398985848586239, raw=4700782316228 coprime=2857955213410, 1111s, 4.23e+09 raw pairs/s, ETA 6718s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  18373/126037 segments, n <= 153305885863363411967, raw=4827696002163 coprime=2935115393440, 1141s, 4.23e+09 raw pairs/s, ETA 6688s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  18856/126037 segments, n <= 154075658975281446911, raw=4954609706181 coprime=3012275553325, 1171s, 4.23e+09 raw pairs/s, ETA 6658s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  19339/126037 segments, n <= 154846716175979577343, raw=5081523430439 coprime=3089435741516, 1201s, 4.23e+09 raw pairs/s, ETA 6628s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  19816/126037 segments, n <= 155609453200434659327, raw=5206860594366 coprime=3165637416775, 1231s, 4.23e+09 raw pairs/s, ETA 6601s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  20299/126037 segments, n <= 156383056299026579455, raw=5333774375360 coprime=3242797634570, 1261s, 4.23e+09 raw pairs/s, ETA 6571s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  20782/126037 segments, n <= 157157937139581026303, raw=5460688165925 coprime=3319957838721, 1292s, 4.23e+09 raw pairs/s, ETA 6541s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  21260/126037 segments, n <= 157926052345252478975, raw=5586288149788 coprime=3396319287289, 1322s, 4.23e+09 raw pairs/s, ETA 6513s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  21737/126037 segments, n <= 158693804040851980287, raw=5711625410429 coprime=3472520998692, 1352s, 4.23e+09 raw pairs/s, ETA 6485s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  22220/126037 segments, n <= 159472476594191630335, raw=5838539277909 coprime=3549681237942, 1382s, 4.23e+09 raw pairs/s, ETA 6455s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  22703/126037 segments, n <= 160252418584483463167, raw=5965453139720 coprime=3626841464408, 1412s, 4.23e+09 raw pairs/s, ETA 6425s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  23180/126037 segments, n <= 161023915719035322367, raw=6090790481217 coprime=3703043231918, 1442s, 4.22e+09 raw pairs/s, ETA 6397s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  23657/126037 segments, n <= 161796646958478884863, raw=6216127801415 coprime=3779244962500, 1472s, 4.22e+09 raw pairs/s, ETA 6369s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  24140/126037 segments, n <= 162580353561774555135, raw=6343041740591 coprime=3856405233179, 1502s, 4.22e+09 raw pairs/s, ETA 6339s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  24623/126037 segments, n <= 163365321461076164607, raw=6469955707568 coprime=3933565504082, 1532s, 4.22e+09 raw pairs/s, ETA 6309s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  25099/126037 segments, n <= 164140145052885057535, raw=6595030357269 coprime=4009607511751, 1562s, 4.22e+09 raw pairs/s, ETA 6281s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  25582/126037 segments, n <= 164927611276840730623, raw=6721944357669 coprime=4086767805891, 1592s, 4.22e+09 raw pairs/s, ETA 6251s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  26065/126037 segments, n <= 165716332784565583871, raw=6848858375669 coprime=4163928094330, 1622s, 4.22e+09 raw pairs/s, ETA 6221s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  26548/126037 segments, n <= 166506307581392551935, raw=6975772408174 coprime=4241088390643, 1652s, 4.22e+09 raw pairs/s, ETA 6191s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  27031/126037 segments, n <= 167297533682133139455, raw=7102686456596 coprime=4318248705648, 1682s, 4.22e+09 raw pairs/s, ETA 6161s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  27514/126037 segments, n <= 168090009111002710015, raw=7229600545978 coprime=4395409045942, 1712s, 4.22e+09 raw pairs/s, ETA 6131s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  27997/126037 segments, n <= 168883731901546266623, raw=7356514644674 coprime=4472569342462, 1742s, 4.22e+09 raw pairs/s, ETA 6101s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  28479/126037 segments, n <= 169677052914453708799, raw=7483166022196 coprime=4549569960660, 1772s, 4.22e+09 raw pairs/s, ETA 6071s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  28961/126037 segments, n <= 170471612244268417023, raw=7609817399190 coprime=4626570547889, 1802s, 4.22e+09 raw pairs/s, ETA 6041s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  29432/126037 segments, n <= 171249232878868627455, raw=7733578406361 coprime=4701813857455, 1832s, 4.22e+09 raw pairs/s, ETA 6014s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  29914/126037 segments, n <= 172046234919451492351, raw=7860229832217 coprime=4778814461846, 1862s, 4.22e+09 raw pairs/s, ETA 5984s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  30395/126037 segments, n <= 172842812203355504639, raw=7986618493441 coprime=4855655323837, 1892s, 4.22e+09 raw pairs/s, ETA 5954s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  30876/126037 segments, n <= 173640615095862820863, raw=8113007177358 coprime=4932496191638, 1922s, 4.22e+09 raw pairs/s, ETA 5925s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  31357/126037 segments, n <= 174439641717041201151, raw=8239395917935 coprime=5009337075912, 1952s, 4.22e+09 raw pairs/s, ETA 5895s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  31838/126037 segments, n <= 175239890195582877695, raw=8365784646787 coprime=5086177962497, 1982s, 4.22e+09 raw pairs/s, ETA 5865s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  32306/126037 segments, n <= 176019681333870952447, raw=8488757480032 coprime=5160942078616, 2012s, 4.22e+09 raw pairs/s, ETA 5839s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  32786/126037 segments, n <= 176820665067836473343, raw=8614883491244 coprime=5237623209496, 2042s, 4.22e+09 raw pairs/s, ETA 5809s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  33255/126037 segments, n <= 177604462913644101631, raw=8738119129961 coprime=5312547081265, 2073s, 4.22e+09 raw pairs/s, ETA 5783s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  33735/126037 segments, n <= 178407839716333977599, raw=8864245190817 coprime=5389228264987, 2103s, 4.22e+09 raw pairs/s, ETA 5753s
+    time split: count 3% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  34215/126037 segments, n <= 179212424212094189567, raw=8990371257601 coprime=5465909432802, 2133s, 4.22e+09 raw pairs/s, ETA 5723s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  34695/126037 segments, n <= 180018214590873272319, raw=9116497328571 coprime=5542590572827, 2163s, 4.22e+09 raw pairs/s, ETA 5694s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 0%
+  35156/126037 segments, n <= 180793242654869553151, raw=9237630960808 coprime=5616236492185, 2193s, 4.21e+09 raw pairs/s, ETA 5668s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  35636/126037 segments, n <= 181601391845392842751, raw=9363757056699 coprime=5692917662936, 2223s, 4.21e+09 raw pairs/s, ETA 5639s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  36116/126037 segments, n <= 182410741607765311487, raw=9489883226595 coprime=5769598877204, 2253s, 4.21e+09 raw pairs/s, ETA 5609s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  36596/126037 segments, n <= 183221290163719274495, raw=9616009358417 coprime=5846280059871, 2283s, 4.21e+09 raw pairs/s, ETA 5579s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  37069/126037 segments, n <= 184021189193887612927, raw=9740296222207 coprime=5921843020232, 2313s, 4.21e+09 raw pairs/s, ETA 5551s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  37549/126037 segments, n <= 184834112615401521151, raw=9866422404786 coprime=5998524238098, 2343s, 4.21e+09 raw pairs/s, ETA 5521s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  38029/126037 segments, n <= 185648229568269123583, raw=9992548618723 coprime=6075205445319, 2373s, 4.21e+09 raw pairs/s, ETA 5491s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  38503/126037 segments, n <= 186453339597644529663, raw=10117098290459 coprime=6150928191248, 2403s, 4.21e+09 raw pairs/s, ETA 5463s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  38983/126037 segments, n <= 187269823514384695295, raw=10243224547775 coprime=6227609420845, 2433s, 4.21e+09 raw pairs/s, ETA 5433s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  39457/126037 segments, n <= 188077267535016525823, raw=10367774238780 coprime=6303332144673, 2463s, 4.21e+09 raw pairs/s, ETA 5404s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  39937/126037 segments, n <= 188896111573668790271, raw=10493900502619 coprime=6380013396372, 2493s, 4.21e+09 raw pairs/s, ETA 5375s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  40410/126037 segments, n <= 189704173264985587711, raw=10618187466683 coprime=6455576382213, 2523s, 4.21e+09 raw pairs/s, ETA 5346s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  40883/126037 segments, n <= 190513383926344318975, raw=10742474472481 coprime=6531139393978, 2553s, 4.21e+09 raw pairs/s, ETA 5317s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  41351/126037 segments, n <= 191315169781993209855, raw=10865447661801 coprime=6605903647369, 2583s, 4.21e+09 raw pairs/s, ETA 5290s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  41831/126037 segments, n <= 192138679385370427391, raw=10991573993169 coprime=6682584893240, 2613s, 4.21e+09 raw pairs/s, ETA 5260s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  42311/126037 segments, n <= 192963367199356747775, raw=11117700371792 coprime=6759266187188, 2643s, 4.21e+09 raw pairs/s, ETA 5230s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  42777/126037 segments, n <= 193765127191338811391, raw=11240148106920 coprime=6833710986300, 2673s, 4.2e+09 raw pairs/s, ETA 5203s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  43257/126037 segments, n <= 194592132148069728255, raw=11366274522755 coprime=6910392267345, 2703s, 4.2e+09 raw pairs/s, ETA 5173s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  43737/126037 segments, n <= 195420310342744604671, raw=11492400945495 coprime=6987073565611, 2733s, 4.2e+09 raw pairs/s, ETA 5143s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  44210/126037 segments, n <= 196237557021148774399, raw=11616688041443 coprime=7062636614625, 2763s, 4.2e+09 raw pairs/s, ETA 5115s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  44690/126037 segments, n <= 197068059670009249791, raw=11742814497478 coprime=7139317932775, 2793s, 4.2e+09 raw pairs/s, ETA 5085s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  45163/126037 segments, n <= 197887593701060050943, raw=11867101649749 coprime=7214880999431, 2823s, 4.2e+09 raw pairs/s, ETA 5056s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  45643/126037 segments, n <= 198720414316430786559, raw=11993228160929 coprime=7291562315210, 2853s, 4.2e+09 raw pairs/s, ETA 5026s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  46123/126037 segments, n <= 199554399988403044351, raw=12119354684402 coprime=7368243685937, 2883s, 4.2e+09 raw pairs/s, ETA 4996s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  46603/126037 segments, n <= 200389549091690446847, raw=12245481190821 coprime=7444925011129, 2913s, 4.2e+09 raw pairs/s, ETA 4966s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  47083/126037 segments, n <= 201225860007789723647, raw=12371607768557 coprime=7521606375117, 2944s, 4.2e+09 raw pairs/s, ETA 4936s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  47563/126037 segments, n <= 202063331124933525503, raw=12497734331926 coprime=7598287740993, 2974s, 4.2e+09 raw pairs/s, ETA 4906s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  48044/126037 segments, n <= 202903709191550074879, raw=12624123690353 coprime=7675128862488, 3004s, 4.2e+09 raw pairs/s, ETA 4876s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  48524/126037 segments, n <= 203743498310940131327, raw=12750250295688 coprime=7751810217891, 3034s, 4.2e+09 raw pairs/s, ETA 4846s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  49004/126037 segments, n <= 204584442832715513855, raw=12876376899067 coprime=7828491594993, 3064s, 4.2e+09 raw pairs/s, ETA 4816s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  49478/126037 segments, n <= 205416007827615973375, raw=13000926968351 coprime=7904214479810, 3094s, 4.2e+09 raw pairs/s, ETA 4787s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  49958/126037 segments, n <= 206259244011593957375, raw=13127053629621 coprime=7980895866806, 3124s, 4.2e+09 raw pairs/s, ETA 4757s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  50432/126037 segments, n <= 207093068949886468095, raw=13251603719820 coprime=8056618743461, 3154s, 4.2e+09 raw pairs/s, ETA 4728s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  50912/126037 segments, n <= 207938590584872206335, raw=13377730384333 coprime=8133300144802, 3184s, 4.2e+09 raw pairs/s, ETA 4698s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  51392/126037 segments, n <= 208785259799429414911, raw=13503857087160 coprime=8209981544386, 3214s, 4.2e+09 raw pairs/s, ETA 4668s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  51872/126037 segments, n <= 209633075040226115583, raw=13629983837859 coprime=8286663003502, 3244s, 4.2e+09 raw pairs/s, ETA 4638s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  52352/126037 segments, n <= 210482034760221196287, raw=13756110568556 coprime=8363344399483, 3274s, 4.2e+09 raw pairs/s, ETA 4608s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  52832/126037 segments, n <= 211332137418621452287, raw=13882237305306 coprime=8440025839992, 3304s, 4.2e+09 raw pairs/s, ETA 4578s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  53313/126037 segments, n <= 212185156096343441407, raw=14008626861928 coprime=8516867046200, 3334s, 4.2e+09 raw pairs/s, ETA 4548s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  53794/126037 segments, n <= 213039319400701394943, raw=14135016422383 coprime=8593708224085, 3364s, 4.2e+09 raw pairs/s, ETA 4518s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  54275/126037 segments, n <= 213894625799881949183, raw=14261405991876 coprime=8670549441688, 3394s, 4.2e+09 raw pairs/s, ETA 4487s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  54756/126037 segments, n <= 214751073768205287423, raw=14387795562345 coprime=8747390648543, 3424s, 4.2e+09 raw pairs/s, ETA 4457s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  55236/126037 segments, n <= 215606877677239828479, raw=14513922391732 coprime=8824072101622, 3454s, 4.2e+09 raw pairs/s, ETA 4427s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 1%
+  55696/126037 segments, n <= 216428087040722960383, raw=14634793983336 coprime=8897558521552, 3484s, 4.2e+09 raw pairs/s, ETA 4400s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  56178/126037 segments, n <= 217289687384023302143, raw=14761446354539 coprime=8974559498907, 3514s, 4.2e+09 raw pairs/s, ETA 4370s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  56660/126037 segments, n <= 218152428046411726847, raw=14888098797422 coprime=9051560495249, 3544s, 4.2e+09 raw pairs/s, ETA 4339s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  57143/126037 segments, n <= 219018100986493042687, raw=15015013991752 coprime=9128721235237, 3574s, 4.2e+09 raw pairs/s, ETA 4309s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  57626/126037 segments, n <= 219884915962098450431, raw=15141929178318 coprime=9205881961568, 3604s, 4.2e+09 raw pairs/s, ETA 4279s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  58109/126037 segments, n <= 220752871470564933631, raw=15268844433321 coprime=9283042745338, 3634s, 4.2e+09 raw pairs/s, ETA 4248s
+    time split: count 4% scan 0% write 14% select 10% sort 68% runs 3% host 1%
+  58592/126037 segments, n <= 221621966015145312255, raw=15395759678031 coprime=9360203512961, 3664s, 4.2e+09 raw pairs/s, ETA 4218s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 1%
+  59075/126037 segments, n <= 222492198104969510911, raw=15522674922558 coprime=9437364277955, 3694s, 4.2e+09 raw pairs/s, ETA 4187s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 1%
+  59558/126037 segments, n <= 223363566255006416895, raw=15649590189803 coprime=9514525037768, 3724s, 4.2e+09 raw pairs/s, ETA 4157s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 1%
+  60041/126037 segments, n <= 224236068986025902079, raw=15776505488136 coprime=9591685814622, 3754s, 4.2e+09 raw pairs/s, ETA 4127s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  60524/126037 segments, n <= 225109704824560713727, raw=15903420808320 coprime=9668846623890, 3784s, 4.2e+09 raw pairs/s, ETA 4096s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  61003/126037 segments, n <= 225977223208620982271, raw=16029285058710 coprime=9745368417142, 3814s, 4.2e+09 raw pairs/s, ETA 4066s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  61483/126037 segments, n <= 226847667725860503551, raw=16155412120081 coprime=9822049966409, 3844s, 4.2e+09 raw pairs/s, ETA 4036s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 1%
+  61968/126037 segments, n <= 227728311611416870911, raw=16282853012478 coprime=9899530284064, 3874s, 4.2e+09 raw pairs/s, ETA 4006s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  62453/126037 segments, n <= 228610092137530916863, raw=16410293885106 coprime=9977010592499, 3904s, 4.2e+09 raw pairs/s, ETA 3975s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  62938/126037 segments, n <= 229493007840924303359, raw=16537734817360 coprime=10054490915815, 3934s, 4.2e+09 raw pairs/s, ETA 3944s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  63423/126037 segments, n <= 230377057263955705855, raw=16665175736304 coprime=10131971242067, 3964s, 4.2e+09 raw pairs/s, ETA 3914s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  63908/126037 segments, n <= 231262238954584309759, raw=16792616702652 coprime=10209451605496, 3995s, 4.2e+09 raw pairs/s, ETA 3883s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  64388/126037 segments, n <= 232139408459942952959, raw=16918743851479 coprime=10286133175127, 4025s, 4.2e+09 raw pairs/s, ETA 3853s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  64873/126037 segments, n <= 233026838716105916415, raw=17046184804877 coprime=10363613524276, 4055s, 4.2e+09 raw pairs/s, ETA 3823s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  65358/126037 segments, n <= 233915396931762814975, raw=17173625817456 coprime=10441093885439, 4085s, 4.2e+09 raw pairs/s, ETA 3792s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  65834/126037 segments, n <= 234788561813240938495, raw=17298701939078 coprime=10517136470028, 4115s, 4.2e+09 raw pairs/s, ETA 3763s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  66319/126037 segments, n <= 235679350797872234495, raw=17426142960793 coprime=10594616824853, 4145s, 4.2e+09 raw pairs/s, ETA 3732s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  66799/126037 segments, n <= 236562062790302859263, raw=17552270173427 coprime=10671298420311, 4175s, 4.2e+09 raw pairs/s, ETA 3702s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  67284/126037 segments, n <= 237455086221829996543, raw=17679711247196 coprime=10748778833233, 4205s, 4.2e+09 raw pairs/s, ETA 3672s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  67769/126037 segments, n <= 238349230557106831359, raw=17807152324115 coprime=10826259217523, 4235s, 4.2e+09 raw pairs/s, ETA 3641s
+    time split: count 4% scan 0% write 14% select 10% sort 69% runs 3% host 0%
+  68254/126037 segments, n <= 239244494392720359423, raw=17934593409177 coprime=10903739610217, 4265s, 4.21e+09 raw pairs/s, ETA 3611s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  68734/126037 segments, n <= 240131629580331417599, raw=18060720657474 coprime=10980421215689, 4295s, 4.21e+09 raw pairs/s, ETA 3581s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  69219/126037 segments, n <= 241029116722001444863, raw=18188161775240 coprime=11057901625120, 4325s, 4.21e+09 raw pairs/s, ETA 3550s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  69704/126037 segments, n <= 241927719199468027903, raw=18315602933391 coprime=11135382060894, 4355s, 4.21e+09 raw pairs/s, ETA 3520s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  70189/126037 segments, n <= 242827435630102544383, raw=18443044056282 coprime=11212862444844, 4385s, 4.21e+09 raw pairs/s, ETA 3489s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  70669/126037 segments, n <= 243718972068278108159, raw=18569171393148 coprime=11289544104181, 4415s, 4.21e+09 raw pairs/s, ETA 3459s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  71154/126037 segments, n <= 244620900829128523775, raw=18696612577107 coprime=11367024539552, 4445s, 4.21e+09 raw pairs/s, ETA 3429s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  71639/126037 segments, n <= 245523939439980904447, raw=18824053790904 coprime=11444504982378, 4475s, 4.21e+09 raw pairs/s, ETA 3398s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  72124/126037 segments, n <= 246428086538483040255, raw=18951494996346 coprime=11521985418840, 4505s, 4.21e+09 raw pairs/s, ETA 3368s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  72609/126037 segments, n <= 247333340767287476223, raw=19078936200992 coprime=11599465837865, 4535s, 4.21e+09 raw pairs/s, ETA 3337s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  73094/126037 segments, n <= 248239700774020677631, raw=19206377429915 coprime=11676946296420, 4565s, 4.21e+09 raw pairs/s, ETA 3307s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  73579/126037 segments, n <= 249147165211253145599, raw=19333818685182 coprime=11754426756036, 4595s, 4.21e+09 raw pairs/s, ETA 3276s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  74059/126037 segments, n <= 250046360438079324159, raw=19459946128459 coprime=11831108447711, 4625s, 4.21e+09 raw pairs/s, ETA 3246s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  74544/126037 segments, n <= 250956018362202488831, raw=19587387430572 coprime=11908588943054, 4655s, 4.21e+09 raw pairs/s, ETA 3216s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  75029/126037 segments, n <= 251866776717614284799, raw=19714828719193 coprime=11986069373752, 4685s, 4.21e+09 raw pairs/s, ETA 3185s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  75514/126037 segments, n <= 252778634176312639487, raw=19842270027755 coprime=12063549853785, 4715s, 4.21e+09 raw pairs/s, ETA 3155s
+    time split: count 4% scan 1% write 14% select 10% sort 69% runs 3% host 0%
+  75999/126037 segments, n <= 253691589415091601407, raw=19969711358007 coprime=12141030367304, 4745s, 4.21e+09 raw pairs/s, ETA 3124s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  76483/126037 segments, n <= 254603755345690230783, raw=20096889925556 coprime=12218351093622, 4775s, 4.21e+09 raw pairs/s, ETA 3094s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  76967/126037 segments, n <= 255517011915504648191, raw=20224068510751 coprime=12295671819106, 4805s, 4.21e+09 raw pairs/s, ETA 3064s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  77450/126037 segments, n <= 256429467557039931391, raw=20350984332454 coprime=12372832795979, 4835s, 4.21e+09 raw pairs/s, ETA 3033s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  77933/126037 segments, n <= 257343006751853182975, raw=20477900200384 coprime=12449993812740, 4865s, 4.21e+09 raw pairs/s, ETA 3003s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  78416/126037 segments, n <= 258257628216257773567, raw=20604816077047 coprime=12527154837298, 4895s, 4.21e+09 raw pairs/s, ETA 2973s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  78892/126037 segments, n <= 259160051907339223039, raw=20729892568124 coprime=12603197552422, 4926s, 4.21e+09 raw pairs/s, ETA 2943s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  79375/126037 segments, n <= 260076818439071170559, raw=20856808462200 coprime=12680358559089, 4956s, 4.21e+09 raw pairs/s, ETA 2913s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  79858/126037 segments, n <= 260994663434912038911, raw=20983724370116 coprime=12757519574956, 4986s, 4.21e+09 raw pairs/s, ETA 2883s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  80341/126037 segments, n <= 261913585629156704255, raw=21110640312802 coprime=12834680606987, 5016s, 4.21e+09 raw pairs/s, ETA 2853s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  80824/126037 segments, n <= 262833583760545841151, raw=21237556226259 coprime=12911841632629, 5046s, 4.21e+09 raw pairs/s, ETA 2823s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  81306/126037 segments, n <= 263752748479853494271, raw=21364209432094 coprime=12988842929305, 5076s, 4.21e+09 raw pairs/s, ETA 2792s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  81788/126037 segments, n <= 264672982189363134463, raw=21490862637816 coprime=13065844221248, 5106s, 4.21e+09 raw pairs/s, ETA 2762s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  82270/126037 segments, n <= 265594283648720830463, raw=21617515847695 coprime=13142845487002, 5136s, 4.21e+09 raw pairs/s, ETA 2732s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  82745/126037 segments, n <= 266503248610292531199, raw=21742329683524 coprime=13218728508801, 5166s, 4.21e+09 raw pairs/s, ETA 2703s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  83220/126037 segments, n <= 267413248154114916351, raw=21867143589201 coprime=13294611571179, 5196s, 4.21e+09 raw pairs/s, ETA 2673s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  83702/126037 segments, n <= 268337714574967078911, raw=21993796814573 coprime=13371612851997, 5226s, 4.21e+09 raw pairs/s, ETA 2643s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  84184/126037 segments, n <= 269263243862551265279, raw=22120450076891 coprime=13448614162338, 5256s, 4.21e+09 raw pairs/s, ETA 2613s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  84659/126037 segments, n <= 270176370491514748927, raw=22245264023786 coprime=13524497220971, 5286s, 4.21e+09 raw pairs/s, ETA 2584s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  85141/126037 segments, n <= 271104006467396894719, raw=22371917307127 coprime=13601498559161, 5316s, 4.21e+09 raw pairs/s, ETA 2553s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  85616/126037 segments, n <= 272019206833489117183, raw=22496731261436 coprime=13677381577338, 5346s, 4.21e+09 raw pairs/s, ETA 2524s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  86098/126037 segments, n <= 272948944724145242111, raw=22623384556386 coprime=13754382930353, 5376s, 4.21e+09 raw pairs/s, ETA 2494s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  86580/126037 segments, n <= 273879739462102941695, raw=22750037882394 coprime=13831384263075, 5406s, 4.21e+09 raw pairs/s, ETA 2464s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  87053/126037 segments, n <= 274794180488354463743, raw=22874326350739 coprime=13906947814049, 5436s, 4.21e+09 raw pairs/s, ETA 2434s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  87532/126037 segments, n <= 275721256053214445567, raw=23000191410928 coprime=13983469921344, 5466s, 4.21e+09 raw pairs/s, ETA 2405s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  88004/126037 segments, n <= 276635801077692137471, raw=23124217109152 coprime=14058873721070, 5496s, 4.21e+09 raw pairs/s, ETA 2375s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  88476/126037 segments, n <= 277551355029377974271, raw=23248242858404 coprime=14134277547894, 5526s, 4.21e+09 raw pairs/s, ETA 2346s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  88955/126037 segments, n <= 278481517453192724479, raw=23374107928421 coprime=14210799633697, 5556s, 4.21e+09 raw pairs/s, ETA 2316s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  89434/126037 segments, n <= 279412716651257135103, raw=23499973056171 coprime=14287321759468, 5586s, 4.21e+09 raw pairs/s, ETA 2286s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  89906/126037 segments, n <= 280331320546080096255, raw=23623998827475 coprime=14362725602162, 5616s, 4.21e+09 raw pairs/s, ETA 2257s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  90385/126037 segments, n <= 281264574728084193279, raw=23749863949542 coprime=14439247696256, 5646s, 4.21e+09 raw pairs/s, ETA 2227s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  90857/126037 segments, n <= 282185201347551887359, raw=23873889746598 coprime=14514651562335, 5676s, 4.21e+09 raw pairs/s, ETA 2198s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  91336/126037 segments, n <= 283120505998442233855, raw=23999754922152 coprime=14591173677554, 5707s, 4.21e+09 raw pairs/s, ETA 2168s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  91815/126037 segments, n <= 284056841729775665151, raw=24125620071759 coprime=14667695802984, 5737s, 4.21e+09 raw pairs/s, ETA 2138s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  92294/126037 segments, n <= 284994207407387803647, raw=24251485264538 coprime=14744217958776, 5767s, 4.21e+09 raw pairs/s, ETA 2108s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  92773/126037 segments, n <= 285932601900848709631, raw=24377350472549 coprime=14820740112986, 5797s, 4.21e+09 raw pairs/s, ETA 2078s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  93251/126037 segments, n <= 286870061798305234943, raw=24502952922210 coprime=14897102470605, 5827s, 4.21e+09 raw pairs/s, ETA 2049s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  93729/126037 segments, n <= 287808543982387822591, raw=24628555381405 coprime=14973464885609, 5857s, 4.21e+09 raw pairs/s, ETA 2019s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  94207/126037 segments, n <= 288748047340732809215, raw=24754157883229 coprime=15049827300882, 5887s, 4.21e+09 raw pairs/s, ETA 1989s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  94685/126037 segments, n <= 289688570764599164927, raw=24879760347102 coprime=15126189695066, 5917s, 4.2e+09 raw pairs/s, ETA 1959s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  95163/126037 segments, n <= 290630113148849848319, raw=25005362858402 coprime=15202552112045, 5947s, 4.2e+09 raw pairs/s, ETA 1929s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  95641/126037 segments, n <= 291572673391931883519, raw=25130965368185 coprime=15278914561423, 5977s, 4.2e+09 raw pairs/s, ETA 1900s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  96119/126037 segments, n <= 292516250395856895999, raw=25256567881091 coprime=15355276946787, 6007s, 4.2e+09 raw pairs/s, ETA 1870s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  96597/126037 segments, n <= 293460843066182631423, raw=25382170431519 coprime=15431639383513, 6037s, 4.2e+09 raw pairs/s, ETA 1840s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  97067/126037 segments, n <= 294390615907144826879, raw=25505670859327 coprime=15506723806891, 6067s, 4.2e+09 raw pairs/s, ETA 1811s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  97541/126037 segments, n <= 295329294115129327615, raw=25630222357482 coprime=15582447187918, 6097s, 4.2e+09 raw pairs/s, ETA 1781s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  98013/126037 segments, n <= 296265000922668007423, raw=25754248305186 coprime=15657851106986, 6127s, 4.2e+09 raw pairs/s, ETA 1752s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  98492/126037 segments, n <= 297215592912221110271, raw=25880113684720 coprime=15734373323667, 6157s, 4.2e+09 raw pairs/s, ETA 1722s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  98970/126037 segments, n <= 298165211709839048703, raw=26005716288122 coprime=15810735777256, 6187s, 4.2e+09 raw pairs/s, ETA 1692s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  99446/126037 segments, n <= 299111860094674665471, raw=26130793338524 coprime=15886778692317, 6217s, 4.2e+09 raw pairs/s, ETA 1662s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  99890/126037 segments, n <= 299995769446340165631, raw=26247461913141 coprime=15957709540634, 6247s, 4.2e+09 raw pairs/s, ETA 1635s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  100331/126037 segments, n <= 300874566624873414655, raw=26363342161792 coprime=16028161089123, 6277s, 4.2e+09 raw pairs/s, ETA 1608s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  100774/126037 segments, n <= 301758211545868992511, raw=26479747939771 coprime=16098932174259, 6307s, 4.2e+09 raw pairs/s, ETA 1581s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  101252/126037 segments, n <= 302712638763611979775, raw=26605350602499 coprime=16175294649448, 6337s, 4.2e+09 raw pairs/s, ETA 1551s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  101730/126037 segments, n <= 303668070113556430847, raw=26730953275399 coprime=16251657128605, 6367s, 4.2e+09 raw pairs/s, ETA 1521s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  102208/126037 segments, n <= 304624504541494247423, raw=26856555953470 coprime=16328019617268, 6397s, 4.2e+09 raw pairs/s, ETA 1491s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  102686/126037 segments, n <= 305581940996530044927, raw=26982158646493 coprime=16404382101989, 6427s, 4.2e+09 raw pairs/s, ETA 1462s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  103164/126037 segments, n <= 306540378431064899583, raw=27107761370652 coprime=16480744583969, 6457s, 4.2e+09 raw pairs/s, ETA 1432s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  103635/126037 segments, n <= 307485758253223772159, raw=27231524702406 coprime=16555988802270, 6487s, 4.2e+09 raw pairs/s, ETA 1402s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  104106/126037 segments, n <= 308432107942181732351, raw=27355288091624 coprime=16631233042083, 6517s, 4.2e+09 raw pairs/s, ETA 1373s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  104585/126037 segments, n <= 309395525203743735807, raw=27481153579775 coprime=16707755271680, 6547s, 4.2e+09 raw pairs/s, ETA 1343s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  105063/126037 segments, n <= 310357929049050841087, raw=27606756355554 coprime=16784117808477, 6577s, 4.2e+09 raw pairs/s, ETA 1313s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  105542/126037 segments, n <= 311323345236291092479, raw=27732621889240 coprime=16860640055467, 6607s, 4.2e+09 raw pairs/s, ETA 1283s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  106020/126037 segments, n <= 312287741770117677055, raw=27858224663700 coprime=16937002589354, 6637s, 4.2e+09 raw pairs/s, ETA 1253s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  106498/126037 segments, n <= 313253132066804924415, raw=27983827458705 coprime=17013365121638, 6667s, 4.2e+09 raw pairs/s, ETA 1223s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  106977/126037 segments, n <= 314221537866161848319, raw=28109693015195 coprime=17089887407250, 6697s, 4.2e+09 raw pairs/s, ETA 1193s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  107455/126037 segments, n <= 315188914699628904447, raw=28235295842713 coprime=17166249932593, 6727s, 4.2e+09 raw pairs/s, ETA 1163s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  107933/126037 segments, n <= 316157282237502717951, raw=28360898653847 coprime=17242612466041, 6758s, 4.2e+09 raw pairs/s, ETA 1133s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  108412/126037 segments, n <= 317128668447958761471, raw=28486764267000 coprime=17319134764371, 6788s, 4.2e+09 raw pairs/s, ETA 1103s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  108891/126037 segments, n <= 318101047479834443775, raw=28612629891283 coprime=17395657049749, 6818s, 4.2e+09 raw pairs/s, ETA 1073s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  109370/126037 segments, n <= 319074418320469000191, raw=28738495491404 coprime=17472179358439, 6848s, 4.2e+09 raw pairs/s, ETA 1044s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  109849/126037 segments, n <= 320048779960294506495, raw=28864361151283 coprime=17548701672760, 6878s, 4.2e+09 raw pairs/s, ETA 1014s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  110328/126037 segments, n <= 321024131392819494911, raw=28990226780912 coprime=17625223954954, 6908s, 4.2e+09 raw pairs/s, ETA 984s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  110807/126037 segments, n <= 322000471614613422079, raw=29116092465939 coprime=17701746299810, 6938s, 4.2e+09 raw pairs/s, ETA 954s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  111286/126037 segments, n <= 322977799625291726847, raw=29241958118926 coprime=17778268599267, 6968s, 4.2e+09 raw pairs/s, ETA 924s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  111756/126037 segments, n <= 323937723639513087999, raw=29365458918326 coprime=17853353182536, 6998s, 4.2e+09 raw pairs/s, ETA 894s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  112235/126037 segments, n <= 324917005725773529087, raw=29491324624853 coprime=17929875522812, 7028s, 4.2e+09 raw pairs/s, ETA 864s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  112713/126037 segments, n <= 325895225125071421439, raw=29616927558842 coprime=18006238081551, 7058s, 4.2e+09 raw pairs/s, ETA 834s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  113192/126037 segments, n <= 326876473818909507583, raw=29742793286722 coprime=18082760438274, 7088s, 4.2e+09 raw pairs/s, ETA 804s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  113670/126037 segments, n <= 327856653754501038079, raw=29868396227986 coprime=18159123012493, 7118s, 4.2e+09 raw pairs/s, ETA 774s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  114149/126037 segments, n <= 328839865122338308095, raw=29994261969807 coprime=18235645354109, 7148s, 4.2e+09 raw pairs/s, ETA 744s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  114628/126037 segments, n <= 329824057382825885695, raw=30120127719226 coprime=18312167712461, 7178s, 4.2e+09 raw pairs/s, ETA 714s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  115107/126037 segments, n <= 330809229559332143103, raw=30245993515699 coprime=18388690079576, 7208s, 4.2e+09 raw pairs/s, ETA 684s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  115585/126037 segments, n <= 331793320888480890879, raw=30371596517668 coprime=18465052677279, 7238s, 4.2e+09 raw pairs/s, ETA 655s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  116064/126037 segments, n <= 332780447938076147711, raw=30497462317459 coprime=18541575062900, 7268s, 4.2e+09 raw pairs/s, ETA 625s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  116542/126037 segments, n <= 333766488128469729279, raw=30623065321635 coprime=18617937657998, 7298s, 4.2e+09 raw pairs/s, ETA 595s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  117021/126037 segments, n <= 334755566187432116223, raw=30748931131945 coprime=18694460034592, 7328s, 4.2e+09 raw pairs/s, ETA 565s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  117499/126037 segments, n <= 335743551394828976127, raw=30874534217607 coprime=18770822654730, 7358s, 4.2e+09 raw pairs/s, ETA 535s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  117978/126037 segments, n <= 336734576622255734783, raw=31000400020403 coprime=18847345038745, 7388s, 4.2e+09 raw pairs/s, ETA 505s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  118456/126037 segments, n <= 337724503025073717247, raw=31126003103428 coprime=18923707677879, 7418s, 4.2e+09 raw pairs/s, ETA 475s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  118935/126037 segments, n <= 338717471602657787903, raw=31251868984643 coprime=19000230091411, 7448s, 4.2e+09 raw pairs/s, ETA 445s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  119413/126037 segments, n <= 339709335401752494079, raw=31377472066132 coprime=19076592703477, 7478s, 4.2e+09 raw pairs/s, ETA 415s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  119891/126037 segments, n <= 340702165471007997951, raw=31503075182926 coprime=19152955362496, 7508s, 4.2e+09 raw pairs/s, ETA 385s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  120370/126037 segments, n <= 341698040952008081407, raw=31628941053632 coprime=19229477745118, 7538s, 4.2e+09 raw pairs/s, ETA 355s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  120849/126037 segments, n <= 342694884864267517951, raw=31754806957433 coprime=19306000169125, 7568s, 4.2e+09 raw pairs/s, ETA 325s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  121328/126037 segments, n <= 343692696267869978623, raw=31880672895901 coprime=19382522606870, 7598s, 4.2e+09 raw pairs/s, ETA 295s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  121806/126037 segments, n <= 344689388088020959231, raw=32006276030714 coprime=19458885262503, 7628s, 4.2e+09 raw pairs/s, ETA 265s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  122285/126037 segments, n <= 345689129650537955327, raw=32132141955747 coprime=19535407653952, 7658s, 4.2e+09 raw pairs/s, ETA 235s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  122756/126037 segments, n <= 346673114729829695487, raw=32255905768647 coprime=19610652057504, 7688s, 4.2e+09 raw pairs/s, ETA 205s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  123221/126037 segments, n <= 347645479092711653375, raw=32378092979954 coprime=19684937919863, 7718s, 4.19e+09 raw pairs/s, ETA 176s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  123695/126037 segments, n <= 348637597333977104383, raw=32502645082322 coprime=19760661587877, 7749s, 4.19e+09 raw pairs/s, ETA 147s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  124168/126037 segments, n <= 349628561505296711679, raw=32626934446776 coprime=19836225486383, 7779s, 4.19e+09 raw pairs/s, ETA 117s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  124643/126037 segments, n <= 350624658878080811007, raw=32751749364589 coprime=19912108918829, 7809s, 4.19e+09 raw pairs/s, ETA 87s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  125120/126037 segments, n <= 351625900488561524735, raw=32877089840815 coprime=19988311851682, 7839s, 4.19e+09 raw pairs/s, ETA 57s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  125592/126037 segments, n <= 352617583239055933439, raw=33001116466593 coprime=20063716042060, 7869s, 4.19e+09 raw pairs/s, ETA 28s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+  126037/126037 segments, n <= 353553390593272840192, raw=33118048351717 coprime=20134806828775, 7897s, 4.19e+09 raw pairs/s, ETA 0s
+    time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%
+DONE 124999999999999672320 < n <= 353553390593272840192 raw pairs=33118048351717 coprime pairs=20134806828775 kmin=4 time=7897s (4.19e+09 raw pairs/s)
+time split: count 4% scan 1% write 13% select 10% sort 69% runs 3% host 0%; slots/raw 1.022 (padding of the interleaved layout)
+  k=4: 83 numbers, smallest: 125031489170738916493 127812331699133624641 127857267977038861527 128174164846018606341

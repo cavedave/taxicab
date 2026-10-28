@@ -1,0 +1,5 @@
+k=4  hub                  241
+k=4  independent          20
+k=4  line+free            470
+k=5  bowtie               6
+k=5  line+2free           1

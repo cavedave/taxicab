@@ -16,7 +16,19 @@ from math import gcd
 from multiprocessing import Pool
 import line_enum as L
 
-def norm_directions(count, parity, amax=2000):
+def norm_ok(parity):
+    return lambda f: all(e % 2 == 0 for p, e in f.items() if p % 3 == 2) and (f.get(2, 0) > 0) == (parity == "even")
+
+def norm_directions(count, parity):
+    """the COUNT cheapest D-line directions of the given parity, true cost order (complete, like L.directions)"""
+    cmax = 10**7
+    while True:
+        Ls = L.dirs_by_cost(cmax, norm_ok(parity))
+        if len(Ls) >= count: return [(a, b) for _, a, b in Ls[:count]]
+        cmax *= 2
+
+def legacy_norm_directions(count, parity, amax=2000):
+    """order used before 28 October 2026 (b < 2000 only; see L.legacy_directions)"""
     c = []
     for a in range(1, amax):
         for b in range(a + 1, amax):

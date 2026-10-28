@@ -1063,6 +1063,132 @@ bound literature (Boyer, Su) and of Choudhry's constructions. Bowties and stars 
   A rank-targeted search would mean high-rank curves of the right size, Elkies-style, where the integral points
   are then counted directly.
 
+## F34 (28 October 2026): night of 27–28 October: 29 new coprime five-ways; exhaustive four-ways to 10²²; line-method recall by size
+
+**Runs** (scripts in `night_7of9/`; outputs in `night_7of9/results_27oct/` and `a047697/cab_*_k4_part*.txt`):
+
+| machine | job | candidates counted exactly | four-ways | five-ways (new) | time |
+| --- | --- | ---: | ---: | ---: | ---: |
+| 7of9, 4× RTX 2080 Ti | exhaustive, k ≥ 4, 0 < n ≤ 10²² | all n | 1,107 | 11 (0) | 13.2 h |
+| 7of9 CPU | D-lines, 20,000 directions, height 200 | 158.1 M | 385 | 2 (0) | 1.0 h |
+| 7of9 CPU | D-lines, 20,000 directions, height 550 | 1,189 M | 731 | 7 (**2**) | 9.4 h |
+| worf CPU | lines, ranks 1,401–20,000, height 800 | 1,436 M | 2,188 | 34 (**27**) | 10.6 h |
+
+**Verification:**
+- **GPU output:** all 1,118 numbers it reports were recounted on the Mac (PARI factorisation + divisor test), and n,
+  k and every representation agree, as sets.
+- **GPU against earlier lists:** it reproduces exactly the 11 known five-ways ≤ 10²² and the 204 four-ways ≤ 10¹⁷
+  from the earlier CPU run.
+- **Catalogue against GPU:** every catalogue four-way ≤ 10²² is in the GPU list, which has 1,107; no targeted
+  search had found one the GPU misses.
+- **The 29 new five-ways** were recounted independently from n alone.
+
+**Catalogue** (`results/a047697_catalogue.txt`): **6,785 four-ways and 72 five-ways**. Four-ways are now complete
+for n ≤ 10²² and 10²³–2.5·10²³.
+
+**Predictions** (made the evening before): user 10 new five-ways (3 on 7of9, 7 on worf); Claude 5 (range 2–9).
+**Actual 29** (2 on 7of9, 27 on worf). Breadth over ranks 1,401–20,000 was far richer than either estimate.
+
+**The 29 new five-ways:**
+- **Size:** 7.5·10²³ to 3.1·10³⁵. The smallest, **751273218784283299882407**, is the first known five-way above
+  the exhaustive bound of 2.5·10²³.
+- **Divisibility:** 28 of 29 are divisible by 7.
+- **n mod 9:** 1 for 17, **0 for 6, 8 for 6**. Before this, almost every five-way was ±1 (mod 9).
+- **Split primes:** 11–14 (11: 10, 12: 11, 13: 7, 14: 1), up from 8–10 below 10²³: larger n needs more divisors.
+- **Off-profile:** 8 contain a prime ≡ 2 (mod 3) (5, 23, 29, 113, 173, 293, 953); 3 are not cubefree.
+- **Positive representations:** at most 3 (14 have 2), so none is a candidate for A080642(5).
+- **Shape:** all 29 are bowties (two lines through a shared point), including the two found by D-lines.
+
+**Line-method recall by size.** Fraction of the exhaustive four-ways found by the night's targeted runs. These are
+four-ways in general, not only those of the shapes the searches target.
+
+| decade | four-ways | worf lines | D-lines h200 | D-lines h550 | any |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 10¹²–10¹³ | 14 | 0 | 7 | 7 | 50 % |
+| 10¹³ | 26 | 0 | 12 | 15 | 58 % |
+| 10¹⁴ | 39 | 3 | 22 | 24 | 64 % |
+| 10¹⁵ | 48 | 9 | 26 | 32 | 69 % |
+| 10¹⁶ | 66 | 11 | 21 | 33 | 52 % |
+| 10¹⁷ | 77 | 15 | 20 | 33 | 51 % |
+| 10¹⁸ | 127 | 17 | 36 | 48 | 46 % |
+| 10¹⁹ | 167 | 7 | 42 | 59 | 37 % |
+| 10²⁰ | 216 | 20 | 29 | 48 | 29 % |
+| 10²¹ | 316 | 31 | 40 | 58 | 27 % |
+
+- **The D-line runs alone find 50–70 % of all four-ways up to 10¹⁶.** They cover all 20,000 cheapest directions,
+  including the cheap ones the worf run skipped.
+- **Recall falls with n,** as the heights needed grow like n^(1/6).
+- **worf's lines (ranks > 1,400 only) find few small four-ways but most of the large five-ways:** expensive
+  directions reach large n even at modest height (F32).
+
+**A080642 (cubefree taxicab).**
+- **All-positive numbers up to 10²²:** the exhaustive list contains exactly three coprime numbers with ≥ 4 positive
+  representations, all cubefree: 1801049058342701083, 682238339160892906483 and 2724248230569896697541 (the last a
+  five-way with 4 positive).
+- **This independently confirms A080642(4) = 1801049058342701083**, and that 682238339160892906483 is the second
+  cubefree positive four-way.
+- **A080642(5) > 2.5·10²³** (see `cubefree.md`).
+
+**Yields per CPU-hour** (one worf hour is about 22 threads; one 7of9 hour is about 56 threads):
+- worf lines: 207 four-ways and 3.2 five-ways per hour;
+- D-lines at height 550: 78 four-ways (26 of them hubs) and 0.7 five-ways per hour.
+
+Lines over expensive directions are the five-way engine; D-lines are the hub and small-n engine.
+
+## F35 (28 October 2026): rank predictors, the height shell, and why bowties do not complete
+
+Three tests of "blue-sky" ideas on data in hand.
+
+**1. A Mestre–Nagao score predicts rank** (the 358 curves with exact rank, from `curve_relations/ranks.txt`). The
+score is S(P) = Σ_{p ≤ P, p ∤ 6n} −a_p·log p / p on Y² = X³ − 432n² (PARI `ellap`; about 0.2 s per curve for
+P = 10⁶).
+
+| predictor | AUC, rank ≥ 6 vs ≤ 4 | Spearman ρ with rank |
+| --- | ---: | ---: |
+| S(10⁶) | **0.95** | +0.35 |
+| S(10⁵) | 0.93 | +0.28 |
+| number of split primes | 0.57 | +0.38 |
+| log n | 0.36 | +0.35 |
+
+- **The mean score rises with rank:** 26, 29, 36, 44, 51, 66 for ranks 3–8. It is nearly independent of size
+  (slope −0.08 per unit of log n).
+- **Root number:** it matched rank parity in 358 of 358 cases.
+- **Independent four-ways against line + free:** AUC 0.83 (mean score 44 against 30).
+- **As a filter for multiplicity it is only moderate.** Size-matched AUC is 0.72 for four-ways, and also for
+  five-ways, against random 3-way line candidates. Five-ways against four-ways gives 0.46: our five-ways are
+  bowties, made by structure, not rank. S(2000) keeps most of the signal (0.68–0.70).
+- **Use:** the rank route (independent multi-ways; cubefree all-positive candidates), not the line search.
+
+**2. The integral points of a multi-way lie on a thin shell, at least 60° apart** (72 five-ways and 800 four-ways;
+canonical height Gram matrices).
+- **Heights:** the relative spread (max − min)/mean has median 4.5 % (90th percentile 10.8 %).
+- **Points on a common line:** |cos| has median 0.502, as P + Q + R = 0 with equal heights forces.
+- **Pairs with no common line (2,832):** |cos| ≤ 0.5 in every case, mostly 0.1–0.3. Random directions in dimension
+  3 or 4 exceed 0.5 about half the time.
+- **This is the gap principle for integral points** (Mumford, Silverman; Helfgott–Venkatesh, JAMS 2006, who bound
+  integral points by sphere packing in the Mordell–Weil lattice).
+- **Heuristic consequence:** six representations are 12 shell vectors at least about 60° apart. Rank 2 holds at
+  most 3, the hexagon. Rank 3 holds at most 6, essentially only as the A3 (face-centred cubic) minimal vectors:
+  6 points with 4 three-term relations, the **complete quadrilateral**. Removing one point leaves two lines
+  through a common point: a **bowtie**.
+
+**3. No bowtie completes to a complete quadrilateral: denominators always divisible by 6.**
+- **The two candidates:** a bowtie A + B + C = 0, A + D + E = 0 implies B + C = D + E. Its two possible sixth
+  points are ±(B − E) = ±(D − C) and ±(B − D) = ±(E − C), each the third point of two chords (one through a
+  non-shared point of each line).
+- **The data:** for all 69 bowtie five-ways, all 138 candidates are rational, non-integral, with denominator
+  divisible by **both 2 and 3**. The smallest is 6 (6 bowties); 2-adic valuations run 1–8, 3-adic 1–5.
+- **Partial explanation at 3** (PARI, minimal model, first 12 bowties): typically c₃ = 3. Every integral point
+  lies off the identity component at 3, and both completion points lie on it, a Tamagawa component-group
+  obstruction.
+  - **Not explained yet:** at 2, c₂ = 1, so the factor 2 has another cause, probably the reduction filtration
+    E⁰/E¹. Also 751273218784283299882407 has c₃ = 1 and its completion point is still non-integral at 3.
+- **If this becomes a theorem,** a six-way cannot be a completed bowtie, which is the rank-3 structural six-way.
+  Six-ways would then need rank ≥ 4 for their points: for example a bowtie plus a free point (three such
+  line + 2-free five-ways are known), or the rank route. Line searches with exact counting still catch the first.
+- **Next:** prove the 2- and 3-adic statement (local analysis of lines through integral points); extend the check
+  to all hubs and four-ways (chord third points through a free point).
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:
