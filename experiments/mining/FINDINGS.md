@@ -1172,22 +1172,26 @@ canonical height Gram matrices).
   6 points with 4 three-term relations, the **complete quadrilateral**. Removing one point leaves two lines
   through a common point: a **bowtie**.
 
-**3. No bowtie completes to a complete quadrilateral: denominators always divisible by 6.**
+**3. No bowtie completes to a complete quadrilateral: denominators always divisible by 6 (now Theorem 8).**
 - **The two candidates:** a bowtie A + B + C = 0, A + D + E = 0 implies B + C = D + E. Its two possible sixth
   points are ±(B − E) = ±(D − C) and ±(B − D) = ±(E − C), each the third point of two chords (one through a
   non-shared point of each line).
 - **The data:** for all 69 bowtie five-ways, all 138 candidates are rational, non-integral, with denominator
   divisible by **both 2 and 3**. The smallest is 6 (6 bowties); 2-adic valuations run 1–8, 3-adic 1–5.
-- **Partial explanation at 3** (PARI, minimal model, first 12 bowties): typically c₃ = 3. Every integral point
-  lies off the identity component at 3, and both completion points lie on it, a Tamagawa component-group
-  obstruction.
-  - **Not explained yet:** at 2, c₂ = 1, so the factor 2 has another cause, probably the reduction filtration
-    E⁰/E¹. Also 751273218784283299882407 has c₃ = 1 and its completion point is still non-integral at 3.
-- **If this becomes a theorem,** a six-way cannot be a completed bowtie, which is the rank-3 structural six-way.
-  Six-ways would then need rank ≥ 4 for their points: for example a bowtie plus a free point (three such
-  line + 2-free five-ways are known), or the rank route. Line searches with exact counting still catch the first.
-- **Next:** prove the 2- and 3-adic statement (local analysis of lines through integral points); extend the check
-  to all hubs and four-ways (chord third points through a free point).
+- **Explained and proved: THEOREMS.md Theorem 8.** Give each integral point a p-type (which coordinate p
+  divides; defined for p = 2 when n is odd, for p = 3 when n ≡ ±1 mod 9). A chord between points of opposite type
+  has a third point that is not p-integral (Lemma 8a; a two-line valuation argument). So every line keeps its
+  type (8b). The bowtie completions join a point to the *swap* of a point on the other line, so they have
+  opposite type at both primes, and their denominators are divisible by 2 and 3.
+  - **Theorem 8c:** for n odd or n ≡ ±1 (mod 9), no six coprime representations form a complete quadrilateral.
+  - **Coverage:** all 72 five-ways have n odd; 8 of the 6,785 four-ways are outside the theorem.
+  - The earlier component-group observation at 3 (c₃ = 3, integral points off the identity component) is the
+    same phenomenon seen through the Néron model.
+- **Consequence (gap principle heuristic + 8c):** a coprime six-way needs its six points to span rank ≥ 4, for
+  example a bowtie plus a free point, or to arise by rank. Line searches with exact counting still catch the
+  former.
+- **Next:** use the types elsewhere: which hub meeting points R can have small D; whether a bowtie + free point is
+  constrained by types too.
 
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 

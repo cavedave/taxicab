@@ -261,6 +261,73 @@ divisor of (b − a)E alone, e.g. (1, 3) gives D ∈ {2, 26}, never 13). Not pro
 
 ---
 
+## Theorem 8 (types at 2 and 3; no complete quadrilateral; FINDINGS F35)
+
+**Setting.** n > 0, and the coprime representations of n are integer points P = (x, y) of x³ + y³ = n, where
+P and its swap (y, x) are different points of the same representation. For a prime p ∈ {2, 3}, the **p-type** of
+P is 0 if p | x and p ∤ y, and 1 if p | y and p ∤ x. Swapping flips the type.
+- **When types are defined:** for every representation of n exactly when p = 2 and n is odd (then exactly one
+  coordinate is even), or p = 3 and n ≡ ±1 (mod 9). In the latter case one coordinate is divisible by 3, because if
+  neither is, then n ≡ 0 or ±2 (mod 9); and coprimality excludes both.
+
+**Lemma 8a.** If P = (x, y) and Q = (x₁, y₁) have opposite p-types, the third point R of the chord PQ is not
+p-integral.
+
+*Proof.* The third point is R = ((x₁²y − x²y₁)/d, (xy₁² − x₁y²)/d) with d = xy − x₁y₁. This is the classical
+chord formula for the Fermat cubic: X³ + Y³ = n and collinearity reduce to identities given
+x³ + y³ = x₁³ + y₁³, and both were verified exactly on all 82,860 point pairs of the catalogue. Say p | x and
+p | y₁ (the opposite case is symmetric).
+- **The numerator is a p-unit:** x·y₁² is divisible by p and x₁·y² is not, so xy₁² − x₁y² is not divisible by p.
+- **The denominator is divisible by p:** both xy and x₁y₁ are, so p | d.
+
+Hence the y-coordinate of R has negative p-adic valuation. ∎
+
+(For p = 2 there is also a conceptual proof. For odd n the plane cubic x³ + y³ = n z³ has good reduction at 2,
+and reduction is a homomorphism onto E(F₂) = {(1:1:0), (1:0:1), (0:1:1)} ≅ Z/3, sending the two types to ±g.
+Since P + Q + R = 0, opposite types give R ↦ 0 = (1:1:0), that is z ≡ 0 (mod 2).)
+
+**Corollary 8b (lines keep their type).** If p-types are defined, the three points of a collinear integral triple
+(as they lie on the line) have the same p-type. Otherwise two of them are opposite, and by 8a the third is not
+integral.
+
+**Theorem 8c (no complete quadrilateral).** If n is odd or n ≡ ±1 (mod 9), there are no six distinct coprime
+representations of n forming a complete quadrilateral: four lines, each through three of the six, every two lines
+meeting in one of them.
+
+*Proof.* We use the group law with zero at the flex (1 : −1 : 0): three points are collinear exactly when they sum
+to zero, and −(x, y) = (y, x). The torsion is trivial for curves with integral points of this kind (cube-free part
+of n not 1 or 2).
+- **Set-up.** Take two lines meeting at representation A: ℓ₁ ∋ A, B, C and ℓ₂ ∋ A, D, E. The other two lines each
+  meet ℓ₁ and ℓ₂ in distinct points and meet each other at the sixth point X; label so that ℓ₃ ∋ B, D, X and
+  ℓ₄ ∋ C, E, X.
+- **Choosing points.** On each line choose the actual collinear points: a + b + c = 0 on ℓ₁, σ_a a + d + e = 0 on
+  ℓ₂, σ_b b + σ_d d + x = 0 on ℓ₃, σ_c c + σ_e e + x′ = 0 on ℓ₄, where the σ are ±1 and x′ = ε x (same
+  representation X).
+- **Signs from types.** Writing τ = ±1 for the type, τ(−P) = −τ(P), and by 8b each line has a single type. That
+  forces **σ_b = σ_a σ_d and σ_c = σ_a σ_e.** From ℓ₁ and ℓ₂: d + e = σ_a (b + c).
+- **Case σ_a = +1.** Then x = −σ_b(b + d) and x′ = −σ_c(c + e). So c + e = δ(b + d) with δ = ±1.
+  - δ = +1: together with b + c = d + e this gives 2(e − b) = 0, so e = b: the same representation.
+  - δ = −1: then b + c + d + e = 0 and b + c = d + e, so 2(b + c) = 0, so a = 0.
+- **Case σ_a = −1.** Then x = −σ_b(b − d) and x′ = −σ_c(c − e), so c − e = δ(b − d), with b + c = −(d + e).
+  - δ = +1: 2(b + e) = 0, so e = −b: the same representation.
+  - δ = −1: b + c = d + e = −(b + c), so a = 0.
+
+Every case contradicts distinctness or a ≠ 0. ∎
+
+**Remarks.**
+- **The type constraint is essential.** Without it (σ_b = −σ_a σ_d allowed), the configuration x = σ_b(d − b),
+  x′ = −x is consistent: it is the A3 root configuration (12 vectors, 6 representations, 4 relations).
+- **Data:** for all 69 bowtie five-ways, both candidate sixth points ±(B − E) and ±(B − D) have denominators
+  divisible by 2 and by 3 (138 of 138), exactly as 8a predicts. They are chords between points of opposite type at
+  both primes.
+- **Coverage:** all 72 known coprime five-ways have n odd; of the 6,785 four-ways only 8 (n even, n ≢ ±1 mod 9) lie
+  outside the theorem.
+- **Why it matters (F35, heuristic):** by the gap principle, six integral points of nearly equal height spanning
+  rank 3 must be close to the A3 configuration. So a coprime six-way needs its points to span rank ≥ 4, for example
+  a bowtie plus a free point (as the three known "line + 2 free" five-ways span rank 4), or arise by rank.
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
