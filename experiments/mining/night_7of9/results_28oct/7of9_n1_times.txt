@@ -1,0 +1,5 @@
+start STAGES=lines P=56 DDIRS=20000 DH=400 LSEL=[--dirs-file /home/dcurran/taxi/n1/dirs/7of9_n1_legacy_31_1400.txt] LH=5000 LOLDH=600 HERO=8 HPMAX=1000 NMAX=1e30 AUTOM=4.5 Wed 28 Oct 2026 16:57:56 GMT
+lines done Wed 28 Oct 2026 18:06:18 GMT
+l counted: 10859974 n in 378s: {3: 10859385, 4: 583, 5: 6} Wed 28 Oct 2026 18:12:47 GMT
+shapes: k=4  line+free            583 k=5  bowtie               6  Wed 28 Oct 2026 18:12:52 GMT
+k>=5 numbers: 6   (any k>=6 line is the jackpot: 0) Wed 28 Oct 2026 18:12:52 GMT
