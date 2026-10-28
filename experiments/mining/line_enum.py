@@ -94,17 +94,25 @@ def out_open(path):
 
 def primes_below(m): return [p for p in range(2, m) if all(p % q for q in range(2, int(p**0.5) + 1))]
 SP_ALL = primes_below(200)
+SPLIT = [p for p in SP_ALL if p % 3 == 1]
 HERO_CORE = 1729
 def set_hero_pmax(m):
-    """count split primes below M in the hero filter (default 200; F35: 1000 with hero 8 keeps 8 % of candidates)"""
-    global SP_ALL
-    SP_ALL = primes_below(m)
+    """count split primes below M in the hero filter (default 200; F36: 1000 with hero 8 keeps 8 % of candidates)"""
+    global SP_ALL, SPLIT
+    SP_ALL = primes_below(m); SPLIT = [p for p in SP_ALL if p % 3 == 1]
 def hero_ok(n, rmin):
     """six-way profile: HERO_CORE | n (1729 or 7), odd, n = 1 (mod 9), no prime = 2 (mod 3) below 200,
     >= rmin split primes below 200"""
     if HERO_CORE == 0:                       # F24 profile: >= 2 of {7, 13, 19, 37}, no mod-9 / p = 2 (mod 3) rule
         if (n % 7 == 0) + (n % 13 == 0) + (n % 19 == 0) + (n % 37 == 0) < 2: return False
-        return sum(1 for p in SP_ALL if p % 3 == 1 and n % p == 0) >= rmin
+        cnt, left = 0, len(SPLIT)            # split primes only, stop as soon as the answer is known
+        for p in SPLIT:
+            left -= 1
+            if n % p == 0:
+                cnt += 1
+                if cnt >= rmin: return True
+            elif cnt + left < rmin: return False
+        return cnt >= rmin
     if n % HERO_CORE or n % 2 == 0 or n % 9 != 1: return False
     split = 0
     for p in SP_ALL:

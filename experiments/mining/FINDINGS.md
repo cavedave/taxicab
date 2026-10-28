@@ -1263,6 +1263,44 @@ per-direction candidate counts from its log; four- and five-ways by their line's
   ≥ 2 split primes in E. They have true ranks 1,376–214,614 and cost up to 4.9·10¹⁰; 18,292 of them have ≥ 3.
   That is 93,721 E-rich among the first 300,000 unsearched.
 
+## F38 (28 October 2026): size matters at fixed richness; prime weights do not; faster filter; which six-way shapes survive
+
+**1. The free-point rate falls steeply with n at fixed richness** (Mac line candidates; rate of line + free
+four-ways per candidate; s = split primes < 1,000):
+
+| s | n < 10²² | 10²²–10²⁶ | 10²⁶–10³⁰ |
+| --- | ---: | ---: | ---: |
+| ≤ 6 | 3.8e-4 | 3.5e-5 | 7.8e-6 |
+| 7–8 | 1.5e-3 | 1.8e-4 | 3.8e-5 |
+| ≥ 9 | 4.0e-3 | 6.6e-4 | 1.3e-4 |
+
+- **The rate falls about 5–10× per four decades of n.** A six-way (a bowtie plus a free point) is therefore most
+  likely just above the exhaustive bound, at 2.5·10²³–10²⁷, and much less likely above 10³⁰.
+- **In worf's output** 18 of 34 five-ways and 1,040 of 2,188 four-ways are above 10³⁰, but they carry only about
+  5 % of the expected six-way chance.
+- **`night_cpu.sh` now takes NMAX** (e.g. 1e30) for six-way hunting.
+- **Corollary:** extending the exhaustive GPU search just above 2.5·10²³ searches the densest region for six-ways.
+
+**2. Individual primes carry no weight beyond the count.** At equal s, the enrichment of each split prime < 160 in
+four-ways against candidates is 0.95–1.27 (37: 1.27, the largest). The count of small split primes is the
+signal; a weighted score adds little.
+
+**3. Faster filter.** Testing only the split primes, with early exit both ways, gives identical output and
+enumeration 1.46× faster at hero 8 (1.94× at hero 4).
+
+**4. Six-way shapes after Theorem 8 (types).**
+- **Complete quadrilateral** (rank 3, 4 lines): impossible for n odd or n ≡ ±1 (mod 9) (Theorem 8c).
+- **Triangle** (rank 3; lines v₁v₂p₁, v₂v₃p₂, v₃v₁p₃ with orientation signs σᵢ): ruled out heuristically, not
+  proved.
+  - Types force σ₁σ₂σ₃ = +1.
+  - With equal heights h₀, each line forces cos = −½ between its points. The Gram determinant of v₁, v₂, v₃ is then
+    h₀³(¼ − σ₁σ₂σ₃/4) = 0, so ĥ(v₁ + v₂ + v₃) ≈ 0.
+  - That needs a rational point of height far below the integral points'. With heights equal only to within about
+    5 %, this is not a proof.
+- **Rank-4 shapes are unconstrained by types:** two disjoint lines; a bowtie + a free point; a line + a hub sharing
+  one point. They contain no cycle of lines.
+- **These are what remains, and line searches with exact counting catch all three.**
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:
