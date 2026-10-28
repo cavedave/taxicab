@@ -71,8 +71,8 @@ def dtriples(a, b, P0, H, nmax, dmax, hero, s_lo, s_hi):
     return out
 
 def run(job):
-    a, b, P0, H, nmax, dmax, hero, core, lo, hi = job
-    L.HERO_CORE = core
+    a, b, P0, H, nmax, dmax, hero, core, lo, hi, pmax = job
+    L.HERO_CORE = core; L.set_hero_pmax(pmax)
     return (a, b, lo, hi), dtriples(a, b, P0, H, nmax, dmax, hero, lo, hi)
 
 def main():
@@ -80,6 +80,8 @@ def main():
     ap.add_argument("--parity", choices=["even", "odd"], required=True, help="a b even (odd D) or odd (even D)")
     ap.add_argument("--dirs", type=int, default=30); ap.add_argument("--skip", type=int, default=0)
     ap.add_argument("--only", default="", help="explicit directions 'a,b;a,b'")
+    ap.add_argument("--dirs-file", default="", help="explicit directions, one 'a,b' per line")
+    ap.add_argument("--hero-pmax", type=int, default=200, help="count split primes below this bound in the hero filter")
     ap.add_argument("--height", type=int, default=200); ap.add_argument("--nmax", type=float, default=1e17)
     ap.add_argument("--dmax", type=int, default=12)
     ap.add_argument("--hero", type=int, default=0); ap.add_argument("--core", type=int, default=0)
@@ -87,12 +89,15 @@ def main():
     ap.add_argument("--gp", default="gp"); ap.add_argument("--out", required=True)
     ap.add_argument("--short", action="store_true", help="write only n;D;a;b")
     A = ap.parse_args()
-    dirs = ([tuple(map(int, d.split(","))) for d in A.only.split(";")] if A.only
-            else norm_directions(A.skip + A.dirs, A.parity)[A.skip:])
+    if A.dirs_file:
+        dirs = [tuple(map(int, l.split(","))) for l in open(A.dirs_file) if l.strip() and l[0] != "#"]
+    else:
+        dirs = ([tuple(map(int, d.split(","))) for d in A.only.split(";")] if A.only
+                else norm_directions(A.skip + A.dirs, A.parity)[A.skip:])
     P = L.conic_points(dirs, A.gp)
     H, k = A.height, A.chunks
     cuts = [-1 + round((H + 1) * i / k) for i in range(k + 1)]
-    jobs = [(a, b, P0, H, int(A.nmax), A.dmax, A.hero, A.core, cuts[i] + 1, cuts[i + 1])
+    jobs = [(a, b, P0, H, int(A.nmax), A.dmax, A.hero, A.core, cuts[i] + 1, cuts[i + 1], A.hero_pmax)
             for (a, b), P0 in zip(dirs, P) for i in range(k) if cuts[i + 1] > cuts[i]]
     t0 = time.time(); total = 0
     with L.out_open(A.out) as f, Pool(A.procs) as pool:

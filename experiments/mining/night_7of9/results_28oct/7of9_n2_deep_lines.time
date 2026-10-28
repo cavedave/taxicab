@@ -1,0 +1,23 @@
+	Command being timed: "python3 line_enum.py --dirs-file /home/dcurran/taxi/n2_deep/dirs/legacy_1401_20000.txt --old-height 800 --old-nmax 1e40 --auto-height --auto-margin 4.5 --height 5000 --nmax 1e30 --hero 7 --hero-pmax 1000 --core 0 --procs 56 --gp /home/dcurran/pari/bin/gp --short --out /home/dcurran/taxi/n2_deep/cpu/lines.gz"
+	User time (seconds): 405037.64
+	System time (seconds): 15.21
+	Percent of CPU this job got: 5595%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 2:00:39
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 64204
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 3121466
+	Voluntary context switches: 203044
+	Involuntary context switches: 940391
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 360264
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0
