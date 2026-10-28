@@ -12,7 +12,7 @@ set -u
 W=$(pwd); C=$W/code; O=$W/cpu; mkdir -p $O $O/tmp
 GP=${GP:-$HOME/pari/bin/gp}; TIMEV=${TIMEV:-/usr/bin/time -v}; P=${P:-56}; STAGES=${STAGES:-all}
 DDIRS=${DDIRS:-20000}; DH=${DH:-400}; LSKIP=${LSKIP:-1400}; LDIRS=${LDIRS:-18600}; LH=${LH:-600}
-LDIRSFILE=${LDIRSFILE:-}; LOLDH=${LOLDH:-0}     # LDIRSFILE: explicit directions (a,b per line); LOLDH: heights already searched
+LDIRSFILE=${LDIRSFILE:-}; LOLDH=${LOLDH:-0}; HERO=${HERO:-4}; HPMAX=${HPMAX:-200}   # HERO/HPMAX: >= HERO split primes below HPMAX (F36: 8 and 1000 for six-way hunting)     # LDIRSFILE: explicit directions (a,b per line); LOLDH: heights already searched
 [ -n "$LDIRSFILE" ] && { [ -f "$LDIRSFILE" ] || { echo "no such file: $LDIRSFILE"; exit 1; }; LDIRSFILE=$(cd "$(dirname "$LDIRSFILE")" && pwd)/$(basename "$LDIRSFILE"); }
 LSEL="--skip $LSKIP --dirs $LDIRS"; [ -n "$LDIRSFILE" ] && LSEL="--dirs-file $LDIRSFILE"
 LOLD=""; [ "$LOLDH" -gt 0 ] && LOLD="--old-height $LOLDH --old-nmax 1e40"
@@ -24,7 +24,7 @@ count() {   # tag, files...: unique n -> exact counts
   python3 count_all.py $O/${t}_n.gz --out $O/$t.multi --procs $P --gp $GP > $O/${t}_count.log
   T "$t counted: $(tail -1 $O/${t}_count.log)"
 }
-T "start STAGES=$STAGES P=$P DDIRS=$DDIRS DH=$DH LSEL=[$LSEL] LH=$LH LOLDH=$LOLDH"
+T "start STAGES=$STAGES P=$P DDIRS=$DDIRS DH=$DH LSEL=[$LSEL] LH=$LH LOLDH=$LOLDH HERO=$HERO HPMAX=$HPMAX"
 if [ $STAGES != lines ]; then
   for par in even odd; do
     $TIMEV python3 dline_enum.py --parity $par --dirs $DDIRS --height $DH --nmax 1e40 --dmax 1000000000 \
@@ -34,7 +34,7 @@ if [ $STAGES != lines ]; then
   count d $O/dl_even.gz $O/dl_odd.gz
 fi
 if [ $STAGES != dl ]; then
-  $TIMEV python3 line_enum.py $LSEL $LOLD --height $LH --nmax 1e40 --hero 4 --core 0 \
+  $TIMEV python3 line_enum.py $LSEL $LOLD --height $LH --nmax 1e40 --hero $HERO --hero-pmax $HPMAX --core 0 \
     --procs $P --gp $GP --short --out $O/lines.gz > $O/lines.log 2> $O/lines.time
   [ -s $O/lines.gz ] || { T "LINE STAGE FAILED, see cpu/lines.time"; exit 1; }
   T "lines done"

@@ -1193,6 +1193,47 @@ canonical height Gram matrices).
 - **Next:** use the types elsewhere: which hub meeting points R can have small D; whether a bowtie + free point is
   constrained by types too.
 
+## F36 (28 October 2026): how much rarer six-ways are, and a split-prime filter for six-way hunting
+
+**Transition rates** (line_structure shapes of the whole catalogue; exact counting means every representation of
+a line-found n is known, so these are unbiased given the line):
+
+| n range | line + free four-ways | → bowtie (second line) | → line + 2 free (extra free point) |
+| --- | ---: | ---: | ---: |
+| ≤ 10²² | 955 | 10 (1.0·10⁻²) | 1 (1.0·10⁻³) |
+| 10²²–10²⁷ | 1,647 | 17 (1.0·10⁻²) | 2 (1.2·10⁻³) |
+| 10²⁷–10³¹ | 2,491 | 24 (9.6·10⁻³) | 0 |
+| ≥ 10³¹ | 1,358 | 18 (1.3·10⁻²) | 0 |
+
+- **A second line is common and steady:** about 1 in 100 at every size. That is the five-way : four-way ratio.
+- **An extra free point is about 10× rarer,** and rarer at large n (0 of 3,849 above 10²⁷).
+- **By Theorem 8 a bowtie cannot be completed,** so a six-way from a bowtie needs a free point.
+- **Richness:** the free-point rate roughly doubles per extra small split prime (next table), and five-way n are
+  richer than four-way n.
+- **Estimate:** six-ways about 1 : 300 to 1 : 1,500 of five-ways at our sizes, central about 1 : 500, not 1 : 100.
+
+**The free-point rate rises steeply with split primes.** Line candidates of the Mac test (11.2 M, line + free
+four-ways among them); s = number of split primes below 1,000:
+
+| s | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| share of candidates | 21 % | 32 % | 25 % | 14 % | 5.8 % | 1.9 % | 0.5 % | 0.1 % |
+| four-way rate | 1.7e-5 | 3.7e-5 | 7.8e-5 | 1.6e-4 | 2.7e-4 | 5.2e-4 | 6.8e-4 | 1.2e-3 |
+| share of the 72 five-ways | 1 % | 8 % | 14 % | 15 % | 25 % | 19 % | 11 % | 6 % |
+
+**Filter benchmark** (`line_enum.py --hero R --hero-pmax 1000 --core 0`; 300 unsearched directions, height 300; Mac):
+
+| filter | candidates | enumerate + count | four-ways | five-ways kept (of 72) | ground per CPU-hour |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| hero 4, primes < 200 (used so far) | 3.29 M | 30 + 331 s | 14 | 72 | 1× |
+| hero 7, primes < 1,000 | 0.77 M | 49 + 115 s | 12 | 55 | 2.2× |
+| hero 8, primes < 1,000 | 0.29 M | 50 + 56 s | 5 | 44 | 3.4× |
+
+- **For six-way hunting** (which needs a rich n), hero 8 / 1,000 gives about 2–2.5× the six-way yield per CPU-hour.
+  Hero 7 / 1,000 is the compromise if five-way counts also matter (about 1.7× the five-way yield per CPU-hour).
+- **Enumeration now costs more** (the filter tests 160 primes per triple); an early-exit or gcd-based test would
+  recover part of it.
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:

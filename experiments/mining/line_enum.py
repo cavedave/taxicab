@@ -92,8 +92,13 @@ def out_open(path):
     """--out path; a name ending in .gz is written gzip-compressed (level 1)"""
     return gzip.open(path, "wt", compresslevel=1) if path.endswith(".gz") else open(path, "w")
 
-SP_ALL = [p for p in range(2, 200) if all(p % q for q in range(2, int(p**0.5) + 1))]
+def primes_below(m): return [p for p in range(2, m) if all(p % q for q in range(2, int(p**0.5) + 1))]
+SP_ALL = primes_below(200)
 HERO_CORE = 1729
+def set_hero_pmax(m):
+    """count split primes below M in the hero filter (default 200; F35: 1000 with hero 8 keeps 8 % of candidates)"""
+    global SP_ALL
+    SP_ALL = primes_below(m)
 def hero_ok(n, rmin):
     """six-way profile: HERO_CORE | n (1729 or 7), odd, n = 1 (mod 9), no prime = 2 (mod 3) below 200,
     >= rmin split primes below 200"""
@@ -153,8 +158,8 @@ SP200 = [p for p in range(7, 200) if p % 3 == 1 and all(p % q for q in range(2, 
 
 def run_dir(job):
     global HERO_CORE
-    a, b, P0, H, nmax, old_h, old_n, hero, core, s_lo, s_hi = job
-    HERO_CORE = core
+    a, b, P0, H, nmax, old_h, old_n, hero, core, s_lo, s_hi, pmax = job
+    HERO_CORE = core; set_hero_pmax(pmax)
     return (a, b, s_lo, s_hi), triples(a, b, P0, H, nmax, old_h, old_n, hero, s_lo, s_hi)
 
 def main():
@@ -164,7 +169,8 @@ def main():
     ap.add_argument("--old-height", type=int, default=0, help="skip triples already covered: slope <= OLD_HEIGHT and n <= OLD_NMAX")
     ap.add_argument("--old-nmax", type=float, default=0)
     ap.add_argument("--core", type=int, default=1729, help="hero filter: required divisor (1729 or 7); 0 = at least two of {7, 13, 19, 37}, no mod-9 or p = 2 (mod 3) rule")
-    ap.add_argument("--hero", type=int, default=0, help="six-way profile filter with >= HERO split primes below 200")
+    ap.add_argument("--hero", type=int, default=0, help="six-way profile filter with >= HERO split primes below --hero-pmax")
+    ap.add_argument("--hero-pmax", type=int, default=200, help="count split primes below this bound in the hero filter")
     ap.add_argument("--rmin", type=int, default=0, help="only write triples whose n has >= RMIN split primes < 200")
     ap.add_argument("--height", type=int, default=200)
     ap.add_argument("--nmax", type=float, default=1e17)
@@ -190,7 +196,7 @@ def main():
     lo_s, hi_s = a_.s_min, (H if a_.s_max < 0 else min(a_.s_max, H))
     cuts = [lo_s - 1 + round((hi_s - lo_s + 1) * i / k) for i in range(k + 1)]
     jobs = [(a, b, P0, H, int(a_.nmax), a_.old_height, int(a_.old_nmax), a_.hero, a_.core,
-             cuts[i] + 1, cuts[i + 1]) for (a, b), P0 in zip(dirs, P) for i in range(k) if cuts[i + 1] > cuts[i]]
+             cuts[i] + 1, cuts[i + 1], a_.hero_pmax) for (a, b), P0 in zip(dirs, P) for i in range(k) if cuts[i + 1] > cuts[i]]
     with out_open(a_.out) as f, Pool(a_.procs) as pool:
         for (a, b, lo, hi), T in pool.imap_unordered(run_dir, jobs):
             for n, c, pts in T:
