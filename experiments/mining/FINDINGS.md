@@ -1234,6 +1234,35 @@ four-ways among them); s = number of split primes below 1,000:
 - **Enumeration now costs more** (the filter tests 160 primes per triple); an early-exit or gcd-based test would
   recover part of it.
 
+## F37 (28 October 2026): choose directions by the richness of E = a² + ab + b²
+
+Every n on direction (a, b) is divisible by E (Theorem 2), so a direction whose E carries many small split primes
+gives every candidate that richness for free. worf's line run of 27–28 October (ranks 1,401–20,000, height 800;
+per-direction candidate counts from its log; four- and five-ways by their line's direction):
+
+| split primes < 1,000 in E | directions | four-ways per 1,000 directions | five-ways per 1,000 directions |
+| ---: | ---: | ---: | ---: |
+| 0 | 5,443 | 42 | 0.18 |
+| 1 | 8,151 | 113 | 1.96 |
+| 2 | 2,531 | 154 | 2.77 |
+| 3 | 2,118 | 269 | 6.14 |
+| ≥ 4 | 357 | 213 | 5.60 |
+
+**Within cost bands** (E rich = ≥ 2 split primes in E, five-ways per 1,000 directions):
+
+| cost band | E poor | E rich |
+| --- | ---: | ---: |
+| 10⁷–10⁸ | 3.48 | 6.49 |
+| 10⁸–5·10⁸ | 0.98 | 4.93 |
+| 5·10⁸–1.4·10⁹ | 0.65 | 3.10 |
+
+- **The effect is not a cost artefact:** it is 2–5× within every band.
+- **E-rich yield decays slowly with cost** (about cost^−0.17), so going further out in E-rich directions beats
+  taking every direction in cost order.
+- **Night 2 list:** `night_7of9/dirs/rich_E2_60000.txt` holds the 60,000 cheapest never-searched directions with
+  ≥ 2 split primes in E. They have true ranks 1,376–214,614 and cost up to 4.9·10¹⁰; 18,292 of them have ≥ 3.
+  That is 93,721 E-rich among the first 300,000 unsearched.
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:
