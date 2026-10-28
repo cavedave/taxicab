@@ -191,6 +191,8 @@ def main():
     ap.add_argument("--s-max", type=int, default=-1)
     ap.add_argument("--out", required=True)
     ap.add_argument("--short", action="store_true", help="write only n;a;b (enough for exact counting and per-direction yields)")
+    ap.add_argument("--auto-margin", type=float, default=0.5, help="decades of n added to the auto-height bound")
+    ap.add_argument("--auto-height", action="store_true", help="per direction, stop at the height where n passes --nmax (F39: n ~ cost^2 h^6; 10th percentile + 0.5 decade margin), capped at --height")
     a_ = ap.parse_args()
     if a_.only or a_.dirs_file:
         src = a_.only.split(";") if a_.only else [l.strip() for l in open(a_.dirs_file) if l.strip() and l[0] != "#"]
@@ -203,8 +205,19 @@ def main():
     H, k = a_.height, a_.chunks
     lo_s, hi_s = a_.s_min, (H if a_.s_max < 0 else min(a_.s_max, H))
     cuts = [lo_s - 1 + round((hi_s - lo_s + 1) * i / k) for i in range(k + 1)]
-    jobs = [(a, b, P0, H, int(a_.nmax), a_.old_height, int(a_.old_nmax), a_.hero, a_.core,
-             cuts[i] + 1, cuts[i + 1], a_.hero_pmax) for (a, b), P0 in zip(dirs, P) for i in range(k) if cuts[i + 1] > cuts[i]]
+    def hdir(a, b):
+        if not a_.auto_height: return H
+        import math
+        return max(10, min(H, math.ceil(10 ** ((math.log10(a_.nmax) + 1.6 + a_.auto_margin - 2.0 * math.log10(b**3 - a**3)) / 5.96))))
+    jobs = []
+    for (a, b), P0 in zip(dirs, P):
+        Hd = hdir(a, b); hi = Hd if a_.s_max < 0 else min(a_.s_max, Hd)
+        cuts = [lo_s - 1 + round((hi - lo_s + 1) * i / k) for i in range(k + 1)]
+        jobs += [(a, b, P0, Hd, int(a_.nmax), a_.old_height, int(a_.old_nmax), a_.hero, a_.core,
+                  cuts[i] + 1, cuts[i + 1], a_.hero_pmax) for i in range(k) if cuts[i + 1] > cuts[i]]
+    if a_.auto_height:
+        hs = sorted(hdir(a, b) for a, b in dirs)
+        print(f"auto-height: per-direction height min {hs[0]}, median {hs[len(hs)//2]}, max {hs[-1]} (cap {H})", flush=True)
     with out_open(a_.out) as f, Pool(a_.procs) as pool:
         for (a, b, lo, hi), T in pool.imap_unordered(run_dir, jobs):
             for n, c, pts in T:

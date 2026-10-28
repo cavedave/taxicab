@@ -1159,6 +1159,20 @@ P = 10⁶).
   bowties, made by structure, not rank. S(2000) keeps most of the signal (0.68–0.70).
 - **Use:** the rank route (independent multi-ways; cubefree all-positive candidates), not the line search.
 
+**Addendum (28 October, unbiased sample).** Exhaustive four-ways ≤ 10²² contain 26 independent ones (2.3 %). Ranks of
+the 14 not ranked before plus size-matched controls (`curve_relations/ranks_indep_1e22.txt`; PARI `ellrank` needs
+`gp -D nbthreads=1` at this size, 1–3 min per curve):
+
+| group | exact ranks | mean |
+| --- | --- | ---: |
+| independent | 4, 4, 4, 4, 4, 5, 6, 7, 7, 8 (plus 4 with bounds 4–6) | 5.3 |
+| line + free controls | 3, 3, 3, 4, 4, 4, 4, 4, 4, 5 | 3.8 |
+| hub controls | 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 7 | 4.2 |
+
+Independent four-ways sit about 1.1–1.5 ranks higher (two rank 7 and one rank 8; 58350391018399258021 has rank
+8), but one hub control also has rank 7, and half the independent ones have rank exactly 4: a tendency, not a
+rule.
+
 **2. The integral points of a multi-way lie on a thin shell, at least 60° apart** (72 five-ways and 800 four-ways;
 canonical height Gram matrices).
 - **Heights:** the relative spread (max − min)/mean has median 4.5 % (90th percentile 10.8 %).
@@ -1300,6 +1314,45 @@ enumeration 1.46× faster at hero 8 (1.94× at hero 4).
 - **Rank-4 shapes are unconstrained by types:** two disjoint lines; a bowtie + a free point; a line + a hub sharing
   one point. They contain no cycle of lines.
 - **These are what remains, and line searches with exact counting catch all three.**
+
+## F39 (28 October 2026): n ≈ cost²·h⁶, per-direction heights, and why E-rich directions work
+
+**1. Size of n against direction cost and slope height** (60 directions across the night lists; 60 random slopes at
+each of 8 heights; chord formula):
+
+  median log₁₀ n = −0.06 + 2.05·log₁₀ cost + 6.00·log₁₀ h   (rms 1.2 decades);
+  10th percentile: −1.60 + 2.00·log₁₀ cost + 5.96·log₁₀ h.
+
+So **n ≈ cost²·h⁶**. With the cap n ≤ 10³⁰ (F38), expensive directions stop being useful at low heights: the
+median passes 10³⁰ at h ≈ 415 for cost 10⁷, 86 for 10⁹, 39 for 10¹⁰. At fixed height 800, most slopes of such
+directions are wasted.
+
+**2. `line_enum.py --auto-height --auto-margin M`.** Each direction stops at the height where the 10th-percentile n
+passes NMAX·10^M, capped at --height. 300 directions spread over the E-rich list, cap 10³⁰, hero 8 / 1,000:
+
+| margin M | candidates kept | enumeration time | speed-up |
+| ---: | ---: | ---: | ---: |
+| 0.5 | 59 % | 2.7 s | 34× |
+| 2.5 | 77 % | 8.8 s | 10.5× |
+| 3.5 | 87 % | 17.5 s | 5.3× |
+| 4.5 | 94 % | 33.6 s | 2.75× |
+| fixed h 800 | 100 % | 92.5 s | 1× |
+
+The lost candidates sit in the low tail of n at large height (slopes with cancellation).
+`night_7of9/dirs/rich_E2_400000.txt`: 400,000 unsearched E-rich directions, cost 1.3·10⁷–8.5·10¹¹ (from a pool of
+1,563,877 directions up to cost 1.2·10¹²).
+
+**3. E-rich directions work only by enriching n.** Four-way rate per candidate by s(n) (split primes < 1,000 in n)
+and by split primes in E (Mac line files): at fixed s(n) the E count adds nothing (rates within noise, if anything
+lower). E divides n (Theorem 2), so E-rich directions produce more candidates that pass the hero filter. The
+filter on n is the right test; E only decides which directions to search.
+
+**4. The other six-way shapes need three structured new representations beyond a line.**
+- Per line candidate, adding one free point costs about 1.5·10⁻⁶ (worf: 2,188 four-ways in 1.44·10⁹ candidates);
+  a second line through a point (2 new) costs about 2.4·10⁻⁸ (34 bowties).
+- Two disjoint lines and line + hub need 3 structured new points. None has been seen: there is one bowtie and no
+  disjoint pair among 11 M Mac candidates, and no 6-point configuration in the catalogue.
+- **So "bowtie + free point" is the dominant six-way route** and F36's estimate (about 1 : 500 of five-ways) stands.
 
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
