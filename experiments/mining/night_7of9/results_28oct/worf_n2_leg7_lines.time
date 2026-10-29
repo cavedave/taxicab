@@ -1,0 +1,23 @@
+	Command being timed: "python3 line_enum.py --dirs-file /mnt/scratch/iamreddave/n2_leg7/dirs/7of9_n1_legacy_31_1400.txt --old-height 600 --old-nmax 1e40 --auto-height --auto-margin 4.5 --height 5000 --nmax 1e30 --hero 7 --hero-pmax 1000 --core 0 --procs 22 --gp /usr/bin/gp --short --out /mnt/scratch/iamreddave/n2_leg7/cpu/lines.gz"
+	User time (seconds): 33.27
+	System time (seconds): 2.41
+	Percent of CPU this job got: 1%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 40:14.67
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 557100
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 1616514
+	Voluntary context switches: 181583
+	Involuntary context switches: 16337
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 901752
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

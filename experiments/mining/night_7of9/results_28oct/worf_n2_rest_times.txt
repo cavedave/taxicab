@@ -1,0 +1,5 @@
+start STAGES=lines P=22 DDIRS=20000 DH=400 LSEL=[--dirs-file /mnt/scratch/iamreddave/n2_rest/dirs/rest_1143877.txt] LH=800 LOLDH=0 HERO=7 HPMAX=1000 NMAX=1e30 AUTOM=4.5 Wed Oct 28 07:05:39 PM GMT 2026
+lines done Wed Oct 28 08:13:51 PM GMT 2026
+l counted: 17610400 n in 283s: {3: 17609896, 4: 492, 5: 12} Wed Oct 28 08:18:59 PM GMT 2026
+shapes: k=4  line+free            492 k=5  bowtie               12  Wed Oct 28 08:19:00 PM GMT 2026
+k>=5 numbers: 12   (any k>=6 line is the jackpot: 0) Wed Oct 28 08:19:00 PM GMT 2026

@@ -1,0 +1,5 @@
+start STAGES=lines P=22 DDIRS=20000 DH=400 LSEL=[--dirs-file /mnt/scratch/iamreddave/n2_rich7/dirs/rich_E2_400000.txt] LH=800 LOLDH=0 HERO=7 HPMAX=1000 NMAX=1e30 AUTOM=4.5 Wed Oct 28 08:19:00 PM GMT 2026
+lines done Wed Oct 28 08:47:54 PM GMT 2026
+l counted: 17337112 n in 325s: {3: 17336303, 4: 800, 5: 9} Wed Oct 28 08:53:42 PM GMT 2026
+shapes: k=4  line+free            800 k=5  bowtie               9  Wed Oct 28 08:53:43 PM GMT 2026
+k>=5 numbers: 9   (any k>=6 line is the jackpot: 0) Wed Oct 28 08:53:43 PM GMT 2026
