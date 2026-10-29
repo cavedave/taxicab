@@ -33,6 +33,31 @@ exhaustive bound, 72 coprime five-ways, and what their geometry says".
 | 8 | **Negative results.** Divisor-richness alone (N3); polynomial families (N4); shared coefficients (N2); multi-way curves for Ta/Ca bounds (N5). | FINDINGS, Negative results |
 | A | **Data and code availability.** GitHub repository, catalogue format, how to reproduce each claim. | README |
 
+## Companion results: Ta(k) and Ca(k) upper bounds (notes, 29 October 2026)
+
+Against Boyer–Wroblewski's `TaxibigUpdated.txt` (April 2008; Ta(13)–Ta(22), Ca(23)–Ca(42)) and Su (JIS 19, 2016):
+
+| range | result | source |
+| --- | --- | --- |
+| Ta(11)–Ta(22) | reproduced exactly as the optimum on the record curve M = 3956875867; **not beaten** (heights 80 and 110) | `results/taxicab_23_28.md` |
+| **Ta(23), Ta(24)** | **3.6× and 25× below Su 2016** | `results/taxicab_23_28.md` |
+| Ta(25)–Ta(30) | **new** (nothing published found) | `results/taxicab_23_28_bounds.txt`, `taxicab_29_30_bounds.txt` |
+| Ca(10)–Ca(44) except 33, 34 | reproduced exactly on the records' own curves; not beaten | `results/cabtaxi_bounds.md` |
+| **Ca(33), Ca(34)** | **1.9× and 568× below Boyer–Wroblewski 2008** (the two entries of `TaxibigUpdated.txt` we beat) | `results/cabtaxi_bounds.md` |
+| **Ca(45)–Ca(57)** | **12.7× to 3·10¹⁹× below Su 2016** | `results/cabtaxi_bounds.md` |
+| Ca(58)–Ca(70) | **new** | `results/cabtaxi_bounds.txt` |
+
+- **Method in one line:** on the record curve x³ + y³ = M, an exact integer program picks the k rational points
+  (canonical height ≤ 80) whose denominators have the smallest lcm L; n = M·L³. Boyer–Wroblewski's and Su's records
+  are re-found exactly, which validates it; gains come where earlier bounds were built by extending a smaller one
+  one cube at a time.
+- **Negative result to report with it (FINDINGS N5):** our coprime multi-way curves do not help Ta/Ca bounds;
+  small generator heights matter, not rank or n.
+- **Open before submitting:** the literature search stops at 2016 (Boyer's lists, MathWorld, OEIS A011541 and
+  A047696, Su). Check later arXiv work and Boyer's newer pages; then OEIS comments for A011541 and A047696.
+- **Venue question:** one paper (bounds + the coprime six-way attempt, sharing the curve geometry) or two short
+  notes (bounds: JIS-style, like Boyer and Su; six-way attempt: arXiv note + OEIS b-files).
+
 ## Figures and tables
 1. Five-ways found per decade, exhaustive against targeted.
 2. A bowtie and a hub drawn on the curve, in the (s, v) plane (`render_*` scripts as a starting point).
