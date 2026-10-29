@@ -53,6 +53,11 @@ Against Boyer–Wroblewski's `TaxibigUpdated.txt` (April 2008; Ta(13)–Ta(22), 
   one cube at a time.
 - **Negative result to report with it (FINDINGS N5):** our coprime multi-way curves do not help Ta/Ca bounds;
   small generator heights matter, not rank or n.
+- **Can Ta(k ≤ 30) be improved? (checked 29 October 2026)** Not on the known curves: the optimiser is exact for a
+  given curve and point set, height 110 changes nothing on the record curve, and the rank-7 Ta(6)–Ta(10) record
+  curve 82652823799 is worse for every k from 11 to 30 (Ta(29): 2.8·10²⁸³ against our 2.2·10²⁶⁶). The 310,000-curve
+  hunt (`experiments/curve_deep_plan.md`) found no better curve. Untried: curves outside that family (3–4 split
+  primes, square factors, primes above 200, Elkies–Rogers high-rank curves).
 - **Open before submitting:** the literature search stops at 2016 (Boyer's lists, MathWorld, OEIS A011541 and
   A047696, Su). Check later arXiv work and Boyer's newer pages; then OEIS comments for A011541 and A047696.
 - **Venue question:** one paper (bounds + the coprime six-way attempt, sharing the curve geometry) or two short
