@@ -150,6 +150,10 @@ All 6,785 coprime four-ways and 72 five-ways we know (catalogue of 28 October), 
 - **The 29 new coprime five-ways of 27–28 October** (`experiments/mining/FINDINGS.md` F34) have at most 3 positive
   representations each, so none is a candidate for A080642(5). All are bowties, as section 3 predicts for
   line-found five-ways.
+- **Night of 28–29 October** (`experiments/mining/FINDINGS.md` F40): 10 more coprime five-ways, all bowties. One,
+  133,258,206,935,285,167,925,449,341,991 (cubefree), has 4 positive representations: the second such near-miss
+  after 2,724,248,230,569,896,697,541. As in section 3, its fifth representation is the difference shared by the
+  two lines.
 - Do all-positive multi-ways need *only* hubs and rank, or can larger relations (five or more terms) appear when
   no line is available? F33 found only ±1 lines and hubs among 1,765 coprime multi-ways, but almost none of them
   were all-positive.

@@ -1354,6 +1354,68 @@ filter on n is the right test; E only decides which directions to search.
   disjoint pair among 11 M Mac candidates, and no 6-point configuration in the catalogue.
 - **So "bowtie + free point" is the dominant six-way route** and F36's estimate (about 1 : 500 of five-ways) stands.
 
+## F40 (29 October 2026): night 1 of the six-way hunt: ordinary lines below 10³⁰ are nearly exhausted
+
+**Runs** (all n ≤ 10³⁰, split-prime filter with primes < 1,000, `--auto-height --auto-margin 4.5`; every candidate
+counted exactly; files in `night_7of9/results_28oct/`):
+
+| run | machine, threads | directions | filter | time | five-ways | new five-ways | new four-ways |
+| --- | --- | --- | ---: | --- | ---: | ---: | ---: |
+| n1 E-rich | worf, 22 | `rich_E2_400000` (cost 1.3·10⁷–8.5·10¹¹) | 8 | 32 min | 7 | 3 | 515 |
+| n1 cheap, deep | 7of9, 56 | legacy ranks 31–1,400, heights 600 → 5,000 | 8 | 74 min | 6 | 1 | 401 |
+| n2 deep | 7of9, 56 | legacy ranks 1,401–20,000, heights 800 → ≤ 5,000 | 7 | 2 h 06 | 7 | 0 | 88 |
+| n2 rest | worf, 22 | `rest_1143877`: every other direction with cost ≤ 1.2·10¹² | 7 | 1 h 13 | 12 | 3 | 425 |
+| n2 E-rich again | worf, 22 | `rich_E2_400000` | 7 | 35 min | 9 | 2 | 174 |
+| n2 cheap again | worf, 22 | legacy ranks 31–1,400 to 5,000 | 7 | 48 min | 9 | 1 | 187 |
+| **total** | | | | | **50 finds** | **10** | **1,786** |
+
+No six-way. Catalogue: 8,571 four-ways and 82 five-ways (`results/a047697_catalogue.txt`).
+
+**The 10 new five-ways** (all bowties):
+
+| n | split primes < 1,000 | positive representations | note |
+| --- | ---: | ---: | --- |
+| 4,036,309,295,411,263,159,329,229 | 7 | 2 | |
+| 42,260,261,086,176,943,302,212,239 | 7 | 2 | |
+| 1,296,617,553,500,637,759,962,705,407 | 8 | 2 | |
+| 3,657,763,792,654,176,108,524,148,073 | 9 | 2 | |
+| 49,198,477,403,551,015,172,965,003,217 | 8 | 0 | |
+| 82,027,323,974,760,829,384,613,994,009 | 7 | 2 | a prime cube divides n |
+| 133,258,206,935,285,167,925,449,341,991 | 8 | **4** | cubefree; the second coprime five-way with 4 positive representations |
+| 439,021,230,838,628,776,223,053,710,815 | 10 | 3 | |
+| 604,435,071,167,779,766,756,548,521,087 | 7 | 0 | |
+| 941,032,349,986,372,040,878,880,684,077 | 10 | 2 | direction (9, 28), slope height 2,435: reachable only by the deep run |
+
+**What the night shows:**
+1. **Saturation.** 40 of the 50 five-way finds were already known (found from other lines of the same bowtie, or
+   by earlier runs). Below 10³⁰ the line method has found most of the five-ways it can reach.
+   - Every allowed direction with cost ≤ 1.2·10¹² is now searched at filter 7. Beyond that cost, n ≈ cost²·h⁶
+     (F39) leaves almost no slopes below 10³⁰.
+   - Deeper slopes on cheap directions are exhausted too: the deep run on ranks 1,401–20,000 gave 7 five-ways, all
+     known.
+2. **Filter 7 against 8.** 4 of the 6 new five-ways from the filter-7 runs have exactly 7 split primes, so filter 8
+   would have missed them. This matches F36 (filter 8 keeps 44 of 72 five-ways, filter 7 keeps 55).
+3. **Speed.** worf's E-rich run found 28 new five-ways per 100 thread-hours, about 4× last night's rate for
+   n ≤ 10³⁰. The 10× in raw speed (F36, F38, F39) partly went into the filter rejecting more candidates, as
+   designed.
+4. **The six-way odds were small.** 10 new five-ways (23 over two nights) at 1 : 300–1,500 (F36) means about
+   0.01–0.08 expected six-ways, so finding none says nothing against the estimate.
+5. **GPU reproducibility.** By mistake (an old `night_gpu.sh` that ignores GMIN/GMAX was left in the run folder),
+   7of9's GPUs repeated the 0–10²² search at kmin 4. All 1,118 numbers (1,107 four-ways, 11 five-ways) match the
+   run of 27–28 October exactly. Lesson: unpack every run into a fresh folder, and check the range in the first
+   output.
+
+**Strategy after night 1** (user and Claude, 29 October):
+- **Ordinary lines below 10³⁰ are done** as a six-way route. What remains: filter 6, hubs (D-lines), and n above
+  10³⁰, where the free-point rate per candidate is 5–10× lower per four decades (F38).
+- **A hunt above 10³⁰ is only worth it with a new signal** that raises the six-way chance per candidate by about
+  10×. Even 24 hours of worf with the present signals is unlikely to find one. Tonight's hub run (n3: 2 × 100,000
+  never-searched D-line directions, filter 7, n ≤ 10³⁰) is as much to learn where hubs live and what predicts them
+  as to find five-ways.
+- **The GPU extension 2.5·10²³ → 10²⁴** (about 180 GPU-hours on RTX 5090 now, about 100 after the planned
+  speed-ups) is not worth about €100 for its six-way chance alone. Plan: make the GPU code faster, then run it in the
+  background on GPUs available occasionally. It would raise both bounds, A047697(6) and A080642(5), to 10²⁴.
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:
