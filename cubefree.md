@@ -140,6 +140,10 @@ All 6,785 coprime four-ways and 72 five-ways we know (catalogue of 28 October), 
    five-ways and six-way candidates, not of cubefree taxicab numbers.
 5. **The rank route needs curves of high rank and the right size.** It is an Elkies-style search, not yet started.
 
+## Plan
+
+The search plan for A080642(5) is in `cubefree_plan.md` (29 October 2026).
+
 ## Open questions
 
 - **Answered 28 October:** the GPU re-find of all coprime four-ways up to 10²² contains exactly three numbers with
