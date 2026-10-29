@@ -19,6 +19,11 @@ exhaustive bound, 72 coprime five-ways, and what their geometry says".
    where possible, a proof.
 5. A negative result: no six-way so far. Here is what was searched, and what that implies.
 
+## Drafts
+
+- `writeup/01_gpu_search.md`: the exhaustive GPU search (§2 of the outline), draft of 29 October 2026.
+- `writeup/02_curve_search.md`: the curve geometry and targeted line/hub search (§3, §4, §6, §7), draft of 29 October 2026.
+
 ## Outline
 
 | § | content | sources |
