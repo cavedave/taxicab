@@ -1459,6 +1459,47 @@ enumeration saves counting time, not enumeration time.
 **For the six-way hunt.** Hubs do not give the 10× signal asked for in F40. The line + hub six-way shape remains
 possible, but the candidate rate is 40× lower than for lines, and no five-way came from a hub.
 
+## F42 (30 October 2026): cubefree plan steps 1–3 on the Mac: positive slopes lie on 3 arcs, a 5× cheaper hub search
+
+**Positive arcs (step 3, the F41 idea).** For a direction (a, b), let the slope (s, r) of the conic parametrisation
+run round the half circle. The lines with two positive points (never three, by convexity) fill **three arcs**, one
+per choice of the negative point, not one interval (`pos_slopes.py`, 20,000-angle scan; a fourth piece appears when
+an arc wraps round ±π/2). On 80 directions from the hub lists, height 400:
+
+| parity | lattice slopes in the arcs | D-lines with both integer points positive | same, after filter 7 (height 550) |
+| --- | ---: | ---: | ---: |
+| even | 23.2 % | 9.7 % | 11.4 % |
+| odd | 19.1 % | 9.4 % | 9.1 % |
+
+The D-line share is about a third of the arc share, as expected: inside an arc, the denominator point R must also be
+the negative one.
+
+**`dline_enum.py --positive`** enumerates, for each s, only the r of the (padded) arcs, and keeps D-lines with both
+integer points positive. **Validated:** on the same 80 directions it finds exactly the 67,299 positive D-lines of
+the full sweep (0 mismatches); enumeration is 3.6× (even) and 4.3× (odd) faster. In the hub run enumeration was
+71 % of the time and counting 29 %, so a positive hub run costs about 0.71/4 + 0.29/10 ≈ 0.21 of a full one:
+**about 5× cheaper** per direction, for the hubs that matter to A080642. `night_cpu.sh`: `DPOS=1`.
+
+**Elkies–Rogers curves (step 2): negative.** The 15 record k of Elkies–Rogers 2004 (minimal k for ranks 1–11, and
+minimal conductor for ranks 4–8) are all cubefree, but have 0 or 1 integer representations (19 = 3³ − 2³,
+657 = 10³ − 7³, 763002 = 85³ + 53³). High rank with small k gives rational points of large height, not integral ones:
+the same lesson as N3 and N5.
+
+**Literature (step 1).**
+- OEIS A080642 (checked 30 October 2026): four terms, keywords hard, more; no bound or search limit for a(5).
+  A web search found no published bound either.
+- Butler's primitive five-way list (`Rama5way.html`; complete to 10²³, "nearly complete" to 2.51·10²⁸, built from
+  known four-ways above 10²³): all **357** five-ways and all **24** six-ways (`Rama6way.html`) parsed and checked
+  (every representation verified). **None has all its pairs coprime, so none is cubefree.** This extends the
+  check of the 27 below 10²³ (`cubefree.txt`) but gives no new bound, since the list is not complete above 10²³.
+- So our A080642(5) > 2.5·10²³ (from the exhaustive A047697 search) appears to be the best known bound.
+
+**Cost of a positive hub night (estimate).** 7of9 did 300,000 directions in 6.6 h; in positive mode a 15 h night
+covers about 3 million fresh directions. If yields per direction stay at the hub run's level, with 12 % of chords
+positive on each side, that is of order 10 all-positive hubs (fewer if the (2,2) deficit of F41 is real), and a
+cubefree five-way only with luck (a five-to-four ratio of 1 : 100–500). Its main value: the first census of
+all-positive hubs, and a test of the F41 deficit.
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:

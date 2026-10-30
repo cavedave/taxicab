@@ -72,6 +72,17 @@ found one. Our lower bound: **A080642(5) > 2.5·10²³** (`cubefree.md` §2, fro
 - **The catch** (negative result N3): random rich n almost never have any representation. Candidates must come from
   a construction that guarantees some, such as D-lines and hubs (step 3), or from known high-rank families (step 2).
 
+## Status (30 October 2026, FINDINGS F42)
+
+- **Step 1 done.** OEIS A080642 gives no bound for a(5); no published bound found. All 357 five-ways and 24 six-ways
+  of Butler's primitive list (to 2.51·10²⁸) checked: none is cubefree (none even has all pairs coprime). Our
+  A080642(5) > 2.5·10²³ appears to be the best known.
+- **Step 2 done, negative.** The 15 Elkies–Rogers record k have 0 or 1 integer representations.
+- **Step 3 prepared.** The positive chords of a direction lie on three slope arcs; `dline_enum.py --positive`
+  enumerates only those (validated: same positive D-lines as the full sweep) and makes a hub night about 5× cheaper.
+  `night_cpu.sh` switch: `DPOS=1`. Needs fresh direction lists (beyond the 300,000 of the hub run) for one night,
+  about 3 million directions.
+
 ## Order and expectations
 
 - **First:** steps 1 and 2 on the Mac (cheap; might settle the question).
