@@ -1416,6 +1416,49 @@ No six-way. Catalogue: 8,571 four-ways and 82 five-ways (`results/a047697_catalo
   speed-ups) is not worth about €100 for its six-way chance alone. Plan: make the GPU code faster, then run it in the
   background on GPUs available occasionally. It would raise both bounds, A047697(6) and A080642(5), to 10²⁴.
 
+## F41 (30 October 2026): the hub run: hubs are where the new four-ways are, but no 10× signal, and no all-positive hub
+
+**Run** (7of9, 56 threads, 29 October 16:02 – 22:39; `night_7of9/hubs/`, results in `night_7of9/results_29oct_hubs/`):
+D-lines on 150,000 never-searched directions of each parity, height 550, D ≤ 10⁹, filter 7 split primes < 1,000,
+n ≤ 10³⁰. Enumeration 2 h 08 (even) and 2 h 14 (odd); exact counting of 276 M candidates, 2 h 20.
+
+| parity | candidates | four-ways: hub / independent / line + free | five-ways |
+| --- | ---: | --- | ---: |
+| even (odd D) | 128.0 M | 70 / 5 / 135 | 1 |
+| odd (even D) | 148.0 M | 134 / 5 / 124 | 3 |
+
+458 distinct numbers (some found by both parities): 199 hubs, 10 independent, 246 line + free, 3 bowties.
+**New: 172 four-ways (142 hubs, 29 line + free, 1 independent), no new five-way.** Catalogue: 8,743 four-ways,
+82 five-ways.
+
+**What the run shows:**
+1. **Hubs are the unexplored territory.** 142 of 199 hubs were new, against 29 of 246 line + free (the line
+   searches have covered those). 153 of the hubs are above 2.5·10²³.
+2. **But D-lines are a poor six-way engine.** Four-ways per candidate: 1.7·10⁻⁶, against 7.2·10⁻⁵ for ordinary lines
+   (worf, F40), about 40× less. The four five-ways were all known bowties. Even D (odd-parity directions) gives
+   twice the hubs of odd D.
+3. **Hub denominators are small**, as in F30: smallest meeting-point denominator D ≤ 6 for 93 of 199 (47 %), ≤ 12
+   for 61 %, ≤ 100 for 96 %. Most common: 6 (30), 3 (26), 2 (23), 12 (12), 4 (11), 18, 24, 9.
+4. **Chord costs.** One chord of each hub is cheap (median cost 6.5·10¹⁰, the searched directions); the other is
+   typically expensive (median 2·10²²). Only one D-line needs to be enumerated: exact counting finds the rest. This
+   is the same "one cheap line suffices" effect as for bowties.
+5. **No all-positive hub.** Split of the two chords by number of positive endpoints: (1,1) 60, (0,1) 48, (0,0) 43,
+   (0,2) 40, (1,2) 8, **(2,2) 0**. 12 % of chords have both endpoints positive; if the two chords were independent,
+   about 3 all-positive hubs would be expected (Poisson probability of none 5.5 %). A mild deficit, worth
+   rechecking with the 4 known all-positive hubs and more data.
+
+**For the cubefree plan (`cubefree_plan.md`, step 3).** All-positive hubs per candidate here: 0 of 276 M (at most
+about 10⁻⁸). With a five-to-four ratio of 1 : 100–500, a cubefree positive five-way from hubs would need of order
+10¹⁰ candidates, about 40 nights of 7of9 at this rate. A positive filter that only *discards* candidates after
+enumeration saves counting time, not enumeration time.
+- **Idea (not tested):** for a direction (a, b), the chords whose two integer points are both positive form a
+  sub-interval of slopes of the conic parametrisation (the positive arc is convex). Enumerating only that interval
+  could cut enumeration by the same factor as the filter, about 8×. Measure before planning a cubefree night on
+  hubs.
+
+**For the six-way hunt.** Hubs do not give the 10× signal asked for in F40. The line + hub six-way shape remains
+possible, but the candidate rate is 40× lower than for lines, and no five-way came from a hub.
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:

@@ -1,0 +1,5 @@
+start STAGES=dl P=56 DDIRS=20000 DDIRSDIR=. DHERO=7 DHPMAX=1000 DNMAX=1e30 DPARS=[odd] DH=550 LSEL=[--skip 1400 --dirs 18600] LH=600 LOLDH=0 HERO=4 HPMAX=200 NMAX=1e40 AUTOM= Thu 29 Oct 2026 19:06:32 GMT
+dl odd done Thu 29 Oct 2026 21:20:07 GMT
+d counted: 147976061 n in 4547s: {2: 147967658, 3: 8137, 4: 263, 5: 3} Thu 29 Oct 2026 22:39:32 GMT
+shapes: k=4  hub                  134 k=4  independent          5 k=4  line+free            124 k=5  bowtie               3  Thu 29 Oct 2026 22:39:37 GMT
+k>=5 numbers: 3   (any k>=6 line is the jackpot: 0) Thu 29 Oct 2026 22:39:37 GMT
