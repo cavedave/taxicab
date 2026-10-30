@@ -1500,6 +1500,22 @@ positive on each side, that is of order 10 all-positive hubs (fewer if the (2,2)
 cubefree five-way only with luck (a five-to-four ratio of 1 : 100–500). Its main value: the first census of
 all-positive hubs, and a test of the F41 deficit.
 
+**The night prepared (`night_7of9/pos/run_pos.sh`, `gen_pos_dirs.py`).** 1,500,000 never-searched directions per
+parity (`dirs/pos_even_1500000.txt`, `pos_odd_1500000.txt`; costs 2.3·10¹⁰–8.6·10¹¹, skipping the legacy 20,000 and
+the hub run's 150,000), in 12 chunks of 250,000, cheapest first, even and odd alternating. Positive filter-7
+candidates per direction (n ≤ 10³⁰, height 550) fall with cost: 343 at cost 2·10⁹, 163–203 at 2–3·10¹⁰, 46 at
+8·10¹¹; their slope heights stay spread over the whole range (median s 100–200, 99 % below 540), so a fixed height
+550 is right and an auto-height cut would not help. Mac test: 0.42 CPU-s per direction, so 3 million directions
+take about 6 h on 56 threads at Mac speed, 10–13 h on 7of9.
+
+**Butler's method (checked 30 October).** `ramanujans.c` cuts the range of n into bands, generates every I³ + J³
+in the band (about 2.4 million values), and inserts them in a 2²²-entry hash table (index from bits 8–29 of the low
+part); only chains with enough entries are checked for real duplicates. This is our segment scheme with a hash in
+place of the sort, and it is the planned GPU speed-up (bucket counts, then check only crowded buckets;
+`writeup/01_gpu_search.md` §6). His list above 10²³ was "calculated using known 4-way solutions": multiples of
+known primitive solutions with an extra point, which is why none of the 357 is coprime. Nothing there for the
+coprime or cubefree search beyond confirming the hash idea.
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:
