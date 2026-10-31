@@ -83,6 +83,10 @@ found one. Our lower bound: **A080642(5) > 2.5·10²³** (`cubefree.md` §2, fro
   `night_cpu.sh` switch: `DPOS=1`. Needs fresh direction lists (beyond the 300,000 of the hub run) for one night,
   about 3 million directions.
 
+- **Step 3 run (30–31 October, F43).** 3 million directions in positive mode: **three new all-positive cubefree
+  four-ways** (hubs, 1.2·10²⁷, 2.8·10²⁷, 4.2·10²⁹), the first from our searches; 8 now known. At this rate a cubefree
+  five-way would take 100–500 such nights: the hub route gives a census, not A080642(5).
+
 ## Order and expectations
 
 - **First:** steps 1 and 2 on the Mac (cheap; might settle the question).

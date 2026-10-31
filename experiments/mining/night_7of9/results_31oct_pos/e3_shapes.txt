@@ -1,0 +1,2 @@
+k=4  hub                  2
+k=4  line+free            3

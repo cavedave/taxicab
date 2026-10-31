@@ -1516,6 +1516,46 @@ place of the sort, and it is the planned GPU speed-up (bucket counts, then check
 known primitive solutions with an extra point, which is why none of the 357 is coprime. Nothing there for the
 coprime or cubefree search beyond confirming the hash idea.
 
+## F43 (31 October 2026): the positive hub run: three new all-positive cubefree four-ways
+
+**Run** (7of9, 22 threads, 30 October 14:08 – 31 October 09:49, 19 h 41; `night_7of9/pos/run_pos.sh`, results in
+`night_7of9/results_31oct_pos/`): `dline_enum.py --positive` on 3,000,000 never-searched directions (12 chunks of
+250,000, even and odd alternating, cheapest first), height 550, filter 7 split primes < 1,000, n ≤ 10³⁰. Each chunk
+took about 1 h 35 to enumerate and 2–8 min to count; 55.2 M candidates in all (8.8–10.1 M in the first chunks, 2.3–2.6 M
+in the last).
+
+**Found:** 107 distinct k ≥ 4 numbers: 56 hubs, 48 line + free, 2 independent, and one five-way
+(137904678696613339, line + two free points, known: one of the 12 exhaustive five-ways). **New: 45 four-ways**
+(34 hubs, 10 line + free, 1 independent), all above 2.5·10²³. Catalogue: 8,788 four-ways, 82 five-ways.
+Four-ways per chunk fell with cost, 19 and 27 in the first two chunks to 2–8 in the last.
+
+**Three all-positive coprime four-ways, all new, all cubefree, all hubs** (recounted independently, every
+representation exact):
+
+| n | factorisation | representations | meeting-point D |
+| --- | --- | --- | ---: |
+| 1227282646644292205096095057 (1.2·10²⁷) | 7·13·19·31·43·103·109·181·331·487·811·1201·1669 | 854522762³ + 844977209³ = 878256377³ + 819248474³ = 1069350416³ + 164721521³ = 1070260544³ + 110371697³ | 48 |
+| 2839283598503402079742309051 (2.8·10²⁷) | 7·13·19·31·199·397·829·15439·140281·373453 | 1251355555³ + 958210476³ = 1297603107³ + 868195252³ = 1365353238³ + 664944859³ = 1415863851³ + 98069050³ | 16,606,389 |
+| 424174357271163809860926173135 (4.2·10²⁹) | 5·13·37·43·73·109·127·181·397·439·463·1999·139021 | 6359417472³ + 5506719983³ = 6970662063³ + 4404901292³ = 7206319502³ + 3682623303³ = 7507456482³ + 1013102423³ | 432,820 |
+
+Before this run, 5 all-positive coprime four-ways were known (all in the catalogue, the smallest A080642(4)); now 8.
+These three are cubefree numbers with four positive representations, i.e. cubefree "taxicab four-ways" beyond
+A080642(4).
+
+**What the run shows:**
+1. **The positive mode works:** 3 all-positive hubs from 55 M candidates, against 0 from 276 M in the full hub run
+   (F41). All three came from odd-parity directions (even D) in late chunks (o5, o5, o6).
+2. **Positive endpoints.** Of the 107 numbers, 58 have 2 positive representations, 46 have 3 and 3 have 4. Hub chord
+   split: (0,2) 37, (1,2) 16, **(2,2) 3**. If the second chord were positive as often as chords in general (12 %,
+   F41), about 7 would be expected; 3 is low again (Poisson probability of ≤ 3 about 11 %). The F41 deficit is
+   mild but persists.
+3. **Positive hubs meet at larger denominators:** median D 84, D ≤ 100 for 54 % (F41, all hubs: 96 %); the three
+   all-positive ones at 48, 4.3·10⁵ and 1.7·10⁷. A large dmax matters for this search.
+4. **Cost of a cubefree five-way by this route.** About 3 all-positive hubs per 3 million directions (20 h on 22
+   threads, about 8 h on 56). A five-way needs a fifth, positive, representation on top: at a five-to-four ratio of
+   1 : 100–500, of order 300–1,500 all-positive hubs, i.e. 100–500 nights like this one. Not feasible by this route
+   alone; the positive hubs are a census, not a path to A080642(5).
+
 ## Predictions for the night of 27–28 October 2026 (to check in the morning)
 
 Number of **new** coprime five-ways found by the night's runs:

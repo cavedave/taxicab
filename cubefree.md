@@ -93,6 +93,10 @@ four-ways with all four representations positive are one of each:
 - **The second is a hub.** A chord through two positive points always has its third point off the positive arc.
   Two such chords meeting at the same rational point R give four positive integral points, with no line needed.
 
+**Update, 31 October: eight all-positive four-ways.** The positive hub run (FINDINGS F43) found three more, all
+cubefree hubs: 1227282646644292205096095057, 2839283598503402079742309051 and 424174357271163809860926173135.
+Their meeting points have denominators 48, 16,606,389 and 432,820: much larger than for hubs in general.
+
 **Update, 28 October: five all-positive four-ways, and the shapes the theory predicts.** The night's D-line runs found
 three more, all above 10²². All five are cubefree:
 
