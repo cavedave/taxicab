@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """plot_density.py -- Figure 2 of the paper: N_k(x) = #{n <= x : n = x^3 + y^3 with gcd(x, y) = 1 in >= k ways},
 k = 2..5, from the exhaustive searches (k >= 2 to 1e13 and k >= 3 to 1e17 by cabtaxi.cpp, results/counts/;
-k >= 4 to 1e22 and k >= 5 to 2.5e23 from the GPU-complete part of results/a047697_catalogue.txt). Tufte style.
+k >= 4 to 1e22 and k >= 5 to 2.5e23 from the GPU-complete part of results/a047697_catalogue.txt). Tufte style, white background and no title (paper figure; the caption carries the message).
 Writes writeup/paper/figs/fig_density.pdf and out/paper/fig_density.png (figures are not committed)."""
 import gzip, os
 import numpy as np
@@ -9,7 +9,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
-BG, TEXT, TEXT2, AXIS, ACCENT = "#fffff8", "#111111", "#666666", "#cccccc", "#e41a1c"
+BG, TEXT, TEXT2, AXIS, ACCENT = "#ffffff", "#111111", "#666666", "#cccccc", "#e41a1c"
 GRAYS = {2: "#b0b0b0", 3: "#888888", 4: "#555555", 5: ACCENT}
 
 def values(path, k, B):
@@ -55,10 +55,8 @@ ax.minorticks_off(); ax.tick_params(length=3, labelsize=10.5)
 ax.set_xlabel("$x$", fontsize=12, color=TEXT2)
 ax.set_ylabel("numbers $n \\leq x$ with at least $k$ representations", fontsize=11, color=TEXT2)
 
-fig.suptitle("Each extra representation makes coprime multi-ways far rarer", x=0.08, y=0.965, ha="left", fontsize=15)
-ax.set_title("$n = x^3 + y^3$, $\\gcd(x, y) = 1$, signs allowed; exhaustive counts. The first point of each curve is "
-             "A047697$(k)$", loc="left", fontsize=10.5, color=TEXT2, pad=14)
-fig.subplots_adjust(left=0.1, right=0.86, bottom=0.11, top=0.86)
+# paper figure: white background, no title (it goes in the caption)
+fig.subplots_adjust(left=0.1, right=0.86, bottom=0.11, top=0.97)
 os.makedirs("writeup/paper/figs", exist_ok=True); os.makedirs("out/paper", exist_ok=True)
 fig.savefig("writeup/paper/figs/fig_density.pdf", facecolor=BG)
 fig.savefig("out/paper/fig_density.png", facecolor=BG)
