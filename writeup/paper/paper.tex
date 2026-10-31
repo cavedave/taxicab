@@ -5,6 +5,8 @@
 
 % placeholders: what a section still needs (shown in blue in the PDF; delete when written)
 \newcommand{\plan}[1]{\par\noindent{\color{blue}\small[\emph{To write:} #1]}\par}
+% points to cover, as a blue list (delete each list once its section is written)
+\newenvironment{points}[1]{\par\noindent{\color{blue}\small\emph{Points to cover: #1}}\color{blue}\small\begin{itemize}\setlength\itemsep{1pt}}{\end{itemize}\normalcolor\normalsize}
 
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}[theorem]{Proposition}
@@ -38,14 +40,57 @@ code.
 \maketitle
 
 \section{Introduction}
-\plan{the problem; A047697 and its relatives A047696 (cabtaxi), A011541 (taxicab), A080642 (cubefree taxicab); why
-coprimality makes it hard (no scaling); known terms 1, 91, 3367, 16776487, 506433677359393; Bernstein's search
-\cite{bernstein2001}; what this paper does and finds.}
+\begin{points}{the problem}
+\item Hardy and Ramanujan, 1729; the taxicab numbers Ta$(k)$ (OEIS A011541) and cabtaxi numbers Ca$(k)$ (A047696, negative cubes allowed).
+\item Ta$(k)$ exists for every $k$ (Hardy and Wright, Theorem 412), but only by scaling rational points by cubes; the numbers it gives are far from coprime.
+\item The coprime version A047697 and the cubefree version A080642 forbid scaling, so a $k$-way needs $k$ genuinely distinct integer points. Whether they exist for every $k$ is open; Silverman \cite{silverman1993} links it to the rank of $x^3+y^3=n$ being unbounded; Stewart \cite{stewart2008,stewart2009} on cubic Thue equations with many solutions.
+\item Known terms: A047697 = 1, 91, 3367, 16776487 (Rathbun), 506433677359393 (Bernstein); A080642 = 2, 1729, 15170835645, 1801049058342701083 (Hollerbach's list).
+\item Relatives in the OEIS: A023050, A293645--A293651 (Fay, 2017).
+\end{points}
+\begin{points}{best current results}
+\item Coprime: Bernstein \cite{bernstein2001} found A047697(5) and searched to $2.5\cdot10^{17}$; no later search known.
+\item Cubefree: A080642(4) from Hollerbach's search; no published bound for A080642(5).
+\item Taxicab: Wilson \cite{wilson1999} Ta(5); Calude, Calude and Dinneen \cite{caludedinneen2003} Ta(6) with high probability; Hollerbach \cite{hollerbach2008} announced an exhaustive confirmation; Eisermann \cite{eisermann2008} Ta(6) $>5\cdot10^{20}$.
+\item Upper bounds for Ta$(k)$ and Ca$(k)$: Boyer \cite{boyer2008}, Su \cite{su2016} (context only; our own bounds are a separate paper).
+\item High rank in this family: Elkies and Rogers \cite{elkiesrogers2004}.
+\end{points}
+\begin{points}{websites}
+\item OEIS entries \cite{oeisA047697,oeisA080642}; Boyer's taxicab pages (current bound tables); Butler's pages \cite{butler} (primitive lists complete to $10^{23}$). Cite papers for results, websites for data.
+\end{points}
+\begin{points}{two families of algorithm}
+\item Exhaustive enumeration: list every $a^3\pm b^3\le B$ and find repeats; all methods cost about $B^{2/3}$ (the number of pairs) and differ in how repeats are found: a heap in increasing order (Wilson, Bernstein; memory $B^{1/3}$), bimonotone enumeration (Eisermann), bands plus a hash table (Butler).
+\item Construction from rational points: take $x^3+y^3=M$ with many rational points and clear denominators with a cube (Boyer, Su, Butler above $10^{23}$). Gives the Ta/Ca upper bounds, but never a coprime or cubefree number, since the scaling factor divides every representation.
+\item So the coprime problem needs brute force or a different structure: this is the motivation for our two searches.
+\end{points}
+\begin{points}{what this paper does}
+\item Exhaustive GPU search to $2.5\cdot10^{23}$: A047697(6) $>2.5\cdot10^{23}$, hence A080642(5) $>2.5\cdot10^{23}$; exactly 12 five-ways in that range.
+\item The geometry: only lines and hubs relate the integer points; theorems that make lines searchable; convexity (no line holds three positive points).
+\item A targeted search by lines and hubs: 70 further five-ways up to $3.8\cdot10^{35}$; eight all-positive cubefree four-ways; no six-way.
+\item Catalogue of 8,788 four-ways and 82 five-ways; OEIS extensions (A023050, A293648, A293649, A293651 with 14 missing terms).
+\item Outline of the sections.
+\end{points}
 
 \section{The exhaustive search}
-\plan{what is counted (sums and differences, each representation once); segments equal in $n^{2/3}$; count, scan,
-write, sort, runs on the GPU; host re-derivation of every hit; validation; runs and cost; results. Reference notes:
-\texttt{writeup/01\_gpu\_search.md}.}
+\begin{points}{what is counted}
+\item Every coprime representation of $n\le B$, written once: sums $a^3+b^3$ with $1\le a\le b$, and differences $(c+d)^3-c^3 = d^3+3dc(c+d)$ with $c,d\ge1$.
+\item About $1.33\,B^{2/3}$ pairs, sums about a third of them; $6/\pi^2\approx 60.8\%$ coprime (Baker \cite{baker2007}, Liu \cite{liu2015} for the count).
+\end{points}
+\begin{points}{the algorithm}
+\item Same family as Butler's: cut $(0,B]$ into segments, generate every pair whose value falls in a segment, find repeats inside the segment. Butler hashes; we sort on a GPU.
+\item Segments equal in $n^{2/3}$ (equal numbers of pairs); a segment that is too large is split; segments are independent, so $k$ GPUs take equal shares of the work.
+\item On the GPU, per segment: count (one thread per stream, exact cube roots or an exact quadratic bound), prefix-sum, write (additions only; values stored as 64-bit offsets $n-\mathrm{lo}$, so 128-bit values sort as 64-bit keys; binary gcd removes non-coprime pairs), radix sort, mark runs of length $\ge k_{\min}$.
+\item On the CPU, every reported $n$ re-derived independently in exact 128-bit arithmetic; the count must equal the GPU's multiplicity.
+\item Number theory only for checking, never for pruning (THEOREMS 5; the divisor test, cf.\ Broughan \cite{broughan2003}), so ``no six-way up to $B$'' remains a proof.
+\end{points}
+\begin{points}{validation}
+\item Brute force to $10^7$; known terms; splitting a range gives the same pairs; a window above $2^{64}$; agreement with the CPU program at $10^{12}$ and $10^{15}$; self-test on every GPU before every run; every $k\ge4$ number recounted from its factorisation; 0--$10^{22}$ run twice with identical output.
+\end{points}
+\begin{points}{runs, cost and results}
+\item Table of ranges, hardware, pairs and time (about 140 GPU-hours on RTX 5090s, plus 7of9's RTX 2080 Ti runs); sort is 60\% of the time.
+\item Results: A047697(6) $>2.5\cdot10^{23}$; the 12 five-ways by decade (none in $10^{22}$--$10^{23}$); complete four-way lists.
+\item Comparison: Bernstein $2.5\cdot10^{17}$; Eisermann's taxicab enumeration to $5\cdot10^{20}$ (about 650 CPU-days); Butler complete to $10^{23}$ (positive, primitive).
+\item Limits and next steps: the $10^{24}$ guard; bucket counting instead of a full sort (Butler's hash idea on the GPU), about $2\times$.
+\end{points}
 
 \section{The geometry of \texorpdfstring{$x^3 + y^3 = n$}{x^3 + y^3 = n}}
 \plan{the curve and its flex at infinity; collinear points sum to zero, $-P$ is the swap; lines, bowties, hubs,
@@ -58,8 +103,29 @@ D-lines; the census of relations (only lines and hubs); structure against rank. 
 \texttt{experiments/mining/THEOREMS.md}.}
 
 \section{The curve search}
-\plan{directions in cost order; slope enumeration; the split-prime filter; exact counting of every candidate; D-lines
-and hubs; the positive-arc restriction; saturation below $10^{30}$.}
+\begin{points}{the idea}
+\item Most multi-ways are tied together by lines (three collinear integer points) and hubs; so instead of enumerating pairs, enumerate lines and hubs, and count every number they produce exactly.
+\item Not exhaustive: it finds numbers, it cannot rule them out. Reaches $n$ far beyond the GPU search.
+\end{points}
+\begin{points}{lines}
+\item Directions $(a,b)$ of lines $ax+by=c$ that can carry three coprime points: Theorem 1 ($ab>0$, a norm from $\mathbb{Q}(\sqrt{-3})$, $4\mid ab$); cost $b^3-a^3$; all allowed directions in increasing cost.
+\item For each direction, the collinear triples are the rational points of the conic $X^2+XY+Y^2=3ab^3$ (Theorem 4): sweep the slopes $r/s$ through one point found by \texttt{qfsolve}, up to a height; integer arithmetic throughout.
+\item Height per direction from $n\approx \mathrm{cost}^2h^6$, stopping where $n$ passes the cap (keeps 94\% of candidates in 36\% of the time).
+\end{points}
+\begin{points}{filter and exact counting}
+\item Keep $n$ with at least 7 split primes ($p\equiv1 \bmod 3$) below 1,000 and two of $\{7,13,19,37\}$; why (five-ways are rich in split primes; the free-point rate doubles per extra prime).
+\item Count every kept $n$ exactly from its factorisation: for each divisor $s\le(4n)^{1/3}$ test whether $(4n/s-s^2)/3$ is a square (about $10^4$ numbers per second per core). Any extra representation is found whatever its shape.
+\end{points}
+\begin{points}{D-lines and hubs}
+\item A D-line: two integer points and a third of denominator $D$; scaled by $D$ it is an ordinary line on $D^3n$ (Theorem 7); two D-lines through the same point form a hub.
+\item Only one chord of a hub has to be enumerated; exact counting finds the other.
+\item Positive hubs: the slopes whose line has two positive points form three arcs; enumerating only those is about $5\times$ cheaper and gives the all-positive hubs needed for the cubefree problem.
+\end{points}
+\begin{points}{runs and saturation}
+\item Machines and runs (Mac, 7of9, worf, rented GPUs for the first line runs); candidates counted.
+\item Saturation below $10^{30}$: every direction of cost $\le1.2\cdot10^{12}$ searched; most new five-way finds became rediscoveries.
+\item Recall against the exhaustive data (50--70\% of four-ways below $10^{16}$, falling with $n$; higher for five-ways).
+\end{points}
 
 \section{Results}
 \plan{the 82 five-ways (table in the appendix); four-way counts; recall of the curve search against exhaustive data;
