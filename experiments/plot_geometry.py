@@ -48,7 +48,7 @@ def hub(reps):
 plt.rcParams.update({"font.family": "serif", "font.serif": ["Palatino", "Book Antiqua", "Georgia", "DejaVu Serif"],
                      "mathtext.fontset": "stix", "axes.edgecolor": AXIS, "xtick.color": TEXT2, "ytick.color": TEXT2,
                      "text.color": TEXT})
-fig, axes = plt.subplots(1, 2, figsize=(9, 4.6), dpi=100, sharey=True)
+fig, axes = plt.subplots(1, 2, figsize=(9, 6.9), dpi=100, sharey=True)
 fig.patch.set_facecolor(BG)
 LIM = 2.7
 xs = np.linspace(-LIM, LIM, 2001); ys = np.cbrt(1 - xs**3)
@@ -62,13 +62,30 @@ def frame(ax, n, label):
     ax.spines["bottom"].set_bounds(-2, 2); ax.spines["left"].set_bounds(-2, 2)
     ax.set_xticks([-2, -1, 0, 1, 2]); ax.set_yticks([-2, -1, 0, 1, 2]); ax.tick_params(length=3, labelsize=10)
     ax.set_xlabel("$x / n^{1/3}$", fontsize=11, color=TEXT2)
-    ax.text(-LIM * 0.95, -LIM * 0.62, label, fontsize=11.5, va="top")
-    ax.text(-LIM * 0.95, -LIM * 0.72, f"$n = {n}$", fontsize=9.5, color=TEXT2, va="top")
+    ax.text(LIM * 0.98, LIM * 0.98, label, fontsize=11.5, va="top", ha="right")
+    ax.text(1.35, -1.25, "$x^3 + y^3 = n$", fontsize=10.5, color=TEXT2, rotation=-62)
     c = n ** (1 / 3)
     for x, y in cat[n]:                                 # every point: each representation and its swap
         for p in ((x, y), (y, x)):
             ax.plot(p[0] / c, p[1] / c, "o", ms=3.2, color=CURVE, zorder=2)
     return c
+
+def num(v):
+    return f"{v:,}".replace("-", "\u2212")
+
+def line_eq(P, Q):
+    """a x + b y = c through two integer points, gcd(a, b) = 1, a > 0"""
+    from math import gcd
+    a, b = Q[1] - P[1], P[0] - Q[0]; g = gcd(a, b); a, b = a // g, b // g
+    if a < 0 or (a == 0 and b < 0): a, b = -a, -b
+    return a, b, a * P[0] + b * P[1]
+
+BLOCKS = []
+def legend_block(ax, lines):
+    BLOCKS.append((ax, lines))                                    # drawn under the panel once the layout is fixed
+
+def tag(ax, P, c, name, dx=6, dy=6, color=TEXT):
+    ax.annotate(name, xy=(P[0] / c, P[1] / c), xytext=(dx, dy), textcoords="offset points", fontsize=10, color=color)
 
 def segment(ax, pts, c, color=TEXT2):
     P = np.array([[float(x) / c, float(y) / c] for x, y in pts])
@@ -84,8 +101,15 @@ for L in (L1, L2):
     for x, y in L: ax.plot(x / c, y / c, "o", ms=4.5, color=TEXT, zorder=3)
 shared = (set(L1) & set(L2)).pop()
 ax.plot(shared[0] / c, shared[1] / c, "o", ms=6, color=ACCENT, zorder=4)
-ax.annotate("shared point", xy=(shared[0] / c, shared[1] / c), xytext=(12, 10), textcoords="offset points",
-            fontsize=10, color=ACCENT)
+pts = sorted(set(L1) | set(L2))                                   # P1..P5 from left to right
+names = {P: f"$P_{i}$" for i, P in enumerate(pts, 1)}
+for P in pts:
+    tag(ax, P, c, names[P], *((-16, 6) if P == shared else (4, 6)), color=ACCENT if P == shared else TEXT)
+e1, e2 = line_eq(*L1[:2]), line_eq(*L2[:2])
+legend_block(ax, [f"$n$ = {num(BOWTIE)}"] +
+             [f"{names[P]} = ({num(P[0])}, {num(P[1])})" for P in pts] +
+             [f"lines: {e1[0]:,}$x$ + {e1[1]:,}$y$ = {num(e1[2])}", f"           {e2[0]:,}$x$ + {e2[1]:,}$y$ = {num(e2[2])}",
+              f"{names[shared]} is on both lines"])
 ax.set_ylabel("$y / n^{1/3}$", fontsize=11, color=TEXT2)
 
 # (b) hub: two chords through integer points meeting at the same non-integral point R
@@ -95,10 +119,20 @@ for P, Q in ((A, B), (C, D)):
     segment(ax, [P, Q, R], c)
     for x, y in (P, Q): ax.plot(x / c, y / c, "o", ms=4.5, color=TEXT, zorder=3)
 ax.plot(float(R[0]) / c, float(R[1]) / c, "o", ms=6.5, mfc=BG, mec=ACCENT, mew=1.4, zorder=4)
-ax.annotate(f"$R$, denominator {R[0].denominator}", xy=(float(R[0]) / c, float(R[1]) / c), xytext=(-6, -10),
-            textcoords="offset points", fontsize=10, color=ACCENT, va="top", ha="right")
+ax.annotate("$R$", xy=(float(R[0]) / c, float(R[1]) / c), xytext=(-12, -12),
+            textcoords="offset points", fontsize=10, color=ACCENT)
+for P, name, off in ((A, "$P_1$", (4, 6)), (B, "$P_2$", (4, 6)), (C, "$P_3$", (5, -2)), (D, "$P_4$", (6, 2))):
+    tag(ax, P, c, name, *off)
+D_ = R[0].denominator
+legend_block(ax, [f"$n$ = {num(HUB)}",
+                  f"$P_1$ = ({num(A[0])}, {num(A[1])})", f"$P_2$ = ({num(B[0])}, {num(B[1])})",
+                  f"$P_3$ = ({num(C[0])}, {num(C[1])})", f"$P_4$ = ({num(D[0])}, {num(D[1])})",
+                  f"$R$ = ({num(R[0].numerator)}/{D_}, {num(R[1].numerator)}/{D_})",
+                  "chords $P_1P_2$ and $P_3P_4$ both pass through $R$:", "$P_1 + P_2 = P_3 + P_4$"])
 
-fig.subplots_adjust(left=0.08, right=0.98, bottom=0.12, top=0.97, wspace=0.12)
+fig.subplots_adjust(left=0.08, right=0.98, bottom=0.37, top=0.98, wspace=0.12)
+for ax, lines in BLOCKS:
+    fig.text(ax.get_position().x0 + 0.01, 0.275, "\n".join(lines), fontsize=8.6, color=TEXT2, va="top", linespacing=1.5)
 os.makedirs("writeup/paper/figs", exist_ok=True); os.makedirs("out/paper", exist_ok=True)
 fig.savefig("writeup/paper/figs/fig_geometry.pdf", facecolor=BG)
 fig.savefig("out/paper/fig_geometry.png", facecolor=BG)
