@@ -67,6 +67,8 @@ Against Boyer–Wroblewski's `TaxibigUpdated.txt` (April 2008; Ta(13)–Ta(22), 
   A047696, Su). Check later arXiv work and Boyer's newer pages; then OEIS comments for A011541 and A047696.
 - **Venue question:** one paper (bounds + the coprime six-way attempt, sharing the curve geometry) or two short
   notes (bounds: JIS-style, like Boyer and Su; six-way attempt: arXiv note + OEIS b-files).
+- **Decided 31 October 2026: two papers.** The coprime and cubefree paper first (`writeup/paper/paper.tex`, written
+  by the user); the Ta(k)/Ca(k) upper bounds later as a separate note.
 
 ## Figures and tables
 1. Five-ways found per decade, exhaustive against targeted.

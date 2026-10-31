@@ -1,0 +1,82 @@
+\documentclass[11pt]{amsart}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{amssymb,amsthm,booktabs,xcolor}
+\usepackage[hidelinks]{hyperref}
+
+% placeholders: what a section still needs (shown in blue in the PDF; delete when written)
+\newcommand{\plan}[1]{\par\noindent{\color{blue}\small[\emph{To write:} #1]}\par}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{Searching for six coprime representations as a sum of two cubes}
+\author{David Curran}
+\date{\today}
+\address{University College Dublin, Ireland} 
+\email{david.curran1@ucd.ie}
+\begin{document}
+
+\begin{abstract}
+The sequence of least positive integers with $k$ representations as $x^3 + y^3$ with $\gcd(x, y) = 1$, where $x$
+and $y$ may be negative, is known up to the fifth term. This number $506433677359393$ was found by Bernstein in 1999, and the sixth is unknown. It is sequence A047697 in the OEIS, and we report two searches for its sixth term. The first search is exhaustive: it uses GPUs to search every $n \le 2.5\cdot10^{23}$. The search proves
+A047697(6) $> 2.5\cdot10^{23}$, a millionfold beyond Bernstein's bound, and finds exactly twelve coprime five-ways in
+that range. Since a cubefree number has only coprime representations, it also gives a lower bound for the cubefree taxicab numbers (OEIS A080642):
+A080642(5) $> 2.5\cdot10^{23}$. The second search uses the geometry of the elliptic curve $x^3 + y^3 = n$: in every
+example we tested ($1{,}378$ numbers), the integer points are related only by lines (three collinear points) and hubs
+(two chords meeting at the same rational point), so we enumerate lines and hubs directly. It is not exhaustive but
+reaches far larger $n$, and it has found 70 further coprime five-ways, up to $3.8\cdot10^{35}$. We prove that no line
+carries three points with positive coordinates, so a cubefree number with many positive representations must come
+from hubs or high rank; a search restricted to positive hubs finds eight cubefree numbers with four positive
+representations. We found no six-way, and no cubefree five-way. We release the catalogue of $8{,}788$ coprime
+four-ways and 82 five-ways, complete for $n \le 10^{22}$ and $10^{23} < n \le 2.5\cdot10^{23}$, together with the
+code.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\plan{the problem; A047697 and its relatives A047696 (cabtaxi), A011541 (taxicab), A080642 (cubefree taxicab); why
+coprimality makes it hard (no scaling); known terms 1, 91, 3367, 16776487, 506433677359393; Bernstein's search
+\cite{bernstein2001}; what this paper does and finds.}
+
+\section{The exhaustive search}
+\plan{what is counted (sums and differences, each representation once); segments equal in $n^{2/3}$; count, scan,
+write, sort, runs on the GPU; host re-derivation of every hit; validation; runs and cost; results. Reference notes:
+\texttt{writeup/01\_gpu\_search.md}.}
+
+\section{The geometry of \texorpdfstring{$x^3 + y^3 = n$}{x^3 + y^3 = n}}
+\plan{the curve and its flex at infinity; collinear points sum to zero, $-P$ is the swap; lines, bowties, hubs,
+D-lines; the census of relations (only lines and hubs); structure against rank. Reference notes:
+\texttt{writeup/02\_curve\_search.md} \S1.}
+
+\section{Lines that can carry three coprime points}
+\plan{Theorem 1 (direction rule), Theorem 2 ($E \mid n$), Theorem 4 (complete enumeration via the conic), Theorem 7
+(D-lines), Theorem 8 (types at 2 and 3; no complete quadrilateral), convexity. Proofs from
+\texttt{experiments/mining/THEOREMS.md}.}
+
+\section{The curve search}
+\plan{directions in cost order; slope enumeration; the split-prime filter; exact counting of every candidate; D-lines
+and hubs; the positive-arc restriction; saturation below $10^{30}$.}
+
+\section{Results}
+\plan{the 82 five-ways (table in the appendix); four-way counts; recall of the curve search against exhaustive data;
+shapes.}
+
+\section{Cubefree taxicab numbers}
+\plan{cubefree implies coprime; the bound A080642(5) $> 2.5\cdot10^{23}$; convexity rules out lines; the eight
+all-positive four-ways; why a five-way is out of reach of every route we tried.}
+
+\section{Why no six-way?}
+\plan{the shapes a six-way could take; the free-point rate and the estimate of one six-way per 300--1,500 five-ways;
+what a successful search would need.}
+
+\section{Data and code}
+\plan{repository, catalogue format, how to reproduce each claim.}
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}
