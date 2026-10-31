@@ -1,6 +1,6 @@
 \documentclass[11pt]{amsart}
 \usepackage[a4paper,margin=2.5cm]{geometry}
-\usepackage{amssymb,amsthm,booktabs,xcolor}
+\usepackage{amssymb,amsthm,booktabs,xcolor,graphicx}
 \usepackage[hidelinks]{hyperref}
 
 % placeholders: what a section still needs (shown in blue in the PDF; delete when written)
@@ -93,14 +93,41 @@ code.
 \end{points}
 
 \section{The geometry of \texorpdfstring{$x^3 + y^3 = n$}{x^3 + y^3 = n}}
-\plan{the curve and its flex at infinity; collinear points sum to zero, $-P$ is the swap; lines, bowties, hubs,
-D-lines; the census of relations (only lines and hubs); structure against rank. Reference notes:
-\texttt{writeup/02\_curve\_search.md} \S1.}
+\begin{points}{the curve}
+\item $C_n: x^3+y^3=n$ is an elliptic curve; its point at infinity $O=(1:-1:0)$ is a flex. With $O$ as zero: three points are collinear exactly when $P+Q+R=0$, and $-(x,y)=(y,x)$.
+\item A representation of $n$ gives the points $(x,y)$ and $(y,x)$; a line through three integer points is a three-term relation.
+\item The third point of a chord: the classical formula of Werebrusow and Desboves (Dickson \cite{dickson1920}, ch.~XXI); example on 3367. The mechanism is classical; the census and the search are new.
+\end{points}
+\begin{points}{the shapes of a multi-way}
+\item Line + free point; bowtie (two lines through a shared point, five points); hub ($P_1+P_2=P_3+P_4$: two chords meeting at the same non-integral point $R$ of small denominator $D$; a hub of $n$ is a bowtie of $D^3n$); independent.
+\item Table: 204 four-ways $\le10^{17}$: 184 line + free, 11 hub, 9 independent; 214 four-ways in $10^{23}$--$2.5\cdot10^{23}$: 188 / 24 / 2.
+\item Figure 1: the curve with a bowtie and a hub drawn on it.
+\end{points}
+\begin{points}{only lines and hubs (an observation, not a theorem)}
+\item For 1,378 coprime numbers with $k\ge4$: height-pairing matrix of the integral points, integer relations by LLL (coefficients $\le1000$), each checked exactly with the group law.
+\item All 1,403 relations found have 3 or 4 terms with every coefficient $\pm1$: lines and hubs. No tangents, no longer relations.
+\item State the limits: coefficients up to 1,000, this sample of numbers.
+\end{points}
+\begin{points}{structure against rank}
+\item Independent multi-ways need rank $\ge4$; their curves have mean rank 5.3 (exact ranks 4--8), against 3.8 for line + free and 4.2 for hubs.
+\item Two mechanisms: structure (relations; the points span rank 3) and rank (no relations, unusually high rank). A080642(4) is a pure rank example (rank 4).
+\end{points}
 
 \section{Lines that can carry three coprime points}
-\plan{Theorem 1 (direction rule), Theorem 2 ($E \mid n$), Theorem 4 (complete enumeration via the conic), Theorem 7
-(D-lines), Theorem 8 (types at 2 and 3; no complete quadrilateral), convexity. Proofs from
-\texttt{experiments/mining/THEOREMS.md}.}
+\begin{points}{notation}
+\item Line $ax+by=c$, $\gcd(a,b)=1$; cost $D=b^3-a^3$; $E=a^2+ab+b^2$, so $D=(b-a)E$. The cubic in $x$ after substituting the line; Vieta.
+\end{points}
+\begin{points}{results to state and prove in full (proofs in \texttt{experiments/mining/THEOREMS.md})}
+\item Theorem 1 (direction rule): three distinct coprime points on a line force $ab>0$, $a\ne b$, $ab$ a norm from $\mathbb{Q}(\sqrt{-3})$, and $4\mid ab$. Proof via the conic $X^2+XY+Y^2=3ab^3$ and a 2-adic argument. Part (a) probably implicit in Werebrusow; part (b) not found in the literature. Check: all 11,155 lines up to $10^{17}$ obey it.
+\item Theorem 2: $E$ divides $c$ and $n$.
+\item Theorem 4 (complete enumeration): the coprime collinear triples in a direction are the rational points of the conic, i.e.\ the reduced slopes through one point $P_0$; so ``searched to height $H$'' is exact.
+\item Theorem 7 (D-lines): the denominator $D$ of the third point divides $(b-a)E$; even $D$ forces $a,b$ odd. Open converse, as a conjecture: $a,b$ both odd forces $D$ even.
+\item Theorem 8 (types at 2 and 3): for $n$ odd, exactly one coordinate of each point is even; for $n\equiv\pm1 \pmod 9$, exactly one is divisible by 3; points on a line share a type. Corollary: no complete quadrilateral of six coprime representations when $n$ is odd or $n\equiv\pm1\pmod 9$.
+\item Proposition (convexity): no line meets $x^3+y^3=n$ in three points with positive coordinates. Short proof; consequence for \S7.
+\end{points}
+\begin{points}{supporting lemma, with a citation}
+\item Theorem 5: primes $\not\equiv1 \pmod 3$ in a coprime representation (via $n=st$, $s=x+y$, $t=x^2-xy+y^2$); largely classical.
+\end{points}
 
 \section{The curve search}
 \begin{points}{the idea}
@@ -128,19 +155,79 @@ D-lines; the census of relations (only lines and hubs); structure against rank. 
 \end{points}
 
 \section{Results}
-\plan{the 82 five-ways (table in the appendix); four-way counts; recall of the curve search against exhaustive data;
-shapes.}
+\begin{points}{the catalogue}
+\item 8,788 coprime four-ways and 82 five-ways, every $k$ recounted exactly; complete for $n\le10^{22}$ and $10^{23}<n\le2.5\cdot10^{23}$ (and $10^{22}$--$10^{23}$ once the GPU fill is done).
+\item Five-ways: 12 below $2.5\cdot10^{23}$ (exhaustive), 70 above (curve search), largest $3.8\cdot10^{35}$. Shapes: bowties, and line + two free points.
+\item Profile of the five-ways: all odd; divisibility by 7; split-prime counts against controls (Figure 4).
+\end{points}
+\begin{points}{density of multi-ways (Figure 2)}
+\item Counting functions $N_k(x)=\#\{n\le x: r(n)\ge k\}$ for $k=2,3,4,5$ from the exhaustive data; growth exponents and how they fall with $k$.
+\item Where the first term of each curve is A047697$(k)$.
+\end{points}
+\begin{figure}[ht]
+\centering\includegraphics[width=\textwidth]{figs/fig_density.pdf}
+\caption{Counting functions of coprime multi-ways (draft; caption to write).}\label{fig:density}
+\end{figure}
+\begin{points}{the curve search against the exhaustive search}
+\item Figure 3: five-ways per decade, found by each search.
+\item Recall of four-ways by size; five-way recall higher (either line of a bowtie suffices); the only five-way in $10^{23}$--$2.5\cdot10^{23}$ was found by lines first.
+\end{points}
 
 \section{Cubefree taxicab numbers}
-\plan{cubefree implies coprime; the bound A080642(5) $> 2.5\cdot10^{23}$; convexity rules out lines; the eight
-all-positive four-ways; why a five-way is out of reach of every route we tried.}
+\begin{points}{the link}
+\item A cubefree $n$ has only coprime representations, so a cubefree five-way is a coprime five-way with all representations positive.
+\item Bound: A080642(5) $>2.5\cdot10^{23}$ from the exhaustive search; none of the 12 five-ways has five positive representations (the best, 2724248230569896697541, has four). Butler's 357 primitive five-ways and 24 six-ways to $2.5\cdot10^{28}$: none coprime, so none cubefree.
+\end{points}
+\begin{points}{why it is hard}
+\item Convexity: no line holds three positive points, so the line search can never produce an all-positive multi-way; only hubs or rank can.
+\item Near misses: two coprime five-ways with four positive representations (2724248230569896697541 and 133258206935285167925449341991); in both the difference is the point the two lines share.
+\end{points}
+\begin{points}{the positive hub search}
+\item The slopes whose line has two positive points form three arcs; enumerating only those (validated against the full sweep) is about $5\times$ cheaper.
+\item Result: eight all-positive coprime four-ways known, three new and all cubefree hubs (table: $n$, factorisation, representations, meeting-point denominator).
+\item All-positive hubs are rarer than independent chords would predict (0 of 199, then 3 of 56); positive hubs meet at larger denominators.
+\end{points}
+\begin{points}{routes that do not work}
+\item Elkies--Rogers record curves: 0 or 1 integer points each.
+\item Cost estimates: exhaustive to the likely size (near $10^{27}$ by a rough extrapolation) is out of reach; hubs need hundreds of nights; random rich $n$ almost never have any representation.
+\end{points}
 
 \section{Why no six-way?}
-\plan{the shapes a six-way could take; the free-point rate and the estimate of one six-way per 300--1,500 five-ways;
-what a successful search would need.}
+\begin{points}{the shapes a six-way could take}
+\item Gap principle (Helfgott--Venkatesh \cite{helfgottvenkatesh2006}): the integral points of a multi-way lie on a thin height shell at mutual angles $\ge60^\circ$ (data: median spread 4.5\%, $|\cos|\le\frac12$ in all 2,832 pairs).
+\item Six such points in rank 3 must form the complete quadrilateral, excluded by Theorem 8; what remains needs rank $\ge4$: bowtie + free point, two disjoint lines, line + hub, or rank alone.
+\end{points}
+\begin{points}{how rare}
+\item The free-point rate per line candidate, rising with split primes and falling with $n$; predicted one six-way per 300--1,500 five-ways; expected number in our searches about 0.02--0.08, so finding none is no surprise.
+\item Where might A047697(6) be? The gaps between known terms in decades are 1.6, 3.7, 7.5 (roughly doubling), suggesting near $10^{30}$; compare with the extrapolation of Figure 2. Hedge clearly.
+\end{points}
+\begin{points}{negative results}
+\item Divisor-richness alone does not make multi-ways: of 20,000 random products of 12 split primes, none has three representations (structure first, divisors second).
+\item Polynomial families do not help (N4).
+\end{points}
+\begin{points}{open problems}
+\item Does A047697$(k)$ exist for every $k$? (Silverman; rank.)
+\item Are lines and hubs the only relations among the integer points?
+\item The converse half of Theorem 7.
+\item Why all-positive hubs are rarer than expected.
+\end{points}
 
 \section{Data and code}
-\plan{repository, catalogue format, how to reproduce each claim.}
+\begin{points}{what is released}
+\item Repository (GitHub) and an archived copy with a DOI (Zenodo); the catalogue format \texttt{n;k;x:y,...}.
+\item The GPU program, the CPU program, the curve-search scripts, and how to reproduce each claim.
+\item An independent check: every five-way verified from the catalogue alone, with code that shares nothing with the searches.
+\end{points}
+\begin{points}{OEIS contributions}
+\item Extensions of A023050, A293648, A293649 and A293651 (14 terms missing from the 2017 b-file of A293651, all with a representation $|x|>10{,}000$); two new sequences: coprime in at least 4 ways (complete to $10^{22}$) and at least 5 ways (complete to $2.5\cdot10^{23}$).
+\end{points}
+
+\section*{Acknowledgements}
+\plan{UCD; whoever runs 7of9 and worf; rented GPUs (vast.ai) if costs are mentioned.}
+
+\appendix
+\section{The 82 coprime five-ways}
+\plan{table generated from \texttt{results/a047697\_catalogue.txt}: $n$, factorisation, the five representations, shape, how found.}
 
 \bibliographystyle{amsplain}
 \bibliography{refs}
