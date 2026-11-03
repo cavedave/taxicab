@@ -1656,6 +1656,18 @@ cabtaxi.cpp gives every three-way to 10¹⁹ with its representations. Earlier s
 - **Ranks of the 9 new independent four-ways (10²²–2.5·10²³):** 27086411626209197593478 has rank 5,
   29439502687316546488027 rank 4; the other 7 stopped with a PARI error after 1–5 minutes (not the 2-hour time
   limit; probably the stack), to rerun with a larger parisizemax. So far consistent with F33's "independent ⇒ rank ≥ 4".
+- **3 | n among five-ways, on all 82:** 11 of the 70 five-ways above 2.5·10²³ (line-search data) are divisible by 3,
+  against 15.4 expected from four-ways of the same size found by the same searches. The 0 of 12 below 2.5·10²³
+  is chance; at most a mild deficit.
+- **Hubs as objects** (every pair of chords on four different representations meeting at the same non-integral
+  R = (X/D, Y/D), all 9,010 numbers: 1,649 hubs in 576 numbers):
+  - **every hub relation P₁ + P₂ = P₃ + P₄ appears as exactly 3 hubs,** one per pairing of the four points
+    (−P = swap P turns P₁ − P₃ = P₄ − P₂ into another hub): 1,491 hubs in the 497 hub four-ways; 2 per bowtie (158 in 79).
+  - **always:** gcd(X, Y) = 1 (R is a primitive representation of D³n); D | (b − a)E for both chords (Theorem 7);
+    D even ⟺ both chords have a, b odd (1,181 / 1,181 and 0 / 468; Theorem 7 plus the open half), so the two
+    chords of a hub always share their parity class; and X + Y ≡ 0 (mod D) ⟺ D | b − a (1,649 / 1,649; new, unproved).
+  - **often, not always:** 3 | D 71% (every hub with n ≡ 2 or 7 mod 9); D ∈ {6, 3, 2, 12} the commonest;
+    gcd(D, n) = 1 62%; n odd 95%.
 - **Unchanged:** every exact theorem and both open observations, on 25× more data; the relation structure
   (lines and hubs only); the bowtie and free-point rates, and so F36's six-way estimate.
 

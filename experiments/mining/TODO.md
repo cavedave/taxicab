@@ -17,3 +17,7 @@
 8. Every line a x + b y = c through three coprime integer points of x³ + y³ = n has E = a² + ab + b² dividing c
    and n (sketch in F11; check the factor 3 and the case where b − a shares factors). Holds for all 11,176
    lines.
+
+9. Hubs (F44): for R = (X/D, Y/D) = −(P₁ + P₂) the third point of a chord through two coprime integral points, show
+    gcd(X, Y) = 1, and X + Y ≡ 0 (mod D) ⟺ D | b − a. Both hold for all 1,649 hubs of the catalogue.
+
