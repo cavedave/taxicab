@@ -1695,7 +1695,16 @@ three-ways in 1e17 – 1e19, the 1,736 exhaustive four-ways):
 
 **Proven conditions that do exist are not usable:** k(n) ≤ #{subsets S of the split primes of n : f·∏_{p∈S} p^{v_p(n)}
 ≤ (4n)^{1/3}} (Theorem 5: s carries every non-split prime power, f; each s gives at most one representation). It needs
-the factorisation of n, which the pair-sorting GPU never has, and it removes only about a third of n for k ≥ 6.
+the factorisation of n, which the pair-sorting GPU never has. (Corrected, measured: it rules out k ≥ 6 for **67–70%**
+of ordinary n at 10²² and 2·10²³, not a third; every five-way passes it easily, the smallest bound being 49.)
+- **Computing it per pair does not pay.** Only primes ≤ (4n)^{1/3} matter, so trial division to P gives a proven upper
+  bound, but at 2·10²³ it rules out 4% (P = 10³), 15% (10⁴), 42% (10⁵), 52% (10⁶), 68% (10⁸) of n, while the GPU spends
+  about 0.3 ns per pair (sort-bound). Even P = 10⁴ costs ~100× that per pair to save 15%. A sieve (p | x³ + y³ along y
+  for fixed x is an arithmetic progression) would make it cheap per pair, but the GPU walks rows of only ~10 pairs per
+  x inside a segment, so per-row overhead dominates; it would need a long-row (Bernstein-style) redesign, for at most
+  2–3× on a k ≥ 6 bound only.
+- **Source bias in the five-way pass rate:** line/hub-search four-ways pass the residue filter below at 97.7%
+  (exhaustive four-ways 90.8%), so 70/70 search five-ways passing has probability 0.20 and 12/12 exhaustive ones 0.31.
 
 **What the slopes do give: a cheaper non-exhaustive GPU hunt above 2.5e23.** Every condition below is a congruence
 on (x, y) (e.g. 7 | n ⟺ y ≡ −x, −2x, −4x mod 7; n odd ⟺ x + y odd), so the GPU can enumerate only those pairs:

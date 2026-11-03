@@ -8,6 +8,8 @@
 - [ ] GPU bucket-count speed-up, then 2.5e23 -> 1e24 on 7of9 (background).
 - [ ] Idea (F45): residue-filtered GPU hunt above 2.5e23 (e.g. (7|n or 13|n), n odd, n != +-2 mod 9: 26% of pairs,
       all 82 known five-ways); non-exhaustive. Needs a pair-enumeration change in cabtaxi_gpu.cu. Decide vs the plain 1e24 run.
+- [ ] Idea (F45, long term): proven six-way-only bound via a sieve over long y-rows (Theorem 5 subset bound rules out
+      ~70% of n); needs a Bernstein-style redesign of the GPU enumeration; payoff at most 2-3x.
 - [ ] Optional: code variant for A293647 / A293650 ("primitive" = all summands jointly coprime).
 
 ## Paper (writeup/paper/paper.tex; the user writes the prose)
