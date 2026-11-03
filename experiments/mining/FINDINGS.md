@@ -1653,6 +1653,9 @@ cabtaxi.cpp gives every three-way to 10¹⁹ with its representations. Earlier s
   four-ways are" was about what the line search misses, not about the population.
 - **No five-way is divisible by 3** (0 of 12, against 23% of four-ways at the same sizes: 4% by chance alone,
   and one of many features looked at, so only a hint).
+- **Ranks of the 9 new independent four-ways (10²²–2.5·10²³):** 27086411626209197593478 has rank 5,
+  29439502687316546488027 rank 4; the other 7 stopped with a PARI error after 1–5 minutes (not the 2-hour time
+  limit; probably the stack), to rerun with a larger parisizemax. So far consistent with F33's "independent ⇒ rank ≥ 4".
 - **Unchanged:** every exact theorem and both open observations, on 25× more data; the relation structure
   (lines and hubs only); the bowtie and free-point rates, and so F36's six-way estimate.
 
