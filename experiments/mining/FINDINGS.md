@@ -1665,7 +1665,8 @@ cabtaxi.cpp gives every three-way to 10¹⁹ with its representations. Earlier s
     (−P = swap P turns P₁ − P₃ = P₄ − P₂ into another hub): 1,491 hubs in the 497 hub four-ways; 2 per bowtie (158 in 79).
   - **always:** gcd(X, Y) = 1 (R is a primitive representation of D³n); D | (b − a)E for both chords (Theorem 7);
     D even ⟺ both chords have a, b odd (1,181 / 1,181 and 0 / 468; Theorem 7 plus the open half), so the two
-    chords of a hub always share their parity class; and X + Y ≡ 0 (mod D) ⟺ D | b − a (1,649 / 1,649; new, unproved).
+    chords of a hub always share their parity class; and X + Y ≡ 0 (mod D) ⟺ D | b − a (1,649 / 1,649; then proved for every chord: THEOREMS.md, Theorem 9).
+  - gcd(X, Y) = 1 also holds for all 166,228 non-integral chords of the catalogue, not only hubs (open, TODO 9).
   - **often, not always:** 3 | D 71% (every hub with n ≡ 2 or 7 mod 9); D ∈ {6, 3, 2, 12} the commonest;
     gcd(D, n) = 1 62%; n odd 95%.
 - **Unchanged:** every exact theorem and both open observations, on 25× more data; the relation structure

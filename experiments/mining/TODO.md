@@ -18,6 +18,6 @@
    and n (sketch in F11; check the factor 3 and the case where b − a shares factors). Holds for all 11,176
    lines.
 
-9. Hubs (F44): for R = (X/D, Y/D) = −(P₁ + P₂) the third point of a chord through two coprime integral points, show
-    gcd(X, Y) = 1, and X + Y ≡ 0 (mod D) ⟺ D | b − a. Both hold for all 1,649 hubs of the catalogue.
-
+9. Third point of a chord (F44): R = (X/D, Y/D) always has gcd(X, Y) = 1 (166,228 chords, none failing, including
+   27 | n). If p | X, Y then p ∤ D and p³ | n: rule this out. (The companion D | X + Y ⟺ D | b − a is proved:
+   THEOREMS.md, Theorem 9.)

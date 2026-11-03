@@ -328,6 +328,30 @@ Every case contradicts distinctness or a ≠ 0. ∎
 
 ---
 
+## Theorem 9 (the coordinate sum of a chord's third point; FINDINGS F44)
+
+**Statement.** Let P₁, P₂ be distinct integer points of x³ + y³ = n on the line a x + b y = c (gcd(a, b) = 1), and
+let the third intersection be R = (X/D, Y/D) in lowest terms (gcd(X, Y, D) = 1). Then gcd(X, D) = gcd(Y, D) =
+gcd(a, D) = gcd(b, D) = 1, and
+
+  **D | X + Y  ⟺  D | b − a.**
+
+So x_R + y_R is an integer exactly when D divides b − a. In a hub, both chords through R therefore agree on
+whether D | b − a.
+
+**Proof.** X³ + Y³ = D³n and aX + bY = cD.
+- If a prime p divides D and Y, then p | X³ = D³n − Y³, so p | X, contradicting lowest terms. Likewise for X.
+- If p | D and p | a, then p | bY = cD − aX; but p ∤ b (gcd(a, b) = 1) and p ∤ Y. Likewise for b.
+- Modulo D: a(X + Y) + (b − a)Y ≡ 0. If D | X + Y then (b − a)Y ≡ 0, and Y is a unit, so D | b − a. If D | b − a
+  then a(X + Y) ≡ 0, and a is a unit, so D | X + Y. ∎
+
+**Checked:** all 166,228 chords of the catalogue with a non-integral third point.
+
+**Open companion (observed, not proved):** gcd(X, Y) = 1 for every one of those 166,228 chords, including the
+n divisible by 27. If p | X and p | Y then p ∤ D and p³ | n, so a proof must rule out that case.
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
