@@ -347,8 +347,37 @@ whether D | b − a.
 
 **Checked:** all 166,228 chords of the catalogue with a non-integral third point.
 
-**Open companion (observed, not proved):** gcd(X, Y) = 1 for every one of those 166,228 chords, including the
-n divisible by 27. If p | X and p | Y then p ∤ D and p³ | n, so a proof must rule out that case.
+**Companion:** gcd(X, Y) = 1 as well; see Theorem 10.
+
+---
+
+## Theorem 10 (a chord through two coprime points meets the curve again in a primitive point; FINDINGS F44)
+
+**Statement.** Let P = (x, y) and Q = (u, v) be integer points of x³ + y³ = n, each with coprime coordinates,
+on the line a x + b y = c (gcd(a, b) = 1, a ≠ b), and let R = (X/D, Y/D) (lowest terms) be the third
+intersection. Then **gcd(X, Y) = 1.** (Coprimality is needed: doubling P and Q, on the curve for 8n, breaks it.)
+
+**Proof.** b ≠ 0, since a vertical line meets the curve in at most one point (Setting). Suppose a prime p divides
+X and Y.
+1. p ∤ D (lowest terms), so x_R = X/D is p-integral and divisible by p; and p | n, since X³ + Y³ = D³n.
+2. p ∤ x and p ∤ u: if p | x then p | y³ = n − x³, against gcd(x, y) = 1.
+3. p | c, from aX + bY = cD.
+4. Substituting y = (c − a x)/b, the x-coordinates x, u, x_R are the roots of
+   L x³ + 3a²c x² − 3ac² x + (c³ − b³n) = 0, with L = b³ − a³ ≠ 0.
+5. e₂: xu + x_R(x + u) = −3ac²/L. The left side is a p-unit (xu is a unit, the rest divisible by p), so
+   v_p(L) = v_p(3ac²) ≥ 2.
+6. p ∤ a: otherwise p ∤ b and L ≡ b³ (mod p) is a unit, against 5.
+7. e₁: x + u + x_R = −3a²c/L has valuation v_p(3) + v_p(c) − (v_p(3) + 2v_p(c)) = −v_p(c) < 0, yet the left side
+   is p-integral (1, 2). Contradiction. ∎
+
+**Remarks.**
+- Only coprimality at p is used, and p³ | n is a consequence, not an assumption.
+- With D = 1 it says the third integer point of a line through two coprime integer points is coprime.
+- With Theorem 9: every hub point R is a primitive point of D³n, with D | (b − a)E.
+
+**Checked:** all 166,228 non-integral chords of the catalogue, and 46,256 chords of every number with ≥ 2
+coprime representations with |coordinates| ≤ 4,000 (1,013 of them with a cube factor). Found by mining (F44),
+then proved.
 
 ---
 
