@@ -1706,6 +1706,12 @@ of ordinary n at 10²² and 2·10²³, not a third; every five-way passes it eas
 - **Source bias in the five-way pass rate:** line/hub-search four-ways pass the residue filter below at 97.7%
   (exhaustive four-ways 90.8%), so 70/70 search five-ways passing has probability 0.20 and 12/12 exhaustive ones 0.31.
 
+**Even n (user's question: are the even four-ways few and small?):** 12 of 1,736 four-ways below 2.5e23 (0.7%,
+against 33% of ordinary sums), spread from 8.9e16 to 2.0e23 (none below 1e17), v₂(n) = 1–3; 31 in the whole catalogue,
+**every one a hub (29) or independent (2), never a line**. Proved: THEOREMS.md, Theorem 12 (even n has no collinear
+triple of coprime points; 0 of 524 even n with k ≥ 3 have one, against 97% of odd n). It explains the "even" slope of
+F2: the commonest mechanism, lines, is closed to even n.
+
 **A cheap PROVEN filter does exist (user: "mod 2 is cheap, does it buy anything?"): THEOREMS.md, Proposition 11.**
 The non-split part f of n is read off the pair: by Theorem 5 it is the non-split part of s = x + y, and s ≤ (4n)^{1/3}
 (about 10⁸ at 10²³), so f comes from a small precomputed table. k representations need k distinct s_i = f·m_i ≤

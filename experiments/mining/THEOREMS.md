@@ -415,6 +415,26 @@ sums 33% / 31%.
 
 ---
 
+## Theorem 12 (even n has no lines; FINDINGS F45)
+
+**Statement.** If n is even, no line contains three distinct coprime points of x³ + y³ = n (representations or
+their swaps). So every multi-way with n even is a hub or "independent" (rank).
+
+**Proof.** n even and gcd(x, y) = 1 force x ≡ y ≡ 1 (mod 2) at every point. Suppose a x + b y = c holds three of
+them. By Theorem 1(b) a·b is even, and gcd(a, b) = 1, so exactly one of a, b is even.
+- a even: L = b³ − a³ is odd, and e₁ = x₁ + x₂ + x₃ = −3a²c/L is even; but it is a sum of three odd numbers.
+- b even: the same with the y-coordinates (the line is b y + a x = c, e₁(y) = −3b²c/(a³ − b³)). ∎
+
+**Checked:** 524 even n with k ≥ 3 (all three-ways 1e17 – 1e19 and the catalogue): no collinear triple. Odd n: 97% of
+253,395 have one.
+
+**Consequence.** Lines are the commonest source of extra representations (8,393 of 8,928 four-ways are line + free),
+and even n cannot use them. This is why even n are 33% of ordinary sums but 0.7% of four-ways (12 of 1,736 below
+2.5e23, all hubs), 0.2% of three-ways and 0 of 82 five-ways: a mechanism, not just a smaller local density. A six-way
+with n even would have to come from hubs and rank alone.
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
