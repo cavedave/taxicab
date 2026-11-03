@@ -375,6 +375,14 @@ X and Y.
 - With D = 1 it says the third integer point of a line through two coprime integer points is coprime.
 - With Theorem 9: every hub point R is a primitive point of D³n, with D | (b − a)E.
 
+**Corollary 10a (integer coordinate sum; explains F30 §1).** If no prime ≡ 1 (mod 3) divides D, then D | X + Y,
+and so (Theorem 9) D | b − a for every chord with that third point.
+*Proof.* By Theorem 10, (X, Y) is a coprime representation of N = D³n, so Theorem 5 applies to it. For p | D with
+p = 2 or p ≡ 2 (mod 3): p ∤ t_R, so v_p(X + Y) = v_p(N) ≥ 3v_p(D). For p = 3: v₃(t_R) ≤ 1, so
+v₃(X + Y) ≥ 3v₃(D) − 1 ≥ v₃(D). ∎
+Checked on the 7,202 catalogue chords with such D (all have D | X + Y); with a prime ≡ 1 (mod 3) in D, only
+2,048 of 25,596 do. F30 had found integer s_R in 33 of 35 hubs, the exceptions having D-primes 7, 43, 103, … .
+
 **Checked:** all 166,228 non-integral chords of the catalogue, and 46,256 chords of every number with ≥ 2
 coprime representations with |coordinates| ≤ 4,000 (1,013 of them with a cube factor). Found by mining (F44),
 then proved.
