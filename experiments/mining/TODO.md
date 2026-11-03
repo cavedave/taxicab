@@ -21,3 +21,9 @@
 9. Third point of a chord (F44): R = (X/D, Y/D) always has gcd(X, Y) = 1 (166,228 chords, none failing, including
    27 | n). If p | X, Y then p ∤ D and p³ | n: rule this out. (The companion D | X + Y ⟺ D | b − a is proved:
    THEOREMS.md, Theorem 9.)
+   Coprimality is what matters: on every number with >= 2 coprime representations with |coordinates| <= 4,000
+   (11,431 numbers, 1,013 with a cube factor; 46,256 chords) it never fails, while the same chords scaled by 2
+   (non-coprime points on 8n) fail 19,628 times. Proof idea: if p | X, Y then R reduces mod p to the singular
+   point (0:0:1) of x³ + y³ ≡ 0, which coprime points never do; points with nonsingular reduction form a subgroup.
+   Gap: that argument breaks when the chord reduces to a component line of the cone (x₁y₂ ≡ x₂y₁ mod p), which
+   for p ≡ 2 (mod 3) is every chord; a p-adic argument using p³ | n should close it.
