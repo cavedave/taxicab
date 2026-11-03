@@ -7,3 +7,5 @@ curve_relations/ -- ranks of the curves x^3 + y^3 = n and exact integer relation
                   |c_i| <= 1000, from LLL on [identity; 10^20 * height-pairing matrix], each checked exactly with elladd
   all_ls.csv      line_structure.py shapes of the same numbers
   rank1.gp, reldef.gp   the GP code: rk(n, [[x,y],...]) and rel(n, [[x,y],...])
+  relations_9010.txt, all_ls_9010.csv   the same relation search (reldef.gp, loaded with \r, not read()) and
+                  line_structure.py shapes on the whole catalogue of 3 November 2026 (9,010 numbers; F44)

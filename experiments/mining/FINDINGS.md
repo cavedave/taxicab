@@ -1572,6 +1572,90 @@ All known coprime k ≥ 4 numbers are now in one file, `results/a047697_catalogu
 recounted exactly, 27 October). Exhaustive ratios of five-ways to four-ways: 1 : 203 for n ≤ 10¹⁷, and 1 : 214 at
 10²³–2.5·10²³. In the targeted searches it is about 1 : 100.
 
+## F44 (3 November 2026): the checks rerun on all the data, and the statistics redone on the exhaustive data only
+
+**Why:** the catalogue is now complete for every k ≥ 4 to 2.5·10²³ (1,736 four-ways, 12 five-ways), and
+cabtaxi.cpp gives every three-way to 10¹⁹ with its representations. Earlier statistics used 90 four-ways
+(F1/F2) or a mix of exhaustive and line-search data (F33/F36), where the search method biases what is seen.
+
+**Part 1 — exact checks on everything** (9,010 catalogue numbers, plus the 244,909 numbers with k ≥ 3 in
+10¹⁷–10¹⁹; `recheck_all.py`, 6 s; mutated claims are caught, so the checks bite):
+
+| check | tests (catalogue + worf) | failures |
+| --- | ---: | ---: |
+| T1–T3 on every collinear triple (`verify_theorems.py --reps`) | 492,028 triples, 70,916 directions | 0 |
+| Theorem 5 (primes ≢ 1 mod 3 divide s fully; v₃) | 253,919 numbers | 0 |
+| Lemma 6 (xy mod 3 shared) | 253,919 | 0 |
+| Theorem 7 (D divides (b − a)E), every chord | 3.16 M | 0 |
+| Theorem 8 (types at 2 and 3; opposite types ⇒ non-integral third point; lines keep type) | 3.89 M | 0 |
+| open: a, b odd and D > 1 ⇒ D even | 1.58 M | 0 |
+| open (item 11): same-line pairs keep the 3 in the chord's denominator | 2.95 M | 0 |
+
+- **Relations (F33 on all 9,010, `curve_relations/relations_9010.txt`):** 9,051 relations, every one a 3-term
+  (8,543) or 4-term (508) relation with coefficients ±1. Still no tangent relation, no 5-term relation.
+- **Shapes (`all_ls_9010.csv`):** 8,393 line + free, 497 hub, 38 independent, 79 bowtie, 3 line + 2 free;
+  the shapes and the relations agree on every number.
+
+**Part 2 — statistics on exhaustive data only** (`exhaustive_mining.py`; controls are exact census windows,
+`control_windows.py`, about 6,000 numbers at each of 10⁸, 10¹⁰, …, 10²², 2·10²³, and 2.4 M at 3·10¹⁷):
+
+1. **Shape mix of the four-ways by size:**
+
+   | band | four-ways | hub | independent |
+   | --- | ---: | ---: | ---: |
+   | ≤ 10¹⁵ | 90 | 3.3% | 2.2% |
+   | 10¹⁵–10¹⁷ | 114 | 7.0% | 6.1% |
+   | 10¹⁷–10¹⁹ | 204 | 13.2% | 2.9% |
+   | 10¹⁹–10²¹ | 383 | 11.2% | 2.3% |
+   | 10²¹–10²² | 316 | 14.2% | 0.6% |
+   | 10²²–10²³ | 415 | 10.1% | 1.7% |
+   | 10²³–2.5·10²³ | 214 | 11.2% | 0.9% |
+
+   Hubs rise to about 11–14% by 10¹⁷ and then stay flat; independent four-ways fall to about 1%. Line + free
+   stays the large majority (85–94%).
+
+2. **Five-ways (exhaustive):** 10 bowties and 2 line + 2 free. Rates per line + free four-way: bowtie 6.6·10⁻³,
+   extra free point 1.3·10⁻³, close to F36's line-search rates (1.0·10⁻², 1.0·10⁻³). Five : four is 1 : 145
+   overall; by band 1 : 204, 3 : 371, 7 : 532, 1 : 629 (the last is 7% likely under a constant rate).
+
+3. **Features by k, every n in 10¹⁷–10¹⁹:**
+
+   | k | N | split primes | 7 \| n | 3 \| n | even | n ≡ ±2 (9) | all split | cubefree |
+   | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+   | 1 | 20,000 | 3.54 | 37% | 25% | 33% | 26% | 13% | 83% |
+   | 2 | 45 | 5.98 | 76% | 33% | 13% | 9% | 40% | 87% |
+   | 3 | 244,704 (40,000 sampled) | 6.61 | 69% | 33% | 0.2% | 0.2% | 39% | 89% |
+   | 4 | 204 | 8.15 | 81% | 25% | 0% | 1% | 60% | 89% |
+   | 5 (all 12, other sizes) | 12 | 8.83 | 92% | **0%** | 0% | 0% | 83% | 100% |
+
+   F1's trends hold at 10¹⁸ with far larger groups. Even three-ways: 492 of 244,704; n ≡ ±2 (mod 9): 474.
+
+4. **Split primes grow with size, and the excess over k = 1 grows too:**
+
+   | band | four-ways: mean split | k = 1 census | excess |
+   | --- | ---: | ---: | ---: |
+   | ≤ 10¹⁵ | 6.64 | 2.87 | +3.77 |
+   | 10¹⁵–10¹⁷ | 7.60 | 3.40 | +4.19 |
+   | 10¹⁷–10¹⁹ | 8.15 | 3.61 | +4.54 |
+   | 10¹⁹–10²¹ | 8.67 | 3.74 | +4.93 |
+   | 10²¹–10²² | 8.92 | 3.85 | +5.07 |
+   | 10²²–10²³ | 9.23 | 3.93 | +5.30 |
+   | 10²³–2.5·10²³ | 9.30 | 3.93 | +5.37 |
+
+**What changed:**
+- **Five-ways are not much richer than four-ways of the same size.** Against the four-ways within a factor 3 of
+  each five-way, the 12 five-ways have +0.24 split primes on average (range −0.87 to +1.29). The earlier
+  claim ("each extra representation costs about 2–3 more split primes", from 90 four-ways ≤ 10¹⁵ against
+  five-ways ≤ 10²³) was mostly a size effect: four-ways themselves gain about 2.7 split primes from 10¹⁵ to 10²³.
+  The split-prime filter for six-way hunting (F36, F38) still holds as a filter, but the step from four to five
+  representations is mainly a second line, not more divisors.
+- **Hubs are a steady ~11% share above 10¹⁷,** not a share that keeps growing; F41's "hubs are where the new
+  four-ways are" was about what the line search misses, not about the population.
+- **No five-way is divisible by 3** (0 of 12, against 23% of four-ways at the same sizes: 4% by chance alone,
+  and one of many features looked at, so only a hint).
+- **Unchanged:** every exact theorem and both open observations, on 25× more data; the relation structure
+  (lines and hubs only); the bowtie and free-point rates, and so F36's six-way estimate.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
