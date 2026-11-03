@@ -1742,6 +1742,26 @@ on (x, y) (e.g. 7 | n ⟺ y ≡ −x, −2x, −4x mod 7; n odd ⟺ x + y odd), 
 Such a run proves no bound, but it searches the region where every known five-way lives at a quarter of the cost,
 and unlike the line/hub searches it is blind to geometry, so it would also catch "rank" six-ways.
 
+## F46 (3 November 2026): other primes (user: "does Theorem 12 have siblings?"): a line's direction fixes the non-split part of n
+
+**Data** (`primes_lines.py`; 253,919 numbers with k ≥ 3: the catalogue and every three-way 1e17 – 1e19):
+
+| p | n with p \| n | carry a line | lines on those n: p divides … |
+| --- | ---: | ---: | --- |
+| 2 | 524 | **0%** | (none) |
+| 3 | 82,326 | 98% | b − a and c always; a, b, a + b never |
+| 5, 11, 17, 23, 29, 41, 47, 53 | 2,564 – 28,437 | 98% | b − a and c always (100%); a, b, a + b, E never |
+| 7, 13, 19, 31, 37, 43 (split) | 45,896 – 176,575 | 95–97% | no rule (b − a 5–9%, E 17–55%) |
+
+**Proved (THEOREMS.md, Theorem 13):** the values sᵢ = xᵢ + yᵢ of three collinear points are the roots of
+E z³ − 3c(a + b) z² + 3c² z − (a − b)²n. With Theorem 5 this gives, for every p ≢ 1 (mod 3), v_p(b − a) = v_p(s)
+exactly and p^{v_p(s)} | c: **the non-split part of b − a is the non-split part of n** (3: one less), checked on all
+492,028 lines. p = 2 is the case where this is impossible (b − a is odd by Theorem 1(b)), which re-proves Theorem 12.
+
+**Meaning:** primes ≡ 2 (mod 3) and 3 are not "random" in a line's n; the direction chooses them. A line search over
+directions with b − a built from split primes only produces n whose non-split part is 1 (or 3^1), the "all split"
+profile that 60% of four-ways and 83% of five-ways have (F44).
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;

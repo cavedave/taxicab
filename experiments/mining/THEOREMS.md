@@ -435,6 +435,43 @@ with n even would have to come from hubs and rank alone.
 
 ---
 
+## Theorem 13 (the s-cubic of a line; a line's direction fixes the non-split part of n; FINDINGS F46)
+
+**Statement.** Let three points (xᵢ, yᵢ) of x³ + y³ = n lie on a x + b y = c (gcd(a, b) = 1, b ≠ 0, a ≠ b), and put
+sᵢ = xᵢ + yᵢ, E = a² + ab + b². Then
+
+  **E·Σsᵢ = 3c(a + b),  E·Σ_{i<j} sᵢsⱼ = 3c²,  E·s₁s₂s₃ = (a − b)²·n,**
+
+i.e. the sᵢ are the roots of E z³ − 3c(a + b) z² + 3c² z − (a − b)² n.
+
+*Proof.* On the line c = a xᵢ + b yᵢ = (a − b)xᵢ + b sᵢ, so xᵢ = (c − b sᵢ)/(a − b). Substitute into Vieta for the
+x-cubic L x³ + 3a²c x² − 3ac² x + (c³ − b³n) (L = (b − a)E): e₁ gives the first identity; e₂ with the first gives
+b²Eσ₂ = 3b²c², the second; e₃ with both gives −b³Eσ₃ = −b³(a − b)²n, the third. ∎
+
+**Corollary 13a (the direction fixes the non-split part).** If the three points are coprime, then for every prime
+p ≢ 1 (mod 3): **v_p(b − a) = v_p(sᵢ)** for each i, and p^{v_p(sᵢ)} | c. So the non-split part of b − a is the
+non-split part of every s on the line, which is the non-split part f of n (Theorem 5: v_p(n) for p ≡ 2 mod 3,
+v₃(n) − 1 for p = 3).
+*Proof.* p ∤ E for p ≡ 2 (mod 3) (E is a norm from Z[ω]); for p = 3, v₃(E) = 1 if 3 | a − b, else 0. All sᵢ have
+the same valuation e' (Theorem 5), so the third identity gives 2v_p(a − b) + v_p(n) − v_p(E) = 3e'. For p ≡ 2 (mod 3)
+(e' = v_p(n)): v_p(b − a) = e'. For p = 3: if 3 ∤ a − b then v₃(n) = 3e' = 3v₃(n) − 3 (or, if 3 ∤ n, 2v₃(a−b) − 1 = 0),
+impossible except when both sides vanish; so 3 | b − a exactly when 3 | n, and then 2v₃(b − a) + v₃(n) − 1 =
+3v₃(n) − 3 gives v₃(b − a) = v₃(n) − 1 = e'. The second identity gives v_p(c) ≥ e'. ∎
+
+**Corollary 13b (Theorem 12 again).** For p = 2: 2 | n would force 2 | b − a, so a, b both odd, against Theorem 1(b).
+
+**Checked:** the three identities on all 492,028 lines of the catalogue and of every three-way 1e17 – 1e19;
+nonsplit(b − a) = nonsplit(s) on all of them; v_p(b − a) = e' exactly in all 366,672 (line, p) cases.
+
+**Consequences.**
+- n's non-split part is set by the direction alone: a line in direction (a, b) only produces n whose primes
+  ≢ 1 (mod 3) are those of b − a, with those exponents (3: one more). With Proposition 11, directions whose b − a has a
+  large non-split part f can only make n with few representations (k ≥ 6 needs 37 f ≤ (4n)^{1/3}).
+- b − a is odd for every line (Theorem 1(b)), so lines give odd n only.
+- Split primes (p ≡ 1 mod 3) carry no such rule (F46 table).
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
