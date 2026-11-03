@@ -50,8 +50,11 @@ def prod_min(S):
     """exact min of |S1 S2 S3| on the square max(|s|, |r|) = 1 (s >= 0 half suffices: the forms are even in (s, r)):
     edges s = 1, r in [-1, 1] and r = +-1, s in [0, 1]; each is a degree-6 polynomial, minimised at the ends or at real
     roots of its derivative (numpy, then the true values are evaluated in exact rationals)"""
-    import numpy as np
     from fractions import Fraction as Fr
+    try:
+        import numpy as np
+    except ImportError:
+        np = None
     def P(s, r):
         v = 1
         for A, B_, C in S: v *= A*s*s + B_*s*r + C*r*r
@@ -61,12 +64,16 @@ def prod_min(S):
         # sample the polynomial at 7 points to get its coefficients in t, t in [-1, 1] (edge s1) or [0, 1]
         ts = [Fr(k, 6) for k in range(-6, 7, 2)] if edge == "s1" else [Fr(k, 6) for k in range(7)]
         f = (lambda t: P(1, t)) if edge == "s1" else (lambda t: P(t, 1 if edge == "r+1" else -1))
-        V = np.array([[float(t)**j for j in range(7)] for t in ts]); y = np.array([float(f(t)) for t in ts])
-        c = np.linalg.solve(V, y)                                      # coefficients c0..c6
-        crit = [r_.real for r_ in np.roots(np.polyder(c[::-1])) if abs(r_.imag) < 1e-9]
         lo, hi = (-1, 1) if edge == "s1" else (0, 1)
-        cand = [lo, hi] + [t for t in crit if lo <= t <= hi]
-        m = min(float(f(Fr(t).limit_denominator(10**12))) for t in cand)
+        if np is not None:
+            V = np.array([[float(t)**j for j in range(7)] for t in ts]); y = np.array([float(f(t)) for t in ts])
+            c = np.linalg.solve(V, y)                                  # coefficients c0..c6
+            crit = [r_.real for r_ in np.roots(np.polyder(c[::-1])) if abs(r_.imag) < 1e-9]
+            cand = [lo, hi] + [t for t in crit if lo <= t <= hi]
+            m = min(float(f(Fr(t).limit_denominator(10**12))) for t in cand)
+        else:
+            raise SystemExit("prod_min needs numpy (pip3 install --user numpy); no non-rigorous fallback")
+
         best = m if best is None else min(best, m)
     return best * (1 - 1e-9)                                           # small safety margin for the root location
 

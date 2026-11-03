@@ -1,6 +1,8 @@
 # TODO (running list; proofs to do are in experiments/mining/TODO.md)
 
 ## Runs
+- [ ] **Complete line search to 1e30 on 7of9** (F47): copy lc_7of9.tar.gz, `nohup bash run_lc.sh > lc.log 2>&1 &`.
+      Then: catalogue merge of lc_1e30_k4.txt, the certificate (lc_1e30_jobs.log), paper statement "no six-way <= 1e30 with a line of cost <= 1.2e12".
 - [ ] **Ranks of 7 'independent' four-ways in 1e22 - 2.5e23** (PARI stack overflow at 2 GB on the Mac).
       On 7of9: copy `experiments/mining/curve_relations/rank_7of9/`, then `nohup bash run_ranks.sh > ranks.log 2>&1 &`
       (16 GB stack each, 4 h limit). Add the ranks to FINDINGS F44 (so far 27086411626209197593478 rank 5,

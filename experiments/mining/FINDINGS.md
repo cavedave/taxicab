@@ -1769,6 +1769,33 @@ equality case.
 directions with b − a built from split primes only produces n whose non-split part is 1 (or 3^1), the "all split"
 profile that 60% of four-ways and 83% of five-ways have (F44).
 
+## F47 (3 November 2026): a complete line search (`line_complete.py`), validated against the exhaustive data
+
+**What it does.** For each allowed direction, every coprime collinear triple with n <= B, with no height cap and no
+filter (six_way_ideas.md idea 1). Rigorous per-direction heights from n = E S1 S2 S3 / ((a - b)^2 G^3) (Theorem 13):
+the S_i are definite (|S1 S2 S3| >= M h^6, M exact) and G | content * R0' (resultants). Tier 1 enumerates every slope
+to H(Glo); tier 2, for each set T of primes that can enlarge G, enumerates the lattice of slopes in T's residue
+classes (Gauss-reduced basis, points in the box) to H(Glo * prod_T p^(hi - lo)). Each unordered triple is kept once,
+at its least-height ordering (Theorem 4 (ii) gives every ordering's slope), so no set is needed and directions split
+into s-chunks. With --count every n is counted exactly (PARI + collisions.all_reps) and only k >= 4 is written, with a
+certificate line per job (slopes, triples, largest k); --resume skips logged jobs.
+
+**Validation:**
+- `--selfcheck`: on 6 directions at B = 1e14, the triple sets equal brute force over every slope to 2x the largest
+  bound, with no duplicates.
+- B = 1e19, all 1,197 allowed directions of cost <= 1e7 (10.7 M slopes, 196,358 triples, 30 s on the Mac):
+  **all 153,916 lines of the exhaustive data in those directions produced, none missing**; every one of the 196,357
+  numbers produced is in the exhaustive k >= 3 lists; with counting, all 263 catalogue numbers <= 1e19 having such a
+  line are found with the catalogue's k, and nothing else. These directions carry 64% of all k >= 3 numbers <= 1e19.
+- Bound sharpness: worst slope reaches 0.999 of its bound (line_heights.py brute checks to 1e16).
+
+**What the bounds showed:** the earlier "deep" runs stopped cheap directions at height <= 5,000; complete coverage to
+1e30 needs 43,000 - 75,000 for (3,4) and up to 147,000 for (12,13). The cheap directions were complete only to about
+1e25.
+
+**The 1e30 run** (`night_7of9/lc/run_lc.sh`, 7of9): every allowed direction of cost <= 1.2e12 (1,563,877 directions),
+B = 1e30, every n counted. Estimate: 5e10 - 8e10 slopes at ~4.5 us, ~1e9 exact counts; 2-4 h on 60 processes.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
