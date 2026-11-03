@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """plot_density.py -- Figure 2 of the paper: N_k(x) = #{n <= x : n = x^3 + y^3 with gcd(x, y) = 1 in >= k ways},
-k = 2..5, from the exhaustive searches (k >= 2 to 1e13 and k >= 3 to 1e17 by cabtaxi.cpp, results/counts/;
-k >= 4 to 1e22 and k >= 5 to 2.5e23 from the GPU-complete part of results/a047697_catalogue.txt). Tufte style, white background and no title (paper figure; the caption carries the message).
+k = 2..5, from the exhaustive searches (k >= 2 to 1e13 and k >= 3 to 1e19 by cabtaxi.cpp, results/counts/;
+k >= 4 and k >= 5 to 2.5e23 from the GPU-complete part of results/a047697_catalogue.txt). Tufte style, white background and no title (paper figure; the caption carries the message).
 Writes writeup/paper/figs/fig_density.pdf and out/paper/fig_density.png (figures are not committed)."""
 import gzip, os
 import numpy as np
@@ -18,8 +18,9 @@ def values(path, k, B):
     return np.array(sorted(v), dtype=float)
 
 DATA = {2: values("results/counts/coprime_k2_1e13.txt.gz", 2, 1e13),
-        3: values("results/counts/coprime_k3_1e17.txt.gz", 3, 1e17),
-        4: values("results/a047697_catalogue.txt", 4, 1e22),
+        3: np.concatenate([values("results/counts/coprime_k3_1e17.txt.gz", 3, 1e17),
+                           values("results/counts/coprime_k3_1e17_1e19.txt.gz", 3, 1e19)]),
+        4: values("results/a047697_catalogue.txt", 4, 2.5e23),
         5: values("results/a047697_catalogue.txt", 5, 2.5e23)}
 FIRST = {2: "91", 3: "3367", 4: "16776487", 5: "506433677359393"}
 
@@ -45,8 +46,8 @@ ax.text(2.5e23, 2.2, "no six-way\nbelow $2.5\\cdot10^{23}$", fontsize=10, color=
 
 ax.set_xscale("log"); ax.set_yscale("log")
 for s in ("top", "right"): ax.spines[s].set_visible(False)
-ax.spines["bottom"].set_bounds(DATA[2][0], 2.5e23); ax.spines["left"].set_bounds(1, len(DATA[2]))
-ax.set_xlim(20, 1e26); ax.set_ylim(0.45, 6e5)
+ax.spines["bottom"].set_bounds(DATA[2][0], 2.5e23); ax.spines["left"].set_bounds(1, max(len(a) for a in DATA.values()))
+ax.set_xlim(20, 1e26); ax.set_ylim(0.45, 1e6)
 xt = [10.0**e for e in range(2, 25, 2)]
 ax.set_xticks(xt); ax.set_xticklabels([f"$10^{{{e}}}$" for e in range(2, 25, 2)])
 yt = [1, 10, 100, 1000, 10**4, 10**5]

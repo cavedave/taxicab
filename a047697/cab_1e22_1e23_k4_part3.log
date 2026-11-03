@@ -1,8 +1,4 @@
 GPU 2: NVIDIA GeForce RTX 2080 Ti (sm_75), 11.2 GB free, segment cap 414572158 pairs
 search 47375865058301814243328 < n <= 72072789441160461418496, kmin=4, 2446294 segments
-  442/2446294 segments, n <= 47380009135571208241151, raw=101154623833 coprime=61496488364, 30s, 3.37e+09 raw pairs/s, ETA 166090s
-    time split: count 21% scan 3% write 13% select 8% sort 52% runs 3% host 0%
-  885/2446294 segments, n <= 47384162709815152345087, raw=202538058300 coprime=123132015487, 60s, 3.37e+09 raw pairs/s, ETA 166017s
 ...
-  2342697/2446294 segments, n <= 70958599568225734754303, raw=536143191155196 coprime=325945226434243, 167514s, 3.2e+09 raw pairs/s, ETA 7408s
-    time split: count 22% scan 3% write 13% select 8% sort 51% runs 3% host 0%
+DONE 70961066812923118092287 < n <= 72072789441160461418496 raw pairs=23656347264640 coprime pairs=14381729290861 kmin=4 time=7522s (3.14e+09 raw pairs/s)

@@ -66,7 +66,7 @@ code.
 \item Exhaustive GPU search to $2.5\cdot10^{23}$: A047697(6) $>2.5\cdot10^{23}$, hence A080642(5) $>2.5\cdot10^{23}$; exactly 12 five-ways in that range.
 \item The geometry: only lines and hubs relate the integer points; theorems that make lines searchable; convexity (no line holds three positive points).
 \item A targeted search by lines and hubs: 70 further five-ways up to $3.8\cdot10^{35}$; eight all-positive cubefree four-ways; no six-way.
-\item Catalogue of 8,788 four-ways and 82 five-ways; OEIS extensions (A023050, A293648, A293649, A293651 with 14 missing terms).
+\item Catalogue of 8,928 four-ways and 82 five-ways, complete to $2.5\cdot10^{23}$; OEIS extensions (A023050 to $10^{19}$, A293648, A293649, A293651 with 14 missing terms).
 \item Outline of the sections.
 \end{points}
 
@@ -83,7 +83,7 @@ code.
 \item Number theory only for checking, never for pruning (THEOREMS 5; the divisor test, cf.\ Broughan \cite{broughan2003}), so ``no six-way up to $B$'' remains a proof.
 \end{points}
 \begin{points}{validation}
-\item Brute force to $10^7$; known terms; splitting a range gives the same pairs; a window above $2^{64}$; agreement with the CPU program at $10^{12}$ and $10^{15}$; self-test on every GPU before every run; every $k\ge4$ number recounted from its factorisation; 0--$10^{22}$ run twice with identical output.
+\item Brute force to $10^7$; known terms; splitting a range gives the same pairs; a window above $2^{64}$; agreement with the CPU program at $10^{12}$ and $10^{15}$; self-test on every GPU before every run; every $k\ge4$ number recounted from its factorisation; 0--$10^{22}$ run twice with identical output; the CPU program's 205 numbers with $k\ge4$ in $10^{17}$--$10^{19}$ equal the GPU's; the GPU fill of $10^{22}$--$10^{23}$ re-found all 275 four-ways the targeted searches had found there.
 \end{points}
 \begin{points}{runs, cost and results}
 \item Table of ranges, hardware, pairs and time (about 140 GPU-hours on RTX 5090s, plus 7of9's RTX 2080 Ti runs); sort is 60\% of the time.
@@ -160,7 +160,7 @@ code.
 
 \section{Results}
 \begin{points}{the catalogue}
-\item 8,788 coprime four-ways and 82 five-ways, every $k$ recounted exactly; complete for $n\le10^{22}$ and $10^{23}<n\le2.5\cdot10^{23}$ (and $10^{22}$--$10^{23}$ once the GPU fill is done).
+\item 8,928 coprime four-ways and 82 five-ways, every $k$ recounted exactly; complete for every $n\le2.5\cdot10^{23}$ (1,736 four-ways and 12 five-ways there).
 \item Five-ways: 12 below $2.5\cdot10^{23}$ (exhaustive), 70 above (curve search), largest $3.8\cdot10^{35}$. Shapes: bowties, and line + two free points.
 \item Profile of the five-ways: all odd; divisibility by 7; split-prime counts against controls (Figure 4).
 \end{points}
@@ -224,7 +224,7 @@ code.
 \item An independent check: every five-way verified from the catalogue alone, with code that shares nothing with the searches.
 \end{points}
 \begin{points}{OEIS contributions}
-\item Extensions of A023050, A293648, A293649 and A293651 (14 terms missing from the 2017 b-file of A293651, all with a representation $|x|>10{,}000$); two new sequences: coprime in at least 4 ways (complete to $10^{22}$) and at least 5 ways (complete to $2.5\cdot10^{23}$).
+\item Extensions of A023050, A293648, A293649 and A293651 (14 terms missing from the 2017 b-file of A293651, all with a representation $|x|>10{,}000$); two new sequences: coprime in at least 4 ways (1,748 terms, complete to $2.5\cdot10^{23}$) and at least 5 ways (complete to $2.5\cdot10^{23}$).
 \end{points}
 
 \section*{Acknowledgements}
