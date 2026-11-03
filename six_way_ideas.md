@@ -66,3 +66,36 @@ census of every line-carrying multi-way to 1e30 in that class (unbiased statisti
 2. Idea 1 full run on 7of9 to 1e30, cost <= C, no filter.
 3. Idea 2 as deep b - a = 1 runs.
 4. Idea 3 measurement from existing D-line data.
+
+## Results, 3 November 2026
+
+### Stars (idea 3): not a separate route
+Chords through every meeting point R of the 9,010 catalogue numbers (representations and swaps):
+
+| R | 1 chord | 2 chords | 3 chords |
+| --- | ---: | ---: | ---: |
+| integral (2 = bowtie centre) | 51,008 | 158 | 0 |
+| fractional (2 = hub) | 159,632 | 3,298 | 0 |
+
+- A fractional R gains a second chord 7x as often as an integral point gains a second line (2.1e-2 against 3.1e-3).
+- Chords through R are disjoint and the swap negates, so a third chord needs two representations beyond the hub's
+  four: a star exists only inside a six-way, and "0" carries no information. Per candidate pair, alignment through R
+  is about 0.5%, so roughly 2% of six-ways containing a hub would be stars. Not a cheaper road to a six-way; drop it.
+
+### Rigorous per-direction heights (idea 1): done, and sharp
+`experiments/mining/line_heights.py`: for each direction, the G-classes (G | R0 = gcd of the pairwise resultants of the
+six coordinate forms; classes found prime by prime over projective residues) and
+H(G) = (B (a - b)^2 G^3 / (E M))^(1/6), M = exact minimum of |S1 S2 S3| on max(|s|, |r|) = 1 (S_i definite).
+- Brute force over every slope to 1.5-2x the bound: 0 triples with n <= B beyond their bound (B = 1e12 on 5
+  directions, B = 1e16 on 3: 37,000 triples); the worst reaches 0.999 of the bound, so it is sharp.
+- At B = 1e30: (3,4) needs heights 43,355 (G = 4) and 75,093 (G = 12); (12,13) 23,522 - 146,894; (27,28)
+  14,569 - 66,764. **The earlier runs stopped the cheapest directions at heights <= 5,000** (F40), i.e. they were
+  complete only to about n ~ 1e25 there; F40's "ordinary lines below 1e30 are nearly exhausted" holds for the
+  expensive directions, not the cheap ones, which are the most productive (the (3,4) line is in 19% of bowties).
+- **Cost of a complete run to 1e30**, every allowed direction with cost <= 1.2e12: slopes ~ kappa (B/cost^2)^(1/3)
+  per direction (kappa 2-19, median 9, from 19 directions), in total about **5e10 slopes**:
+  5 directions with cost <= 1e3 already take 1.9e10; cost <= 1e7 (1,197 directions) 3.8e10; the remaining 1.56 M
+  directions only 1.2e10. In Python (about 2 us per slope) that is about 1e5 CPU-s, under an hour on 7of9, plus the
+  exact counting of the coprime candidates (to measure; Proposition 11 can drop hopeless n rigorously first).
+- To fix before the run: the residue scan builds lists mod large prime powers (out of memory on some expensive
+  directions); scan only primes whose class distribution is not trivially G-part 1, or cap with G | R0.
