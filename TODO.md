@@ -6,6 +6,8 @@
       (16 GB stack each, 4 h limit). Add the ranks to FINDINGS F44 (so far 27086411626209197593478 rank 5,
       29439502687316546488027 rank 4; F33's earlier independents: mean 5.8).
 - [ ] GPU bucket-count speed-up, then 2.5e23 -> 1e24 on 7of9 (background).
+- [ ] Idea (F45): residue-filtered GPU hunt above 2.5e23 (e.g. (7|n or 13|n), n odd, n != +-2 mod 9: 26% of pairs,
+      all 82 known five-ways); non-exhaustive. Needs a pair-enumeration change in cabtaxi_gpu.cu. Decide vs the plain 1e24 run.
 - [ ] Optional: code variant for A293647 / A293650 ("primitive" = all summands jointly coprime).
 
 ## Paper (writeup/paper/paper.tex; the user writes the prose)

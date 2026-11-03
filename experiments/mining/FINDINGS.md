@@ -1674,6 +1674,42 @@ cabtaxi.cpp gives every three-way to 10¹⁹ with its representations. Earlier s
 - **Unchanged:** every exact theorem and both open observations, on 25× more data; the relation structure
   (lines and hubs only); the bowtie and free-point rates, and so F36's six-way estimate.
 
+## F45 (3 November 2026): conditions on n: no residue walls, but residue filters for a cheaper non-exhaustive GPU hunt
+
+**Question (user):** is there a condition on n itself that every multi-way satisfies and most n fail? To prune the
+exhaustive GPU search it must be (a) proven and (b) readable from a pair (x, y): in practice n mod small m.
+
+**Search** (`residue_walls.py`; every class r mod m, m < 400; k = 1 census windows 1e8 – 2e23, all 244,704
+three-ways in 1e17 – 1e19, the 1,736 exhaustive four-ways):
+- 3,393 classes are empty among four-ways although ordinary sums put ≥ 8 there. Almost all are classes of **even n**
+  (12 of 1,736 four-ways are even: a slope, not a wall) or **n ≡ ±2 (mod 9)** (F2).
+- **Slopes, not walls:** predicting each class's k = 4 share from its own k = 1 → 3 decline (geometric in k) fits the
+  single primes: mod 7 (0: 1,388 predicted / 1,412 seen; 1: 20/10; 6: 28/31), mod 13, mod 19. The classes that empty
+  fastest are those with few local solutions: the nonzero cubes mod p (mod 13, x³ + y³ = ±1 or ±5 has 6 solutions
+  against 9–36 for the rest). n ≡ ±1 (mod 13): 2 predicted each, 0 seen; ±5: 2 each, 3 seen.
+- The strongest leftovers (n ≡ 134 mod 387: 14 predicted, 0 seen; 5 mod 129; 15 mod 56; …) are nested composite
+  classes where the crude slope model overpredicts (it is 27% high for n ≡ 8 mod 9 alone); among 69,526 tests they
+  are not evidence of a wall.
+- **Why no wall can be proved this way:** every class with local solutions has a positive local density, so only a
+  global argument (like Theorem 8 for configurations) could exclude it.
+
+**Proven conditions that do exist are not usable:** k(n) ≤ #{subsets S of the split primes of n : f·∏_{p∈S} p^{v_p(n)}
+≤ (4n)^{1/3}} (Theorem 5: s carries every non-split prime power, f; each s gives at most one representation). It needs
+the factorisation of n, which the pair-sorting GPU never has, and it removes only about a third of n for k ≥ 6.
+
+**What the slopes do give: a cheaper non-exhaustive GPU hunt above 2.5e23.** Every condition below is a congruence
+on (x, y) (e.g. 7 | n ⟺ y ≡ −x, −2x, −4x mod 7; n odd ⟺ x + y odd), so the GPU can enumerate only those pairs:
+
+| filter | pairs kept | four-ways kept | five-ways ≤ 2.5e23 | all 82 five-ways | five-way yield per pair |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 7 \| n | 37% | 81% | 11/12 | 94% | 2.5× |
+| 7 \| n, n odd | 25% | 81% | 11/12 | 94% | 3.7× |
+| (7 \| n or 13 \| n), n odd, n ≢ ±2 (mod 9) | 26% | 91% | 12/12 | 100% | 3.9× |
+| 7 \| n, n odd, n ≡ ±1 (mod 9) | 13% | 62% | 11/12 | 80% | 6.3× |
+
+Such a run proves no bound, but it searches the region where every known five-way lives at a quarter of the cost,
+and unlike the line/hub searches it is blind to geometry, so it would also catch "rank" six-ways.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
