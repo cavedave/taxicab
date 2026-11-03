@@ -5,6 +5,10 @@
       On 7of9: copy `experiments/mining/curve_relations/rank_7of9/`, then `nohup bash run_ranks.sh > ranks.log 2>&1 &`
       (16 GB stack each, 4 h limit). Add the ranks to FINDINGS F44 (so far 27086411626209197593478 rank 5,
       29439502687316546488027 rank 4; F33's earlier independents: mean 5.8).
+- [ ] **Proposition 11 filter in cabtaxi_gpu.cu** (proven, keeps k >= 4 complete with m = 19): table of the non-split
+      part f(s) for s <= (4B)^(1/3) (~1e8 at 2.5e23-1e24, 4 bytes each, or 1 byte log2); skip difference rows d with
+      19 f(d) > (4 lo)^(1/3) in the count kernel; SENTINEL sum pairs with 19 f(a+b) > (4 lo)^(1/3) in the write kernel.
+      Validate: --selftest, and identical output to the unfiltered run on 1e19-1e20 and 1e22-2e22. ~20-25% faster.
 - [ ] GPU bucket-count speed-up, then 2.5e23 -> 1e24 on 7of9 (background).
 - [ ] Idea (F45): residue-filtered GPU hunt above 2.5e23 (e.g. (7|n or 13|n), n odd, n != +-2 mod 9: 26% of pairs,
       all 82 known five-ways); non-exhaustive. Needs a pair-enumeration change in cabtaxi_gpu.cu. Decide vs the plain 1e24 run.

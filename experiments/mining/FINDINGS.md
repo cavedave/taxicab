@@ -1706,6 +1706,23 @@ of ordinary n at 10²² and 2·10²³, not a third; every five-way passes it eas
 - **Source bias in the five-way pass rate:** line/hub-search four-ways pass the residue filter below at 97.7%
   (exhaustive four-ways 90.8%), so 70/70 search five-ways passing has probability 0.20 and 12/12 exhaustive ones 0.31.
 
+**A cheap PROVEN filter does exist (user: "mod 2 is cheap, does it buy anything?"): THEOREMS.md, Proposition 11.**
+The non-split part f of n is read off the pair: by Theorem 5 it is the non-split part of s = x + y, and s ≤ (4n)^{1/3}
+(about 10⁸ at 10²³), so f comes from a small precomputed table. k representations need k distinct s_i = f·m_i ≤
+(4n)^{1/3}, so pairs with 37 f > (4n)^{1/3} (six-ways) or 19 f > (4n)^{1/3} (four-ways) can be dropped, exhaustively.
+
+| n near | pairs cut, k ≥ 6 | k ≥ 4 (keeps the complete four-way lists) |
+| --- | ---: | ---: |
+| 10¹² | 39% | 34% |
+| 10¹⁸ | 30% | 27% |
+| 10²² | 28% | 25% |
+| 2·10²³ | 27% | 24% |
+
+- In `cabtaxi_gpu.cu` differences are rows of fixed d = s (n = (c + d)³ − c³), two thirds of all pairs: a failing row
+  is skipped before counting, writing or sorting (16% of all pairs, free). Sums are rows of fixed a with s = a + b
+  stepping by 1: a sequential table read marks failing pairs as SENTINEL like non-coprime ones (about 11% more).
+- Estimated wall-time gain about 20–25% (the sort is 50–60% of the time), with every claim of the run kept.
+
 **What the slopes do give: a cheaper non-exhaustive GPU hunt above 2.5e23.** Every condition below is a congruence
 on (x, y) (e.g. 7 | n ⟺ y ≡ −x, −2x, −4x mod 7; n odd ⟺ x + y odd), so the GPU can enumerate only those pairs:
 

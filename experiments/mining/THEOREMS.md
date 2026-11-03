@@ -389,6 +389,32 @@ then proved.
 
 ---
 
+## Proposition 11 (a cheap proven filter on pairs: the non-split part of s; FINDINGS F45)
+
+**Statement.** Let n > 0 have a coprime representation (x, y), s = x + y, and let f be the part of s made of
+primes p ≢ 1 (mod 3) (with its full power). If n has at least k coprime representations, then
+
+  **m_k · f ≤ (4n)^{1/3}**,  where m_4 = 19, m_5 = 31, m_6 = 37
+
+are the k-th smallest products of distinct prime powers of primes ≡ 1 (mod 3) (1, 7, 13, 19, 31, 37, …).
+
+**Proof.** By Theorem 5, every prime p ≢ 1 (mod 3) dividing n divides every s_i = x_i + y_i to the same power
+(v_p(n) for p ≠ 3, v₃(n) − 1 for p = 3), and a prime p ≡ 1 (mod 3) divides s_i to power 0 or v_p(n). So every
+s_i = f · m_i with m_i a product of distinct blocks p^{v_p(n)}, p ≡ 1 (mod 3), and f is the same for all
+representations. Distinct representations have distinct s_i (s determines t = n/s and then {x, y}). And
+s_i³ ≤ 4n, since t_i = (s_i² + 3(x_i − y_i)²)/4 ≥ s_i²/4. So k representations need k distinct values f·m_i ≤ (4n)^{1/3},
+the largest of which is at least f·m_k. ∎
+
+**Use.** Every pair of the same n has the same f, so a search may drop every pair with m_k f > (4n)^{1/3} and still
+find every n with ≥ k representations: exhaustive for k ≥ 4 (m = 19) or k ≥ 6 (m = 37). Mod 2 is the special case
+p = 2: an even n puts all its 2s into f.
+
+**Checked:** none of the 36,122 representation pairs of the catalogue's four- and five-ways is cut at its own level.
+Cut on census pairs at 2·10²³: 27% (k ≥ 6), 24% (k ≥ 4); differences (row d = s, so a whole row at once) 23% / 20%,
+sums 33% / 31%.
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
