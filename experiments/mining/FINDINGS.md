@@ -1758,6 +1758,13 @@ E z³ − 3c(a + b) z² + 3c² z − (a − b)²n. With Theorem 5 this gives, fo
 exactly and p^{v_p(s)} | c: **the non-split part of b − a is the non-split part of n** (3: one less), checked on all
 492,028 lines. p = 2 is the case where this is impossible (b − a is odd by Theorem 1(b)), which re-proves Theorem 12.
 
+**Hubs and every other chord (THEOREMS.md, Theorem 14).** The s-cubic identities hold for a chord with a rational third
+point R as well (166,228 chords): the denominator of x_R + y_R divides E, and the two chords of a hub satisfy
+(a − b)² E′ s₃ s₄ = (a′ − b′)² E s₁ s₂ (3,298 pairs). On such chords v_p(b − a) − v_p(s) was never negative (75,208
+tests; offsets 0–8, and ≥ 1 at p = 2), and it is a theorem: **for every pair of representations, the non-split part
+of n divides b − a of their chord** (3,158,936 pairs; proof from one exact identity of the curve). Lines are the
+equality case.
+
 **Meaning:** primes ≡ 2 (mod 3) and 3 are not "random" in a line's n; the direction chooses them. A line search over
 directions with b − a built from split primes only produces n whose non-split part is 1 (or 3^1), the "all split"
 profile that 60% of four-ways and 83% of five-ways have (F44).

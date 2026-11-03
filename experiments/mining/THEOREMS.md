@@ -474,6 +474,45 @@ nonsplit(b − a) = nonsplit(s) on all of them; v_p(b − a) = e' exactly in all
 
 ---
 
+## Theorem 14 (every chord: the non-split part of n divides b − a; FINDINGS F46)
+
+**Statement.** Let P₁ = (x₁, y₁) and P₂ = (x₂, y₂) be coprime integer points of x³ + y³ = n with P₂ ≠ P₁ and P₂ not
+the swap of P₁, and let a x + b y = c be the chord through them (gcd(a, b) = 1). For every prime p ≢ 1 (mod 3),
+
+  **v_p(b − a) ≥ v_p(s)**, and **v₂(b − a) ≥ v₂(s) + 1**,
+
+where s = x₁ + y₁ (all representations share v_p(s): v_p(n) for p ≠ 3, v₃(n) − 1 for p = 3; Theorem 5). So the
+non-split part of n (3: one power less; 2: one more) divides b − a for **every pair** of representations; lines
+(Theorem 13a) are the case of equality.
+
+**Proof.** Put δ = x₂ − x₁, ε = y₂ − y₁, g = gcd(δ, ε), s₁ = s, s₂ = x₂ + y₂. The direction is (a, b) = ±(ε, −δ)/g,
+so **b − a = ±(s₁ − s₂)/g**. Expanding x₂³ + y₂³ = x₁³ + y₁³ gives the exact identity (checked in PARI)
+
+  (s₂ − s₁) · B = 3 s₁ ε (2x₁ − s₁ − ε),  B = 3x₁² + 3x₁(δ − ε) + δ² − δε + ε².
+
+Let e = v_p(s₁) = v_p(s₂) ≥ 0 (if p ∤ n there is nothing to prove except at p = 2, where n is then odd and the claim
+is v₂(b − a) ≥ 1 only if 2 | n; for odd n read the bound as v₂ ≥ 0). If p ∤ g, then v_p(b − a) = v_p(s₁ − s₂) ≥ e,
+and at p = 2 (n even, every point has both coordinates odd, so δ and ε are even, so 2 | g) this case does not occur.
+If p | g, then p | δ and p | ε, and p ∤ x₁ (coprimality, since p | n when e ≥ 1):
+- p ≥ 5: B ≡ 3x₁² is a unit and 2x₁ − s₁ − ε ≡ 2x₁ is a unit, so v_p(s₂ − s₁) = e + v_p(ε). The same identity with the
+  roles of x and y exchanged gives v_p(s₂ − s₁) = e + v_p(δ). Hence v_p(g) = min(v_p δ, v_p ε) = v_p(s₁ − s₂) − e and
+  **v_p(b − a) = e** exactly.
+- p = 3: v₃(B) = 1 (3x₁² has valuation 1, the rest is divisible by 9), and 2x₁ − s₁ − ε is a unit, so the 3 on the
+  right cancels B's and again v₃(b − a) = e.
+- p = 2: B is odd and 2x₁ − s₁ − ε is even, so v₂(s₂ − s₁) ≥ e + v₂(ε) + 1, likewise with δ: v₂(b − a) ≥ e + 1. ∎
+
+**Corollary 14a (s-denominator).** For a chord whose third point R is not integral, s_R = 3c(a + b)/E − s₁ − s₂
+(Theorem 13's first identity), so the denominator of x_R + y_R divides E.
+
+**Corollary 14b (hub matching rule).** If chords (a, b; P₁, P₂) and (a′, b′; P₃, P₄) meet at the same R, then from
+Theorem 13's third identity (a − b)² E′ s₃ s₄ = (a′ − b′)² E s₁ s₂.
+
+**Checked:** Theorem 14 on all 3,158,936 pairs of points of the catalogue and of every three-way 1e17 – 1e19
+(`thm14_check.py`); 14a on all 166,228 non-integral chords; 14b on all 3,298 hub chord pairs; the s-cubic identities
+on all 166,228 non-integral chords as well as the 492,028 lines.
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
