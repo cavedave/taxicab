@@ -454,9 +454,11 @@ non-split part of every s on the line, which is the non-split part f of n (Theor
 v₃(n) − 1 for p = 3).
 *Proof.* p ∤ E for p ≡ 2 (mod 3) (E is a norm from Z[ω]); for p = 3, v₃(E) = 1 if 3 | a − b, else 0. All sᵢ have
 the same valuation e' (Theorem 5), so the third identity gives 2v_p(a − b) + v_p(n) − v_p(E) = 3e'. For p ≡ 2 (mod 3)
-(e' = v_p(n)): v_p(b − a) = e'. For p = 3: if 3 ∤ a − b then v₃(n) = 3e' = 3v₃(n) − 3 (or, if 3 ∤ n, 2v₃(a−b) − 1 = 0),
-impossible except when both sides vanish; so 3 | b − a exactly when 3 | n, and then 2v₃(b − a) + v₃(n) − 1 =
-3v₃(n) − 3 gives v₃(b − a) = v₃(n) − 1 = e'. The second identity gives v_p(c) ≥ e'. ∎
+(e' = v_p(n)): v_p(b − a) = e'. For p = 3:
+- 3 | n (so v₃(n) ≥ 2, e' = v₃(n) − 1 ≥ 1): if 3 ∤ b − a then v₃(E) = 0 and v₃(n) = 3v₃(n) − 3, i.e. 2v₃(n) = 3,
+  impossible; so 3 | b − a, v₃(E) = 1, and 2v₃(b − a) + v₃(n) − 1 = 3v₃(n) − 3 gives v₃(b − a) = v₃(n) − 1 = e'.
+- 3 ∤ n (e' = 0): if 3 | b − a then v₃(E) = 1 and 2v₃(b − a) − 1 = 0, impossible by parity; so v₃(b − a) = 0 = e'.
+The second identity gives v_p(c) ≥ e' (2v_p(c) + v_p(3) − v_p(E) ≥ 2e'). ∎
 
 **Corollary 13b (Theorem 12 again).** For p = 2: 2 | n would force 2 | b − a, so a, b both odd, against Theorem 1(b).
 
