@@ -1,7 +1,8 @@
 # TODO (running list; proofs to do are in experiments/mining/TODO.md)
 
 ## Runs
-- [ ] **Complete line search to 1e30 on 7of9** (F47): copy lc_7of9.tar.gz, `nohup bash run_lc.sh > lc.log 2>&1 &`.
+- [ ] Deeper complete run of the cheapest directions (cost <= 1e4, 23 directions) to 1e33 (F48: best five-way yield per slope; ~1 day on 7of9).
+- [x] **Complete line search to 1e30 on 7of9** (F47, F48: done 4 Nov, no six-way, 11 new five-ways): copy lc_7of9.tar.gz, `nohup bash run_lc.sh > lc.log 2>&1 &`.
       Then: catalogue merge of lc_1e30_k4.txt, the certificate (lc_1e30_jobs.log), paper statement "no six-way <= 1e30 with a line of cost <= 1.2e12".
 - [ ] **Ranks of 7 'independent' four-ways in 1e22 - 2.5e23** (PARI stack overflow at 2 GB on the Mac).
       On 7of9: copy `experiments/mining/curve_relations/rank_7of9/`, then `nohup bash run_ranks.sh > ranks.log 2>&1 &`

@@ -1796,6 +1796,42 @@ certificate line per job (slopes, triples, largest k); --resume skips logged job
 **The 1e30 run** (`night_7of9/lc/run_lc.sh`, 7of9): every allowed direction of cost <= 1.2e12 (1,563,877 directions),
 B = 1e30, every n counted. Estimate: 5e10 - 8e10 slopes at ~4.5 us, ~1e9 exact counts; 2-4 h on 60 processes.
 
+## F48 (4 November 2026): the complete line search to 1e30: no six-way; 11 new five-ways; yield by direction
+
+**Run** (7of9, 60 processes, 3 Nov 19:14 - 4 Nov 21:14; the last 3 directions on the Mac with the level-lifted code,
+`line_complete.py` dd80ac2): every allowed direction with cost <= 1.2e12 (1,563,877), every coprime collinear triple
+with n <= 1e30, every n counted exactly. Files: `night_7of9/results_lc_1e30/` (k >= 4 list, gzipped job log).
+
+**Certificate:** 1,567,014 jobs, each logged once; all 1,563,877 directions present; the 3,450 s-chunks of the 313
+cheap directions tile [0, H_max] exactly; 1.845e11 slopes, 1.592e9 triples counted; **largest k = 5**.
+So: **no n <= 1e30 with a line in a direction of cost <= 1.2e12 has six coprime representations.**
+
+**Results:** 8,962 numbers with k >= 4 (8,898 four-ways, 64 five-ways); new to the catalogue: 2,596 four-ways and
+**11 five-ways** (two near 1e25 and one near 1e26, in the range the earlier cheap-direction runs had capped at
+height 5,000). All new ones verified by independent recount; no disagreement with the catalogue.
+- **Coverage of the class:** 64 of the 66 known five-ways <= 1e30 (97%) have a line of cost <= 1.2e12; the other two
+  (98066148860955562962446737, 162898846056046374394270913) have lines only of cost 8e12 - 1.3e13. Four-ways: 93.8%
+  (8,898 of 9,489 known <= 1e30).
+- **Slowest directions:** three near-diagonal directions with 3^11 or 3^10 in a or b ran for days under a crude bound
+  (v_3(G) up to 13 when 3^e > 2e5); lifting classes level by level shows v_3 <= 1 there, and they took 2 s.
+
+**Yield by cost band (lines of four- and five-ways found per slope):**
+
+| cost band | directions | slopes | four-way lines | five-way lines | five-way lines per 1e9 slopes |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| <= 1e2 | 2 | 6.3e9 | 1,260 | 26 | 4.15 |
+| 1e2 - 1e4 | 21 | 1.3e10 | 1,222 | 29 | 2.29 |
+| 1e4 - 1e6 | 290 | 1.8e10 | 1,418 | 23 | 1.27 |
+| 1e6 - 1e8 | 4,497 | 2.6e10 | 1,647 | 33 | 1.27 |
+| 1e8 - 1e10 | 74,903 | 3.3e10 | 1,740 | 57 | 1.72 |
+| 1e10 - 1.2e12 | 1,484,164 | 8.8e10 | 1,611 | 28 | 0.32 |
+
+- Per direction: (3,4) 13 five-ways (3.8 per 1e9 slopes), (27,28) 5 (7.4), (12,13) 2, (16,21) 2, (12,19) 2.
+- b - a = 1 directions: 13.6% of the slopes, 23% of the five-way lines (1.7x).
+- **For a deeper run:** the cheapest directions give the most five-ways per slope (cost <= 1e4: about 3 per 1e9),
+  and the 1e10 - 1.2e12 band the least (0.3). A complete run of the 23 directions with cost <= 1e4 to 1e33 is about
+  10x their 1e30 slopes (~2e11), i.e. about one more 7of9 day.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
