@@ -1869,6 +1869,27 @@ five-way lines: a five-way with 3 | n needs both of its lines in such directions
 directions (b - a = 1: (3,4), (12,13), (27,28)) cannot carry 3 | n. Independent lines would give 6.2%; observed
 12.5%. A structural effect, not an anomaly; for six-ways (bowtie + point) expect 3 not to divide n in most cases.
 
+## F50 (4 November 2026): the complete line search in C++ (`line_fast.py` + `lc_fast.cpp`), about 40x faster
+
+**Design.** Python (the validated `line_complete.Direction`) prepares each job: heights, G-levels, residue-class
+lattices, conic point, factorisations of E and |a - b| (about 5 ms per direction). A persistent C++ process per worker
+does the inner loops: tier-1 box and tier-2 lattice points; raw points; **G from the levels** (G = Glo prod p^(v_p - lo),
+with v_p from the primitive forms mod p^hi, so no 128-bit gcd of six numbers); reduced points; **n = E s1 s2 s3 / (a-b)^2**
+without cubing (Theorem 13); the canonical-ordering check; and the exact count from the factorisation assembled from
+E, the s_i (64-bit Pollard-Brent) and (a - b)^2, with representations only at s = f * (subset of split blocks) <=
+(4n)^(1/3) (Theorem 5). Every 128-bit product is overflow-checked; an overflow sends the job back to Python.
+
+**Validation:** `--checkg` (G from levels = gcd of the six coordinates) on every slope of 7 directions; 1e19, cost <= 1e7:
+all 196,358 triples and all k >= 4 rows identical to Python; 1e30, 315 random directions of cost 1e6 - 1.2e12: triples
+and largest k identical to the 7of9 Python run, direction by direction, and the 68 k >= 4 rows identical; gcd128
+unit-tested on 18,485 random pairs up to 126 bits. One bug was caught by these checks: the 64-bit shortcut of the binary
+gcd shifted a 64-bit result by the common power of 2 (lost bits above 64), which dropped 26 of 567 triples in one
+direction; fixed before any run.
+
+**Speed:** about 0.6 - 1 us per slope at 1e30 including counting (Python: about 29 us per slope on 7of9). The whole
+1e30 run would take under an hour on 7of9; every direction (cost <= 1.2e12) to 1e33 (about 1.85e12 slopes) about 5 - 7
+hours; n is limited to 2^125 (about 4e37) by the 128-bit arithmetic.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
