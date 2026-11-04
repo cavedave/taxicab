@@ -63,16 +63,19 @@ def form_roots_mod_p(f, p):
     return sorted(set(out))
 
 def class_lattice(combo):
-    """reduced basis of {(s, r) : cr s - cs r = 0 mod p for each (p, cs, cr)} (index prod p), Gauss-reduced"""
+    """reduced basis of {(s, r) : cr s - cs r = 0 mod q for each (q, cs, cr)} (q prime powers), Gauss-reduced"""
     b1, b2 = (1, 0), (0, 1)
-    for p, cs, cr in combo:
-        f = lambda w: (cr * w[0] - cs * w[1]) % p
-        f1, f2 = f(b1), f(b2)
-        if f1:
-            c = (-f2 * pow(f1, -1, p)) % p
-            b1, b2 = (p * b1[0], p * b1[1]), (b2[0] + c * b1[0], b2[1] + c * b1[1])
-        elif f2:
-            b2 = (p * b2[0], p * b2[1])
+    for q, cs, cr in combo:
+        f1, f2 = (cr * b1[0] - cs * b1[1]) % q, (cr * b2[0] - cs * b2[1]) % q
+        g = gcd(gcd(f1, f2), q)
+        if g == q: continue                                         # condition already holds on the lattice
+        q, f1, f2 = q // g, f1 // g, f2 // g                       # now f1 or f2 is a unit mod q (q a prime power)
+        if gcd(f1, q) == 1:
+            c = (-f2 * pow(f1, -1, q)) % q
+            b1, b2 = (q * b1[0], q * b1[1]), (b2[0] + c * b1[0], b2[1] + c * b1[1])
+        else:
+            c = (-f1 * pow(f2, -1, q)) % q
+            b1, b2 = (b1[0] + c * b2[0], b1[1] + c * b2[1]), (q * b2[0], q * b2[1])
     n2 = lambda w: w[0] * w[0] + w[1] * w[1]
     while True:                                                    # Gauss reduction
         if n2(b1) > n2(b2): b1, b2 = b2, b1
@@ -110,11 +113,11 @@ class Direction:
         for i in range(6):
             for j in range(i + 1, 6): R0 = gcd(R0, res(prim[i], prim[j]))
         self.prim = prim
-        self.always = 1; self.extra = []                         # always-present part of G'; [(p, lo, hi, classes)]
+        self.always = 1; self.extra = []                         # [(p, lo, hi, levels)], levels[j] = classes mod p^j
         for p, e in L.factor(R0).items():
-            lo, hi, classes = self._prime(p, e)
+            lo, hi, levels = self._prime(p, e)
             self.always *= p**lo
-            if hi > lo: self.extra.append((p, lo, hi, classes))
+            if hi > lo: self.extra.append((p, lo, hi, levels))
         self.Glo = self.content * self.always
         self.Gmax = self.Glo * math.prod(p**(hi - lo) for p, lo, hi, _ in self.extra)
 
@@ -123,25 +126,38 @@ class Direction:
         for x, y in self.raw(s, r): g = gcd(g, gcd(x, y))
         return g
 
+    def vp_at(self, s, r, p, cap):
+        """v_p(G'(s, r)), capped at cap (G' = gcd of the primitive coordinate forms)"""
+        q = p**cap; g = q
+        for A, B_, C in self.prim:
+            g = gcd(g, (A*s*s + B_*s*r + C*r*r) % q)
+            if g == 1: return 0
+        v = 0
+        while g % p == 0: g //= p; v += 1
+        return v
+
     def _prime(self, p, e):
-        """(min v_p(G'), max v_p(G'), residue classes mod p where v_p(G') > min), by scanning lifts for small p^e"""
-        val = lambda s, r: [A*s*s + B*s*r + C*r*r for A, B, C in self.prim]
-        if p**e <= 200000:
-            q = p**e; vs = {}
-            for s, r in proj_points(q):
-                g = 0
-                for v in val(s, r): g = gcd(g, v)
-                g = gcd(g, q); vs[(s, r)] = round(math.log(g, p)) if g > 1 else 0
-            lo = min(vs.values()); hi = max(vs.values())
-            classes = sorted({(s % p, r % p) for (s, r), v in vs.items() if v > lo})
-            return lo, hi, [c for c in proj_points(p) if any((c[0] * r - c[1] * s) % p == 0 for s, r in classes)]
-        # large p^e: p | G' only at common roots mod p of all six forms; then up to v_p(R0') = e
-        roots = None
-        for f in self.prim:
-            if all(x % p == 0 for x in f): continue
-            rs = set(form_roots_mod_p(f, p)); roots = rs if roots is None else roots & rs
-        if not roots: return 0, 0, []
-        return 0, e, sorted(roots)
+        """(lo, hi, levels): v_p(G') >= lo for every slope; levels[j] (lo < j <= hi) = projective classes mod p^j whose
+        slopes have v_p(G') >= j, found by lifting level by level (p children per class per level)"""
+        children = lambda c, q: [(1, c[1] + k * q) for k in range(p)] if c[0] % p else [(c[0] + k * q, 1) for k in range(p)]
+        # level 1 candidates: all projective points mod p (small p) or the common roots of the forms (large p)
+        if p < 1000: C = [c for c in proj_points(p) if self.vp_at(c[0], c[1], p, 1) >= 1]
+        else:
+            roots = None
+            for f in self.prim:
+                if all(x % p == 0 for x in f): continue
+                rs = set(form_roots_mod_p(f, p)); roots = rs if roots is None else roots & rs
+            C = sorted(roots or [])
+        levels = {}; lo = 0; j = 1; npts = p + 1
+        while C and j <= e:
+            if len(C) == npts and lo == j - 1: lo = j                  # every class mod p^j has v >= j: always present
+            else: levels[j] = C
+            if j == e: break
+            C = [d for c in C for d in children(c, p**j) if self.vp_at(d[0], d[1], p, j + 1) >= j + 1]
+            j += 1; npts *= p
+        levels = {k: v for k, v in levels.items() if k > lo}
+        hi = max(levels) if levels else lo
+        return lo, hi, levels
 
     def H(self, g):
         return (self.B * (self.a - self.b)**2 * g**3 / (self.E * self.M)) ** (1 / 6)
@@ -161,23 +177,25 @@ class Direction:
         ex = self.extra
         for k in range(1, len(ex) + 1):
             for T in combinations(ex, k):
-                Tset = frozenset(p for p, *_ in T)
-                Hx = int(self.H(self.Glo * math.prod(p**(hi - lo) for p, lo, hi, _ in T))) + 1
-                S0, S1 = s_lo, top(Hx)
-                if S0 > S1: continue
-                for combo in product(*[[(p, cs, cr) for cs, cr in classes] for p, lo, hi, classes in T]):
-                    u, v = class_lattice(combo)                 # slopes with (s : r) = class mod p for every p in T
-                    for s, r in box_points(u, v, S0, S1, -Hx, Hx):
-                        if (s == 0 and r != 1) or gcd(r, s) != 1: continue
-                        if max(abs(r), s) > H1 and self.member(s, r) == Tset: yield s, r
+                for lv in product(*[sorted(levels) for p, lo, hi, levels in T]):
+                    want = tuple(sorted((p, jj) for (p, *_), jj in zip(T, lv)))
+                    Hx = int(self.H(self.Glo * math.prod(p**(jj - lo) for (p, lo, hi, _), jj in zip(T, lv)))) + 1
+                    S0, S1 = s_lo, top(Hx)
+                    if S0 > S1: continue
+                    for combo in product(*[[(p**jj, cs, cr) for cs, cr in levels[jj]] for (p, lo, hi, levels), jj in zip(T, lv)]):
+                        u, v = class_lattice(combo)
+                        for s, r in box_points(u, v, S0, S1, -Hx, Hx):
+                            if (s == 0 and r != 1) or gcd(r, s) != 1: continue
+                            if max(abs(r), s) > H1 and self.member(s, r) == want: yield s, r
 
     def member(self, s, r):
-        """the set of extra primes p for which (s : r) mod p is an extra class (each slope is yielded for exactly this T)"""
+        """exact (p, v_p(G')) for the extra primes with v_p(G') above their floor: each slope is yielded once, for exactly
+        this assignment, whose height H(Glo * prod p^(v - lo)) is the slope's own bound"""
         out = []
-        for p, lo, hi, classes in self.extra:
-            for cs, cr in classes:
-                if (cs * r - cr * s) % p == 0: out.append(p); break
-        return frozenset(out)
+        for p, lo, hi, levels in self.extra:
+            v = self.vp_at(s, r, p, hi)
+            if v > lo: out.append((p, v))
+        return tuple(sorted(out))
 
     def hmax(self):
         """largest height any slope can need (for splitting into s-chunks)"""
@@ -288,7 +306,7 @@ def main():
     for (a, b), P0 in zip(dirs, P):
         k = 1
         if b**3 - a**3 <= 10**6:                                    # cheap: split the s-range into ~equal-slope chunks
-            d = Direction(a, b, P0, B); est = 2.5 * d.H(d.Glo)**2 + sum(2.5 * d.H(d.Glo * p**(hi - lo))**2 * len(cl) / p for p, lo, hi, cl in d.extra)
+            d = Direction(a, b, P0, B); est = 2.5 * d.H(d.Glo)**2 + sum(2.5 * d.H(d.Glo * p**(jj - lo))**2 * len(lv[jj]) / p**jj for p, lo, hi, lv in d.extra for jj in lv)
             k = max(1, int(est / A.chunk)); hm = d.hmax()
         if k == 1: jobs.append((a, b, P0, B, 0, None, A.gp if A.count else None))
         else:
