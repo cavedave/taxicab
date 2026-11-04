@@ -1832,6 +1832,43 @@ height 5,000). All new ones verified by independent recount; no disagreement wit
   and the 1e10 - 1.2e12 band the least (0.3). A complete run of the 23 directions with cost <= 1e4 to 1e33 is about
   10x their 1e30 slopes (~2e11), i.e. about one more 7of9 day.
 
+## F49 (4 November 2026): the mining rerun on the class-complete set to 1e30 (8,898 four-ways, 64 five-ways)
+
+The set: every n <= 1e30 with a line in a direction of cost <= 1.2e12 (F48), which holds 94% of the known four-ways
+and 97% of the five-ways below 1e30. Unbiased within that class, it extends F44's statistics from 2.5e23 to 1e30 and
+from 12 to 64 five-ways. It contains no hubs or independent four-ways (they have no line).
+
+**Exact checks (item 5):** recheck_all.py, verify_theorems.py --reps and thm14_check.py on all of it: 0 failures
+(about 680,000 tests, including 18,222 collinear triples and 497,904 pairs for Theorem 14).
+
+**1. Split primes, five-ways against size-matched four-ways (factor 3):** +0.48 on average (median +0.59; 43 of 64
+above, sign test p ~ 0.005). F44's correction stands, with a small real excess: half a split prime, not 2-3.
+Four-ways gain about 0.5 split primes per two decades (7.9 at 1e15-1e19 to 10.6 at 1e28-1e30).
+
+**2. Five : four ratio by size:** 1:270, 1:66, 1:223, 1:165, 1:119, 1:156 over 1e15-1e19, ..., 1e28-1e30; overall
+1:139. **No decline**: the 1:629 of 1e22-2.5e23 (F44) was a fluctuation.
+
+**3. Transitions per line + free four-way:**
+
+| n | line + free | bowtie | line + 2 free |
+| --- | ---: | ---: | ---: |
+| 1e15-1e23 | 1,236 | 9 (7.3e-3) | 1 (8.1e-4) |
+| 1e23-1e26 | 1,849 | 11 (5.9e-3) | 1 (5.4e-4) |
+| 1e26-1e28 | 2,278 | 18 (7.9e-3) | 1 (4.4e-4) |
+| 1e28-1e30 | 3,450 | 22 (6.4e-3) | 0 |
+| all | 8,813 | 60 (6.9e-3) | 3 (3.4e-4) |
+
+- Bowtie rate steady at ~7e-3 (F36: 1e-2; F44: 6.6e-3).
+- **The extra-free-point rate is about 3x lower than F36's 1e-3** (3 events, so 95% range 0.7e-4 - 1e-3) and, if
+  anything, falls with n. Since "bowtie + free point" is the main six-way route, **F36's six : five estimate moves from
+  about 1:500 to about 1:1,500 (range 1:500 - 1:5,000).** Expected six-ways below 1e30: about 0.1 or fewer.
+
+**4. 3 | n:** 8 of 64 five-ways, against 15.6 expected from size-matched four-ways (Poisson p = 0.027). **Explained by
+Theorem 13:** 3 | n exactly when 3 | b - a on every line of n. 24.9% of four-way lines have 3 | b - a but only 12.8% of
+five-way lines: a five-way with 3 | n needs both of its lines in such directions, and the most productive five-way
+directions (b - a = 1: (3,4), (12,13), (27,28)) cannot carry 3 | n. Independent lines would give 6.2%; observed
+12.5%. A structural effect, not an anomaly; for six-ways (bowtie + point) expect 3 not to divide n in most cases.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
