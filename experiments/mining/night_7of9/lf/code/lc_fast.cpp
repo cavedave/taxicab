@@ -24,6 +24,7 @@ static inline i128 mul(i128 a, i128 b) { i128 r; if (__builtin_mul_overflow(a, b
 static inline i128 add(i128 a, i128 b) { i128 r; if (__builtin_add_overflow(a, b, &r)) throw Overflow(); return r; }
 static inline i128 sub(i128 a, i128 b) { i128 r; if (__builtin_sub_overflow(a, b, &r)) throw Overflow(); return r; }
 static inline i128 iabs(i128 a) { return a < 0 ? -a : a; }
+static inline i64 abs64(i64 a) { return a < 0 ? -a : a; }
 static inline int ctz128(u128 x) { u64 lo = (u64)x; return lo ? __builtin_ctzll(lo) : 64 + __builtin_ctzll((u64)(x >> 64)); }
 static inline u64 bgcd64(u64 a, u64 b) {
     if (!a) return b; if (!b) return a;
@@ -165,7 +166,7 @@ static void process(const Job& J, i64 s, i64 r, Stats& st) {
     i128 S[3]; for (int i = 0; i < 3; i++) S[i] = add(X[i], Y[i]);
     if (S[0] == 0 || S[1] == 0 || S[2] == 0) return;
     long double est = std::log((long double)J.E) + std::log(std::fabs((long double)S[0])) + std::log(std::fabs((long double)S[1])) +
-                      std::log(std::fabs((long double)S[2])) - 2 * std::log((long double)std::llabs(J.amb));
+                      std::log(std::fabs((long double)S[2])) - 2 * std::log((long double)abs64(J.amb));
     bool dbg = (s == DS && r == DR);
     if (dbg) std::fprintf(stderr, "est %Lf logB %Lf S %s %s %s G %s\n", est, std::log((long double)B), s128(S[0]).c_str(), s128(S[1]).c_str(), s128(S[2]).c_str(), s128(G).c_str());
     if (est > std::log((long double)B) + 1e-6) return;           // n > B (with margin: the exact test follows)
@@ -190,7 +191,7 @@ static void process(const Job& J, i64 s, i64 r, Stats& st) {
         i128 g = gcd128(dx, dy); dx /= g; dy /= g;
         if (dx < 0 || (dx == 0 && dy < 0)) { dx = -dx; dy = -dy; }
         if (iabs(dx) > ((i128)1 << 62) || iabs(dy) > ((i128)1 << 62)) continue;   // far beyond any searched height
-        i64 S_ = (i64)dx, R_ = (i64)dy, h = std::max(std::llabs(R_), S_);
+        i64 S_ = (i64)dx, R_ = (i64)dy, h = std::max(abs64(R_), S_);
         if (bh < 0 || h < bh || (h == bh && (S_ < bs || (S_ == bs && R_ < br)))) { bh = h; bs = S_; br = R_; }
     }
     if (dbg) std::fprintf(stderr, "canon %lld %lld\n", (long long)bs, (long long)br);
@@ -267,7 +268,7 @@ static void box_points(const Job& J, i64 ux, i64 uy, i64 vx, i64 vy, i64 S0, i64
             i64 s = i * ux + j * vx, r = i * uy + j * vy;
             if (s < S0 || s > S1 || r < R0 || r > R1) continue;
             if ((s == 0 && r != 1) || gcd64(r, s) != 1) continue;
-            if (std::max(std::llabs(r), s) <= H1) continue;
+            if (std::max(abs64(r), s) <= H1) continue;
             member(J, s, r, mem); if (mem != want) continue;
             process(J, s, r, st);
         }
