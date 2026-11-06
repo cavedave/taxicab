@@ -1946,6 +1946,16 @@ six-way on such a curve needs an extra free point (F49: rare and getting rarer);
 thousands of five-ways for that test. Not yet known: how many direction pairs have curves of positive rank, and
 what fraction of their points give integral coprime bowties (here 20 of 46 and 11 of 41 points).
 
+**First general run (`bowtie_mine.py`, 6 Nov):** every catalogue bowtie (150, on 137 direction pairs) defines its curve.
+- **Ranks:** nearly all Jacobians have rank 2 - 5 ((3,4)+(27,28): 3; (3,4)+(9,52): 5); only one (0 - 4 bound) unresolved.
+- **Integrality is common:** most generated points give coprime bowties (226 of 240 on (3,4)+(9,52), 156 of 168 on
+  (3,4)+(27,28)); failures are mostly a non-coprime base triple.
+- **Counted:** 135 distinct five-ways below 1e130 (two rounds, frontier 10, 51 s), all exactly 5 representations;
+  15 new (1e60 - 1e130). Two rounds jump to large heights quickly, so few points fall below the counting limit.
+- **Bug:** some curves get 0 points (seed not recognised; mostly second direction (a2, b2) with a2 > b2): orientation.
+- **Next:** enumerate small-height points systematically (Mordell-Weil generators of the Jacobian and small integer
+  combinations, mapped back to the quartic) rather than iterating the parabola construction.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
