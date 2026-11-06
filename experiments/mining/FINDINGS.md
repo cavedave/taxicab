@@ -2012,6 +2012,21 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
 - With F53 (bowties of a fixed direction pair are points of one genus-1 curve) and F54 (the shared point is never
   the lowest-s point of one line and the highest of the other), that is the bowtie structure found so far.
 
+## F56 (7 November 2026): on a seeded bowtie curve the integral coprime bowties form a subgroup of finite index
+
+On (3,4)+(9,52) at point 0 (the curve of Bernstein's five-way), the 14 small rational points (hyperellratpoints,
+height <= 3000, plus a known seed) are 6 bowties, 4 with a non-integral second line, 4 with a non-coprime base triple.
+With O a bowtie point and the quartic group law:
+- a non-bowtie point plus any multiple of a bowtie point keeps its class (36 / 36 for each kind);
+- 2N is an integral coprime bowtie for every non-bowtie N (8 / 8); two "second line not integral" points sum to a
+  bowtie (4 / 4); two "base not coprime" points can sum to a "second line not integral" point (so that label covers
+  more than one coset; index >= 4, quotient of exponent 2).
+So **integrality + coprimality is a coset condition: the bowtie points are a subgroup H of finite index** (a
+congruence condition on the points). This explains F53: a seed lies in H, so all combinations of seeds are bowties;
+on unseeded curves the condition is a coset missing their small points (possibly empty; no multiple up to 12P lands in
+it). Consequence: on a seeded curve, **2N is a coprime five-way for every rational point N**. Proving the coset
+structure in general (and computing the index from the direction pair) is open.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
