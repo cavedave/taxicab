@@ -288,7 +288,7 @@ def selfcheck(gp="gp"):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--B", type=float, default=1e19); ap.add_argument("--cmax", type=float, default=1e6)
+    ap.add_argument("--B", default="1e19"); ap.add_argument("--cmax", type=float, default=1e6)
     ap.add_argument("--cmin", type=float, default=0); ap.add_argument("--only", default="")
     ap.add_argument("--out", default="lines_complete.txt"); ap.add_argument("--log", default="")
     ap.add_argument("--procs", type=int, default=8); ap.add_argument("--gp", default="gp")
@@ -298,7 +298,8 @@ def main():
     ap.add_argument("--resume", action="store_true", help="skip jobs already in --log; append to --out and --log")
     A = ap.parse_args()
     if A.selfcheck: sys.exit(0 if selfcheck(A.gp) else 1)
-    B = int(A.B)
+    from decimal import Decimal
+    B = int(Decimal(A.B))                                              # exact: "1e33" is 10^33
     if A.only: dirs = [tuple(map(int, d.split(","))) for d in A.only.split(";")]
     else: dirs = [(a, b) for c, a, b in L.dirs_by_cost(int(A.cmax), L.allowed_f) if c > A.cmin]
     t0 = time.time(); P = L.conic_points(dirs, A.gp)

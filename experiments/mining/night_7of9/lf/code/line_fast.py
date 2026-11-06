@@ -62,10 +62,11 @@ def _worker_init(B, triples):
     _proc = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, text=True, bufsize=1)
 
 def run_one(job):
-    """job = (a, b, P0, chunk, gp, skip): prepare the direction's jobs, run them in this worker's lc_fast"""
-    a, b, P0, chunk, gp, skip = job
+    """job = (a, b, P0, chunk, gp, skip, lines): run the given prepared chunk lines (a chunk of a heavy direction, made
+    by the parent), or, if lines is None, prepare the direction here and run all its jobs"""
+    a, b, P0, chunk, gp, skip, lines = job
     out = []
-    for (a_, b_, lo, hi, line) in job_lines(a, b, P0, _B, chunk):
+    for (a_, b_, lo, hi, line) in (lines if lines is not None else job_lines(a, b, P0, _B, chunk)):
         if (str(a_), str(b_), str(lo), str(hi)) in skip: continue
         _proc.stdin.write(line + "\n"); _proc.stdin.flush()
         rows = []
@@ -82,7 +83,7 @@ def run_one(job):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--B", type=float, default=1e19); ap.add_argument("--cmax", type=float, default=1e6)
+    ap.add_argument("--B", default="1e19"); ap.add_argument("--cmax", type=float, default=1e6)
     ap.add_argument("--cmin", type=float, default=0); ap.add_argument("--only", default="")
     ap.add_argument("--out", required=True); ap.add_argument("--log", default="")
     ap.add_argument("--procs", type=int, default=8); ap.add_argument("--gp", default="gp")
@@ -91,15 +92,22 @@ def main():
     A = ap.parse_args()
     if not os.path.exists(EXE) or os.path.getmtime(EXE) < os.path.getmtime(HERE / "lc_fast.cpp"):
         subprocess.run(["g++", "-O2", "-std=c++17", "-o", EXE, str(HERE / "lc_fast.cpp")], check=True)
-    B = int(A.B)
+    from decimal import Decimal
+    B = int(Decimal(A.B))                                              # exact: "1e33" is 10^33, not the float's neighbour
+    if B >= 2**125: raise SystemExit("B must be below 2^125 (128-bit arithmetic in lc_fast)")
     if A.only: dirs = [tuple(map(int, d.split(","))) for d in A.only.split(";")]
     else: dirs = [(a, b) for c, a, b in L.dirs_by_cost(int(A.cmax), L.allowed_f) if c > A.cmin]
     t0 = time.time(); P = L.conic_points(dirs, A.gp)
     skip = set()
     if A.resume and A.log and Path(A.log).exists():
         skip = {tuple(l.split(";")[:4]) for l in open(A.log) if l.strip()}
-    jobs = [(a, b, P0, A.chunk, A.gp, skip) for (a, b), P0 in zip(dirs, P)]
-    print(f"{len(dirs):,} directions, conic points {time.time() - t0:.0f} s" + (f", resume: {len(skip):,} jobs done" if skip else ""), flush=True)
+    jobs = []                                                          # heavy directions: one task per chunk (load balance)
+    for (a, b), P0 in zip(dirs, P):
+        if b**3 - a**3 <= 10**6:
+            for jl in job_lines(a, b, P0, B, A.chunk):
+                if (str(jl[0]), str(jl[1]), str(jl[2]), str(jl[3])) not in skip: jobs.append((a, b, P0, A.chunk, A.gp, skip, [jl]))
+        else: jobs.append((a, b, P0, A.chunk, A.gp, skip, None))
+    print(f"{len(dirs):,} directions, {len(jobs):,} tasks, setup {time.time() - t0:.0f} s" + (f", resume: {len(skip):,} jobs done" if skip else ""), flush=True)
     mode = "a" if A.resume else "w"; log = open(A.log, mode) if A.log else None
     slopes = trip = hits = nfall = 0; kmax = 0
     with open(A.out, mode) as f, Pool(A.procs, initializer=_worker_init, initargs=(B, A.triples)) as pool:

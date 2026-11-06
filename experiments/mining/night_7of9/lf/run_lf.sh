@@ -21,6 +21,6 @@ raise SystemExit(0 if py == cc and len(py) == 196358 else 1)
 PY
 fi
 echo "== run n <= $BOUND, cost <= $CMAX $(date)"
-python3 -u line_fast.py --B $BOUND --cmax $CMAX --gp $GP --procs $PROCS --chunk 2e8 \
+python3 -u line_fast.py --B $BOUND --cmax $CMAX --gp $GP --procs $PROCS --chunk 5e7 \
   --out ../lf_k4.txt --log ../lf_jobs.log ${RESUME:+--resume}
 echo "== all done $(date)"
