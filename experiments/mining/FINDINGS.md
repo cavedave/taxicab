@@ -2049,6 +2049,27 @@ it). Consequence claimed from 12 / 12 on two curves: 2N always a bowtie.
   condition need not be a coset of a subgroup: this explains the failed coset tests and the partial effect of
   doubling. Next test: per prime p, is "p divides the base triple's gcd" a function of (s : r) mod p (or p^2)?
 
+## F57 (7 November 2026): the bowtie condition is a list of congruences on the slope, at the primes of E1, E2, b2 - a2
+
+**Base triple coprime** (depends only on the base direction and the slope (s : r); all coprime slopes with
+1 <= s < 260, |r| <= 260): non-coprime exactly when a prime of E1 divides some point's gcd, and that is **decided by
+(s : r) mod p** with **3 bad classes of p + 1**: (3,4), E = 37: 3 of 38 (7.9% of slopes); (12,13), E = 7 * 67: 3 of 8
+mod 7 and 3 of 68 mod 67 (41%); (27,28), E = 2269: 3 of 2,270. No other prime ever divides the gcd.
+
+**Second line integral** (points of two seeded curves, Mordell-Weil combinations |c| <= 3, `bowtie_secline.py`): the
+denominators involve only **E2 and b2 - a2**: (3,4)+(9,52): primes 43 = b2 - a2 and 3253 = E2; (3,4)+(27,28): 2269 = E2.
+Each is **decided by (s : r) mod p**, integral in exactly **2 classes** mod p (42 of 44 classes bad mod 43, 1,060 of
+1,062 seen mod 3253, 113 of 115 seen mod 2269).
+
+**Conjecture (to prove):** a rational point of a bowtie curve gives an integral coprime bowtie iff its slope (s : r)
+avoids 3 classes mod each prime of E1 and lies in 2 classes mod each prime of E2 (and of b2 - a2 when it has split
+primes). The 2 classes should be Theorem 3 (E2 | t at every point of line 2, so the shared point reduces mod p to a root
+of x^2 - x y + y^2), the 3 classes the points of the base triple vanishing mod p; the data say these necessary
+conditions are also sufficient. Under reduction mod p the group law is a homomorphism to the curve over F_p, and
+"reduces to one of 2 points" is not a subgroup condition: hence the bias but no coset law (F56), and unseeded curves
+whose reductions never reach the 2 points give no bowties. Gives a prediction: a direction pair can carry bowties only
+if the curve has rational points reducing to those classes at every relevant prime.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

@@ -21,3 +21,6 @@
 9. ~~Third point of a chord: gcd(X, Y) = 1~~ PROVED 3 November 2026 (THEOREMS.md, Theorem 10: Vieta at p).
 10. Bowtie anatomy (F54): proved when the shared point is a sum (it is never lowest-s on a line). Open: a difference
     shared point that is highest-s on one line is highest on the other too (6 of 6; random real bowties allow it).
+11. Bowtie congruences (F57): a rational point of a bowtie curve gives an integral coprime bowtie iff its slope avoids 3
+    classes mod each prime of E1 and lies in 2 classes mod each prime of E2 (and b2 - a2). Prove (Theorems 3, 13), then
+    test the prediction on unseeded direction pairs.
