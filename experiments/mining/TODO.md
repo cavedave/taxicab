@@ -24,3 +24,8 @@
 11. Bowtie congruences (F57): a rational point of a bowtie curve gives an integral coprime bowtie iff its slope avoids 3
     classes mod each prime of E1 and lies in 2 classes mod each prime of E2 (and b2 - a2). Prove (Theorems 3, 13), then
     test the prediction on unseeded direction pairs.
+12. (F58) b - a divides n for every integral line of direction (a, b) through coprime points (18,671 lines). With Theorem
+    14: the non-split primes of b - a are exactly those of n, so two lines of a bowtie have the same non-split primes in
+    b - a. The integrality criterion of F58.2 is proved (monic quadratic); write it up as a lemma.
+13. (F58) Bowtie points are a union of cosets of K = ker(E(Q) -> prod E(Z/p^k)); show the E2 condition is 2P = kappa
+    mod p and explain the mod-2 obstruction on (3,4)+(3,16).

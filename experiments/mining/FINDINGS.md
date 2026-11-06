@@ -2070,6 +2070,39 @@ conditions are also sufficient. Under reduction mod p the group law is a homomor
 whose reductions never reach the 2 points give no bowties. Gives a prediction: a direction pair can carry bowties only
 if the curve has rational points reducing to those classes at every relevant prime.
 
+## F58 (7 November 2026): F57 at scale; an exact integrality criterion; b - a divides n; a direction-pair filter; a 2-descent obstruction
+
+`bowtie_congruence.py` (all 138 catalogue curves, 8,158 points), `bowtie_localfilter.py`, `bowtie_unseeded.py`, `bowtie_parity.py`.
+
+1. **Which primes spoil a bowtie.** Base triple not coprime: only primes of E1 and of **b - a** (the 13 'other' primes
+   of the first pass all divide b - a). Second line not integral: only primes of E2 and b2 - a2. Second line not
+   coprime: primes of E1, b - a, E2, b2 - a2. Each is decided by (s : r) mod p, or mod p^2 (mostly coprimality at E2
+   and b2 - a2 primes; 10 cases are not decided even mod p^2). Bad classes seen at base primes: at most 3.
+2. **Exact criterion (proved, holds at all 8,158 points).** Along line 2 through the shared point (x, y),
+   (x + t b2)^3 + (y - t a2)^3 = n gives A t^2 + 3(x b2^2 + y a2^2) t + 3(x^2 b2 - y^2 a2) = 0 with
+   A = b2^3 - a2^3 = (b2 - a2) E2. Its roots are rational, so they are integers iff the monic quadratic has integer
+   coefficients: **line 2 is integral iff A | 3(x b2^2 + y a2^2) and A | 3(x^2 b2 - y^2 a2).** This is why only primes of
+   E2 and b2 - a2 appear. At p || E2 (p != 3) it is p | x b2^2 + y a2^2, i.e. the shared point reduces to one root of
+   x^2 - x y + y^2 (holds at all 120 E2 primes tested; the weaker 'p | t' fails at 30). At p | b2 - a2 it is p | x + y.
+3. **Local test: no obstruction.** A p-adic point in the good classes at every p || E2 exists on all 138 seeded and all
+   2,394 unseeded (3,4)-based curves tested (q = 0 mod p there automatically, since A and the linear coefficient vanish).
+4. **b - a divides n on every line** (18,671 distinct lines in the catalogue, no exception; (b - a)^2 | n in 4,438).
+   With 2: a prime p = 2, 3 or = 2 mod 3 dividing b2 - a2 needs p | x + y = s, so p | n, so p | b - a (Theorem 14).
+   **Filter: every non-split prime of b2 - a2 divides b - a, and vice versa.** True on all 138 seeded curves; removes
+   201 of the 400 cheapest second directions for base (3,4) (b - a = 1); explains all 18 unseeded curves of the first scan
+   (in each, a prime of b2 - a2 from {2, 3, 5} passes on 0 points).
+5. **A global obstruction remains.** Base (3,4), second directions with a2, b2 < 60 passing the filter and having a point
+   of height <= 60: (9,52), (27,28) (seeded, bowties) and **(3,16)**: rank 4, 2,400 points, each of 13, 37, 313 = E2
+   passes on about half, **jointly on none**, and joint failure is a function of the coefficients mod 2 (0 of 16 classes),
+   while each prime alone is not. So the obstruction lives in E(Q)/2E(Q): plausibly the E2 condition (shared point at a
+   root, w = 0 mod p, i.e. 2P = kappa mod p) and the E1 condition pick incompatible classes mod 2E. Seeded curves have
+   passing classes mod 2 (4 of 8, 4 of 16).
+6. **Structure.** Since every condition depends only on the reduction of the point mod p^k, and reduction is a group
+   homomorphism, the bowtie points of E(Q) are a union of cosets of the finite-index subgroup
+   K = ker(E(Q) -> prod E(Z/p^k)) (F56's 'no single coset' is consistent with this). A curve has bowties iff the image of
+   E(Q) in that finite group meets the good set: decidable from the generators, and the smallest bowtie is a closest-vector
+   problem in the height lattice. Not yet implemented.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
