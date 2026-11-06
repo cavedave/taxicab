@@ -56,7 +56,7 @@ search against the exact optimum for one curve).
    | 27 | 2.598 × 10²³³ |
    | 28 | 5.738 × 10²⁴⁹ |
 
-   There is none for k ≥ 29 at height ≤ 80. **Whether any Ta(23+) upper bounds are published has not been
+   (Correction, 25 October: the bounds continue to Ta(29), Ta(30), Ta(31), … at height ≤ 80; the earlier "none for k ≥ 29" came from a search cap of 10²⁶⁰.) **Whether any Ta(23+) upper bounds are published has not been
    checked** (Su 2014–16? MathWorld? OEIS A011541?). Do that before claiming anything.
 
 ## Findings from `split_summary.csv` (all 310,000 hunted curves, 20 October 2026), which REVISE the plan below

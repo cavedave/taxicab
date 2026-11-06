@@ -1,0 +1,5 @@
+start STAGES=dl P=22 DDIRS=20000 DDIRSDIR=. DHERO=7 DHPMAX=1000 DNMAX=1e30 DPARS=[even] DPOS=1 DH=550 LSEL=[--skip 1400 --dirs 18600] LH=600 LOLDH=0 HERO=4 HPMAX=200 NMAX=1e40 AUTOM= Sat 31 Oct 2026 06:37:45 GMT
+dl even done Sat 31 Oct 2026 08:10:32 GMT
+d counted: 2273869 n in 92s: {2: 2273744, 3: 120, 4: 5} Sat 31 Oct 2026 08:12:06 GMT
+shapes: k=4  hub                  2 k=4  independent          1 k=4  line+free            2  Sat 31 Oct 2026 08:12:10 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 08:12:10 GMT

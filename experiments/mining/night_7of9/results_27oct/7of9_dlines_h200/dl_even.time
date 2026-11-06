@@ -1,0 +1,23 @@
+	Command being timed: "python3 dline_enum.py --parity even --dirs 20000 --height 200 --nmax 1e40 --dmax 1000000000 --hero 4 --core 0 --procs 56 --gp /home/dcurran/pari/bin/gp --short --out /home/dcurran/taxi/cpu/dl_even.gz"
+	User time (seconds): 9640.46
+	System time (seconds): 14.54
+	Percent of CPU this job got: 5238%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 3:04.30
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 118384
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 2460661
+	Voluntary context switches: 632236
+	Involuntary context switches: 87052
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 1795160
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 0

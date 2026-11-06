@@ -8,6 +8,7 @@ from curve_bounds import KNOWN
 
 def solve(fac, ws, k, lmax_log, tlim=120):
     ws = [w for w in ws if math.log(w) <= lmax_log + 1e-9]
+    if len(ws) < k: return None, 0.0, 2                       # too few points can fit: infeasible
     levels = {}                                   # (p, e) -> var index
     for w in ws:
         for p, e in fac[w]:

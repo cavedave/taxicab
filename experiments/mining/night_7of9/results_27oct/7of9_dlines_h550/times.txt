@@ -1,0 +1,6 @@
+start STAGES=dl P=56 DDIRS=20000 DH=550 LSKIP=1400 LDIRS=18600 LH=600 Tue 27 Oct 2026 19:44:39 GMT
+dl even done Tue 27 Oct 2026 20:07:09 GMT
+dl odd done Tue 27 Oct 2026 20:40:05 GMT
+d counted: 1189383599 n in 27927s: {2: 1189356339, 3: 26522, 4: 731, 5: 7} Wed 28 Oct 2026 05:09:24 GMT
+shapes: k=4  hub                  241 k=4  independent          20 k=4  line+free            470 k=5  bowtie               6 k=5  line+2free           1  Wed 28 Oct 2026 05:09:37 GMT
+k>=5 numbers: 7   (any k>=6 line is the jackpot: 0) Wed 28 Oct 2026 05:09:37 GMT

@@ -1,0 +1,30 @@
+=== Mon Oct 26 09:26:47 UTC 2026 run_4x5090.sh run  (4 GPUs)
+0, NVIDIA GeForce RTX 5090, 32607 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB
+2, NVIDIA GeForce RTX 5090, 32607 MiB
+3, NVIDIA GeForce RTX 5090, 32607 MiB
+--- build (sm_120)
+--- selftest on every GPU
+GPU 0 selftest PASSED
+GPU 1 selftest PASSED
+GPU 2 selftest PASSED
+GPU 3 selftest PASSED
+--- benchmark to 1e15 on GPU 0 (must match the CPU program exactly)
+DONE 0 < n <= 1000000000000000 raw pairs=13223067998 coprime pairs=8044700766 kmin=4 time=3s (4.7e+09 raw pairs/s)
+benchmark OK
+--- smoke window near 2.36e23, kmin 4: must find the line-method five-way 236191447138323830299237
+DONE 236191447138000000000000 < n <= 236191447139000000000000 raw pairs=14459 coprime pairs=8756 kmin=4 time=2s (6.84e+03 raw pairs/s)
+smoke window OK
+--- launching 4 parts: 100000000000000000000000 < n <= 250000000000000000000000, kmin 4
+part 1 on GPU 0: pid 4213
+part 2 on GPU 1: pid 4214
+part 3 on GPU 2: pid 4215
+part 4 on GPU 3: pid 4216
+=== launched. Check with:  TAG=1e23_2.5e23 bash /root/gpu/run_4x5090.sh status
+=== Mon Oct 26 21:12:42 UTC 2026 run_4x5090.sh statuse  (4 GPUs)
+0, NVIDIA GeForce RTX 5090, 32607 MiB
+1, NVIDIA GeForce RTX 5090, 32607 MiB
+2, NVIDIA GeForce RTX 5090, 32607 MiB
+3, NVIDIA GeForce RTX 5090, 32607 MiB
+--- build (sm_120)
+nvcc error   : 'gcc' died due to signal 2 

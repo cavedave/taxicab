@@ -1,0 +1,5 @@
+start STAGES=lines P=22 DDIRS=20000 DH=400 LSEL=[--dirs-file /mnt/scratch/iamreddave/n2_leg7/dirs/7of9_n1_legacy_31_1400.txt] LH=5000 LOLDH=600 HERO=7 HPMAX=1000 NMAX=1e30 AUTOM=4.5 Wed Oct 28 08:53:43 PM GMT 2026
+lines done Wed Oct 28 09:33:58 PM GMT 2026
+l counted: 28311856 n in 445s: {3: 28310988, 4: 859, 5: 9} Wed Oct 28 09:42:00 PM GMT 2026
+shapes: k=4  line+free            859 k=5  bowtie               9  Wed Oct 28 09:42:02 PM GMT 2026
+k>=5 numbers: 9   (any k>=6 line is the jackpot: 0) Wed Oct 28 09:42:02 PM GMT 2026

@@ -1,0 +1,6 @@
+16701974 numbers carry a collinear triple; 5 carry two or more
+  n = 506433677359393  (15 digits): 2 lines, 5 points on lines, 5 coprime reps in total [bowtie]
+  n = 95793117931950826933  (20 digits): 2 lines, 5 points on lines, 5 coprime reps in total [bowtie]
+  n = 624256195206357000469  (21 digits): 2 lines, 5 points on lines, 5 coprime reps in total [bowtie]
+  n = 5306775242131114520041  (22 digits): 2 lines, 5 points on lines, 5 coprime reps in total [bowtie]
+  n = 581834611748164220101952821  (27 digits): 2 lines, 5 points on lines, 5 coprime reps in total [bowtie]

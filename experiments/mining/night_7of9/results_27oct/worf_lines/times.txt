@@ -1,0 +1,5 @@
+start STAGES=lines P=22 DDIRS=20000 DH=400 LSKIP=1400 LDIRS=18600 LH=800 Tue Oct 27 06:37:38 PM GMT 2026
+lines done Tue Oct 27 07:14:03 PM GMT 2026
+l counted: 1436133636 n in 32719s: {3: 1436131414, 4: 2188, 5: 34} Wed Oct 28 05:14:14 AM GMT 2026
+shapes: k=4  line+free            2188 k=5  bowtie               34  Wed Oct 28 05:14:19 AM GMT 2026
+k>=5 numbers: 34   (any k>=6 line is the jackpot: 0) Wed Oct 28 05:14:19 AM GMT 2026

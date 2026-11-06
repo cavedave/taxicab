@@ -1,0 +1,2 @@
+k=4  line+free            2188
+k=5  bowtie               34

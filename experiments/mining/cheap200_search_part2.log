@@ -1,0 +1,256 @@
+22900972 triples; 9034986 distinct n pass the filter (>= 4 split primes < 200) [28s]
+resuming at 3980000
+  [36s] 4000000/9034986 counted; reps histogram {3: 19999, 4: 1}
+  [43s] 4020000/9034986 counted; reps histogram {3: 39998, 4: 2}
+  [50s] 4040000/9034986 counted; reps histogram {3: 59998, 4: 2}
+  [58s] 4060000/9034986 counted; reps histogram {3: 79998, 4: 2}
+  [65s] 4080000/9034986 counted; reps histogram {3: 99996, 4: 4}
+  [73s] 4100000/9034986 counted; reps histogram {3: 119995, 4: 5}
+  [80s] 4120000/9034986 counted; reps histogram {3: 139995, 4: 5}
+  [87s] 4140000/9034986 counted; reps histogram {3: 159995, 4: 5}
+  [95s] 4160000/9034986 counted; reps histogram {3: 179995, 4: 5}
+  [102s] 4180000/9034986 counted; reps histogram {3: 199995, 4: 5}
+  [110s] 4200000/9034986 counted; reps histogram {3: 219995, 4: 5}
+  [118s] 4220000/9034986 counted; reps histogram {3: 239995, 4: 5}
+  [125s] 4240000/9034986 counted; reps histogram {3: 259995, 4: 5}
+  [133s] 4260000/9034986 counted; reps histogram {3: 279994, 4: 6}
+  [140s] 4280000/9034986 counted; reps histogram {3: 299994, 4: 6}
+  [148s] 4300000/9034986 counted; reps histogram {3: 319993, 4: 7}
+  [155s] 4320000/9034986 counted; reps histogram {3: 339993, 4: 7}
+  [163s] 4340000/9034986 counted; reps histogram {3: 359993, 4: 7}
+  [170s] 4360000/9034986 counted; reps histogram {3: 379992, 4: 8}
+  [178s] 4380000/9034986 counted; reps histogram {3: 399990, 4: 10}
+  [185s] 4400000/9034986 counted; reps histogram {3: 419988, 4: 12}
+  [193s] 4420000/9034986 counted; reps histogram {3: 439988, 4: 12}
+  [201s] 4440000/9034986 counted; reps histogram {3: 459988, 4: 12}
+  [208s] 4460000/9034986 counted; reps histogram {3: 479988, 4: 12}
+  [216s] 4480000/9034986 counted; reps histogram {3: 499987, 4: 13}
+  [224s] 4500000/9034986 counted; reps histogram {3: 519987, 4: 13}
+  [231s] 4520000/9034986 counted; reps histogram {3: 539987, 4: 13}
+  [239s] 4540000/9034986 counted; reps histogram {3: 559986, 4: 14}
+  [247s] 4560000/9034986 counted; reps histogram {3: 579986, 4: 14}
+  [255s] 4580000/9034986 counted; reps histogram {3: 599986, 4: 14}
+  [263s] 4600000/9034986 counted; reps histogram {3: 619986, 4: 14}
+  [271s] 4620000/9034986 counted; reps histogram {3: 639985, 4: 15}
+  [279s] 4640000/9034986 counted; reps histogram {3: 659985, 4: 15}
+  [286s] 4660000/9034986 counted; reps histogram {3: 679985, 4: 15}
+  [294s] 4680000/9034986 counted; reps histogram {3: 699985, 4: 15}
+  [302s] 4700000/9034986 counted; reps histogram {3: 719984, 4: 16}
+  [310s] 4720000/9034986 counted; reps histogram {3: 739984, 4: 16}
+  [318s] 4740000/9034986 counted; reps histogram {3: 759984, 4: 16}
+  [326s] 4760000/9034986 counted; reps histogram {3: 779984, 4: 16}
+  [334s] 4780000/9034986 counted; reps histogram {3: 799984, 4: 16}
+  [342s] 4800000/9034986 counted; reps histogram {3: 819984, 4: 16}
+  [350s] 4820000/9034986 counted; reps histogram {3: 839984, 4: 16}
+  [358s] 4840000/9034986 counted; reps histogram {3: 859984, 4: 16}
+  [366s] 4860000/9034986 counted; reps histogram {3: 879984, 4: 16}
+  [374s] 4880000/9034986 counted; reps histogram {3: 899984, 4: 16}
+  [382s] 4900000/9034986 counted; reps histogram {3: 919984, 4: 16}
+  [390s] 4920000/9034986 counted; reps histogram {3: 939983, 4: 17}
+  [398s] 4940000/9034986 counted; reps histogram {3: 959983, 4: 17}
+  [406s] 4960000/9034986 counted; reps histogram {3: 979983, 4: 17}
+  [414s] 4980000/9034986 counted; reps histogram {3: 999983, 4: 17}
+  [422s] 5000000/9034986 counted; reps histogram {3: 1019983, 4: 17}
+  [430s] 5020000/9034986 counted; reps histogram {3: 1039981, 4: 19}
+  [438s] 5040000/9034986 counted; reps histogram {3: 1059981, 4: 19}
+  [446s] 5060000/9034986 counted; reps histogram {3: 1079980, 4: 20}
+  [454s] 5080000/9034986 counted; reps histogram {3: 1099980, 4: 20}
+  [462s] 5100000/9034986 counted; reps histogram {3: 1119980, 4: 20}
+  [470s] 5120000/9034986 counted; reps histogram {3: 1139980, 4: 20}
+  [478s] 5140000/9034986 counted; reps histogram {3: 1159979, 4: 21}
+  [486s] 5160000/9034986 counted; reps histogram {3: 1179978, 4: 22}
+  [495s] 5180000/9034986 counted; reps histogram {3: 1199978, 4: 22}
+  [503s] 5200000/9034986 counted; reps histogram {3: 1219978, 4: 22}
+  [511s] 5220000/9034986 counted; reps histogram {3: 1239978, 4: 22}
+  [519s] 5240000/9034986 counted; reps histogram {3: 1259977, 4: 23}
+  [527s] 5260000/9034986 counted; reps histogram {3: 1279977, 4: 23}
+  [535s] 5280000/9034986 counted; reps histogram {3: 1299977, 4: 23}
+  [544s] 5300000/9034986 counted; reps histogram {3: 1319977, 4: 23}
+  [552s] 5320000/9034986 counted; reps histogram {3: 1339977, 4: 23}
+  [560s] 5340000/9034986 counted; reps histogram {3: 1359977, 4: 23}
+  [568s] 5360000/9034986 counted; reps histogram {3: 1379976, 4: 24}
+  [577s] 5380000/9034986 counted; reps histogram {3: 1399976, 4: 24}
+  [585s] 5400000/9034986 counted; reps histogram {3: 1419976, 4: 24}
+  [593s] 5420000/9034986 counted; reps histogram {3: 1439975, 4: 25}
+  [602s] 5440000/9034986 counted; reps histogram {3: 1459974, 4: 26}
+  [610s] 5460000/9034986 counted; reps histogram {3: 1479974, 4: 26}
+  [618s] 5480000/9034986 counted; reps histogram {3: 1499974, 4: 26}
+  [627s] 5500000/9034986 counted; reps histogram {3: 1519974, 4: 26}
+  [635s] 5520000/9034986 counted; reps histogram {3: 1539974, 4: 26}
+  [643s] 5540000/9034986 counted; reps histogram {3: 1559973, 4: 27}
+  [652s] 5560000/9034986 counted; reps histogram {3: 1579972, 4: 28}
+  [660s] 5580000/9034986 counted; reps histogram {3: 1599972, 4: 28}
+  [668s] 5600000/9034986 counted; reps histogram {3: 1619972, 4: 28}
+  [677s] 5620000/9034986 counted; reps histogram {3: 1639972, 4: 28}
+  [685s] 5640000/9034986 counted; reps histogram {3: 1659972, 4: 28}
+  [694s] 5660000/9034986 counted; reps histogram {3: 1679971, 4: 29}
+  [702s] 5680000/9034986 counted; reps histogram {3: 1699970, 4: 30}
+  [711s] 5700000/9034986 counted; reps histogram {3: 1719970, 4: 30}
+  [719s] 5720000/9034986 counted; reps histogram {3: 1739970, 4: 30}
+  *** n = 1441335932043659816048279479 (28 digits): 5 coprime representations
+  [727s] 5740000/9034986 counted; reps histogram {3: 1759967, 4: 32, 5: 1}
+  [736s] 5760000/9034986 counted; reps histogram {3: 1779967, 4: 32, 5: 1}
+  [745s] 5780000/9034986 counted; reps histogram {3: 1799967, 4: 32, 5: 1}
+  [754s] 5800000/9034986 counted; reps histogram {3: 1819967, 4: 32, 5: 1}
+  [762s] 5820000/9034986 counted; reps histogram {3: 1839967, 4: 32, 5: 1}
+  [771s] 5840000/9034986 counted; reps histogram {3: 1859967, 4: 32, 5: 1}
+  [779s] 5860000/9034986 counted; reps histogram {3: 1879967, 4: 32, 5: 1}
+  [788s] 5880000/9034986 counted; reps histogram {3: 1899966, 4: 33, 5: 1}
+  [796s] 5900000/9034986 counted; reps histogram {3: 1919966, 4: 33, 5: 1}
+  [805s] 5920000/9034986 counted; reps histogram {3: 1939965, 4: 34, 5: 1}
+  [814s] 5940000/9034986 counted; reps histogram {3: 1959965, 4: 34, 5: 1}
+  [822s] 5960000/9034986 counted; reps histogram {3: 1979964, 4: 35, 5: 1}
+  [831s] 5980000/9034986 counted; reps histogram {3: 1999964, 4: 35, 5: 1}
+  [839s] 6000000/9034986 counted; reps histogram {3: 2019964, 4: 35, 5: 1}
+  [848s] 6020000/9034986 counted; reps histogram {3: 2039963, 4: 36, 5: 1}
+  [856s] 6040000/9034986 counted; reps histogram {3: 2059963, 4: 36, 5: 1}
+  [865s] 6060000/9034986 counted; reps histogram {3: 2079962, 4: 37, 5: 1}
+  [874s] 6080000/9034986 counted; reps histogram {3: 2099962, 4: 37, 5: 1}
+  [882s] 6100000/9034986 counted; reps histogram {3: 2119960, 4: 39, 5: 1}
+  [891s] 6120000/9034986 counted; reps histogram {3: 2139960, 4: 39, 5: 1}
+  [900s] 6140000/9034986 counted; reps histogram {3: 2159960, 4: 39, 5: 1}
+  [908s] 6160000/9034986 counted; reps histogram {3: 2179960, 4: 39, 5: 1}
+  [918s] 6180000/9034986 counted; reps histogram {3: 2199960, 4: 39, 5: 1}
+  [927s] 6200000/9034986 counted; reps histogram {3: 2219960, 4: 39, 5: 1}
+  [936s] 6220000/9034986 counted; reps histogram {3: 2239960, 4: 39, 5: 1}
+  [945s] 6240000/9034986 counted; reps histogram {3: 2259960, 4: 39, 5: 1}
+  [954s] 6260000/9034986 counted; reps histogram {3: 2279960, 4: 39, 5: 1}
+  [963s] 6280000/9034986 counted; reps histogram {3: 2299959, 4: 40, 5: 1}
+  [972s] 6300000/9034986 counted; reps histogram {3: 2319959, 4: 40, 5: 1}
+  [982s] 6320000/9034986 counted; reps histogram {3: 2339959, 4: 40, 5: 1}
+  [991s] 6340000/9034986 counted; reps histogram {3: 2359959, 4: 40, 5: 1}
+  [1000s] 6360000/9034986 counted; reps histogram {3: 2379958, 4: 41, 5: 1}
+  [1009s] 6380000/9034986 counted; reps histogram {3: 2399957, 4: 42, 5: 1}
+  [1018s] 6400000/9034986 counted; reps histogram {3: 2419957, 4: 42, 5: 1}
+  [1027s] 6420000/9034986 counted; reps histogram {3: 2439956, 4: 43, 5: 1}
+  [1036s] 6440000/9034986 counted; reps histogram {3: 2459954, 4: 45, 5: 1}
+  [1045s] 6460000/9034986 counted; reps histogram {3: 2479954, 4: 45, 5: 1}
+  [1054s] 6480000/9034986 counted; reps histogram {3: 2499954, 4: 45, 5: 1}
+  [1063s] 6500000/9034986 counted; reps histogram {3: 2519953, 4: 46, 5: 1}
+  [1072s] 6520000/9034986 counted; reps histogram {3: 2539952, 4: 47, 5: 1}
+  [1081s] 6540000/9034986 counted; reps histogram {3: 2559952, 4: 47, 5: 1}
+  [1090s] 6560000/9034986 counted; reps histogram {3: 2579952, 4: 47, 5: 1}
+  [1099s] 6580000/9034986 counted; reps histogram {3: 2599952, 4: 47, 5: 1}
+  [1108s] 6600000/9034986 counted; reps histogram {3: 2619952, 4: 47, 5: 1}
+  [1117s] 6620000/9034986 counted; reps histogram {3: 2639952, 4: 47, 5: 1}
+  [1126s] 6640000/9034986 counted; reps histogram {3: 2659951, 4: 48, 5: 1}
+  [1135s] 6660000/9034986 counted; reps histogram {3: 2679951, 4: 48, 5: 1}
+  [1144s] 6680000/9034986 counted; reps histogram {3: 2699950, 4: 49, 5: 1}
+  [1153s] 6700000/9034986 counted; reps histogram {3: 2719949, 4: 50, 5: 1}
+  [1162s] 6720000/9034986 counted; reps histogram {3: 2739949, 4: 50, 5: 1}
+  [1171s] 6740000/9034986 counted; reps histogram {3: 2759949, 4: 50, 5: 1}
+  [1181s] 6760000/9034986 counted; reps histogram {3: 2779949, 4: 50, 5: 1}
+  [1190s] 6780000/9034986 counted; reps histogram {3: 2799949, 4: 50, 5: 1}
+  [1199s] 6800000/9034986 counted; reps histogram {3: 2819949, 4: 50, 5: 1}
+  [1208s] 6820000/9034986 counted; reps histogram {3: 2839949, 4: 50, 5: 1}
+  [1217s] 6840000/9034986 counted; reps histogram {3: 2859949, 4: 50, 5: 1}
+  [1227s] 6860000/9034986 counted; reps histogram {3: 2879949, 4: 50, 5: 1}
+  [1236s] 6880000/9034986 counted; reps histogram {3: 2899948, 4: 51, 5: 1}
+  [1245s] 6900000/9034986 counted; reps histogram {3: 2919947, 4: 52, 5: 1}
+  [1254s] 6920000/9034986 counted; reps histogram {3: 2939947, 4: 52, 5: 1}
+  [1264s] 6940000/9034986 counted; reps histogram {3: 2959946, 4: 53, 5: 1}
+  [1274s] 6960000/9034986 counted; reps histogram {3: 2979946, 4: 53, 5: 1}
+  [1283s] 6980000/9034986 counted; reps histogram {3: 2999946, 4: 53, 5: 1}
+  [1292s] 7000000/9034986 counted; reps histogram {3: 3019946, 4: 53, 5: 1}
+  [1302s] 7020000/9034986 counted; reps histogram {3: 3039946, 4: 53, 5: 1}
+  [1311s] 7040000/9034986 counted; reps histogram {3: 3059946, 4: 53, 5: 1}
+  [1321s] 7060000/9034986 counted; reps histogram {3: 3079945, 4: 54, 5: 1}
+  [1330s] 7080000/9034986 counted; reps histogram {3: 3099945, 4: 54, 5: 1}
+  [1340s] 7100000/9034986 counted; reps histogram {3: 3119945, 4: 54, 5: 1}
+  [1349s] 7120000/9034986 counted; reps histogram {3: 3139945, 4: 54, 5: 1}
+  [1359s] 7140000/9034986 counted; reps histogram {3: 3159943, 4: 56, 5: 1}
+  [1368s] 7160000/9034986 counted; reps histogram {3: 3179943, 4: 56, 5: 1}
+  [1377s] 7180000/9034986 counted; reps histogram {3: 3199943, 4: 56, 5: 1}
+  [1387s] 7200000/9034986 counted; reps histogram {3: 3219943, 4: 56, 5: 1}
+  [1397s] 7220000/9034986 counted; reps histogram {3: 3239943, 4: 56, 5: 1}
+  [1407s] 7240000/9034986 counted; reps histogram {3: 3259943, 4: 56, 5: 1}
+  [1416s] 7260000/9034986 counted; reps histogram {3: 3279943, 4: 56, 5: 1}
+  [1426s] 7280000/9034986 counted; reps histogram {3: 3299942, 4: 57, 5: 1}
+  [1435s] 7300000/9034986 counted; reps histogram {3: 3319941, 4: 58, 5: 1}
+  [1445s] 7320000/9034986 counted; reps histogram {3: 3339940, 4: 59, 5: 1}
+  [1454s] 7340000/9034986 counted; reps histogram {3: 3359939, 4: 60, 5: 1}
+  [1464s] 7360000/9034986 counted; reps histogram {3: 3379938, 4: 61, 5: 1}
+  [1473s] 7380000/9034986 counted; reps histogram {3: 3399938, 4: 61, 5: 1}
+  [1483s] 7400000/9034986 counted; reps histogram {3: 3419938, 4: 61, 5: 1}
+  [1492s] 7420000/9034986 counted; reps histogram {3: 3439938, 4: 61, 5: 1}
+  [1502s] 7440000/9034986 counted; reps histogram {3: 3459938, 4: 61, 5: 1}
+  [1512s] 7460000/9034986 counted; reps histogram {3: 3479936, 4: 63, 5: 1}
+  [1521s] 7480000/9034986 counted; reps histogram {3: 3499936, 4: 63, 5: 1}
+  [1531s] 7500000/9034986 counted; reps histogram {3: 3519936, 4: 63, 5: 1}
+  [1541s] 7520000/9034986 counted; reps histogram {3: 3539935, 4: 64, 5: 1}
+  [1550s] 7540000/9034986 counted; reps histogram {3: 3559935, 4: 64, 5: 1}
+  [1560s] 7560000/9034986 counted; reps histogram {3: 3579935, 4: 64, 5: 1}
+  [1570s] 7580000/9034986 counted; reps histogram {3: 3599935, 4: 64, 5: 1}
+  [1579s] 7600000/9034986 counted; reps histogram {3: 3619935, 4: 64, 5: 1}
+  [1589s] 7620000/9034986 counted; reps histogram {3: 3639935, 4: 64, 5: 1}
+  [1598s] 7640000/9034986 counted; reps histogram {3: 3659935, 4: 64, 5: 1}
+  [1608s] 7660000/9034986 counted; reps histogram {3: 3679935, 4: 64, 5: 1}
+  [1618s] 7680000/9034986 counted; reps histogram {3: 3699935, 4: 64, 5: 1}
+  [1627s] 7700000/9034986 counted; reps histogram {3: 3719935, 4: 64, 5: 1}
+  [1637s] 7720000/9034986 counted; reps histogram {3: 3739935, 4: 64, 5: 1}
+  [1647s] 7740000/9034986 counted; reps histogram {3: 3759935, 4: 64, 5: 1}
+  [1656s] 7760000/9034986 counted; reps histogram {3: 3779933, 4: 66, 5: 1}
+  [1666s] 7780000/9034986 counted; reps histogram {3: 3799932, 4: 67, 5: 1}
+  [1676s] 7800000/9034986 counted; reps histogram {3: 3819932, 4: 67, 5: 1}
+  [1685s] 7820000/9034986 counted; reps histogram {3: 3839932, 4: 67, 5: 1}
+  [1695s] 7840000/9034986 counted; reps histogram {3: 3859932, 4: 67, 5: 1}
+  [1705s] 7860000/9034986 counted; reps histogram {3: 3879932, 4: 67, 5: 1}
+  [1715s] 7880000/9034986 counted; reps histogram {3: 3899932, 4: 67, 5: 1}
+  [1725s] 7900000/9034986 counted; reps histogram {3: 3919932, 4: 67, 5: 1}
+  [1734s] 7920000/9034986 counted; reps histogram {3: 3939932, 4: 67, 5: 1}
+  [1745s] 7940000/9034986 counted; reps histogram {3: 3959932, 4: 67, 5: 1}
+  [1754s] 7960000/9034986 counted; reps histogram {3: 3979932, 4: 67, 5: 1}
+  [1764s] 7980000/9034986 counted; reps histogram {3: 3999932, 4: 67, 5: 1}
+  [1774s] 8000000/9034986 counted; reps histogram {3: 4019932, 4: 67, 5: 1}
+  [1784s] 8020000/9034986 counted; reps histogram {3: 4039932, 4: 67, 5: 1}
+  [1794s] 8040000/9034986 counted; reps histogram {3: 4059932, 4: 67, 5: 1}
+  [1804s] 8060000/9034986 counted; reps histogram {3: 4079932, 4: 67, 5: 1}
+  [1814s] 8080000/9034986 counted; reps histogram {3: 4099932, 4: 67, 5: 1}
+  [1824s] 8100000/9034986 counted; reps histogram {3: 4119931, 4: 68, 5: 1}
+  [1834s] 8120000/9034986 counted; reps histogram {3: 4139931, 4: 68, 5: 1}
+  [1844s] 8140000/9034986 counted; reps histogram {3: 4159931, 4: 68, 5: 1}
+  [1854s] 8160000/9034986 counted; reps histogram {3: 4179931, 4: 68, 5: 1}
+  [1864s] 8180000/9034986 counted; reps histogram {3: 4199931, 4: 68, 5: 1}
+  [1873s] 8200000/9034986 counted; reps histogram {3: 4219931, 4: 68, 5: 1}
+  [1883s] 8220000/9034986 counted; reps histogram {3: 4239930, 4: 69, 5: 1}
+  [1893s] 8240000/9034986 counted; reps histogram {3: 4259929, 4: 70, 5: 1}
+  [1903s] 8260000/9034986 counted; reps histogram {3: 4279929, 4: 70, 5: 1}
+  [1913s] 8280000/9034986 counted; reps histogram {3: 4299929, 4: 70, 5: 1}
+  [1923s] 8300000/9034986 counted; reps histogram {3: 4319929, 4: 70, 5: 1}
+  [1933s] 8320000/9034986 counted; reps histogram {3: 4339929, 4: 70, 5: 1}
+  [1943s] 8340000/9034986 counted; reps histogram {3: 4359929, 4: 70, 5: 1}
+  [1952s] 8360000/9034986 counted; reps histogram {3: 4379929, 4: 70, 5: 1}
+  [1962s] 8380000/9034986 counted; reps histogram {3: 4399929, 4: 70, 5: 1}
+  [1972s] 8400000/9034986 counted; reps histogram {3: 4419928, 4: 71, 5: 1}
+  [1982s] 8420000/9034986 counted; reps histogram {3: 4439927, 4: 72, 5: 1}
+  [1992s] 8440000/9034986 counted; reps histogram {3: 4459927, 4: 72, 5: 1}
+  [2002s] 8460000/9034986 counted; reps histogram {3: 4479927, 4: 72, 5: 1}
+  [2012s] 8480000/9034986 counted; reps histogram {3: 4499927, 4: 72, 5: 1}
+  [2022s] 8500000/9034986 counted; reps histogram {3: 4519927, 4: 72, 5: 1}
+  [2031s] 8520000/9034986 counted; reps histogram {3: 4539926, 4: 73, 5: 1}
+  [2041s] 8540000/9034986 counted; reps histogram {3: 4559926, 4: 73, 5: 1}
+  [2051s] 8560000/9034986 counted; reps histogram {3: 4579926, 4: 73, 5: 1}
+  [2060s] 8580000/9034986 counted; reps histogram {3: 4599926, 4: 73, 5: 1}
+  [2070s] 8600000/9034986 counted; reps histogram {3: 4619925, 4: 74, 5: 1}
+  [2080s] 8620000/9034986 counted; reps histogram {3: 4639924, 4: 75, 5: 1}
+  [2089s] 8640000/9034986 counted; reps histogram {3: 4659924, 4: 75, 5: 1}
+  [2099s] 8660000/9034986 counted; reps histogram {3: 4679924, 4: 75, 5: 1}
+  [2108s] 8680000/9034986 counted; reps histogram {3: 4699924, 4: 75, 5: 1}
+  [2117s] 8700000/9034986 counted; reps histogram {3: 4719924, 4: 75, 5: 1}
+  [2126s] 8720000/9034986 counted; reps histogram {3: 4739924, 4: 75, 5: 1}
+  [2135s] 8740000/9034986 counted; reps histogram {3: 4759924, 4: 75, 5: 1}
+  [2144s] 8760000/9034986 counted; reps histogram {3: 4779924, 4: 75, 5: 1}
+  [2153s] 8780000/9034986 counted; reps histogram {3: 4799924, 4: 75, 5: 1}
+  [2161s] 8800000/9034986 counted; reps histogram {3: 4819924, 4: 75, 5: 1}
+  [2170s] 8820000/9034986 counted; reps histogram {3: 4839924, 4: 75, 5: 1}
+  [2178s] 8840000/9034986 counted; reps histogram {3: 4859923, 4: 76, 5: 1}
+  [2186s] 8860000/9034986 counted; reps histogram {3: 4879923, 4: 76, 5: 1}
+  [2194s] 8880000/9034986 counted; reps histogram {3: 4899923, 4: 76, 5: 1}
+  [2202s] 8900000/9034986 counted; reps histogram {3: 4919922, 4: 77, 5: 1}
+  [2210s] 8920000/9034986 counted; reps histogram {3: 4939922, 4: 77, 5: 1}
+  [2218s] 8940000/9034986 counted; reps histogram {3: 4959922, 4: 77, 5: 1}
+  [2225s] 8960000/9034986 counted; reps histogram {3: 4979922, 4: 77, 5: 1}
+  [2233s] 8980000/9034986 counted; reps histogram {3: 4999922, 4: 77, 5: 1}
+  [2240s] 9000000/9034986 counted; reps histogram {3: 5019922, 4: 77, 5: 1}
+  [2248s] 9020000/9034986 counted; reps histogram {3: 5039922, 4: 77, 5: 1}
+  [2255s] 9034986/9034986 counted; reps histogram {3: 5054908, 4: 77, 5: 1}

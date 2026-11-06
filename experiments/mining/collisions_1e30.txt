@@ -1,0 +1,2 @@
+4229000 numbers carry a collinear triple; 1 carry two or more
+  n = 506433677359393  (15 digits): 2 lines, 5 points on lines, 5 coprime reps in total [bowtie]

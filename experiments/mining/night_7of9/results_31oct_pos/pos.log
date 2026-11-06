@@ -1,0 +1,50 @@
+nohup: ignoring input
+== e1 start Fri 30 Oct 2026 14:07:56 GMT
+d counted: 8800754 n in 344s: {2: 8800217, 3: 517, 4: 19, 5: 1} Fri 30 Oct 2026 15:49:25 GMT
+shapes: k=4  hub                  10 k=4  independent          1 k=4  line+free            8 k=5  line+2free           1  Fri 30 Oct 2026 15:49:29 GMT
+k>=5 numbers: 1   (any k>=6 line is the jackpot: 0) Fri 30 Oct 2026 15:49:29 GMT
+== o1 start Fri 30 Oct 2026 15:49:30 GMT
+d counted: 10142873 n in 508s: {2: 10142381, 3: 465, 4: 27} Fri 30 Oct 2026 17:35:56 GMT
+shapes: k=4  hub                  14 k=4  line+free            13  Fri 30 Oct 2026 17:36:00 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Fri 30 Oct 2026 17:36:00 GMT
+== e2 start Fri 30 Oct 2026 17:36:01 GMT
+d counted: 5291975 n in 210s: {2: 5291677, 3: 291, 4: 7} Fri 30 Oct 2026 19:13:34 GMT
+shapes: k=4  hub                  1 k=4  line+free            6  Fri 30 Oct 2026 19:13:39 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Fri 30 Oct 2026 19:13:39 GMT
+== o2 start Fri 30 Oct 2026 19:13:39 GMT
+d counted: 6161788 n in 312s: {2: 6161500, 3: 274, 4: 14} Fri 30 Oct 2026 20:55:42 GMT
+shapes: k=4  hub                  8 k=4  line+free            6  Fri 30 Oct 2026 20:55:47 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Fri 30 Oct 2026 20:55:47 GMT
+== e3 start Fri 30 Oct 2026 20:55:47 GMT
+d counted: 3898283 n in 155s: {2: 3898083, 3: 195, 4: 5} Fri 30 Oct 2026 22:31:47 GMT
+shapes: k=4  hub                  2 k=4  line+free            3  Fri 30 Oct 2026 22:31:51 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Fri 30 Oct 2026 22:31:51 GMT
+== o3 start Fri 30 Oct 2026 22:31:51 GMT
+d counted: 4525420 n in 231s: {2: 4525207, 3: 205, 4: 8} Sat 31 Oct 2026 00:11:35 GMT
+shapes: k=4  hub                  6 k=4  line+free            2  Sat 31 Oct 2026 00:11:39 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 00:11:39 GMT
+== e4 start Sat 31 Oct 2026 00:11:39 GMT
+d counted: 3130269 n in 126s: {2: 3130104, 3: 161, 4: 4} Sat 31 Oct 2026 01:46:51 GMT
+shapes: k=4  hub                  1 k=4  line+free            3  Sat 31 Oct 2026 01:46:55 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 01:46:55 GMT
+== o4 start Sat 31 Oct 2026 01:46:55 GMT
+d counted: 3623859 n in 186s: {2: 3623706, 3: 146, 4: 7} Sat 31 Oct 2026 03:25:08 GMT
+shapes: k=4  hub                  4 k=4  line+free            3  Sat 31 Oct 2026 03:25:13 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 03:25:13 GMT
+== e5 start Sat 31 Oct 2026 03:25:13 GMT
+d counted: 2635256 n in 105s: {2: 2635115, 3: 137, 4: 4} Sat 31 Oct 2026 04:59:53 GMT
+shapes: k=4  hub                  1 k=4  line+free            3  Sat 31 Oct 2026 04:59:57 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 04:59:58 GMT
+== o5 start Sat 31 Oct 2026 04:59:58 GMT
+d counted: 3075412 n in 158s: {2: 3075287, 3: 117, 4: 8} Sat 31 Oct 2026 06:37:41 GMT
+shapes: k=4  hub                  6 k=4  independent          1 k=4  line+free            1  Sat 31 Oct 2026 06:37:45 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 06:37:45 GMT
+== e6 start Sat 31 Oct 2026 06:37:45 GMT
+d counted: 2273869 n in 92s: {2: 2273744, 3: 120, 4: 5} Sat 31 Oct 2026 08:12:06 GMT
+shapes: k=4  hub                  2 k=4  independent          1 k=4  line+free            2  Sat 31 Oct 2026 08:12:10 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 08:12:10 GMT
+== o6 start Sat 31 Oct 2026 08:12:10 GMT
+d counted: 2644085 n in 137s: {2: 2643964, 3: 119, 4: 2} Sat 31 Oct 2026 09:48:55 GMT
+shapes: k=4  hub                  2  Sat 31 Oct 2026 09:49:00 GMT
+k>=5 numbers: 0   (any k>=6 line is the jackpot: 0) Sat 31 Oct 2026 09:49:00 GMT
+== all done Sat 31 Oct 2026 09:49:00 GMT

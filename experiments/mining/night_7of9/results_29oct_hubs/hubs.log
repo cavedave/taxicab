@@ -1,0 +1,10 @@
+nohup: ignoring input
+== even start Thu 29 Oct 2026 16:02:45 GMT
+d counted: 128040764 n in 3134s: {2: 128032371, 3: 8182, 4: 210, 5: 1} Thu 29 Oct 2026 19:06:28 GMT
+shapes: k=4  hub                  70 k=4  independent          5 k=4  line+free            135 k=5  bowtie               1  Thu 29 Oct 2026 19:06:32 GMT
+k>=5 numbers: 1   (any k>=6 line is the jackpot: 0) Thu 29 Oct 2026 19:06:32 GMT
+== odd start Thu 29 Oct 2026 19:06:32 GMT
+d counted: 147976061 n in 4547s: {2: 147967658, 3: 8137, 4: 263, 5: 3} Thu 29 Oct 2026 22:39:32 GMT
+shapes: k=4  hub                  134 k=4  independent          5 k=4  line+free            124 k=5  bowtie               3  Thu 29 Oct 2026 22:39:37 GMT
+k>=5 numbers: 3   (any k>=6 line is the jackpot: 0) Thu 29 Oct 2026 22:39:37 GMT
+== all done Thu 29 Oct 2026 22:39:37 GMT
