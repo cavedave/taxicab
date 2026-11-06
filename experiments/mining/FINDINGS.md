@@ -1981,6 +1981,16 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
 - **Conclusion:** the curves amplify each known bowtie into its finitely many siblings below any counting limit and
   unlimited larger ones; new five-ways at countable sizes still come from new seeds, i.e. from line searches.
 
+## F54 (7 November 2026): all 168 five-ways (to 1.7e165) pass every exact theorem; the bowtie rule holds out of sample
+
+- **Theorems on the whole five-way list,** including the 24 curve-generated ones above 1e60 (s-values factored by
+  PARI, n never factored): Theorem 5 (168), Theorems 7, 9, 10, 14 on 6,720 chords each, Theorem 13 and 1(b) on 666
+  lines: no failure.
+- **Bowtie anatomy (4a), out of sample:** on 165 bowties (26 more than when found), the shared point's rank by
+  s = x + y on its two lines: {low, low} 31, {low, mid} 69, {mid, mid} 37, {mid, high} 10, {high, high} 18,
+  **{low, high} 0**. Conjecture: the shared point of a bowtie is never the smallest-s point of one line and the
+  largest-s point of the other (s is unimodal along the single real branch of x^3 + y^3 = n). To prove.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
