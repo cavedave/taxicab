@@ -8,8 +8,8 @@ For every direction (a, b):
      sign(P) P - M_cert has no real root (PARI polsturm, exact) and is positive at the left end: so |P| >= M_cert on
      max(|s|, |r|) = 1, and |S1 S2 S3| >= M_cert h^6 for every slope.
   3. For each bound B and every G-level the enumeration uses (Glo; Glo prod p^(j - lo) for the tier-2 level sets),
-     the integer height used, floor(H(G, M) (1 - 1e-13)) + 1 (a margin for another machine's floating point), is at least
-     the exact H(G, M_cert): (used)^6 >= B (a - b)^2 G^3 / (E M_cert) in exact rationals.
+     the integer height used, floor(H(G, M) (1 - 1e-13)) + 1 (a margin for another machine's floating point), covers every integer
+     height h <= H(G, M_cert): (used + 1)^6 > B (a - b)^2 G^3 / (E M_cert) in exact rationals.
 Any failure is printed; the run ends with counts.
 Usage: python3 certify_M.py --cmax 1.2e12 --B 1000000000000000019884624838656 999999999999999945575230987042816 [--procs 8]
 """
@@ -65,7 +65,8 @@ def check(job):
             for G in Gs:
                 used = int(d.H(G) * (1 - 1e-13)) + 1
                 need6 = Fr(B * (a - b)**2 * G**3) / (E * Mc)
-                if Fr(used)**6 < need6: fails.append(f"HEIGHT ({a},{b}) B={B} G={G} used {used} < {float(need6)**(1/6):.3f}")
+                if Fr(used + 1)**6 <= need6:                          # an integer height above `used` would still be needed
+                    fails.append(f"HEIGHT ({a},{b}) B={B} G={G} used {used}, needs up to {float(need6)**(1/6):.6f}")
     out = subprocess.run([gp, "-q", "-D", "parisizemax=1000000000"], input="\n".join(lines), capture_output=True, text=True).stdout.split()
     for i, (a, b) in enumerate(meta):
         r = out[3 * i: 3 * i + 3]

@@ -1890,6 +1890,19 @@ direction; fixed before any run.
 1e30 run would take under an hour on 7of9; every direction (cost <= 1.2e12) to 1e33 (about 1.85e12 slopes) about 5 - 7
 hours; n is limited to 2^125 (about 4e37) by the 128-bit arithmetic.
 
+## F51 (6 November 2026): the complete line searches are certified; independent recount of the catalogue
+
+- **Lemma 15 (proved):** the S-forms of every direction are definite, so the height bound
+  n >= E M h^6 / ((a - b)^2 G^3) holds with M > 0.
+- **Exact certificate (`certify_M.py`):** M certified by Sturm sequences on all 1,563,877 directions, and every integer
+  height used in the 1e30 and 1e33 runs checked in exact rationals against every G-level: 0 failures (log in
+  verify_gp/). With the certificate logs of the runs (every job present, chunks tiling), both statements are now proofs:
+  no n <= 1e30 (resp. <= 999999999999999945575230987042816) with a line in a direction of cost <= 1.2e12 has six coprime
+  representations.
+- **Independent recount (`verify_gp/reps.gp`, PARI/GP only):** all 18,392 catalogue numbers, 139 five-ways included,
+  agree in count and representations.
+- **Literature (web, 6 Nov):** nothing found stating Theorems 9-14; a hand check of the classical sources is on TODO.md.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;

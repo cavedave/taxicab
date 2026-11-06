@@ -533,6 +533,13 @@ height h whose gcd is G, n = E S1 S2 S3 / ((a - b)^2 G^3) >= E M h^6 / ((a - b)^
 h <= H(G) = (B (a - b)^2 G^3 / (E M))^(1/6), the bound line_complete / line_fast enumerate to. M is certified exactly
 (Sturm sequences, `certify_M.py`).
 
+**Certificate (6 November 2026, `verify_gp/certify_M_all.log`):** for all 1,563,877 allowed directions of cost
+<= 1.2e12, |S1 S2 S3| >= M_cert = M (1 - 1e-12) on the three edges of the half-square (PARI polsturm: no root, positive
+at the end point), and for both run bounds (int(1e30) and int(1e33) = 999999999999999945575230987042816) and every
+G-level the integer height used covers every integer h <= H(G, M_cert) (exact rationals). The first pass used a
+too-strict test (used >= H rather than used >= floor H) and flagged 6 (direction, G) pairs in 4 near-diagonal
+directions at the 1e33 bound whose H(G, M_cert) exceeded the used integer by < 1e-3; all pass the correct test.
+
 (Observed and not needed: disc(S_i) = -3 k^2 for an integer k, the same for the three forms.)
 
 ---
