@@ -1,0 +1,55 @@
+  ***   Warning: new maximum stack size = 4000006144 (3814.703 Mbytes).
+149206817486197691020456847142871188185518412449063;5;2 ms
+1318762396711301172706701964020036919275621636456367;5;7 ms
+28131285249194381315389016857318347040288330508480749219248749244997;5;14 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+64694087729542035334981293620958800514691018972616107794956532714642423907;5;63 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+128576009699033627933747755143192607447036443390963708325081049390791439145450253;5;41 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+  *** divisors: Warning: increasing stack size to 32000000.
+  *** divisors: Warning: increasing stack size to 64000000.
+  *** divisors: Warning: increasing stack size to 128000000.
+  *** divisors: Warning: increasing stack size to 256000000.
+  *** divisors: Warning: increasing stack size to 512000000.
+  *** divisors: Warning: increasing stack size to 1024000000.
+  *** divisors: Warning: increasing stack size to 2048000000.
+1193397659045487593616156453161014861080028754494157305211365019294165835254888956556171100164599521228577;5;8368 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+  *** divisors: Warning: increasing stack size to 32000000.
+289531264158824028330475593474465186216338432611388584067545959793876340105641319186632819889413393382490781399425402980523139;5;93 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+  *** divisors: Warning: increasing stack size to 32000000.
+  *** divisors: Warning: increasing stack size to 64000000.
+  *** divisors: Warning: increasing stack size to 128000000.
+  *** divisors: Warning: increasing stack size to 256000000.
+  *** divisors: Warning: increasing stack size to 512000000.
+  *** divisors: Warning: increasing stack size to 1024000000.
+  *** divisors: Warning: increasing stack size to 2048000000.
+  *** divisors: Warning: increasing stack size to 4000006144.
+754105515350140928193450903109129022101547225916418571327199443631769521404570392348675839070116072076309256894204807337801493551375163;5;18838 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+  *** divisors: Warning: increasing stack size to 32000000.
+  *** divisors: Warning: increasing stack size to 64000000.
+  *** divisors: Warning: increasing stack size to 128000000.
+  *** divisors: Warning: increasing stack size to 256000000.
+  *** divisors: Warning: increasing stack size to 512000000.
+5929373091096339402117230505476313277125174623270492181514914408929069684662507374847370695857572837768507004699823384642916340613058499759356968286302831;5;1907 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+  *** divisors: Warning: increasing stack size to 32000000.
+  *** divisors: Warning: increasing stack size to 64000000.
+  *** divisors: Warning: increasing stack size to 128000000.
+  *** divisors: Warning: increasing stack size to 256000000.
+  *** divisors: Warning: increasing stack size to 512000000.
+11237214860390912070014223953219413840738443764110413306787063928246319513225362301377677202815741951576099454475743722290294465182811287811891596698999603913797;5;1995 ms
+  *** divisors: Warning: increasing stack size to 16000000.
+  *** divisors: Warning: increasing stack size to 32000000.
+  *** divisors: Warning: increasing stack size to 64000000.
+  *** divisors: Warning: increasing stack size to 128000000.
+  *** divisors: Warning: increasing stack size to 256000000.
+  *** divisors: Warning: increasing stack size to 512000000.
+  *** divisors: Warning: increasing stack size to 1024000000.
+  *** divisors: Warning: increasing stack size to 2048000000.
+  *** divisors: Warning: increasing stack size to 4000006144.
+1689620943720686306307280431851402493653015320994364566360649742619632498898674650160591088919814513243461612052312333603040913927943116300517823454599283515484354343;5;19468 ms
+done

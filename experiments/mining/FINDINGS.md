@@ -1922,6 +1922,30 @@ recount of each new entry.
 - The F49 projection (about 160-170 five-ways in the class to 1e33, about 80 new) was high: 131 and 49. The class
   five-way count grew by 131 / 64 = 2.05 for a 1000x larger bound (n^0.10 rather than n^0.14).
 
+## F53 (6 November 2026): five-ways from elliptic curves: bowties of a fixed direction pair lie on a genus-1 curve
+
+**Setting.** A bowtie through a (3,4) line: the (3,4) triple of slope (s, r) (line_enum's conic parametrisation) and a
+second line in direction (a2, b2) through its point i. That line has two more rational points exactly when the
+discriminant of the residual quadratic, a binary quartic Delta(s, r) in the slope, is a square: the bowties of a fixed
+(pair, i) are the rational points of **w^2 = Delta(r)**, generically genus 1 (an elliptic curve). For the two recurring
+pairs, (3,4)+(9,52) at point 0 and (3,4)+(27,28) at point 1, Delta is irreducible (no square factor): **no polynomial
+family** (F-4b, negative), but a group.
+
+**Generation.** From the few points of small height (`hyperellratpoints`) and the known bowties of the pair, the group
+law (the parabola through three points of w^2 = quartic meets it in a fourth) generates points of growing height;
+each is a rational bowtie, and often an integral coprime one. Two rounds gave 16 distinct coprime bowtie numbers:
+the 5 known ones (Bernstein's 506433677359393, and 1.06e26, 1.72e27, 6.5e29, 7.6e32 from the complete line searches),
+and **11 new coprime five-ways from 1.49e50 to 1.69e165**, all verified (on the curve, coprime, five distinct
+representations) and **counted exactly** from n = 37 s1 s2 s3 (Theorem 13 for the (3,4) line; the s_i of the triple
+factored by PARI, at most 20 s each): **each has exactly 5 representations.** The largest coprime five-way known
+before was 3.8e35.
+
+**Why it matters:** a cheap generator of coprime five-ways of any size, one elliptic curve per (direction pair,
+shared point), with exact counting still feasible to ~1e165 because n factors through the small s-values. A
+six-way on such a curve needs an extra free point (F49: rare and getting rarer); but the generator can produce
+thousands of five-ways for that test. Not yet known: how many direction pairs have curves of positive rank, and
+what fraction of their points give integral coprime bowties (here 20 of 46 and 11 of 41 points).
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
