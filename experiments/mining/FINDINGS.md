@@ -2012,7 +2012,7 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
 - With F53 (bowties of a fixed direction pair are points of one genus-1 curve) and F54 (the shared point is never
   the lowest-s point of one line and the highest of the other), that is the bowtie structure found so far.
 
-## F56 (7 November 2026): on a seeded bowtie curve the integral coprime bowties form a subgroup of finite index
+## F56 (7 November 2026): on a seeded bowtie curve the integral coprime bowties are a finite-index subgroup and its reflection
 
 On (3,4)+(9,52) at point 0 (the curve of Bernstein's five-way), the 14 small rational points (hyperellratpoints,
 height <= 3000, plus a known seed) are 6 bowties, 4 with a non-integral second line, 4 with a non-coprime base triple.
@@ -2021,10 +2021,13 @@ With O a bowtie point and the quartic group law:
 - 2N is an integral coprime bowtie for every non-bowtie N (8 / 8); two "second line not integral" points sum to a
   bowtie (4 / 4); two "base not coprime" points can sum to a "second line not integral" point (so that label covers
   more than one coset; index >= 4, quotient of exponent 2).
-So **integrality + coprimality is a coset condition: the bowtie points are a subgroup H of finite index** (a
-congruence condition on the points). This explains F53: a seed lies in H, so all combinations of seeds are bowties;
+**Second curve, (3,4)+(27,28) at point 1** (4 bowtie and 4 other small points): 2N a bowtie 4 / 4, but bowtie +
+bowtie a bowtie only 3 / 6 and bad + bowtie keeps its class 8 / 12. Reason: being a bowtie depends only on x (the slope
+r/s), and (x, w), (x, -w) are not group negatives but related by the involution P -> kappa - P. So **the bowtie points
+are H together with kappa - H for a finite-index subgroup H** (a congruence condition on the points), not a subgroup
+on their own; the first curve's tests happened to stay in H. This explains F53: a seed lies in H, so all combinations of seeds are bowties;
 on unseeded curves the condition is a coset missing their small points (possibly empty; no multiple up to 12P lands in
-it). Consequence: on a seeded curve, **2N is a coprime five-way for every rational point N**. Proving the coset
+it). Consequence (12 / 12 over both curves): on a seeded curve, **2N is a coprime five-way for every rational point N**. Proving the coset
 structure in general (and computing the index from the direction pair) is open.
 
 ## Negative results
