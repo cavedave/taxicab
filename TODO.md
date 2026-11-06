@@ -26,6 +26,12 @@
 - [ ] Figures still to make: five-ways per decade (exhaustive vs curve search); split primes (size-matched, F44).
 - [ ] Captions (user).
 - [ ] Before submission: Liu's volume and pages; wording of Hollerbach's post.
+- [ ] Literature check by hand for Theorems 9-14 (web search found nothing, which is not evidence of novelty): Dickson
+      vol. II ch. XXI (Werebrusow), Silverman 1993 Monthly, Selmer (1950s, ax^3 + by^3 + cz^3 = 0), Mordell
+      "Diophantine Equations" (cubic curves), Connell's Elliptic Curve Handbook (Desboves curves), Cassels "Lectures on
+      Elliptic Curves" (reduction mod p; Theorem 10's mechanism is standard, the plane-model statement may not be).
+- [ ] A mathematician's read of the new proofs: Theorems 10, 13, 14, Lemma 15 (and 8c).
+- [x] Independent recount of the whole catalogue in PARI/GP (verify_gp/reps.gp): 18,392 / 18,392 agree.
 
 ## OEIS (user submits from their own account; files in results/oeis/)
 - [ ] A023050 b-file to 1e19 (310 terms).
