@@ -1965,6 +1965,21 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
 - **So:** the curves are an unlimited source of coprime five-ways at large n, nearly every point a bowtie; the cost
   of using them is the exact count, which needs the s-values (about n^(1/3)) factored: seconds at 1e130, much more
   above 1e200. Getting many five-ways below 1e130 needs many more curves, not more points per curve.
+- **PARI version (`bowtie_hunt.py`, `verify_gp/quartic2ell.gp`):** each quartic with a known point is mapped to
+  Weierstrass form (Washington, Elliptic Curves, Thm 2.17; checked: points map and map back exactly, and E's group
+  law agrees with the parabola law), `ellrank` (known points as hints) gives a full-rank set of independent points
+  (ranks 2 - 5), and small combinations are mapped back and tested. Exact counts use only s = f * (split-block
+  subsets) (Theorem 5), with factorisation time limits (unknown k reported as "?", none occurred).
+  **Harvest of all 136 seeded curves:** 165 coprime five-ways below 1e500 (coefficients -3..3), every one exactly
+  k = 5, all already in the catalogue (the earlier runs had found them): each curve holds only ~5 - 20 points below
+  1e500.
+- **New curves without a bowtie seed are not productive:** for base (3,4) and 800 second directions (x 3 points),
+  85 quartics have small rational points (all of positive rank), but their points give non-integral second lines
+  (124) or non-coprime base triples (108); restricting to directions compatible with Theorems 1 and 13 gives 6 bowtie
+  points (one known number); multiples up to 12P of a generator never give a bowtie on 41 such curves. Integrality is
+  carried by the seed: on seeded curves nearly every point is a bowtie, on unseeded ones almost none. Why is open.
+- **Conclusion:** the curves amplify each known bowtie into its finitely many siblings below any counting limit and
+  unlimited larger ones; new five-ways at countable sizes still come from new seeds, i.e. from line searches.
 
 ## Negative results
 
