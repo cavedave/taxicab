@@ -19,5 +19,5 @@
    lines.
 
 9. ~~Third point of a chord: gcd(X, Y) = 1~~ PROVED 3 November 2026 (THEOREMS.md, Theorem 10: Vieta at p).
-10. Bowtie anatomy (F54): the shared point of a bowtie is never the smallest-s point of one line and the largest-s
-    point of the other (0 of 165). Likely real geometry of the branch (s unimodal along it). Prove or find the reason.
+10. Bowtie anatomy (F54): proved when the shared point is a sum (it is never lowest-s on a line). Open: a difference
+    shared point that is highest-s on one line is highest on the other too (6 of 6; random real bowties allow it).

@@ -1988,8 +1988,15 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
   lines: no failure.
 - **Bowtie anatomy (4a), out of sample:** on 165 bowties (26 more than when found), the shared point's rank by
   s = x + y on its two lines: {low, low} 31, {low, mid} 69, {mid, mid} 37, {mid, high} 10, {high, high} 18,
-  **{low, high} 0**. Conjecture: the shared point of a bowtie is never the smallest-s point of one line and the
-  largest-s point of the other (s is unimodal along the single real branch of x^3 + y^3 = n). To prove.
+  **{low, high} 0**.
+- **Correction and partial proof (same day).** The earlier "about 31 expected" assumed the nine rank pairs equally
+  likely; random real bowties (no integrality) give {low, high} in 1.6% (random slopes) or 2.5% (the bowties' own
+  slopes and shared-point positions), so about 4 expected and P(0) = 0.017: suggestive, not overwhelming.
+  Split by the shared point C: **C a sum** (32): ranks only (1,1) 10, (1,2) 10, (2,2) 12 -- **proved**: sums have
+  s > n^(1/3) and differences s < n^(1/3) (n = s t with t = s^2 - 3xy), and no line holds three positive points, so a
+  sum C always has a difference with smaller s on each line and is never lowest. **C a difference** (133): (0,0) 31,
+  (0,1) 69, (1,1) 27, (2,2) 6, never (1,2) or (0,2): when a difference C is highest on one line (both other points
+  differences) it is highest on the other too (6 of 6). That remaining part is open and rests on few cases.
 
 ## F55 (7 November 2026): relationships inside bowties (165)
 
