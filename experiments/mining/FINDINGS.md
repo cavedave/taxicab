@@ -1991,6 +1991,20 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
   **{low, high} 0**. Conjecture: the shared point of a bowtie is never the smallest-s point of one line and the
   largest-s point of the other (s is unimodal along the single real branch of x^3 + y^3 = n). To prove.
 
+## F55 (7 November 2026): relationships inside bowties (165)
+
+- **lcm(E1, E2) | n** for every bowtie (Theorem 2 for each line); this block of split primes is a median 37% of
+  log n (max 61%).
+- **Every bowtie contains two mirror hubs** (330 / 330): P + Q = -C = R + T gives P + (-R) = T + (-Q), so the chords
+  P R-bar and T Q-bar (and P T-bar, R Q-bar) meet at one point. Their meeting points have large denominators (median
+  5.6e5; only 6% <= 12, none integral), unlike genuine hubs (mostly D <= 12, F41).
+- **The two lines' costs are unrelated:** ratio median 10^3.8, spread 1 - 10^14: one cheap line, the other anything.
+- **E1 and E2 share a split prime in 43%** of bowties, against 17% for lines of different four-ways of similar size;
+  but **no excess** against a random draw from n's own split primes (60 observed, 57.9 expected, n < 1e60): sharing
+  only reflects that both divide the same n.
+- With F53 (bowties of a fixed direction pair are points of one genus-1 curve) and F54 (the shared point is never
+  the lowest-s point of one line and the highest of the other), that is the bowtie structure found so far.
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
