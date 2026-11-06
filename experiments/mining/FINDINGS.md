@@ -2007,6 +2007,13 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
 
 ## Negative results
 
+- **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
+  plot_bowtie.py picture of 118371660133721558473). (1) Lines staying within one cluster (all points with y > x, or
+  all with x > y) against crossing: both crossing 95, one of each 64, both within 6; no link to cost (the line that
+  stays within is the cheaper one 20 times, the costlier 44). (2) The cheaper line is not the grazing one: its points
+  are more spread in 93 bowties, less in 72 (median spread ratio 10^0.05). The example's flat, grazing blue line was
+  particular to it.
+
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;
   small generator heights are.
   - The best curve found, M = 619538684309181 (rank 7, a four-way), gives Ca(12) ≤ 1.9·10⁸³, which is 10⁵⁶ times
