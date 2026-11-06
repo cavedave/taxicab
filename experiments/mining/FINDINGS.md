@@ -2041,6 +2041,13 @@ it). Consequence claimed from 12 / 12 on two curves: 2N always a bowtie.
   may be needed.
 - So the integrality on seeded curves is a strong bias (most generated points are bowties; doubling helps), not yet a
   clean coset law; the "which direction pairs carry bowties" prediction is not available. Open.
+- **Where the failures come from (`bowtie_gcdscan.py`, 60 curves, 6,204 points):** 3,845 fail because the base triple
+  is not coprime, 630 because the second line is not integral. The common factor of the base triple is a small
+  recurring set of primes: **37 (= E of the (3,4) base line) in 1,491**, then 3, 5, 7, and some larger primes.
+  **Working hypothesis:** integrality and coprimality are local conditions on the slope (s : r) modulo a few prime
+  powers (primes dividing E, E2, b - a, small primes). The slope is not a group homomorphism of the curve, so such a
+  condition need not be a coset of a subgroup: this explains the failed coset tests and the partial effect of
+  doubling. Next test: per prime p, is "p divides the base triple's gcd" a function of (s : r) mod p (or p^2)?
 
 ## Negative results
 
