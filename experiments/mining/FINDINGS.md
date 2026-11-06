@@ -1953,8 +1953,18 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
 - **Counted:** 135 distinct five-ways below 1e130 (two rounds, frontier 10, 51 s), all exactly 5 representations;
   15 new (1e60 - 1e130). Two rounds jump to large heights quickly, so few points fall below the counting limit.
 - **Bug:** some curves get 0 points (seed not recognised; mostly second direction (a2, b2) with a2 > b2): orientation.
-- **Next:** enumerate small-height points systematically (Mordell-Weil generators of the Jacobian and small integer
-  combinations, mapped back to the quartic) rather than iterating the parabola construction.
+- **Orientation fix:** a bowtie's two lines may share a representation only up to swap; the second line is then
+  replaced by its mirror so both pass through the same point. After the fix every curve finds its points.
+- **Systematic enumeration (group law on the quartic, no Weierstrass map):** the four points on a parabola sum to a
+  fixed class, so with O a known point, K = F(O,O,O), -P = F(P,O,K), P + Q = F(F(P,Q,O),O,O) (checked: inverses,
+  associativity, multiples). Small combinations (coefficients -2..2) of up to 5 known points per curve: on
+  (3,4)+(9,52) all 48 lattice points are coprime bowties, but their n jump 1e15, 1e33, 1e69, 1e112, 1e123, 1e129,
+  1e167, 1e194, ... **Points are sparse in n:** with canonical heights ~ log n, a curve of rank r has only about
+  (log N)^(r/2) points with n <= N, so each curve gives a handful of five-ways below 1e130 and unlimited ones above.
+  All 161 five-ways found below 1e130 were already in the catalogue (all k = 5).
+- **So:** the curves are an unlimited source of coprime five-ways at large n, nearly every point a bowtie; the cost
+  of using them is the exact count, which needs the s-values (about n^(1/3)) factored: seconds at 1e130, much more
+  above 1e200. Getting many five-ways below 1e130 needs many more curves, not more points per curve.
 
 ## Negative results
 

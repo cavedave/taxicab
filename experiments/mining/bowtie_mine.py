@@ -121,6 +121,51 @@ class Curve:
         if peval(self.q, x4) != w4 * w4: return None
         return (x4, w4)
 
+class Group:
+    """the group law on w^2 = q(r) from the fourth-point map F (the four points on a parabola sum to a fixed class):
+    with O as zero, K = F(O,O,O), -P = F(P,O,K), P + Q = F(F(P,Q,O),O,O)"""
+    def __init__(self, curve, O):
+        self.C, self.O = curve, O; self.K = curve.fourth([O, O, O])
+    def F(self, P, Q, R):
+        if None in (P, Q, R): return None
+        try: return self.C.fourth([P, Q, R])
+        except ZeroDivisionError: return None
+    def neg(self, P): return self.F(P, self.O, self.K)
+    def add(self, P, Q):
+        if P == self.O: return Q
+        if Q == self.O: return P
+        return self.F(self.F(P, Q, self.O), self.O, self.O)
+    def mul(self, P, k):
+        if k < 0: P, k = self.neg(P), -k
+        R, A = self.O, P
+        while k and A is not None and R is not None:
+            if k & 1: R = self.add(R, A)
+            A = self.add(A, A); k >>= 1
+        return R
+
+def height(P):
+    return max(abs(P[0].numerator), P[0].denominator).bit_length() if P is not None else 10**9
+
+def lattice_points(curve, known, cmax, hbits):
+    """small integer combinations of the known points (relative to O = known[0]), height <= hbits"""
+    known = sorted(set(known), key=height)
+    if not known: return set()
+    G = Group(curve, known[0])
+    if G.K is None: return set(known)
+    basis = [P for P in known[1:5] if P != G.O]
+    basis = basis[:4]
+    out = set(known)
+    for cs in itertools.product(range(-cmax, cmax + 1), repeat=len(basis)):
+        if not any(cs): continue
+        R = G.O
+        for c, P in zip(cs, basis):
+            if c == 0: continue
+            T = G.mul(P, c)
+            R = G.add(R, T) if T is not None else None
+            if R is None or height(R) > hbits: R = None; break
+        if R is not None and R[1] != 0: out.add(R); out.add((R[0], -R[1]))
+    return out
+
 def rank_of(curve, gp, tlim):
     src = f'iferr(my(e = ellinit(ellfromeqn(y^2 - ({curve.gp_poly()}))), R = alarm({tlim}, ellrank(e))); print(R[1], " ", R[2]), err, print("-1 -1"))'
     out = subprocess.run([gp, "-q", "-D", "parisizemax=2000000000"], input=src, capture_output=True, text=True).stdout.split()
@@ -143,7 +188,8 @@ def count_exact(curve, n, s3, gp):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--rounds", type=int, default=2); ap.add_argument("--out", required=True)
     ap.add_argument("--gp", default="gp"); ap.add_argument("--rank-time", type=int, default=120); ap.add_argument("--only-rank", action="store_true")
-    ap.add_argument("--frontier", type=int, default=10); ap.add_argument("--nmax-exp", type=int, default=130)
+    ap.add_argument("--frontier", type=int, default=10); ap.add_argument("--nmax-exp", type=int, default=130); ap.add_argument("--cmax", type=int, default=0)
+    ap.add_argument("--basis", type=int, default=6); ap.add_argument("--hbits", type=int, default=80)
     A = ap.parse_args(); t0 = time.time()
     curves = {}
     for l in open(Path(__file__).resolve().parents[2] / "results/a047697_catalogue.txt"):
@@ -154,11 +200,14 @@ def main():
         ls = lines_of(reps)
         if len(ls) < 2: continue
         (d1, T1), (d2, T2) = sorted(ls[:2], key=lambda t: abs(t[0][1]**3 - t[0][0]**3))
-        shared = {tuple(sorted(p)) for p in T1} & {tuple(sorted(p)) for p in T2}
-        if not shared: continue
+        inter = set(T1) & set(T2)                                   # the geometrically shared point (ordered)
+        if not inter:                                               # the lines meet only up to swap: use the mirror line
+            T2 = tuple((y, x) for x, y in T2); d2 = (d2[1], d2[0]); inter = set(T1) & set(T2)
+        if not inter: continue
         if d1[0] > d1[1]:                                          # orient the base as line_enum: (a, b) with a < b
             T1 = tuple((y, x) for x, y in T1); T2 = tuple((y, x) for x, y in T2); d1 = (d1[1], d1[0]); d2 = (d2[1], d2[0])
-        cs = next(iter(shared))
+            inter = set(T1) & set(T2)
+        cs = next(iter(inter))
         key0 = (d1, d2, cs)
         curves.setdefault((d1[0], d1[1], d2[0], d2[1]), []).append((int(n), T1, T2, cs))
     print(f"{sum(len(v) for v in curves.values())} bowties on {len(curves)} (base, second direction) pairs", flush=True)
@@ -171,7 +220,7 @@ def main():
             R = d.raw(s, r); G = 0
             for x, y in R: G = gcd(G, gcd(x, y))
             red = [(x // G, y // G) for x, y in R]
-            idx = [k for k, p in enumerate(red) if tuple(sorted(p)) == cs or tuple(sorted((-p[0], -p[1]))) == cs]
+            idx = [k for k, p in enumerate(red) if p == cs or (-p[0], -p[1]) == cs]          # exact point, up to overall sign
             if idx: byi.setdefault(idx[0], []).append((s, r, n))
         for i, seeds in byi.items():
             C = Curve(a, b, i, a2, b2)
@@ -190,6 +239,7 @@ def main():
                     F4 = C.fourth(list(combo))
                     if F4: new.add(F4); new.add((F4[0], -F4[1]))
                 pts |= new
+            if A.cmax: pts |= lattice_points(C, sorted(pts, key=height)[:A.basis], A.cmax, A.hbits)
             five = {}
             reasons = {}
             for x, w in pts:
