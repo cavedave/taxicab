@@ -1903,6 +1903,25 @@ hours; n is limited to 2^125 (about 4e37) by the 128-bit arithmetic.
   agree in count and representations.
 - **Literature (web, 6 Nov):** nothing found stating Theorems 9-14; a hand check of the classical sources is on TODO.md.
 
+## F52 (6 November 2026): the complete line search to int(1e33): no six-way; 49 new five-ways
+
+**Run** (7of9, `lf33_v2`: line_fast.py + lc_fast.cpp, 60 processes, 5 Nov 18:18 - 6 Nov 17:07, the last 7 hours on the
+single (3,4) job): every allowed direction of cost <= 1.2e12, every coprime collinear triple with
+n <= int(1e33) = 999999999999999945575230987042816, every n counted exactly. Files: `night_7of9/results_lf_1e33/`.
+
+**Certificate:** 1,567,293 jobs, each logged once, equal to the planned job list (chunks of the 313 cheap directions
+as split by the run's code); 1.312e12 slopes, 1.592e10 triples; no Python fallback; **largest k = 5**. With Lemma 15
+and the height certificate (F51) this is a proof: **no n <= 999999999999999945575230987042816 with a line in a
+direction of cost <= 1.2e12 has six coprime representations.**
+
+**Results:** 17,954 numbers with k >= 4 (17,823 four-ways, 131 five-ways, 67 of them above 1e30); new to the catalogue
+over the run: **49 five-ways** and about 6,700 four-ways, all verified by independent recount. 128 of the 130 known
+five-ways below the bound are in the class (the same two outside it as at 1e30, lines of cost 8e12 - 1.3e13).
+Catalogue: 18,873 four-ways, 142 five-ways, all agreeing with the PARI/GP recount at the time of F51 plus the
+recount of each new entry.
+- The F49 projection (about 160-170 five-ways in the class to 1e33, about 80 new) was high: 131 and 49. The class
+  five-way count grew by 131 / 64 = 2.05 for a 1000x larger bound (n^0.10 rather than n^0.14).
+
 ## Negative results
 
 - **N5 (27 October 2026): multi-way curves do not improve Ta(k) or Ca(k) bounds.** Rank isn't what matters;

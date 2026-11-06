@@ -2,7 +2,7 @@
 
 ## Runs
 - [x] line_fast.py: chunks of heavy directions are separate pool tasks (load balance); --B parsed exactly (Decimal). Bundle lf_v3.tar.gz.
-- [~] **Complete line search to 1e33 with the C++ version** (F50; running, only (3,4) left): lf_7of9.tar.gz, `nohup bash run_lf.sh > lf.log 2>&1 &` (every direction, ~5-7 h; or CMAX=1e4 first, ~1 h).
+- [x] **Complete line search to 1e33 with the C++ version** (F50, F52: done 6 Nov, no six-way, 49 new five-ways): lf_7of9.tar.gz, `nohup bash run_lf.sh > lf.log 2>&1 &` (every direction, ~5-7 h; or CMAX=1e4 first, ~1 h).
 - [x] **Complete line search to 1e30 on 7of9** (F47, F48: done 4 Nov, no six-way, 11 new five-ways): copy lc_7of9.tar.gz, `nohup bash run_lc.sh > lc.log 2>&1 &`.
       Then: catalogue merge of lc_1e30_k4.txt, the certificate (lc_1e30_jobs.log), paper statement "no six-way <= 1e30 with a line of cost <= 1.2e12".
 - [ ] **Ranks of 7 'independent' four-ways in 1e22 - 2.5e23** (PARI stack overflow at 2 GB on the Mac).
