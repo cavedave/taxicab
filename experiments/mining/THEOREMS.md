@@ -513,6 +513,30 @@ on all 166,228 non-integral chords as well as the 492,028 lines.
 
 ---
 
+## Lemma 15 (the S-forms of a direction are definite; the height bound of the complete line search, F47)
+
+**Statement.** Fix a direction (a, b), a != b, a b > 0 (Theorem 1), the conic point P0 of line_enum, and the raw points
+(b p_i, T - a p_i) of slope (s, r) (line_enum.chord_points; T = Z D Q, Q = s^2 + s r + r^2, D = b^3 - a^3). Each
+S_i(s, r) = b p_i + T - a p_i (the x + y of raw point i) is a **definite** binary quadratic form.
+
+**Proof.** The raw coordinates are binary forms with integer coefficients, and two identities hold for all rational
+(s, r), hence as polynomial identities, hence for all real (s, r): the three raw points lie on one curve
+x^3 + y^3 = n_raw(s, r), and n_raw = E S1 S2 S3 / (a - b)^2 (Theorem 13). Suppose S_i(s, r) = 0 for some real
+(s, r) != (0, 0). Then n_raw = 0, so every raw point satisfies x^3 + y^3 = 0, i.e. x = -y over R: all three lie on
+x + y = 0. They also lie on a x + b y = b T with T != 0 (Q is definite, Z, D != 0). Two distinct lines (a != b) meet in
+one point, so the three points coincide, i.e. u1 = u2 = u3 = s0/3, and by Theorem 4 (ii) the conic point is
+(X, Y) = (D s0/3 + a^2, D s0/3 + a^2) = (0, 0). But X^2 + X Y + Y^2 = 3 a b^3 > 0 (a b > 0). So S_i has no real zero
+besides (0, 0): it is definite. QED
+
+**Consequence (the height bound).** M := min |S1 S2 S3| over max(|s|, |r|) = 1 is positive, and for a slope of
+height h whose gcd is G, n = E S1 S2 S3 / ((a - b)^2 G^3) >= E M h^6 / ((a - b)^2 G^3). So n <= B forces
+h <= H(G) = (B (a - b)^2 G^3 / (E M))^(1/6), the bound line_complete / line_fast enumerate to. M is certified exactly
+(Sturm sequences, `certify_M.py`).
+
+(Observed and not needed: disc(S_i) = -3 k^2 for an integer k, the same for the three forms.)
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
