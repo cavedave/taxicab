@@ -15,3 +15,15 @@ toE(Q, q0, u, v) = my(c = polcoef(Q,2), d = polcoef(Q,1));
 toQ(Q, q0, P) = my(c = polcoef(Q,2), d = polcoef(Q,1), u, v);
   if(#P == 1 || P[2] == 0, return(0)); u = (2*q0*(P[1] + c) - d^2/(2*q0))/P[2]; v = -q0 + u*(u*P[1] - d)/(2*q0); [u, v];
 }
+\\ comps(Em, P, ps): for the minimal model Em and a point P on it, the primes of ps at which P reduces to the singular
+\\ point mod p (P not in E_0(Q_p)); a point with v_p(x) < 0 reduces to O, which is non-singular
+{
+comps(Em, P, ps) = my(out = List(), x, y, fx, fy);
+  if(#P == 1, return(Vec(out)));
+  x = P[1]; y = P[2];
+  foreach(ps, p,
+    if(valuation(x, p) < 0, next);
+    fx = Em.a1*y - 3*x^2 - 2*Em.a2*x - Em.a4; fy = 2*y + Em.a1*x + Em.a3;
+    if(valuation(fx, p) > 0 && valuation(fy, p) > 0 && valuation(y^2 + Em.a1*x*y + Em.a3*y - x^3 - Em.a2*x^2 - Em.a4*x - Em.a6, p) > 0, listput(out, p)));
+  Vec(out);
+}

@@ -2012,7 +2012,7 @@ what fraction of their points give integral coprime bowties (here 20 of 46 and 1
 - With F53 (bowties of a fixed direction pair are points of one genus-1 curve) and F54 (the shared point is never
   the lowest-s point of one line and the highest of the other), that is the bowtie structure found so far.
 
-## F56 (7 November 2026): on a seeded bowtie curve the integral coprime bowties are a finite-index subgroup and its reflection
+## F56 (7 November 2026): integrality on seeded bowtie curves -- a coset law on small samples, retracted at scale
 
 On (3,4)+(9,52) at point 0 (the curve of Bernstein's five-way), the 14 small rational points (hyperellratpoints,
 height <= 3000, plus a known seed) are 6 bowties, 4 with a non-integral second line, 4 with a non-coprime base triple.
@@ -2027,8 +2027,20 @@ r/s), and (x, w), (x, -w) are not group negatives but related by the involution 
 are H together with kappa - H for a finite-index subgroup H** (a congruence condition on the points), not a subgroup
 on their own; the first curve's tests happened to stay in H. This explains F53: a seed lies in H, so all combinations of seeds are bowties;
 on unseeded curves the condition is a coset missing their small points (possibly empty; no multiple up to 12P lands in
-it). Consequence (12 / 12 over both curves): on a seeded curve, **2N is a coprime five-way for every rational point N**. Proving the coset
-structure in general (and computing the index from the direction pair) is open.
+it). Consequence claimed from 12 / 12 on two curves: 2N always a bowtie.
+
+**RETRACTED at scale (same day, `bowtie_components.py`, all 138 seeded curves, Mordell-Weil combinations |c| <= 2):**
+- **2N is not always a bowtie:** points with all coefficients even are bowties in 2,168 of 4,152 (52%), points with an
+  odd coefficient in 3,562 of 23,922 (15%); only 25 of 138 curves have every even point a bowtie. Doubling enriches
+  (3.5x) but is no rule. Even non-bowties: base triple not coprime 1,526, second line not integral 330, second line not
+  coprime 128.
+- **The class is not a function of the point's image in E(Q)/2E(Q)** (coefficients mod 2): only on 22 of 138 curves.
+- **Nor of the bad-prime pattern** (the set of primes of bad reduction where the point is singular mod p on the minimal
+  model): only on 3 of 13 curves tested. Component groups of order 4 are common (Tamagawa numbers 4), so a finer local
+  invariant (the component itself, or conditions at primes of good reduction from the coprimality of the base triple)
+  may be needed.
+- So the integrality on seeded curves is a strong bias (most generated points are bowties; doubling helps), not yet a
+  clean coset law; the "which direction pairs carry bowties" prediction is not available. Open.
 
 ## Negative results
 
