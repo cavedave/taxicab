@@ -66,18 +66,38 @@ def factor_many(nums, gp, tlim=600):
                    [tuple(int(v) for v in rr.split(",")) for rr in body.group(1).replace(" ", "").split(";")])
     return res
 
-def count_reps(n, fac):
-    """every coprime (x, y) with x^3 + y^3 = n: s = f * (subset of split blocks) <= (4n)^(1/3) (Theorem 5)"""
+def icbrt(N):
+    """floor(N^(1/3)) for an integer N >= 0"""
+    if N < 2: return N
+    x = 1 << ((N.bit_length() + 2) // 3)
+    while True:
+        y = (2 * x + N // (x * x)) // 3
+        if y >= x: break
+        x = y
+    while x**3 > N: x -= 1
+    while (x + 1)**3 <= N: x += 1
+    return x
+
+def count_reps(n, fac, deadline=None):
+    """every coprime (x, y) with x^3 + y^3 = n: s = f * (subset of split blocks) <= (4n)^(1/3) (Theorem 5).
+    Depth-first over the subsets (memory linear in the number of split primes; the old list of all candidates reached
+    40 GB at 28 split primes, F63). With a deadline (time.time() value), returns None if it is passed."""
     f = 1; blocks = []
     for p, e in fac:
         if p % 3 == 1: blocks.append(p**e)
         elif p == 3: f *= 3**(e - 1)
         else: f *= p**e
-    Lim = 4 * n; cand = [f] if f**3 <= Lim else []
-    for bk in sorted(blocks):
-        cand += [c * bk for c in cand if (c * bk)**3 <= Lim]
-    reps = []
-    for s in cand:
+    S = icbrt(4 * n)
+    if f > S: return []
+    blocks.sort(); nb = len(blocks); reps = []; stack = [(f, 0)]; steps = 0
+    while stack:
+        s, i = stack.pop()
+        for j in range(i, nb):                          # blocks ascending: once s * block > S, all later ones are too
+            c = s * blocks[j]
+            if c > S: break
+            stack.append((c, j + 1))
+        steps += 1
+        if deadline is not None and not steps & 0xFFFF and time.time() > deadline: return None
         t = 4 * (n // s) - s * s
         if t < 0 or t % 3: continue
         m = t // 3; d = isqrt(m)
