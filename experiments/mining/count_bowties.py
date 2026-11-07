@@ -15,7 +15,7 @@ import argparse, gzip, math, sys, time
 from multiprocessing import Pool
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-sys.set_int_max_str_digits(0)
+if hasattr(sys, "set_int_max_str_digits"): sys.set_int_max_str_digits(0)   # Python >= 3.11 only (7of9 has 3.8)
 from bowtie_mine import lines_of
 from bowtie_hunt import factor_many, count_reps
 
