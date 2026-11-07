@@ -46,9 +46,9 @@ def job(args):
     except Exception as e: return args[0], f"ERROR {e!r}", None
 
 def job1(args):
-    key, slopes, npts, cmaxh = args
+    key, slopes, npts, cmaxh, seedh, count = args
     a, b, i, a2, b2 = key; C = Curve(*key)
-    seed = seed_of(C, slopes)
+    seed = seed_of(C, slopes, seedh)
     if seed is None: return key, "no point found", None
     rel = sorted(pf(a*a + a*b + b*b) | pf(b - a) | pf(a2*a2 + a2*b2 + b2*b2) | pf(b2 - a2))
     head, x0 = setup(C, seed, rel)
@@ -102,6 +102,7 @@ def job1(args):
             if o and o[0] < 10**300: found[o[0]] = o
             elif o: found.setdefault("big", 0); found["big"] += 1
     big = found.pop("big", 0); ns = sorted(found)
+    if not count: return key, f"rank {rank}, M {M}, periodic {len(periodic)}, feasible {len(feas)}/{len(by)} classes, {len(cand)} points tested", dict({n: (None, found[n][1]) for n in ns}, big=big)
     pieces = []
     for n in ns: pieces += [C.E, abs(a - b) or 1] + [abs(v) for v in found[n][2]]
     facs = factor_many(pieces, "gp", 300) if pieces else []
@@ -122,6 +123,7 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--pairs", nargs="*", default=[]); ap.add_argument("--catalogue", action="store_true")
     ap.add_argument("--base", default=""); ap.add_argument("--amax", type=int, default=60); ap.add_argument("--npts", type=int, default=3000)
     ap.add_argument("--cmaxh", type=int, default=6); ap.add_argument("--procs", type=int, default=8); ap.add_argument("--out", default="")
+    ap.add_argument("--seedh", type=int, default=60); ap.add_argument("--count", action="store_true")
     A = ap.parse_args()
     jobs = [(tuple(map(int, s.split(","))), []) for s in A.pairs]
     if A.catalogue: jobs += [(c[:5], c[5]) for c in curves_from_catalogue()]
@@ -135,7 +137,7 @@ def main():
     cat = {int(l.split(";")[0]) for l in open(Path(__file__).resolve().parents[2] / "results/a047697_catalogue.txt") if l[0].isdigit()}
     f = open(A.out, "w") if A.out else None
     with Pool(A.procs) as pool:
-        for key, note, found in pool.imap_unordered(job, [(k, s, A.npts, A.cmaxh) for k, s in jobs]):
+        for key, note, found in pool.imap_unordered(job, [(k, s, A.npts, A.cmaxh, A.seedh, A.count) for k, s in jobs]):
             if found is None: print(f"{key}: {note}", flush=True); continue
             big = found.pop("big", 0); ns = sorted(found); kmax = max((len(found[n][0]) for n in ns if found[n][0]), default=0)
             print(f"{key}: {note}; {len(ns)} bowties < 1e300 (+{big} larger), largest k {kmax}, k unknown {sum(1 for n in ns if found[n][0] is None)}" + (f", smallest {ns[0]:.3e} ({len(str(ns[0]))} digits, {'known' if ns[0] in cat else 'NEW'})" if ns else ""), flush=True)

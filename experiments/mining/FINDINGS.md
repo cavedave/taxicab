@@ -2141,6 +2141,22 @@ size-matched line + free four-ways (C); `span_rank.txt` / `span.gp`: rank of the
    digits): **no evidence that rank separates five-ways from four-ways**; the representations, not extra rank, carry
    the structure. A six-way would need span >= 3 (e.g. three lines on six points) -- rank is not the bottleneck.
 
+## F61 (7 November 2026): decider on unseeded pairs -- two new bowtie direction pairs; a prediction for lf36
+
+`bowtie_decide.py --base 3,4 --amax 100 --seedh 300 --npts 2000` (`results_bowtie_curves/decide/base34.*`): every second
+direction (a2, b2 < 100) passing the non-split filter (F58.4): 1,364 pairs x 3 shared points = 4,092 curves.
+(The three choices of shared point give the same bowties: the run is 3x redundant.)
+
+- **4,071 curves have no rational point of height <= 300** (most quartics here are probably not even locally soluble).
+- 7 pairs have points: **3 obstructed** ((3,16); (9,76) by 31, 37, 67, 211; (39,76) by 31, 37, 331 with M = 4),
+  **4 carry bowties**: (9,52) and (27,28) (in the catalogue) and **two new pairs**:
+  - **(3,4)+(75,76)**: rank 3, M = 4, 25 bowties < 1e300; smallest **2482960469777526557699371824606091** (34 digits),
+    then 4.06e34, 8.53e34 -- exact k = 5 for all three (factored), representations verified directly;
+  - **(3,4)+(27,76)**: rank 5, 80 bowties < 1e300; smallest 1.465e47, then 6.28e47, 7.67e50 (k = 5 each).
+- 422 distinct bowtie numbers < 1e300 not in the catalogue from this run.
+- **Prediction:** (3,4) is one of lf36's 23 directions, so the complete line search to 1e36 must contain the three
+  (75,76) five-ways above (2.48e33 is above lf33's bound int(1e33), consistent with lf33 missing it).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

@@ -18,12 +18,12 @@ from bowtie_congruence import analyse, pf, GPF
 
 MS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 16, 18, 20, 24]
 
-def seed_of(C, slopes):
+def seed_of(C, slopes, H=60):
     for s, r in slopes:
         x = Fr(r, s); v = peval(C.q, x)
         if v > 0 and isqrt(v.numerator)**2 == v.numerator and isqrt(v.denominator)**2 == v.denominator:
             return x, Fr(isqrt(v.numerator), isqrt(v.denominator))
-    out = subprocess.run(["gp", "-q"], input=f"print(hyperellratpoints({C.gp_poly()}, 60));", capture_output=True, text=True).stdout
+    out = subprocess.run(["gp", "-q"], input=f"print(hyperellratpoints({C.gp_poly()}, {H}));", capture_output=True, text=True).stdout
     pts = [(Fr(x), Fr(y)) for x, y in re.findall(r"\[(-?\d+(?:/\d+)?), (-?\d+(?:/\d+)?)\]", out) if Fr(y) != 0]
     return pts[0] if pts else None
 
