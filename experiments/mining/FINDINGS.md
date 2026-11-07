@@ -2103,6 +2103,29 @@ if the curve has rational points reducing to those classes at every relevant pri
    E(Q) in that finite group meets the good set: decidable from the generators, and the smallest bowtie is a closest-vector
    problem in the height lattice. Not yet implemented.
 
+## F59 (7 November 2026): the bowtie conditions are component conditions; a decider for direction pairs
+
+`bowtie_components2.py` (all 138 catalogue curves, points c in [-3, 3]^r), `bowtie_decide.py`,
+results in `results_bowtie_curves/decide/`.
+
+1. **Reduction type.** At every relevant prime (E1, b - a, E2, b2 - a2) the curve has multiplicative reduction I_n,
+   mostly I4 (373 of 599), then I2, I6, I8, I10, I12, I14, I3.
+2. **Integrality is a component condition.** With the origin at a known bowtie, the second line is integral at p
+   (p | E2 or b2 - a2) **iff 2P is in E_0(Q_p)**, i.e. the component of P is 0 or n/2: 128 of 128 primes, no exception.
+   Second-line coprimality at E1 primes follows the same rule in 80 clean cases. The base-coprimality conditions
+   (the '3 bad classes' of F57) are **not** component conditions: they are a finer condition mod p inside components.
+   So the integrality part has period n/2 in the Mordell-Weil coefficients (2 for I4), which is F58's mod-2 behaviour.
+3. **(3,4)+(3,16) explained.** Second line coprime at 37 needs one parity, integral at 313 = E2 the other; on E(Q) the
+   two parities agree, so the pair carries no bowtie (decider: OBSTRUCTED by (37, sec), (313, den)).
+4. **Decider.** Find the classes of c mod M = lcm(n_p / 2) passing every periodic condition (empty: obstructed), then
+   test points of those classes in order of canonical height (a closest-vector search). On (3,4)+(9,52) the smallest
+   bowtie found is Bernstein's 506433677359393; on (3,4)+(27,28), 1.06e26.
+5. **Catalogue run** (3,000 lowest-height points per curve): no seeded curve is obstructed (consistency); for every curve
+   the smallest bowtie found is already in the catalogue; **1,095 bowtie numbers < 1e300, 917 not in the catalogue**
+   (each at least a five-way; exact k not yet computed: factoring s-values of up to ~100 digits is too slow on the Mac,
+   to run on 7of9). 7 curves failed (Python digit limit, now fixed), 6 have no generators from ellrank.
+   `catalogue.txt.gz` lines: (a, b, i, a2, b2);n;known|new.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
