@@ -2126,6 +2126,21 @@ results in `results_bowtie_curves/decide/`.
    to run on 7of9). 7 curves failed (Python digit limit, now fixed), 6 have no generators from ellrank.
    `catalogue.txt.gz` lines: (a, b, i, a2, b2);n;known|new.
 
+## F60 (7 November 2026): Mordell-Weil ranks of the five-way curves against four-way controls (ranks5 run, 7of9)
+
+`night_7of9/ranks5/`: PARI ellrank on x^3 + y^3 = n with the representations as hints, 142 five-ways (F) and 284
+size-matched line + free four-ways (C); `span_rank.txt` / `span.gp`: rank of the subgroup the representations span.
+
+1. **Run mostly failed:** exact rank for 16 F and 33 C only, all with n <= 28 digits; the 366 failures stopped after
+   23-40 min, far below the 6 h alarm, so they are errors (most likely memory: 30 jobs x 8 GB stack), not time-outs.
+2. **Span of the representations = number of points - number of lines** (a line is a relation P + Q + R = 0, the
+   point at infinity being a flex): 139 of 142 five-ways span rank 3 (bowties: 5 points, 2 lines), 3 span rank 4
+   (one line: 137904678696613339, 236191447138323830299237, 153461072317103291251148239); all 284 controls span 3.
+3. **Full rank is usually span + 1.** F (span 3): rank 3 once, 4 in 12, 6 once; F (span 4): ranks 4 and 6.
+   C: rank 3 in 8, 4 in 23, 5 once, 6 once. Mean rank F 4.19, C 3.85 on these small samples (size-limited to <= 28
+   digits): **no evidence that rank separates five-ways from four-ways**; the representations, not extra rank, carry
+   the structure. A six-way would need span >= 3 (e.g. three lines on six points) -- rank is not the bottleneck.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
