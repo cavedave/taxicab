@@ -2180,6 +2180,22 @@ point 0 only (F61), for the 22 lf36 directions other than (3,4). 28,283 curves.
   call in the decider now has a 900 s timeout. PARI's `-8.97 E-5` (space before the exponent) broke the height-matrix
   parse on one curve; fixed.
 
+## F63 (7 November 2026): exact counts of 574 new bowtie numbers (34-252 digits) -- all k = 5 (partial)
+
+`count_bowties.py` (new): factors n from the s-values of its five representations and the E's of its two lines
+(Theorem 13), then counts every coprime representation exactly (`bowtie_hunt.count_reps`, Theorem 5). Check: on 28
+catalogue bowties it reproduces every catalogue count (0 mismatches).
+
+- Inputs: new (not in the catalogue) bowtie numbers <= 300 digits from the base runs (F61, F62; 436 numbers) and from
+  the catalogue rerun `catalogue2.txt` (decider rerun recording representations, 0 errors; 554 numbers not in the
+  base runs).
+- **574 counted (287 + 287, 34 to 252 digits): every one has exactly k = 5.** No six-way. No factoring timeout (600 s)
+  so far: the s-values factor easily.
+- **Run killed by memory exhaustion** (the laptop, 24 GB, ran out of memory and the watchdog restarted it at 21:06):
+  `count_reps` held every product of split prime blocks below (4n)^(1/3) in one list. At 252 digits n has 15-28 split
+  primes (2^28 subsets); one worker reached 40 GB. 416 numbers (149 base + 267 catalogue, the largest) remain.
+- Files: `results_bowtie_curves/decide/counted_{base34,bases,catalogue}.{txt,log}`, `catalogue2*`.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

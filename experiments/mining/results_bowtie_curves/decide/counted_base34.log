@@ -1,0 +1,9 @@
+66 new bowtie numbers with <= 150 digits
+10/66 done, k counts {5: 10}, 0 timed out, 0 s
+20/66 done, k counts {5: 20}, 0 timed out, 1 s
+30/66 done, k counts {5: 30}, 0 timed out, 2 s
+40/66 done, k counts {5: 40}, 0 timed out, 4 s
+50/66 done, k counts {5: 50}, 0 timed out, 10 s
+60/66 done, k counts {5: 60}, 0 timed out, 13 s
+66/66 done, k counts {5: 66}, 0 timed out, 18 s
+done: k counts {5: 66}, 0 with k unknown, 18 s
