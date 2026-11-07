@@ -2157,6 +2157,29 @@ direction (a2, b2 < 100) passing the non-split filter (F58.4): 1,364 pairs x 3 s
 - **Prediction:** (3,4) is one of lf36's 23 directions, so the complete line search to 1e36 must contain the three
   (75,76) five-ways above (2.48e33 is above lf33's bound int(1e33), consistent with lf33 missing it).
 
+## F62 (7 November 2026): decider on the other 22 lf36 base directions -- base (3,4) was the exception
+
+`results_bowtie_curves/decide/run_bases.sh`: `bowtie_decide.py --base a,b --amax 100 --seedh 300 --npts 2000`, shared
+point 0 only (F61), for the 22 lf36 directions other than (3,4). 28,283 curves.
+
+- **28,120 have no rational point of height <= 300; 158 are obstructed; 5 are feasible.**
+- The 5 feasible curves:
+
+  | curve | rank | bowties < 1e300 | smallest |
+  | --- | --- | --- | --- |
+  | (27,28)+(3,4) | 3 | 42 | 1.058e26, known: the catalogue pair (3,4)+(27,28) seen from its other line |
+  | (9,16)+(21,52) | 6 | 13 (+896 larger) | **7.18e161, new pair** |
+  | (28,31)+(52,73) | 4 | 1 (+232 larger; only 240 points tested) | **2.21e242, new pair** |
+  | (1,4)+(13,4) | 3 | 0 in 2,000 points | -- (feasible mod 2, no bowtie found) |
+  | (28,31)+(52,43) | 4 | 0 in 1,352 points | -- (rerun after a parse error) |
+
+- So outside (3,4) the only bowtie curves with numbers small enough to count are already in the catalogue. The two
+  new pairs start at 162 and 243 digits: their s-values are far beyond factoring, so they add no six-way tests.
+- No exact counts in this run (k pending for all bowtie numbers, F61 and the catalogue run included).
+- Run notes: one curve of (25,28) hung PARI for over an hour and was killed (1,993 of 1,994 curves logged); every PARI
+  call in the decider now has a 900 s timeout. PARI's `-8.97 E-5` (space before the exponent) broke the height-matrix
+  parse on one curve; fixed.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

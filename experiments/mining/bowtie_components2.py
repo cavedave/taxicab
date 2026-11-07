@@ -23,7 +23,7 @@ def seed_of(C, slopes, H=60):
         x = Fr(r, s); v = peval(C.q, x)
         if v > 0 and isqrt(v.numerator)**2 == v.numerator and isqrt(v.denominator)**2 == v.denominator:
             return x, Fr(isqrt(v.numerator), isqrt(v.denominator))
-    out = subprocess.run(["gp", "-q"], input=f"print(hyperellratpoints({C.gp_poly()}, {H}));", capture_output=True, text=True).stdout
+    out = subprocess.run(["gp", "-q"], input=f"print(hyperellratpoints({C.gp_poly()}, {H}));", capture_output=True, text=True, timeout=900).stdout
     pts = [(Fr(x), Fr(y)) for x, y in re.findall(r"\[(-?\d+(?:/\d+)?), (-?\d+(?:/\d+)?)\]", out) if Fr(y) != 0]
     return pts[0] if pts else None
 
@@ -36,7 +36,7 @@ def gp_run(C, seed, rel, cmax):
            'print("RANK ", R[1], " ", R[2], " ", #G, " TORS ", elltors(E)[2]);',
            "foreach(%s, p, my(L = elllocalred(Em, p)); print(\"RED \", p, \" \", L[2], \" \", L[4]));" % ps,
            "forvec(c = vector(#G, k, [-%d, %d]), my(P = [0]); for(k = 1, #G, if(c[k], P = elladd(E, P, ellmul(E, G[k], c[k])))); if(#P == 2, my(B = toQ(Q, q0, P)); if(B != 0, print(\"PT \", c, \" \", B[1] + %s, \" \", comps(Em, ellchangepoint(P, ch), %s), \" \", comps(Em, ellchangepoint(elladd(E, P, P), ch), %s)))));" % (cmax, cmax, x0, ps, ps)]
-    return subprocess.run(["gp", "-q", "-D", "parisizemax=2000000000"], input="\n".join(src), capture_output=True, text=True).stdout
+    return subprocess.run(["gp", "-q", "-D", "parisizemax=2000000000"], input="\n".join(src), capture_output=True, text=True, timeout=900).stdout
 
 def kod(k):
     k = int(k)

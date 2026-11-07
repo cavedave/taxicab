@@ -25,7 +25,7 @@ from bowtie_congruence import analyse, pf, GPF
 from bowtie_components2 import seed_of
 
 def gp(src):
-    return subprocess.run(["gp", "-q", "-D", "parisizemax=4000000000"], input="\n".join(src), capture_output=True, text=True).stdout
+    return subprocess.run(["gp", "-q", "-D", "parisizemax=4000000000"], input="\n".join(src), capture_output=True, text=True, timeout=900).stdout
 
 def setup(C, seed, rel):
     x0, w0 = seed
@@ -62,7 +62,7 @@ def job1(args):
         elif l.startswith("RED"): _, p, k = l.split(); red[int(p)] = int(k)
         elif l.startswith("HM"):
             rows = l[3:].strip().replace("Mat(", "").rstrip(")").strip("[]").split(";")
-            HM = [[float(v) for v in r.split(",")] for r in rows] if rows[0].strip() else []
+            HM = [[float(v.replace(" ", "")) for v in r.split(",")] for r in rows] if rows[0].strip() else []
     if ordv is None or not HM: return key, f"rank {rank}: no generators", None
     r = len(HM); M = 1
     for p in rel:
@@ -124,6 +124,7 @@ def main():
     ap.add_argument("--base", default=""); ap.add_argument("--amax", type=int, default=60); ap.add_argument("--npts", type=int, default=3000)
     ap.add_argument("--cmaxh", type=int, default=6); ap.add_argument("--procs", type=int, default=8); ap.add_argument("--out", default="")
     ap.add_argument("--seedh", type=int, default=60); ap.add_argument("--count", action="store_true")
+    ap.add_argument("--alli", action="store_true", help="all three shared points (F61: they give the same bowties)")
     A = ap.parse_args()
     jobs = [(tuple(map(int, s.split(","))), []) for s in A.pairs]
     if A.catalogue: jobs += [(c[:5], c[5]) for c in curves_from_catalogue()]
@@ -133,7 +134,7 @@ def main():
         for a2 in range(1, A.amax):
             for b2 in range(1, A.amax):
                 if a2 != b2 and math.gcd(a2, b2) == 1 and {a2, b2} != {a, b} and ns(b2 - a2) <= ns(b - a) and ns(b - a) <= ns(b2 - a2) | {3}:
-                    jobs += [((a, b, i, a2, b2), []) for i in range(3)]
+                    jobs += [((a, b, i, a2, b2), []) for i in (range(3) if A.alli else (0,))]
     cat = {int(l.split(";")[0]) for l in open(Path(__file__).resolve().parents[2] / "results/a047697_catalogue.txt") if l[0].isdigit()}
     f = open(A.out, "w") if A.out else None
     with Pool(A.procs) as pool:
