@@ -10,7 +10,7 @@ memory exhaustion in the old `count_reps`; fixed (depth-first, deadline; commit 
     ssh 7of9
     cd /mnt/scratch/dcurran && tar xzf count_rest_v1.tar.gz && cd count_rest
     which gp && python3 --version                              # needs PARI gp; Python 3.8 is fine
-    PROCS=48 nohup ./run.sh > run.out 2>&1 &
+    PROCS=48 nohup ./run.sh > run.out 2>&1 &                 # run.sh v2 uses ~/pari/bin/gp if present
     tail -f counted_rest.log                                   # "i/416 done, k counts {...}"; any k >= 6 prints *** SIX-WAY
 
 Limits per number: factoring 1800 s (`--tlim`), subset search 3600 s (`--tcount`). Expected time: on the laptop,
