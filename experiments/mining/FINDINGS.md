@@ -2373,6 +2373,24 @@ so infinitely many bowties, hence infinitely many n (finite fibres). Exactly-5 i
   (c) the finite-index / non-degeneracy argument (standard). Literature: no prior infinitude result for coprime
   >= 4- or >= 5-ways found (UlasPaperPlan A0d).
 
+## F70 (8 November 2026): how much the triangle constraints cut (Theorem 1, Theorem 8, Lemmas 17-18)
+
+`triangles/filter_measure.py`.
+- **(A) Direction triples (Lemma 18):** the 300 directions of the F68 scan (150 cheapest allowed and swaps) fall into
+  19 groups by nonsplit(b - a) (largest: 1 -> 80, 3 -> 56, 5 -> 28). Triples within a group: 116,956 of 4,455,100
+  (**2.6%**). Of the scan's 88 rational triangles, **2** have all three sides in one group.
+- **(B) Third sides of the 1,752 bowties** (two points off the shared one, one on each line; both chords between the two
+  representations): 14,016 candidates -> 7,828 after the orientation rule (one 2-type and 3-type per line, Theorem 8;
+  n odd and = +-1 mod 9) -> 7,008 after ab > 0 and 4 | ab (Theorem 1) -> **0 after E_3 | n** (Theorem 2 / Lemma 18).
+  All 7,008 have E_3 <= n, so this is not a size effect: the part of log E_3 not shared with n is 0.15 at least and
+  0.52 typically. (The norm condition and equal non-split parts were never reached.)
+- **(C) Classes (Lemma 17):** four-ways made of one line plus one free representation (n odd, n = +-1 mod 9): the free
+  representation is in the other class in **7,560 of 16,510** (46%), so it can never join that line in a triangle.
+- Reading: among necessary conditions for closing a bowtie into a triangle, **E_3 | n is the decisive cheap test**:
+  the chord direction's norm a^2 + ab + b^2 must divide n. It needs only the directions of the chords, not their third
+  points, and suggests a search shape: a third side is a direction whose norm divides n -- i.e. built from n's split
+  primes (and 3).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
