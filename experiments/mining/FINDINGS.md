@@ -2278,6 +2278,10 @@ included).
 
 ## F67 (8 November 2026): triangles = six-ways; chord near-misses; a polynomial triangle decider
 
+> **Correction (8 Nov):** the bowtie chord floor (6 | d) is THEOREMS.md Theorem 8 / Lemma 8a (F35, proved in October):
+> chords between points of opposite 2- or 3-type have non-p-integral third points; F35 also noted that a six-way spanning
+> rank 3 (a triangle does) is disfavoured. New here: the statistics on 1,717 five-ways and the fixed-direction quartic.
+
 **Set-up.** Representations are points of x^3 + y^3 = n (both (x, y) and (y, x)); with the flex at infinity as origin,
 A, B, C are collinear iff A + B + C = 0. A **triangle** -- three lines of three, pairwise sharing a point -- has
 6 points (3 corners, 3 third points), so it is a six-way. A bowtie is a triangle missing one side; the side through
@@ -2307,6 +2311,10 @@ one checks distinctness and that a single scaling makes all six points coprime i
   completions are the step-1 chords; heuristically (Siegel on the genus-1 curve) only finitely many per family.
 
 ## F68 (8 November 2026): chord denominators obey the 2-adic half of F10; triangle scans to 150 directions
+
+> **Correction (8 Nov):** "2 | d exactly when 4 does not divide ab" is Theorem 8's type rule at p = 2 restated (same
+> 2-type <=> 4 | ab; the conceptual proof via reduction onto E(F_2) = Z/3 gives both directions). Not new. New here: the
+> triangle scans only.
 
 **Chords** (`triangles/chord_f10.py`, `chord_f10b.py`; every chord between two known points not on a known line:
 71,278 from the five-ways, 413,476 from the four-ways). Direction (a, b) of the chord, denominator d of its third point:
