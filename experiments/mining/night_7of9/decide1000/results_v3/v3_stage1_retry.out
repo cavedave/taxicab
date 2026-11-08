@@ -1,0 +1,84 @@
+nohup: ignoring input
+== stage 1 start Sun 08 Nov 2026 17:13:52 GMT, 20 processes, at most 14.5 h
+235,748 curves, 235,664 already logged, 84 to run
+(28, 31, 0, 76, 97): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (13, 'sec'), (67, 'sec'), (73, 'den'), (103, 'den')]
+(7, 16, 0, 97, 76): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (7, 'sec'), (73, 'den'), (103, 'den'), (139, 'sec')]
+(28, 31, 0, 52, 79): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (13, 'sec'), (19, 'den'), (67, 'sec'), (229, 'den')]
+(1, 4, 0, 91, 100): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'sec'), (9127, 'den')]
+(7, 16, 0, 27, 76): rank ('5', '5'), M 10: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (43, 'den'), (139, 'sec'), (199, 'den')]
+(28, 31, 0, 16, 43): rank ('4', '4'), M 10: OBSTRUCTED by [(3, 'den'), (7, 'den'), (13, 'sec'), (19, 'den'), (67, 'sec')]
+(16, 19, 0, 64, 103): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (13, 'den'), (31, 'den'), (229, 'den'), (307, 'sec')]
+(7, 16, 0, 37, 64): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'den'), (7, 'sec'), (139, 'sec'), (373, 'den')]
+(4, 13, 0, 12, 25): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (13, 'den'), (79, 'sec'), (1069, 'den')]
+(9, 16, 0, 63, 64): rank ('5', '5'), M 6: OBSTRUCTED by [(7, 'sec'), (13, 'sec'), (37, 'sec'), (12097, 'den')]
+(36, 37, 0, 36, 73): rank ('5', '5'), M 6: OBSTRUCTED by [(7, 'sec'), (19, 'den'), (487, 'den'), (571, 'sec')]
+(28, 31, 0, 12, 73): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (7, 'sec'), (13, 'sec'), (61, 'den'), (67, 'sec'), (907, 'den')]
+(1, 16, 0, 97, 52): rank ('4', '4'), M 12: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (5, 'sec'), (7, 'den'), (7, 'sec'), (13, 'sec'), (19, 'den'), (43, 'den')]
+(12, 13, 0, 48, 79): rank ('4', '4'), M 10: OBSTRUCTED by [(7, 'sec'), (13, 'den'), (31, 'den'), (67, 'sec'), (73, 'den')]
+(16, 19, 0, 36, 73): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (19, 'den'), (37, 'den'), (307, 'sec'), (487, 'den')]
+(1, 16, 0, 97, 112): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (5, 'sec'), (7, 'sec'), (13, 'sec'), (10939, 'den')]
+(12, 13, 0, 108, 127): rank ('5', '5'), M 6: OBSTRUCTED by [(7, 'sec'), (13, 'den'), (19, 'den'), (31, 'den'), (67, 'sec'), (103, 'den')]
+(4, 19, 0, 4, 139): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (5, 'sec'), (19, 'den'), (151, 'sec'), (349, 'den')]
+(7, 12, 0, 13, 108): rank ('5', '5'), M 6: OBSTRUCTED by [(7, 'den'), (19, 'den'), (31, 'den'), (61, 'den'), (277, 'sec')]
+(12, 13, 0, 84, 121): rank ('5', '5'), M 6, periodic 5, feasible 648/15552 classes, 2000 points tested; 13 bowties < 1e300 (+1228 larger), largest k 0, k unknown 13, smallest 9.905e+110 (111 digits, NEW)
+(16, 19, 0, 16, 43): rank ('4', '4'), M 12: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'den'), (19, 'den'), (307, 'sec')]
+(3, 4, 0, 39, 148): rank ('5', '5'), M 6, periodic 5, feasible 1296/15552 classes, 2000 points tested; 70 bowties < 1e300 (+1056 larger), largest k 0, k unknown 70, smallest 3.371e+42 (43 digits, NEW)
+(28, 31, 0, 76, 139): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'den'), (13, 'sec'), (67, 'sec'), (11887, 'den')]
+(3, 4, 0, 117, 148): rank ('5', '5'), M 6: OBSTRUCTED by [(31, 'den'), (37, 'sec'), (157, 'den'), (337, 'den')]
+(28, 31, 0, 124, 67): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (13, 'sec'), (19, 'den'), (67, 'sec'), (9391, 'den')]
+(3, 4, 0, 21, 148): rank ('5', '5'), M 6: OBSTRUCTED by [(37, 'sec'), (127, 'den'), (25453, 'den')]
+(4, 7, 0, 148, 39): rank ('6', '6'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (31, 'sec'), (43, 'den'), (97, 'den'), (109, 'den')]
+(12, 13, 0, 84, 127): rank ('5', '5'), M 6, periodic 5, feasible 648/15552 classes, 2000 points tested; 18 bowties < 1e300 (+1890 larger), largest k 0, k unknown 18, smallest 8.339e+71 (72 digits, NEW)
+(4, 7, 0, 4, 151): rank ('4', '4'), M 10: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (31, 'sec'), (37, 'den'), (211, 'den')]
+(4, 7, 0, 148, 67): rank ('4', '4'), M 10: OBSTRUCTED by [(3, 'den'), (7, 'den'), (13, 'den'), (19, 'den'), (31, 'sec')]
+(25, 28, 0, 13, 124): rank ('4', '4'), M 12: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (37, 'den'), (37, 'sec'), (43, 'den')]
+(28, 31, 0, 4, 97): rank ('5', '5'), M 12: OBSTRUCTED by [(13, 'sec'), (31, 'den'), (67, 'sec'), (3271, 'den')]
+(25, 28, 0, 75, 76): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(4, 7, 0, 76, 157): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'den'), (7, 'sec'), (31, 'sec'), (2017, 'den')]
+(7, 16, 0, 79, 172): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (13, 'den'), (139, 'sec'), (181, 'den')]
+(4, 9, 0, 76, 111): rank ('4', '4'), M 12: OBSTRUCTED by [(5, 'sec'), (7, 'den'), (7, 'sec'), (13, 'den'), (19, 'sec'), (157, 'den')]
+(1, 16, 0, 7, 192): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (5, 'sec'), (7, 'sec'), (13, 'sec'), (37, 'den'), (67, 'den'), (571, 'den')]
+(7, 16, 0, 1, 148): rank ('4', '4'), M 10: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (139, 'sec'), (7351, 'den')]
+(7, 16, 0, 9, 172): rank ('3', '3'), M 18: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (13, 'den'), (139, 'sec')]
+(28, 31, 0, 36, 109): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(25, 28, 0, 19, 112): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(4, 13, 0, 148, 175): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (13, 'den'), (79, 'sec'), (2011, 'den')]
+(1, 16, 0, 13, 108): rank ('4', '4'), M 12: OBSTRUCTED by [(3, 'sec'), (5, 'sec'), (7, 'den'), (7, 'sec'), (13, 'sec'), (31, 'den'), (61, 'den')]
+(28, 31, 0, 36, 193): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (7, 'sec'), (13, 'sec'), (97, 'den'), (157, 'den')]
+(12, 13, 0, 84, 211): rank ('8', '8'), M 6: OBSTRUCTED by [(7, 'sec'), (37, 'den'), (67, 'sec'), (127, 'den'), (1873, 'den')]
+(12, 19, 0, 12, 31): rank ('4', '4'), M 12: OBSTRUCTED by [(7, 'den'), (7, 'sec'), (19, 'den'), (19, 'sec'), (211, 'den'), (733, 'sec')]
+(4, 13, 0, 148, 67): rank ('4', '4'), M 12: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'den'), (13, 'den'), (19, 'den'), (79, 'sec')]
+(13, 16, 0, 157, 196): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (13, 'den'), (31, 'den'), (211, 'sec'), (1009, 'den')]
+(12, 13, 0, 228, 241): rank ('5', '5'), M 6: OBSTRUCTED by [(7, 'sec'), (13, 'den'), (31, 'den'), (67, 'sec'), (5323, 'den')]
+(4, 7, 0, 244, 117): rank ('4', '4'), M 10: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (67, 'den'), (127, 'den')]
+(28, 31, 0, 148, 211): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'den'), (13, 'sec'), (43, 'den'), (67, 'sec'), (757, 'den')]
+(13, 16, 0, 43, 244): rank ('5', '5'), M 6, periodic 6, feasible 108/15552 classes, 2000 points tested; 7 bowties < 1e300 (+1856 larger), largest k 0, k unknown 7, smallest 3.907e+97 (98 digits, NEW)
+(7, 16, 0, 223, 76): rank ('4', '4'), M 10: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (139, 'sec'), (24151, 'den')]
+(28, 31, 0, 36, 127): rank ('4', '4'), M 12: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (7, 'sec'), (13, 'den'), (13, 'sec'), (67, 'sec'), (21997, 'den')]
+(28, 31, 0, 4, 151): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(13, 16, 0, 181, 244): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'sec'), (13, 'den'), (211, 'sec'), (3499, 'den')]
+(4, 13, 0, 124, 241): rank ('4', '4'), M 12: OBSTRUCTED by [(7, 'den'), (13, 'den'), (19, 'den'), (37, 'den'), (79, 'sec')]
+(16, 19, 0, 172, 9): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(28, 31, 0, 108, 181): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(4, 7, 0, 64, 193): rank ('4', '4'), M 12: OBSTRUCTED by [(7, 'den'), (31, 'sec'), (43, 'den'), (2557, 'den')]
+(28, 31, 0, 244, 241): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (7, 'sec'), (13, 'sec'), (31, 'den'), (67, 'sec'), (271, 'den')]
+(4, 7, 0, 172, 211): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(1, 4, 0, 259, 36): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'sec'), (13, 'den'), (43, 'den'), (139, 'den'), (223, 'den')]
+(7, 16, 0, 225, 256): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (103, 'den'), (139, 'sec'), (241, 'den')]
+(28, 31, 0, 172, 211): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(4, 7, 0, 192, 241): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(25, 28, 0, 259, 76): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (19, 'sec'), (37, 'sec'), (61, 'den'), (109, 'den'), (283, 'den')]
+(4, 19, 0, 76, 151): rank ('4', '4'), M 12: OBSTRUCTED by [(3, 'sec'), (5, 'den'), (13, 'den'), (79, 'den'), (151, 'sec')]
+(1, 4, 0, 189, 268): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'sec'), (13, 'den'), (43, 'den'), (79, 'den'), (283, 'den')]
+(28, 31, 0, 244, 271): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'den'), (13, 'sec'), (19, 'den'), (67, 'sec'), (499, 'den')]
+(25, 28, 0, 241, 124): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(28, 31, 0, 124, 241): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(4, 21, 0, 172, 291): rank ('6', '6'), M 6: OBSTRUCTED by [(7, 'den'), (7, 'sec'), (37, 'den'), (541, 'sec'), (4441, 'den')]
+(4, 13, 0, 12, 283): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (13, 'den'), (79, 'sec'), (271, 'den'), (919, 'den')]
+(28, 31, 0, 228, 277): rank ('4', '4'), M 10: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (13, 'sec'), (67, 'sec'), (313, 'den'), (613, 'den')]
+(4, 7, 0, 100, 247): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(7, 16, 0, 129, 292): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'sec'), (7, 'den'), (7, 'sec'), (127, 'den'), (139, 'sec'), (157, 'den'), (163, 'den')]
+(28, 31, 0, 36, 247): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(4, 7, 0, 268, 151): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
+(1, 4, 0, 283, 112): rank ('5', '5'), M 6: OBSTRUCTED by [(3, 'den'), (3, 'sec'), (7, 'sec'), (19, 'den'), (41443, 'den')]
+(7, 16, 0, 283, 292): ERROR TimeoutExpired(['gp', '-q', '-D', 'parisizemax=4000000000'], 3600)
