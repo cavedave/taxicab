@@ -1,7 +1,7 @@
 # TODO (running list; proofs to do are in experiments/mining/TODO.md)
 
 ## Runs
-- [x] **lf36_v4 on 7of9** (F64: done 8 Nov, no six-way, 31 new five-ways; certificate needs lf.log + lf_jobs.log): complete line search, 23 cheapest directions (cost <= 1e4), n <= 1e36 exactly (~17 h; BOUND=1e35 ~8 h). New bowties -> bowtie_hunt.py curves.
+- [x] **lf36_v4 on 7of9** (F64: done and certified 8 Nov, no six-way, 31 new five-ways): complete line search, 23 cheapest directions (cost <= 1e4), n <= 1e36 exactly (~17 h; BOUND=1e35 ~8 h). New bowties -> bowtie_hunt.py curves.
 - [x] line_fast.py: chunks of heavy directions are separate pool tasks (load balance); --B parsed exactly (Decimal). Bundle lf_v3.tar.gz.
 - [x] **Complete line search to 1e33 with the C++ version** (F50, F52: done 6 Nov, no six-way, 49 new five-ways): lf_7of9.tar.gz, `nohup bash run_lf.sh > lf.log 2>&1 &` (every direction, ~5-7 h; or CMAX=1e4 first, ~1 h).
 - [x] **Complete line search to 1e30 on 7of9** (F47, F48: done 4 Nov, no six-way, 11 new five-ways): copy lc_7of9.tar.gz, `nohup bash run_lc.sh > lc.log 2>&1 &`.

@@ -2199,8 +2199,13 @@ catalogue bowties it reproduces every catalogue count (0 mismatches).
 ## F64 (8 November 2026): the line search to 1e36 in the 23 cheapest directions -- no six-way; 31 new five-ways
 
 **Run** (7of9, `lf36_v4`: line_fast.py + lc_fast.cpp, the 23 directions of cost <= 1e4, n <= 10^36 exactly; output
-finished 8 Nov 05:47). File: `night_7of9/results_lf_1e36/lf_k4.txt` (from `lf_all.tar.gz`). **Not yet certified:**
-`lf.log` and `lf_jobs.log` were not in the bundle, so job completeness is unchecked.
+7 Nov 09:41 - 8 Nov 05:48, 72,437 s on 60 processes; selfcheck and C++/Python validation passed). Files:
+`night_7of9/results_lf_1e36/` (from `lf_all.tar.gz`).
+
+**Certificate:** 94,458 jobs logged, each once, equal to the planned job list rebuilt with the run's own code
+(`check_jobs.py`; chunks of all 23 directions tile); 1.891e12 slopes, 5.179e10 triples (log total = lf.log total); no
+Python fallback; `certify_M.py --cmax 1e4 --B 10^36`: 23 directions, 0 failures. With Lemma 15 this is a proof:
+**no n <= 10^36 with a line in one of the 23 directions of cost <= 1e4 has six coprime representations.**
 
 **Results:** 8,407 numbers with k >= 4 (8,326 four-ways, **81 five-ways, largest k = 5**; 3 five-ways are written twice,
 identical rows). Largest n 9.987e35.
