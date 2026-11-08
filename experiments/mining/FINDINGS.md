@@ -2180,7 +2180,7 @@ point 0 only (F61), for the 22 lf36 directions other than (3,4). 28,283 curves.
   call in the decider now has a 900 s timeout. PARI's `-8.97 E-5` (space before the exponent) broke the height-matrix
   parse on one curve; fixed.
 
-## F63 (7 November 2026): exact counts of 574 new bowtie numbers (34-252 digits) -- all k = 5 (partial)
+## F63 (7-8 November 2026): exact counts of the 990 new bowtie numbers <= 300 digits -- 984 have k = 5, 6 unknown
 
 `count_bowties.py` (new): factors n from the s-values of its five representations and the E's of its two lines
 (Theorem 13), then counts every coprime representation exactly (`bowtie_hunt.count_reps`, Theorem 5). Check: on 28
@@ -2195,6 +2195,17 @@ catalogue bowties it reproduces every catalogue count (0 mismatches).
   `count_reps` held every product of split prime blocks below (4n)^(1/3) in one list. At 252 digits n has 15-28 split
   primes (2^28 subsets); one worker reached 40 GB. 416 numbers (149 base + 267 catalogue, the largest) remain.
 - Files: `results_bowtie_curves/decide/counted_{base34,bases,catalogue}.{txt,log}`, `catalogue2*`.
+- **Completed 8 Nov** (`night_7of9/count_rest/`, fixed counter, 7of9 48 processes ~75 min + the last 6 on the laptop
+  ~2 h): of the 416 remaining (177-300 digits), 410 k = 5, 6 unknown. **Total: 984 of 990 have exactly k = 5; no
+  six-way.** Unknown (`count_rest/results/unfactored.txt`): one 271-digit number with 34 split primes (subset search
+  over 1 h), and five numbers of 284-299 digits each with one s-value or E piece of 97-100 digits that PARI did not
+  factor in 30 min (for ECM with large bounds or CADO-NFS).
+- The 7of9 run stopped at 410/416 on an assertion: PARI's `alarm()` *returns* an error object on timeout (it does
+  not raise), so `factor_many` read a timed-out piece as "no factors"; the product check caught it. Fixed (27169a0):
+  type check, output-line check, and inconsistencies go to `.unk` instead of stopping the run. No wrong count was
+  possible (a timed-out piece can only lose primes).
+- Known coprime five-ways now: 199 in the catalogue + 981 counted bowtie numbers outside it = **1,180 distinct**
+  (merge into the catalogue pending an independent `repsf` recount).
 
 ## F64 (8 November 2026): the line search to 1e36 in the 23 cheapest directions -- no six-way; 31 new five-ways
 
