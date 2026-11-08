@@ -2237,6 +2237,26 @@ identical rows). Largest n 9.987e35.
 - **Merged (8 Nov):** the 3,640 new rows, each recounted independently by `verify_gp/reps.gp` (PARI only): 0 mismatches
   in count or representations. Catalogue now 22,482 four-ways, 199 five-ways (22,681 rows).
 
+## F65 (8 November 2026): decider stage 1 (second direction < 300) -- 5 new bowtie pairs; the seed limit was too low
+
+`night_7of9/decide1000/` v1 stage 1 (7of9, 60 processes, 28 min): the 23 lf36 base directions, pairs with
+100 <= max(a2, b2) < 300, shared point 0, seed height 300. 206,098 of 206,100 curves logged (results/stage1.*).
+
+- 205,863 no point of height <= 300; 206 obstructed; 7 feasible; 21 gp 900 s timeouts; 1 parse error.
+- **6 curves with bowties, 5 of them new pairs:** (3,4)+(75,124) 110 bowties < 1e300 (smallest 1.00e63);
+  (3,4)+(117,244) 80 (4.35e73); (3,4)+(39,148) 70 (3.37e42); (4,7)+(112,223) 13 (6.26e80); (4,7)+(64,247) 3
+  (1.75e157); plus (13,16)+(121,124) 112 (smallest 6.515e29, the lf36 bowtie). **387 new bowtie numbers < 1e300**
+  (k >= 5 by construction; exact counts pending).
+- **Rediscovery check failed for (1,12)+(49,192)** (lf36 bowtie 4.98e29): its only known point has height 7,349 > 300,
+  and ellrank at default effort found no generators (rank 4; effort 3 finds 3 generators at once). With no
+  generators, `vecextract(R[4], "1..0")` raised a PARI error and the curve was reported as a parse error (the stage 1
+  parse error, (12,19)+(36,139), was this; with the fix it is obstructed).
+- So "no point found" in F61, F62 and here only meant "no point of height <= 300". Seed search on point-free quartics
+  is cheap (ratpoints sieve): 0.25 ms per curve at 300, 4 ms at 3e4, 33 ms at 1e5 (200 sample curves, max 242 ms).
+- Fixes (bowtie_decide.py): ellrank effort-3 fallback when generators are missing; empty generator list handled;
+  seed height 1e5. Test: with seed height 1e5 and no hint, (1,12,i,49,192) for i = 0, 1, 2 each give 12 bowties
+  < 1e300 including 4.98e29. Bundle `decide1000_v2.tar.gz` redoes everything below 300 (235,748 curves).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

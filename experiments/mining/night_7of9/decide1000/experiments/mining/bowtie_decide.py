@@ -36,7 +36,9 @@ def setup(C, seed, rel):
     qpol = "+".join("(%d)*X^%d" % (c, k) for k, c in enumerate(C.q))
     head = ["\\r %s" % GPF, "Q = subst(%s, X, %s + u); q0 = %s; E = q2e(Q, q0); Em = ellminimalmodel(E);" % (qpol, x0, w0),
             'R = iferr(alarm(120, ellrank(E)), e, e); if(type(R) == "t_ERROR", print("RANKTIMEOUT"); R = [0,0,0,[]]);',   # alarm returns its error
-            'G = vecextract(R[4], Str("1..", min(#R[4], 5))); T = elltors(E);',
+            # default effort can find no generators where effort 3 finds them at once ((1,12,2,49,192): rank 4, 3 gens)
+            'if(#R[4] < R[2], my(R3 = iferr(alarm(120, ellrank(E, 3)), e, e)); if(type(R3) != "t_ERROR" && #R3[4] > #R[4], R = R3));',
+            'G = if(#R[4], vecextract(R[4], Str("1..", min(#R[4], 5))), []); T = elltors(E);',   # Str("1..0") is an error
             "Gt = concat(G, T[3]); ord = concat(vector(#G, k, 0), T[2]);"]
     return head, x0
 
