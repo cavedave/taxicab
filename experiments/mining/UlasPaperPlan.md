@@ -106,6 +106,24 @@ J. H. Silverman, *Taxicabs and sums of two cubes*, Amer. Math. Monthly 100 (1993
     the balancing-number families here.
   - **Add to the genus survey:** look first for degree-2 cases (s of degree 1 in t).
 
+### A0d. Literature search, 8 November 2026 (web; for "infinitely many coprime >= 4- and >= 5-ways")
+- **No published proof found** that infinitely many n have >= 3, >= 4 or >= 5 coprime representations (signed or
+  positive). OEIS A080642 (cube-free k-ways) states its rank comment *conditionally* ("if the sequence is infinite");
+  A047697 has no comment on infinitude.
+- **Every "many solutions" lower bound uses non-coprime solutions:** Chowla 1933, Mahler 1935, Silverman 1983,
+  Stewart 2008 (IMRN rnn040, `refs/stewart_2008_cubic_thue_many_solutions_rnn040.pdf`: "The solutions (x, y), so
+  constructed, have very large common factors"), Stewart 2009 (exponent 6/7), Elkies-Rogers (rank 11 -> 11/13).
+- **Wilson 1999** (JIS 99.1.9): combines two n-ways with the same cube-free part into an (n+1)-way; "primitive" there
+  means the summands are jointly coprime (A293647 sense), not each pair coprime; positive cubes only; no infinitude.
+- **Not relevant:** Reznick-Rouse 2011 (IJNT 7, rational-function solutions of f^3 + g^3 = x^3 + y^3); Srinivasa
+  Raghava arXiv:2607.11925 (three-cube identities, rational-function two-cube representations); Byeon-Jeong / Mai
+  (cube-free n with rank >= 2, rational not integral points).
+- **Still to check (ask the user for copies):** Rosenstiel-Dardis-Rosenstiel, Bull. IMA 27 (1991) 155-157 (five-way;
+  possible families); Lang, *Elliptic Curves: Diophantine Analysis* (1978) p. 140; Dickson vol. 2 ch. XXI (local copy)
+  for classical coprime three-way families (Werebrusow, Gerardin).
+- **Conclusion:** infinitely many coprime >= 4- and >= 5-ways (from one explicit bowtie curve) looks new; the
+  coprime >= 3 case may be classical (Dickson ch. XXI) -- check before claiming.
+
 ### A1. Ulas step 1: mine our four-ways for recurring shapes
 - **Data:** 205 exhaustive four-ways ≤ 10¹⁷ (`results/fourways.md`, scratchpad `cab2_1e15.txt` and
   `cab4_1e15_1e17.txt`) plus 113 from the hero7 run (`hero7_multi.txt`).

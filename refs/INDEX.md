@@ -38,6 +38,7 @@ listed once, with all their locations.
 | `refs/JacobianFinal.pdf` | S. Y. An, S. Y. Kim, *Jacobians of genus one curves* | Weierstrass forms of genus-1 curves (needed for A2/C2) |
 | `refs/67_MORDELL.pdf`, `67_MORDELL.pdf` | Gebel, Pethő, Zimmer, *On Mordell's equation* | computing integer points |
 | `refs/mahler040.pdf` | K. Mahler, *Note on Hypothesis K of Hardy and Littlewood*, J. London Math. Soc. 11 (1936) | (9ξ⁴)³ + (3ξ − 9ξ⁴)³ + (1 − 9ξ³)³ = 1 (used by Ulas §3) |
+| `refs/stewart_2008_cubic_thue_many_solutions_rnn040.pdf` | C. L. Stewart, *Cubic Thue equations with many solutions*, IMRN 2008, rnn040 | (log m)^(1/2) solutions for every cubic form; x^3 + y^3: (log m)^(3/5) -> 3/4 -> 11/13; solutions have large common factors (not coprime) |
 | `refs/jlms%2Fs2-28.1.1.pdf` | J. H. Silverman, *Integer points on curves of genus 1*, J. London Math. Soc. (2) 28 (1983) 1–7 | N_f(m) ≫ (log m)^(r/(r+2)) from a rank-r curve f = m₀z³; for x³ + y³: (log m)^(3/5). Mahler's denominator-clearing, so not coprime |
 | `~/Downloads/Unsolved Problems … Guy … 9780387208602 ….djvu` (3rd ed., 2004; 1st ed. 1981 PDF alongside) | R. K. Guy, *Unsolved Problems in Number Theory*, D1 (pp. 209–213) | history and status: see UlasPaperPlan A0c |
 | `refs/leech_1957_some_solutions_diophantine.pdf` | J. Leech, *Some solutions of Diophantine equations*, Proc. Camb. Phil. Soc. 53 (1957) | smallest positive 3-way |
