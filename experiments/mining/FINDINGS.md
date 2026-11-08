@@ -2214,7 +2214,7 @@ identical rows). Largest n 9.987e35.
   each). The other 87 decider bowties <= 1e36 have no such line and are all in the catalogue.
 - **Shapes:** 79 of the 81 five-ways are bowties (two lines), 2 have one line. All 31 new ones are bowties: 3 on pairs
   the decider examined ((3,4)+(75,76)), **28 with a second direction outside the decider's range** (coefficients >= 100,
-  up to (1828084, 1801353)). Base directions of the 31: (3,4) 13, (12,13) 4, (1,4) 3, (27,28) 3, (4,7) 2, (13,16) 2,
+  up to (1828084, 1801353)). Base directions of the 31: (3,4) 12, (12,13) 4, (1,4) 3, (27,28) 3, (4,7) 2, (13,16) 2,
   (4,9), (16,19), (9,16), (12,19), (16,21) one each.
 - So bowties with an expensive second line are common, and they are reachable only through the cheap line plus an exact
   count (or a decider run with a much larger amax).
