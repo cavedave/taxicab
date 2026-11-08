@@ -2257,6 +2257,25 @@ identical rows). Largest n 9.987e35.
   seed height 1e5. Test: with seed height 1e5 and no hint, (1,12,i,49,192) for i = 0, 1, 2 each give 12 bowties
   < 1e300 including 4.98e29. Bundle `decide1000_v2.tar.gz` redoes everything below 300 (235,748 curves).
 
+## F66 (8 November 2026): decider v2 stage 1 (every pair with max(a2, b2) < 300, seed height 1e5) -- 23 bowtie pairs
+
+`night_7of9/decide1000/` v2 (7of9, 60 processes, ~1 h): 23 lf36 base directions, 235,748 curves, 235,745 logged
+(results_v2/). **All 10 rediscovery checks pass** (every lf36 bowtie with second direction < 300, (1,12)+(49,192)
+included).
+
+- 234,922 no point of height <= 1e5; 715 obstructed (v1: 206 for the 100-300 range); 27 feasible and searched;
+  **81 undecided on gp's 900 s limit** (+3 unlogged).
+- **23 curves with bowties < 1e300** (one more, (12,13)+(36,259), has only larger ones). New since F62 and F65 v1:
+  (27,28)+(21,52) 89 bowties from 1.49e46 -- **a pair below 100 that F62 missed at seed height 300**; (3,4)+(225,268)
+  55 (7.13e76); (27,28)+(81,112) 44; (27,28)+(81,100) 14 (6.75e66); (16,19)+(268,271) 14; (12,13)+(252,289) 12
+  (6.02e67); (16,19)+(16,127) 7; (1,4)+(229,268) 6; (7,12)+(151,156) 2; (4,7)+(4,277) 1.
+- 1,041 bowtie numbers < 1e300; **255 not in results/five_ways_all.txt** (k >= 5, exact counts pending).
+- The 70 v1 bowties missing from v2 are all from (3,4)+(39,148), undecided in v2: its periodicity box (2M+1)^r =
+  13^5 = 371,293 points (M 6, rank 5) gave 567 MB of gp output (146 s on the laptop; over 900 s under load). Of the
+  81: 33 had no point at 300 in v1, 17 are pairs < 100, 21 timed out in v1 too, 10 were decided in v1 (probably now
+  with more generators from the ellrank effort-3 fallback, so a larger box). v3 bundle: `--gptime 3600`; a resume
+  reruns only the unfinished curves.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

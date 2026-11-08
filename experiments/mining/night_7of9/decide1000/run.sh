@@ -4,7 +4,8 @@
 #   Stage 2:  STAGE=2 nohup ./run.sh > v2_stage2a.out 2>&1 &    pairs with 300 <= max(a2, b2) < 1000 (2,093,530 curves)
 # Each start runs at most HOURS (default 14.5) and then stops cleanly (GNU timeout kills the whole process group,
 # gp included). Starting again with the same STAGE resumes: curves already in the log are skipped. Jobs run in order
-# of max(a2, b2), so a stopped run covers every pair below some value.
+# of max(a2, b2), so a stopped run covers every pair below some value. Curves that ended in ERROR (e.g. a gp timeout)
+# are rerun on resume. v3: gp calls may take up to 1 h (the periodicity box (2M+1)^r reached 567 MB of output at M 6, rank 5).
 set -u
 STAGE=${STAGE:-1}; PROCS=${PROCS:-60}; HOURS=${HOURS:-14.5}
 export PATH="$HOME/pari/bin:$PATH"
@@ -18,7 +19,7 @@ BASES="3,4 1,4 4,7 12,13 4,9 7,12 1,12 13,16 4,13 27,28 16,19 9,16 7,16 36,37 3,
 OUT=$PWD/v2_stage$STAGE      # v2: seed height 1e5 (v1's 300 missed (1,12)+(49,192), a point of height 7,349)
 cd experiments/mining
 echo "== stage $STAGE start $(date), $PROCS processes, at most $HOURS h"
-timeout ${HOURS}h python3 -u bowtie_decide.py --base $BASES --amin $AMIN --amax $AMAX --seedh 100000 --npts 2000 \
+timeout ${HOURS}h python3 -u bowtie_decide.py --base $BASES --amin $AMIN --amax $AMAX --seedh 100000 --npts 2000 --gptime 3600 \
   --procs $PROCS --log $OUT.log --out $OUT.txt --resume
 rc=$?
 if [ $rc -eq 124 ]; then echo "== stopped at the time limit $(date): start again with STAGE=$STAGE to resume"

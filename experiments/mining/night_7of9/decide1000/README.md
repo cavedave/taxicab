@@ -10,6 +10,16 @@ effort found no generators (rank 4; effort 3 finds 3 at once). Seed search on po
 curve at height 1e5 (max 242 ms in 200 samples), so v2 uses 1e5 and redoes the whole range below 300 (F61/F62 and
 v1 stage 1 all used 300). Logs are named v2_stage*, so v1's logs are never resumed.
 
+## v3 (8 Nov): gp calls up to 1 h
+
+v2 stage 1 left 81 curves undecided on gp's 900 s limit (and 3 unlogged when collected), among them (3,4)+(39,148)
+(70 bowties in v1): its periodicity box (2M+1)^r = 13^5 points gave 567 MB of gp output (146 s on the laptop, longer under
+load on 7of9). v3 = v2 + `--gptime 3600`. Unpack v3 over v2 in the same folder and run STAGE=1 again with fewer
+processes (heavy curves can use 1-2 GB of memory each): only the 84 unfinished curves run.
+
+    cd /mnt/scratch/dcurran && tar xzf decide1000_v3.tar.gz && cd decide1000
+    STAGE=1 PROCS=20 nohup ./run.sh > v3_stage1_retry.out 2>&1 &
+
 ## Run on 7of9
 
     scp decide1000_v2.tar.gz 7of9:/mnt/scratch/dcurran/

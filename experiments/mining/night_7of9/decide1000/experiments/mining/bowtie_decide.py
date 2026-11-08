@@ -28,8 +28,9 @@ from bowtie_hunt import curves_from_catalogue, factor_many, count_reps
 from bowtie_congruence import analyse, pf, GPF
 from bowtie_components2 import seed_of
 
+GPTIME = 900                                                   # seconds per gp call (--gptime); set in each job
 def gp(src):
-    return subprocess.run(["gp", "-q", "-D", "parisizemax=4000000000"], input="\n".join(src), capture_output=True, text=True, timeout=900).stdout
+    return subprocess.run(["gp", "-q", "-D", "parisizemax=4000000000"], input="\n".join(src), capture_output=True, text=True, timeout=GPTIME).stdout
 
 def setup(C, seed, rel):
     x0, w0 = seed
@@ -53,7 +54,8 @@ def job(args):
     except Exception as e: return args[0], f"ERROR {e!r}", None
 
 def job1(args):
-    key, slopes, npts, cmaxh, seedh, count = args
+    global GPTIME
+    key, slopes, npts, cmaxh, seedh, count, GPTIME = args
     a, b, i, a2, b2 = key; C = Curve(*key)
     seed = seed_of(C, slopes, seedh)
     if seed is None: return key, "no point found", None
@@ -134,6 +136,7 @@ def main():
     ap.add_argument("--seedh", type=int, default=60); ap.add_argument("--count", action="store_true")
     ap.add_argument("--alli", action="store_true", help="all three shared points (F61: they give the same bowties)")
     ap.add_argument("--log", default=""); ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--gptime", type=int, default=900, help="seconds per gp call (the periodicity box (2M+1)^r can take minutes)")
     A = ap.parse_args()
     jobs = [(tuple(map(int, s.split(","))), []) for s in A.pairs]
     if A.catalogue: jobs += [(c[:5], c[5]) for c in curves_from_catalogue()]
@@ -162,7 +165,7 @@ def main():
         print(line, flush=True)
         if lg: lg.write(line + "\n"); lg.flush()
     with Pool(A.procs) as pool:
-        for key, note, found in pool.imap_unordered(job, [(k, s, A.npts, A.cmaxh, A.seedh, A.count) for k, s in todo]):
+        for key, note, found in pool.imap_unordered(job, [(k, s, A.npts, A.cmaxh, A.seedh, A.count, A.gptime) for k, s in todo]):
             if found is None: say(f"{key}: {note}"); continue
             big = found.pop("big", 0); ns = sorted(found); kmax = max((len(found[n][0]) for n in ns if found[n][0]), default=0)
             say(f"{key}: {note}; {len(ns)} bowties < 1e300 (+{big} larger), largest k {kmax}, k unknown {sum(1 for n in ns if found[n][0] is None)}" + (f", smallest {ns[0]:.3e} ({len(str(ns[0]))} digits, {'known' if ns[0] in cat else 'NEW'})" if ns else ""))
