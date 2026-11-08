@@ -654,10 +654,18 @@ c = (0, 1, 1, -2, -2), j = 1..10 (n of 1,260 to 129,340 digits).
 **Checks for the instance (8 Nov):** Delta irreducible, disc(Delta) != 0 (genus 1, irreducible); Delta = B~^2 - 4AC~
 on raw coordinates (ratio 1 at six slopes); torsion Z/2 (PARI elltors), so each of the five generators (canonical
 heights 5.5 - 18.9, regulator 75,786) has infinite order: rank >= 1 (indeed >= 5).
-**Remaining for a referee:** (i) state Delta = B~^2 - 4AC~ as a lemma from the definitions (F53 / bowtie_mine);
-(ii) the conic-ordering count in step 5 (cite Theorem 4); (iii) the claim that U_p pulls back to a neighbourhood of
-O uses only that the isomorphism C_{pair} -> E is continuous on Q_p-points. Literature: no prior
-infinitude result for coprime >= 3-, 4- or 5-ways found (UlasPaperPlan A0d).
+Literature: no prior infinitude result for coprime >= 3-, 4- or 5-ways found (UlasPaperPlan A0d).
+
+**TO DO before Theorem 16 goes into the paper (open, 8 Nov 2026):**
+1. **Delta = B~^2 - 4AC~ as forms.** Prove it from the definitions as a short lemma (F53; how `bowtie_mine.Curve`
+   builds q). At present it rests on the code's definition plus a numerical check (ratio 1 at six slopes).
+2. **The count in step 5.** Show that a base triple comes from only finitely many slopes (s : r) (at most 6
+   orderings of the conic point), citing Theorem 4 (the slope enumeration is complete) for the bijection between
+   slopes and ordered rational points of the conic.
+3. **Continuity in step 1.** State that the isomorphism C_{pair} -> E (Weierstrass model, P0 -> O) is continuous on
+   Q_p-points (a morphism of varieties), so U_p pulls back to an open neighbourhood of O. Standard; add a reference
+   (e.g. Silverman AEC, or the topology on V(Q_p) for a variety V).
+4. **Independent read.** Have someone other than the author of this draft check 16a-16e and the five steps.
 
 ---
 
