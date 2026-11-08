@@ -181,7 +181,7 @@ def count_exact(curve, n, s3, gp):
            f'my(f = matreduce(matconcat([{parts}])), d = factor({abs(a - b)})); '
            f'f = matreduce(matconcat([f; matrix(#d~, 2, i, j, if(j == 1, d[i, 1], -2 * d[i, 2]))])); '
            f'f = matreduce(f); '
-           f'if(factorback(f) != {n}, print("MISMATCH"), print(iferr(#alarm(900, repsf({n}, f)), e, "?")));')
+           f'if(factorback(f) != {n}, print("MISMATCH"), print(iferr(my(r = alarm(900, repsf({n}, f))); if(type(r) == "t_ERROR", "?", #r), e, "?")));')   # alarm returns, not raises
     out = subprocess.run([gp, "-q", "-D", "parisizemax=4000000000"], input=src, capture_output=True, text=True).stdout.split()
     return out[-1] if out else "?"
 

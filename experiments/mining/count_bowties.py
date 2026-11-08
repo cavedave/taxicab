@@ -42,12 +42,14 @@ def job(args):
         if rest is None: return n, None, five, key, time.time() - t0, f"factor:{m}"
         for p, e in rest: F[p] = F.get(p, 0) + e
     F = sorted(F.items())
-    assert math.prod(p**e for p, e in F) == n, "factorisation does not multiply to n"
+    if math.prod(p**e for p, e in F) != n:                       # should not happen; keep the number for later, don't stop
+        return n, None, five, key, time.time() - t0, "BUG:factorisation does not multiply to n"
     nsplit = sum(p % 3 == 1 for p, e in F)
     reps = count_reps(n, F, time.time() + tcount)
     if reps is None:                                            # too many split primes for the time limit
         return n, None, five, key, time.time() - t0, f"count:{nsplit} split primes;" + "*".join(f"{p}^{e}" for p, e in F)
-    assert set(five) <= set(reps) | {(y, x) for x, y in reps}, "a known representation was not found"
+    if not set(five) <= set(reps) | {(y, x) for x, y in reps}:
+        return n, None, five, key, time.time() - t0, "BUG:a known representation was not found"
     return n, reps, five, key, time.time() - t0, ""
 
 def main():
@@ -76,6 +78,7 @@ def main():
             if reps is None:
                 unk += 1; f.write(f"{n};?;" + ",".join(f"{x}:{y}" for x, y in five) + f";{key}\n")
                 fu.write(f"{n};{why};{key}\n"); fu.flush()
+                if why.startswith("BUG"): print(f"*** {why}: n = {n}", flush=True)
             else:
                 hist[len(reps)] = hist.get(len(reps), 0) + 1
                 f.write(f"{n};{len(reps)};" + ",".join(f"{x}:{y}" for x, y in sorted(reps, reverse=True)) + f";{key}\n")

@@ -56,8 +56,11 @@ def curves_from_catalogue():
 
 def factor_many(nums, gp, tlim=600):
     """PARI factorisations; a factorisation over the time limit comes back as None"""
-    src = "\n".join(f'print(iferr(alarm({tlim}, factor({abs(v)})), e, "TIMEOUT"));' for v in nums)
+    # alarm() RETURNS an error object on timeout (it does not raise), so test its type; iferr catches other errors
+    src = "\n".join(f'print(iferr(my(r = alarm({tlim}, factor({abs(v)}))); if(type(r) == "t_ERROR", "TIMEOUT", r), e, "TIMEOUT"));'
+                    for v in nums)
     txt = subprocess.run([gp, "-q", "-D", "parisizemax=4000000000"], input=src, capture_output=True, text=True).stdout
+    if len(txt.strip().splitlines()) != len(nums): return [None] * len(nums)     # gp died or printed extra: trust nothing
     res = []
     for line in txt.strip().splitlines():
         if "TIMEOUT" in line: res.append(None); continue
