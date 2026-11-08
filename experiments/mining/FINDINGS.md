@@ -2306,6 +2306,35 @@ one checks distinctness and that a single scaling makes all six points coprime i
 - Inside a bowtie family (fixed pair, genus-1 curve) the third side is determined by the bowtie, so triangle
   completions are the step-1 chords; heuristically (Siegel on the genus-1 curve) only finitely many per family.
 
+## F68 (8 November 2026): chord denominators obey the 2-adic half of F10; triangle scans to 150 directions
+
+**Chords** (`triangles/chord_f10.py`, `chord_f10b.py`; every chord between two known points not on a known line:
+71,278 from the five-ways, 413,476 from the four-ways). Direction (a, b) of the chord, denominator d of its third point:
+- **2 | d exactly when 4 does not divide ab** -- no exception in either set. (F10: a line of three coprime integral
+  points has 4 | ab; this is the converse for 2-integrality of the third point. Candidate theorem.)
+- In five-ways 3 | d for exactly the same chords (8 + 8 exceptions): the d = 6 floor of F67 is F10's 2-adic rule.
+- **No prime = 2 (mod 3) ever divides ab of a chord to an odd power** (all primes < 2000 checked): F10's other half
+  holds automatically for chords; no small prime of ab divides d.
+- Near-miss chords (d <= 1000) have direction costs |b^3 - a^3| from 1e2 to 1e47 (median ~1e13); **none is an allowed
+  direction**. A bowtie's third side must have 4 | ab: 29% of bowtie chords do, with d >= 19 (mostly primes = 1 mod 3).
+
+**Triangle scans** (`triangles/runN.gp`, every triple of the N cheapest allowed directions and their swaps):
+
+| directions | triples | rational triangles | coprime six-ways | time |
+| --- | --- | --- | --- | --- |
+| 23 (lf36 bases) | 15,180 | 18 (1 in 840) | 0 | 1.6 s |
+| 60 (cost <= 55,223) | 280,840 | 34 (1 in 8,300) | 0 | 39 s |
+| 150 (cost <= 270,927) | 4,455,100 | 88 (1 in 50,600) | 0 | 717 s |
+
+- The rate falls steeply with direction cost; ~0.16 ms per triple, so 1,000 directions (1.3e9 triples with swaps)
+  would be ~60 core-hours.
+- The 88 lie on 26 curves x^3 + y^3 = m (m cube-free), clustered on curves rich in small points: m = 19 (6), 91 (6),
+  27937 (10), 152551 (8), **16776487 (4, the smallest coprime four-way)**. Every one fails coprimality: its six points
+  have 3-6 different denominators (lcm up to 3.3e11).
+- Reading: rational triangles with cheap directions come from small-height points on point-rich curves, where the
+  denominators never agree. Coprime triangle six-ways, if any, need expensive directions; an exhaustive triple scan
+  cannot get far there.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
