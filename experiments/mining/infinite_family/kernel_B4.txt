@@ -1,0 +1,7 @@
+('in K', 'BOWTIE') 38
+('not in K', 'BOWTIE') 55976
+('not in K', 'base triple not coprime') 1640
+('not in K', 'second line not coprime') 1394
+kernel vectors (c with 2 sum c_k G_k reducing to O mod [37, 43] ): 38
+  first few: [(-4, -2, -4, -2, 2), (-4, -1, -3, -4, 0), (-4, -1, 1, 4, -1), (-4, 0, 2, 2, -3), (-4, 3, 1, 0, 4), (-4, 4, 2, -2, 2), (-3, -3, -1, 1, 4), (-3, -2, 0, -1, 2)]
+  all bowties: True

@@ -2350,6 +2350,29 @@ one checks distinctness and that a single scaling makes all six points coprime i
   denominators never agree. Coprime triangle six-ways, if any, need expensive directions; an exhaustive triple scan
   cannot get far there.
 
+## F69 (8 November 2026): an explicit finite-index subgroup of bowties -- the infinitude proof plan holds numerically
+
+**Plan** (for "infinitely many n with >= 5 coprime representations"): on one bowtie curve E (rational bowties of a fixed
+direction pair = rational points of w^2 = Delta(s, r), genus 1), take a known bowtie P0 as origin. (1) Only primes of
+N = E1 (b - a) E2 (b2 - a2) can spoil a bowtie. (2) At p | N, "good at p" is a p-adically open condition containing P0.
+(3) So for k large, P0 + (E(Q) n E_k(Q_p) for all p | N) =: P0 + K is all bowties; K has finite index in E(Q), rank >= 1,
+so infinitely many bowties, hence infinitely many n (finite fibres). Exactly-5 is out of reach; >= 5 (and >= 4) is not.
+
+**Test on (3,4)+(9,52), point 0, P0 = Bernstein's 506433677359393** (`infinite_family/coset_test.py`, `spoilers.py`,
+`kernel_test.py`, `kernel_seq.py`). E: rank 5, torsion Z/2; N's primes 37 = E1, 43 = b2 - a2, 3253 = E2 (b - a = 1).
+- **Step 1 holds:** every failure among 726 points m * sum c_k G_k (c_k in {-1,0,1}, m = 1, 2, 4) is caused by 37, 43
+  or 3253 only. m = 1: 68 of 242 bowties; m = 2: 236 (integrality at 43 and 3253 never fails in 2E(Q) -- the F59
+  component conditions); the rest are coprimality: base triple at 37, second line at 43 (finer than components).
+- **Explicit subgroup K = {P in 2E(Q) : P reduces to O mod 37 and mod 43 on the minimal model}:**
+  - |c_k| <= 2 (3,124 points): K contains +-(0, 1, 1, -2, -2) only; both bowties.
+  - **|c_k| <= 4 (59,048 points): 38 points in K, all 38 bowties**; outside K 3,034 of 59,010 fail.
+  - **j * 2(G2 + G3 - 2 G4 - 2 G5), j = 1..10: all bowties**, n of 1,260 to 129,340 digits.
+- So K = 2E(Q) n E_1(Q_37) n E_1(Q_43) (index about 32 x 1,600) appears to work with k = 1. For the proof:
+  (a) the step-1 lemma in full (line-2 coprimality away from N: a one-point variant of Theorem 10);
+  (b) points of K are coprime at 37 and 43 and integral at 43, 3253 (local, checkable mod 37^2, 43^2, 3253);
+  (c) the finite-index / non-degeneracy argument (standard). Literature: no prior infinitude result for coprime
+  >= 4- or >= 5-ways found (UlasPaperPlan A0d).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
