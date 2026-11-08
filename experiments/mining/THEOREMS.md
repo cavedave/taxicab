@@ -669,6 +669,68 @@ Literature: no prior infinitude result for coprime >= 3-, 4- or 5-ways found (Ul
 
 ---
 
+## Toolkit for triangles (six-ways from three lines; FINDINGS F67-F68) -- 8 Nov 2026
+
+A **triangle** is three lines, each through three coprime representations of n, every two lines sharing one of them
+(the corner). It has six distinct representations: a six-way. A bowtie is a triangle missing one side. In the group
+law with the flex at infinity as zero (collinear <=> sum 0, -(x, y) = (y, x)), corners a, b, c give third points
+-(sigma a + sigma' b) etc. for suitable signs.
+
+## Lemma 17 (the class of a representation; lines never change class)
+
+**Setting.** n odd and n = +-1 (mod 9), so that both the 2-type and the 3-type of Theorem 8 are defined for every
+coprime point. Write tau_p(P) = +1 if p | x, -1 if p | y (P = (x, y), p in {2, 3}).
+
+**Definition.** mu(P) = tau_2(P) tau_3(P): mu = +1 if the even coordinate of P is also the one divisible by 3, and
+-1 otherwise. Swapping x and y flips both types, so mu(y, x) = mu(x, y): **mu is a property of the representation**
+{x, y}, its *class*.
+
+**Statement.** The three representations on any line have the same class. Hence all representations in a connected
+configuration of lines (a bowtie, a triangle, any chain of lines sharing points) lie in one class.
+
+*Proof.* By Corollary 8b (at p = 2 and at p = 3), the three points of the line, as they lie on it, have one 2-type
+and one 3-type. So mu, the product, is constant on the line; and mu does not depend on which of P, swap(P) lies on
+the line. A chain of lines sharing points then propagates the class. QED
+
+**Consequences for triangles.**
+- A triangle six-way of n has its six representations in one class, so that class must contain at least six of
+  n's representations. A bowtie fixes the class of any sixth representation that would complete it to a triangle:
+  representations of n in the other class can never complete it.
+- Unlike the complete quadrilateral (Theorem 8c), classes do not forbid triangles; they restrict which
+  representations can play a part.
+
+**Checked (8 Nov):** all 18,653 numbers of the catalogue and results/five_ways_all.txt with n odd and n = +-1 mod 9:
+**0 of 19,938 lines** contain two classes; **7,887 numbers have representations in both classes** (10,766 in one
+class only). Relation to Lemma 6 (all representations share xy mod 3): Lemma 6 is about 3 | x y vs not, uniform
+over n; Lemma 17 compares which coordinate carries the 2 and the 3, and genuinely varies within n.
+
+## Lemma 18 (lines of the same n have compatible directions)
+
+**Statement.** Let a x + b y = c and a' x + b' y = c' be two lines, each through three coprime representations of
+the same n (gcd(a, b) = gcd(a', b') = 1, a != b, a' != b'). Then
+1. **nonsplit(b - a) = nonsplit(b' - a')**, where nonsplit(m) = product of p^{v_p(m)} over primes p not = 1 (mod 3);
+   both equal f(n), the non-split part of n (with one power of 3 fewer: Theorem 5's convention);
+2. **E | n and E' | n** (E = a^2 + ab + b^2), so lcm(E, E') | n;
+3. b - a and b' - a' are odd and n is odd (Theorem 1(b), Theorem 12).
+For a triangle all three sides satisfy 1-3 pairwise: nonsplit(b_1 - a_1) = nonsplit(b_2 - a_2) = nonsplit(b_3 - a_3)
+and lcm(E_1, E_2, E_3) | n.
+
+*Proof.* 1 is Corollary 13a applied to each line: the non-split part of b - a is the non-split part f of n, which
+depends only on n. 2 is Theorem 2 for each line. 3 is Theorem 1(b) and Theorem 12. QED
+
+**Consequences.**
+- This sharpens the direction-pair filter of F58.4 (every non-split prime of b2 - a2 divides b - a and vice versa)
+  to **equality of the non-split parts, exponents included**.
+- For a triangle search over direction triples: group directions by nonsplit(b - a) and only form triples within a
+  group; and n is at least lcm(E_1, E_2, E_3) times the cube-free constraints of Theorem 13.
+- For a bowtie curve with base (a, b) and second direction (a2, b2): any third side through two of its points must
+  have nonsplit(b3 - a3) = nonsplit(b - a), and E_3 | n.
+
+**Checked (8 Nov):** all 1,752 five-ways of results/five_ways_all.txt with at least two lines: the lines agree on
+nonsplit(b - a) in every case, and every line's E divides n (Corollary 13a was already checked on 492,028 lines).
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
