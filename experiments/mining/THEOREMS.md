@@ -544,6 +544,79 @@ directions at the 1e33 bound whose H(G, M_cert) exceeded the used integer by < 1
 
 ---
 
+## Theorem 16 (infinitely many n with at least five coprime representations; FINDINGS F69) -- DRAFT, 8 Nov 2026
+
+**Setting (F53, F58).** Fix a base direction (a, b) (Theorem 1), its conic point, a second direction (a2, b2)
+(gcd(a2, b2) = 1, a2 != b2) and an index i in {1, 2, 3}. Put E1 = a^2 + ab + b^2, A = b2^3 - a2^3 = (b2 - a2) E2,
+E2 = a2^2 + a2 b2 + b2^2, and N = (b - a) E1 A.
+- A primitive slope (s, r) gives the raw triple (three integer points, binary forms in (s, r), Lemma 15) on a line of
+  direction (a, b). Divide all six coordinates by their gcd G: points P1, P2, P3 = (x_j, y_j), integers, not all six
+  divisible by any prime, on x^3 + y^3 = n with n = x_1^3 + y_1^3.
+- Line 2 through the shared point (x, y) = P_i: (x + t b2, y - t a2). On the curve, t = 0 or
+  A t^2 + B t + C = 0, B = 3(x b2^2 + y a2^2), C = 3(x^2 b2 - y^2 a2) (F58.2). Its two further points are rational
+  exactly when B^2 - 4AC = w^2: the rational points (s, r, w) of the genus-1 curve C_{pair}: w^2 = Delta(s, r).
+- (s, r, w) is a **bowtie** if P1, P2, P3 and the two line-2 points X_+-, Y_+- are integral, coprime, and the five
+  are distinct representations.
+
+**Lemma 16a (base triple).** If some P_j is not coprime at a prime p, then p | (b - a) E1.
+*Proof.* Say p | x_1, y_1. Since not all six coordinates are divisible by p, some P_k (k != 1) has a coordinate
+prime to p, and then (as x_k^3 + y_k^3 = n) both are. p^3 | n, and p | c where a x + b y = c is the line
+(c = a x_1 + b y_1). So a x_k + b y_k = 0 and x_k^3 + y_k^3 = 0 mod p. If p | b, then p does not divide a, so
+p | x_k, then p | y_k: contradiction. Otherwise y_k = -a x_k / b, so x_k^3 (b^3 - a^3) / b^3 = 0 mod p, and p does not
+divide x_k: p | b^3 - a^3 = (b - a) E1. QED
+
+**Lemma 16b (line 2 integral; F58.2).** If (s, r, w) is a rational point and P_i is an integer point, the line-2 points
+are integral at every prime p not dividing A.
+*Proof.* The roots t of A t^2 + B t + C are rational; for p not dividing A, t^2 + (B/A) t + C/A has p-integral
+coefficients, so both roots are p-integral (a rational root of a monic p-integral polynomial is p-integral). Then
+x + t b2 and y - t a2 are p-integral. QED
+
+**Lemma 16c (line 2 coprime).** If P_i is coprime and X = x + t b2, Y = y - t a2 are integers, then gcd(X, Y) has no
+prime factor outside A.
+*Proof.* Let p | X, Y. If p | t, then p | x and p | y: impossible. So t is a unit mod p, and (x, y) = t (-b2, a2) mod
+p, hence n = x^3 + y^3 = t^3 (a2^3 - b2^3) = -t^3 A mod p. But p^3 | X^3 + Y^3 = n, so p | A. QED
+
+**Corollary 16d (only N matters).** For every rational point of C_{pair} (outside finitely many degenerate points),
+every failure to be a bowtie other than distinctness happens at a prime dividing N.
+*Proof.* 16a at primes not dividing (b - a) E1 makes P1, P2, P3 coprime (so P_i is); then 16b and 16c at primes not
+dividing A. QED
+- **Data:** on (3,4)+(9,52) (N's primes 37, 43, 3253) every failure among 726 test points is at one of these (F69).
+
+**Lemma 16e (openness at p | N).** Let P0 be a bowtie on C_{pair}. For each prime p | N there is an open neighbourhood
+U_p of P0 in C_{pair}(Q_p) on which every point is integral and coprime at p.
+*Proof (sketch; to be written in full).* Near P0, (s, r) can be taken primitive in Z_p^2 and varies continuously;
+w is a p-adically analytic branch (w(P0) != 0, since the two line-2 points of P0 are distinct). All coordinates
+(raw, G, t, X, Y) are given by polynomials in (s, r) and w, and are nonzero at P0. A nonzero p-adic value has locally
+constant valuation, so the valuations defining "integral and coprime at p" are constant near P0, where they hold.
+QED (sketch)
+
+**Theorem 16 (draft).** Suppose C_{pair} has a bowtie P0 and E = (C_{pair}, P0) has positive rank. Then infinitely many
+n have at least five coprime representations as x^3 + y^3 (so at least four).
+*Proof.*
+1. With P0 as origin, E(Q_p) is a p-adic Lie group; E_k(Q_p) (points reducing to O mod p^k on a minimal model) is a
+   basis of open neighbourhoods of O, and translation is continuous. By 16e choose k with E_k(Q_p) contained in U_p
+   for each p | N (here U_p is read in E with origin P0).
+2. K = E(Q) intersected with E_k(Q_p) for all p | N has finite index in E(Q) (each E(Q_p)/E_k(Q_p) is finite).
+   Since rank E(Q) >= 1, K is infinite.
+3. Every point of K is integral and coprime at p | N (step 1) and at every other prime (16d): a bowtie, unless
+   degenerate. Degenerate points (two of the five representations equal, a zero coordinate, a pole of
+   P -> (s : r)) are the rational points of a proper Zariski-closed subset of C_{pair}: finitely many, since P0 is
+   not degenerate.
+4. P -> (s : r) is at most 2-to-1, (s : r) -> base triple is injective up to finitely many exceptions, and an n has
+   finitely many representations, so infinitely many points of K give infinitely many n. QED
+
+**Instance (F69).** (a, b, i, a2, b2) = (3, 4, 1, 9, 52) (i = 1 is code index 0), P0 = Bernstein's
+506433677359393, rank 5, torsion Z/2, N's primes 37, 43, 3253. Numerically k = 1 works at 37 and 43 within 2E(Q):
+all 38 points of 2E(Q) n E_1(Q_37) n E_1(Q_43) with |c_k| <= 4 are bowties, and the multiples j c,
+c = (0, 1, 1, -2, -2), j = 1..10 (n of 1,260 to 129,340 digits).
+
+**To finish:** write 16e in full (choice of models; the map P -> (s : r) near P0; the branch of w); check the
+claim in step 4 that (s : r) -> base triple is injective; confirm the rank-5 generators (PARI ellrank gives 5 = 5;
+for the theorem rank >= 1 suffices, witnessed by any non-torsion point, e.g. a second bowtie). Literature: no prior
+infinitude result for coprime >= 3-, 4- or 5-ways found (UlasPaperPlan A0d).
+
+---
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
