@@ -118,11 +118,20 @@ J. H. Silverman, *Taxicabs and sums of two cubes*, Amer. Math. Monthly 100 (1993
 - **Not relevant:** Reznick-Rouse 2011 (IJNT 7, rational-function solutions of f^3 + g^3 = x^3 + y^3); Srinivasa
   Raghava arXiv:2607.11925 (three-cube identities, rational-function two-cube representations); Byeon-Jeong / Mai
   (cube-free n with rank >= 2, rational not integral points).
-- **Still to check (ask the user for copies):** Rosenstiel-Dardis-Rosenstiel, Bull. IMA 27 (1991) 155-157 (five-way;
-  possible families); Lang, *Elliptic Curves: Diophantine Analysis* (1978) p. 140; Dickson vol. 2 ch. XXI (local copy)
-  for classical coprime three-way families (Werebrusow, Gerardin).
-- **Conclusion:** infinitely many coprime >= 4- and >= 5-ways (from one explicit bowtie curve) looks new; the
-  coprime >= 3 case may be classical (Dickson ch. XXI) -- check before claiming.
+- **Rosenstiel-Dardis-Rosenstiel, Bull. IMA 27 (1991) 155-157** (read; `refs/rosenstiel_dardis_rosenstiel_1991_bullIMA27.md`):
+  computer search for the four least positive four-ways (6963472309248 = Ta(4), 12625136269928, 21131226514944,
+  26059452841000; next > 5e13); positive cubes, coprimality not required; no families, no infinitude. Notes that
+  log(cumulative count) vs log s is linear for doublets and triplets (our density figure). Says "doublets and triplets
+  could be found 'to order' with parametric formulae ... known to Euler and Werebrusow", citing Dickson vol. 2 p. 562.
+- **Dickson vol. 2 p. 562 (local copy, OCR garbled):** Werebrusow's three equal sums of two cubes rest on
+  M^2 + MN + N^2 = 3 omega^2 phi psi -- the norm-form conic of our Theorem 1 (X^2 + XY + Y^2 = 3ab^3). So the classical
+  three-way families are *lines* (rational collinear triples); clearing denominators gives integer triples, but
+  coprimality is not addressed (Theorem 1 remark). Also there: Gerardin's 1908 guess at the least positive three-way
+  (disproved by Leech 1957); Fauquembergue: 19.3635^3.10^3 (?) from Cauchy's formulas on 3 = (3, -2, 1) -- scaled, not coprime.
+- **Still to check:** Lang, *Elliptic Curves: Diophantine Analysis* (1978) p. 140 (low priority).
+- **Conclusion:** infinitely many coprime >= 4- and >= 5-ways (from one explicit bowtie curve) looks new. Even coprime
+  >= 3 seems not to be in the classical literature: Werebrusow's families are rational lines without a coprimality
+  statement. Our F9 family (directions (3k^2, 3k^2 + 1), coprime for k <= 1e6) would need its coprimality proved.
 
 ### A1. Ulas step 1: mine our four-ways for recurring shapes
 - **Data:** 205 exhaustive four-ways ≤ 10¹⁷ (`results/fourways.md`, scratchpad `cab2_1e15.txt` and
