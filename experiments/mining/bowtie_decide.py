@@ -9,10 +9,14 @@ finite-index subgroup; for I_n reduction it has period n/2 in the Mordell-Weil c
   3. feasible classes mod M = those passing every periodic condition (none: the pair is OBSTRUCTED);
   4. inside the feasible classes, points in order of canonical height c^T H c (H = ellheightmatrix), each tested in full
      (Curve.bowtie); prints the smallest bowties found.
-Usage: python3 bowtie_decide.py --pairs a,b,i,a2,b2 ... | --catalogue | --base 3,4 --amax 60 [--npts 3000] [--procs 8]
+Usage: python3 bowtie_decide.py --pairs a,b,i,a2,b2 ... | --catalogue | --base 3,4 [1,4 ...] --amax 60 [--amin 0] [--npts 3000] [--procs 8]
+       [--log run.log --resume]   (--log: per-curve lines also go to this file; --resume skips curves already in it and
+       appends to --log and --out.  --base jobs run in order of max(a2, b2), so a stopped run covers every pair below some
+       value. --amin skips pairs with max(a2, b2) < amin, i.e. those done by an earlier run with --amax amin.)
 """
 import argparse, itertools, math, re, subprocess, sys
-sys.set_int_max_str_digits(0)
+from functools import reduce
+if hasattr(sys, "set_int_max_str_digits"): sys.set_int_max_str_digits(0)   # Python >= 3.11 only (7of9 has 3.8)
 from collections import defaultdict
 from fractions import Fraction as Fr
 from multiprocessing import Pool
@@ -31,7 +35,8 @@ def setup(C, seed, rel):
     x0, w0 = seed
     qpol = "+".join("(%d)*X^%d" % (c, k) for k, c in enumerate(C.q))
     head = ["\\r %s" % GPF, "Q = subst(%s, X, %s + u); q0 = %s; E = q2e(Q, q0); Em = ellminimalmodel(E);" % (qpol, x0, w0),
-            'R = iferr(alarm(120, ellrank(E)), e, [0,0,0,[]]); G = vecextract(R[4], Str("1..", min(#R[4], 5))); T = elltors(E);',
+            'R = iferr(alarm(120, ellrank(E)), e, e); if(type(R) == "t_ERROR", print("RANKTIMEOUT"); R = [0,0,0,[]]);',   # alarm returns its error
+            'G = vecextract(R[4], Str("1..", min(#R[4], 5))); T = elltors(E);',
             "Gt = concat(G, T[3]); ord = concat(vector(#G, k, 0), T[2]);"]
     return head, x0
 
@@ -63,11 +68,12 @@ def job1(args):
         elif l.startswith("HM"):
             rows = l[3:].strip().replace("Mat(", "").rstrip(")").strip("[]").split(";")
             HM = [[float(v.replace(" ", "")) for v in r.split(",")] for r in rows] if rows[0].strip() else []
+    if "RANKTIMEOUT" in info: return key, "RANKTIMEOUT: ellrank over 120 s, curve not decided", None
     if ordv is None or not HM: return key, f"rank {rank}: no generators", None
     r = len(HM); M = 1
     for p in rel:
         k = red.get(p, 0)
-        if k > 4 and (k - 4) % 2 == 0: M = math.lcm(M, (k - 4) // 2)
+        if k > 4 and (k - 4) % 2 == 0: M = M * ((k - 4) // 2) // math.gcd(M, (k - 4) // 2)   # lcm (math.lcm is 3.9+)
     # 2. box covering every class mod M (torsion coordinates over their order)
     box = [c for c in itertools.product(*([range(-M, M + 1)] * r + [range(o) for o in ordv[r:]]))]
     out = gp(pts_src(head, x0, box))
@@ -121,27 +127,43 @@ def job1(args):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--pairs", nargs="*", default=[]); ap.add_argument("--catalogue", action="store_true")
-    ap.add_argument("--base", default=""); ap.add_argument("--amax", type=int, default=60); ap.add_argument("--npts", type=int, default=3000)
+    ap.add_argument("--base", nargs="*", default=[]); ap.add_argument("--amin", type=int, default=0); ap.add_argument("--amax", type=int, default=60); ap.add_argument("--npts", type=int, default=3000)
     ap.add_argument("--cmaxh", type=int, default=6); ap.add_argument("--procs", type=int, default=8); ap.add_argument("--out", default="")
     ap.add_argument("--seedh", type=int, default=60); ap.add_argument("--count", action="store_true")
     ap.add_argument("--alli", action="store_true", help="all three shared points (F61: they give the same bowties)")
+    ap.add_argument("--log", default=""); ap.add_argument("--resume", action="store_true")
     A = ap.parse_args()
     jobs = [(tuple(map(int, s.split(","))), []) for s in A.pairs]
     if A.catalogue: jobs += [(c[:5], c[5]) for c in curves_from_catalogue()]
-    if A.base:
-        a, b = map(int, A.base.split(","))
-        ns = lambda m: {q for q in (L.factor(abs(m)) if abs(m) > 1 else {}) if q % 3 != 1}
+    ns = lambda m: {q for q in (L.factor(abs(m)) if abs(m) > 1 else {}) if q % 3 != 1}
+    bj = []
+    for base in A.base:
+        a, b = map(int, base.split(","))
         for a2 in range(1, A.amax):
             for b2 in range(1, A.amax):
+                if max(a2, b2) < A.amin: continue
                 if a2 != b2 and math.gcd(a2, b2) == 1 and {a2, b2} != {a, b} and ns(b2 - a2) <= ns(b - a) and ns(b - a) <= ns(b2 - a2) | {3}:
-                    jobs += [((a, b, i, a2, b2), []) for i in (range(3) if A.alli else (0,))]
+                    bj += [((a, b, i, a2, b2), []) for i in (range(3) if A.alli else (0,))]
+    jobs += sorted(bj, key=lambda j: (max(j[0][3], j[0][4]), j[0]))
+    done = set()
+    if A.resume and A.log and Path(A.log).exists():
+        for l in open(A.log):
+            m = re.match(r"^\((\d+), (\d+), (\d+), (\d+), (\d+)\): ", l)
+            if m and "ERROR" not in l: done.add(tuple(map(int, m.groups())))
+    todo = [j for j in jobs if j[0] not in done]
+    print(f"{len(jobs):,} curves, {len(done):,} already logged, {len(todo):,} to run", flush=True)
     cat = {int(l.split(";")[0]) for l in open(Path(__file__).resolve().parents[2] / "results/a047697_catalogue.txt") if l[0].isdigit()}
-    f = open(A.out, "w") if A.out else None
+    mode = "a" if A.resume else "w"
+    f = open(A.out, mode) if A.out else None
+    lg = open(A.log, mode) if A.log else None
+    def say(line):
+        print(line, flush=True)
+        if lg: lg.write(line + "\n"); lg.flush()
     with Pool(A.procs) as pool:
-        for key, note, found in pool.imap_unordered(job, [(k, s, A.npts, A.cmaxh, A.seedh, A.count) for k, s in jobs]):
-            if found is None: print(f"{key}: {note}", flush=True); continue
+        for key, note, found in pool.imap_unordered(job, [(k, s, A.npts, A.cmaxh, A.seedh, A.count) for k, s in todo]):
+            if found is None: say(f"{key}: {note}"); continue
             big = found.pop("big", 0); ns = sorted(found); kmax = max((len(found[n][0]) for n in ns if found[n][0]), default=0)
-            print(f"{key}: {note}; {len(ns)} bowties < 1e300 (+{big} larger), largest k {kmax}, k unknown {sum(1 for n in ns if found[n][0] is None)}" + (f", smallest {ns[0]:.3e} ({len(str(ns[0]))} digits, {'known' if ns[0] in cat else 'NEW'})" if ns else ""), flush=True)
+            say(f"{key}: {note}; {len(ns)} bowties < 1e300 (+{big} larger), largest k {kmax}, k unknown {sum(1 for n in ns if found[n][0] is None)}" + (f", smallest {ns[0]:.3e} ({len(str(ns[0]))} digits, {'known' if ns[0] in cat else 'NEW'})" if ns else ""))
             if f:
                 for n in ns:
                     reps, five = found[n]
