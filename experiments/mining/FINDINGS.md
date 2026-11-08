@@ -2223,6 +2223,8 @@ identical rows). Largest n 9.987e35.
   (4,9), (16,19), (9,16), (12,19), (16,21) one each.
 - So bowties with an expensive second line are common, and they are reachable only through the cheap line plus an exact
   count (or a decider run with a much larger amax).
+- **Merged (8 Nov):** the 3,640 new rows, each recounted independently by `verify_gp/reps.gp` (PARI only): 0 mismatches
+  in count or representations. Catalogue now 22,482 four-ways, 199 five-ways (22,681 rows).
 
 ## Negative results
 
