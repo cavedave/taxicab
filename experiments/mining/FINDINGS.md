@@ -2275,6 +2275,13 @@ included).
   81: 33 had no point at 300 in v1, 17 are pairs < 100, 21 timed out in v1 too, 10 were decided in v1 (probably now
   with more generators from the ellrank effort-3 fallback, so a larger box). v3 bundle: `--gptime 3600`; a resume
   reruns only the unfinished curves.
+- **v3 retry** (7of9, 20 processes, gp limit 1 h, 17:14 - 20:11; `results_v3/`): 81 of the 84 unfinished curves done
+  (3 still running when collected): 62 obstructed, 4 with bowties, 15 undecided again. Bowtie curves recovered:
+  (3,4)+(39,148) 70 (v1's), and **new pairs (12,13)+(84,127) 18 (smallest 8.34e71), (12,13)+(84,121) 13 (9.91e110),
+  (13,16)+(43,244) 7 (3.91e97)**.
+- **Stage 1 total (max(a2, b2) < 300): 28 bowtie curves; 777 obstructed; 15 + 3 undecided** (gp over 1 h: periodicity
+  box, mostly bases (28,31), (4,7), (25,28)). 1,149 bowtie numbers < 1e300; 293 not in five_ways_all.txt, now added
+  there as k >= 5 (list: 1,755 = 1,180 exact k = 5 + 575 k >= 5).
 
 ## F67 (8 November 2026): triangles = six-ways; chord near-misses; a polynomial triangle decider
 
