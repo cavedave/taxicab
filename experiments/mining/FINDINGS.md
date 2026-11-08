@@ -2196,6 +2196,29 @@ catalogue bowties it reproduces every catalogue count (0 mismatches).
   primes (2^28 subsets); one worker reached 40 GB. 416 numbers (149 base + 267 catalogue, the largest) remain.
 - Files: `results_bowtie_curves/decide/counted_{base34,bases,catalogue}.{txt,log}`, `catalogue2*`.
 
+## F64 (8 November 2026): the line search to 1e36 in the 23 cheapest directions -- no six-way; 31 new five-ways
+
+**Run** (7of9, `lf36_v4`: line_fast.py + lc_fast.cpp, the 23 directions of cost <= 1e4, n <= 10^36 exactly; output
+finished 8 Nov 05:47). File: `night_7of9/results_lf_1e36/lf_k4.txt` (from `lf_all.tar.gz`). **Not yet certified:**
+`lf.log` and `lf_jobs.log` were not in the bundle, so job completeness is unchecked.
+
+**Results:** 8,407 numbers with k >= 4 (8,326 four-ways, **81 five-ways, largest k = 5**; 3 five-ways are written twice,
+identical rows). Largest n 9.987e35.
+- Consistency: all 4,733 rows below lf33's bound are in lf33 with the same k (lf36's directions are a subset of
+  lf33's); no k disagrees with the catalogue on the overlap.
+- **New to the catalogue: 31 five-ways and 3,609 four-ways, all above 1e33.** Five-ways per decade in the class:
+  1e33: 7, 1e34: 16, 1e35: 10.
+- **F61's prediction holds:** 2482960469777526557699371824606091 (the smallest (3,4)+(75,76) bowtie) is in lf36 with
+  k = 5, and so are the other two (75,76) five-ways.
+- **Decider cross-check:** all 49 decider bowties <= 1e36 with a line in one of the 23 directions are in lf36 (k = 5
+  each). The other 87 decider bowties <= 1e36 have no such line and are all in the catalogue.
+- **Shapes:** 79 of the 81 five-ways are bowties (two lines), 2 have one line. All 31 new ones are bowties: 3 on pairs
+  the decider examined ((3,4)+(75,76)), **28 with a second direction outside the decider's range** (coefficients >= 100,
+  up to (1828084, 1801353)). Base directions of the 31: (3,4) 13, (12,13) 4, (1,4) 3, (27,28) 3, (4,7) 2, (13,16) 2,
+  (4,9), (16,19), (9,16), (12,19), (16,21) one each.
+- So bowties with an expensive second line are common, and they are reachable only through the cheap line plus an exact
+  count (or a decider run with a much larger amax).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
