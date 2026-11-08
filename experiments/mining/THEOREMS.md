@@ -544,7 +544,7 @@ directions at the 1e33 bound whose H(G, M_cert) exceeded the used integer by < 1
 
 ---
 
-## Theorem 16 (infinitely many n with at least five coprime representations; FINDINGS F69) -- DRAFT, 8 Nov 2026
+## Theorem 16 (infinitely many n with at least five coprime representations; FINDINGS F69) -- 8 Nov 2026, for review
 
 **Setting (F53, F58).** Fix a base direction (a, b) (Theorem 1), its conic point, a second direction (a2, b2)
 (gcd(a2, b2) = 1, a2 != b2) and an index i in {1, 2, 3}. Put E1 = a^2 + ab + b^2, A = b2^3 - a2^3 = (b2 - a2) E2,
@@ -582,37 +582,81 @@ every failure to be a bowtie other than distinctness happens at a prime dividing
 dividing A. QED
 - **Data:** on (3,4)+(9,52) (N's primes 37, 43, 3253) every failure among 726 test points is at one of these (F69).
 
-**Lemma 16e (openness at p | N).** Let P0 be a bowtie on C_{pair}. For each prime p | N there is an open neighbourhood
-U_p of P0 in C_{pair}(Q_p) on which every point is integral and coprime at p.
-*Proof (sketch; to be written in full).* Near P0, (s, r) can be taken primitive in Z_p^2 and varies continuously;
-w is a p-adically analytic branch (w(P0) != 0, since the two line-2 points of P0 are distinct). All coordinates
-(raw, G, t, X, Y) are given by polynomials in (s, r) and w, and are nonzero at P0. A nonzero p-adic value has locally
-constant valuation, so the valuations defining "integral and coprime at p" are constant near P0, where they hold.
-QED (sketch)
+**Lemma 16e (openness at p | N).** Let P0 be a bowtie on C_{pair}. For each prime p there is an open neighbourhood
+U_p of P0 in C_{pair}(Q_p) such that every rational point in U_p is integral and coprime at p (all five points).
 
-**Theorem 16 (draft).** Suppose C_{pair} has a bowtie P0 and E = (C_{pair}, P0) has positive rank. Then infinitely many
-n have at least five coprime representations as x^3 + y^3 (so at least four).
+*Set-up.* C_{pair} is the curve w^2 = Delta(s, r) in weighted projective space P(1, 1, 2), with Delta a binary quartic
+form with integer coefficients, squarefree with nonzero discriminant (checked for the instance below: irreducible,
+disc != 0), so C_{pair} is smooth of genus 1. **Delta is exactly the discriminant of line 2 computed from raw
+coordinates:** with (X_i, Y_i) = raw point i (binary quadratic forms in (s, r)), B~ = 3(X_i b2^2 + Y_i a2^2),
+C~ = 3(X_i^2 b2 - Y_i^2 a2), we have Delta = B~^2 - 4 A C~ (an identity of forms; checked at six slopes for the
+instance, ratio exactly 1; it holds in general because the code defines Delta this way).
+A point of C_{pair}(Q_p) has a representative (s, r, w) with (s, r) in Z_p^2 primitive and w in Z_p (w^2 = Delta(s, r)
+is p-integral); the representative is unique up to (s, r, w) -> (u s, u r, u^2 w), u in Z_p^*.
+
+*The quantities.* For a representative (s, r, w) put, with g = G(s, r) the gcd of the six raw coordinates
+(for rational (s, r)) and tau_{+-} = (-B~ +- w) / (2A):
+- base points: P_j = R_j(s, r) / g, R_j the raw point j (j = 1, 2, 3);
+- line-2 points: Q_{+-} = (X_i + tau_{+-} b2, Y_i - tau_{+-} a2) / g.
+(Indeed with x = X_i/g the quadratic of F58.2 has roots t = tau/g, so x + t b2 = (X_i + tau b2)/g.)
+"Integral and coprime at p" for all five points means, for each of the five numerator pairs (U, V) -- R_j, or
+(X_i + tau b2, Y_i - tau a2) --
+    v_p(U) >= v_p(g), v_p(V) >= v_p(g), and min(v_p(U), v_p(V)) = v_p(g).                         (*)
+For rational (s, r) primitive in Z^2, v_p(g) = min over the six raw coordinates of v_p: the p-part of g is
+determined by the raw coordinates alone. **Invariance:** a rational point's primitive integer representative and any
+Z_p-primitive representative differ by a unit u in Z_p^*. The raw coordinates are binary forms of degree d = 2, so
+B~ has degree d, C~ degree 2d, Delta = B~^2 - 4AC~ degree 2d = 4, and (s, r, w) -> (u s, u r, u^d w). Then tau_{+-}
+and the line-2 numerators X_i + tau b2, Y_i - tau a2 all scale by u^d, as do the raw coordinates. Multiplying by the
+unit u^d changes no valuation, so every valuation in (*) can be computed from any Z_p-primitive representative.
+
+*Proof.* Fix a representative (s0, r0, w0) of P0. Since P0's two line-2 points are distinct, w0 != 0. Since P0 is a
+bowtie, all ten coordinates of its five points are nonzero; so the six raw coordinates at (s0, r0) and the four
+numerators X_i + tau b2, Y_i - tau a2 at (s0, r0, w0) are nonzero p-adic numbers. Let V be the largest of their
+p-adic valuations and of v_p(w0), and fix m > V + v_p(4 A) + 2 v_p(w0) + 1.
+Let U_p be the set of points of C_{pair}(Q_p) having a representative (s, r, w) with
+(s, r) = (s0, r0) mod p^m and w = w0 mod p^m. This is open, and contains P0.
+At such a representative, every raw coordinate (a form with integer coefficients) is congruent mod p^m to its value
+at (s0, r0); as m exceeds its valuation, the valuation is unchanged. So the six raw valuations, and v_p(g), are those
+of P0. Likewise B~ = B~(s0, r0) mod p^m and w = w0 mod p^m, so tau_{+-} = tau_{+-}(P0) mod p^{m - v_p(2A)}, and each
+numerator X_i + tau b2, Y_i - tau a2 is congruent to its P0-value modulo p^{m - v_p(2A)}, with m - v_p(2A) > V:
+again the valuations are unchanged. Hence (*) holds at every point of U_p exactly as at P0, where it holds.
+(The choice of sign of w is consistent on U_p: w = w0 mod p^m with m > v_p(w0) excludes w = -w0. Swapping the sign
+only swaps Q_+ and Q_-, and (*) is symmetric anyway.) QED
+
+**Theorem 16.** Suppose C_{pair} has a bowtie P0 and the elliptic curve E = (C_{pair}, P0) has positive rank. Then
+infinitely many n have at least five coprime representations as x^3 + y^3 (so at least four).
 *Proof.*
-1. With P0 as origin, E(Q_p) is a p-adic Lie group; E_k(Q_p) (points reducing to O mod p^k on a minimal model) is a
-   basis of open neighbourhoods of O, and translation is continuous. By 16e choose k with E_k(Q_p) contained in U_p
-   for each p | N (here U_p is read in E with origin P0).
-2. K = E(Q) intersected with E_k(Q_p) for all p | N has finite index in E(Q) (each E(Q_p)/E_k(Q_p) is finite).
-   Since rank E(Q) >= 1, K is infinite.
-3. Every point of K is integral and coprime at p | N (step 1) and at every other prime (16d): a bowtie, unless
-   degenerate. Degenerate points (two of the five representations equal, a zero coordinate, a pole of
-   P -> (s : r)) are the rational points of a proper Zariski-closed subset of C_{pair}: finitely many, since P0 is
-   not degenerate.
-4. P -> (s : r) is at most 2-to-1, (s : r) -> base triple is injective up to finitely many exceptions, and an n has
-   finitely many representations, so infinitely many points of K give infinitely many n. QED
+1. *Topology.* An isomorphism of curves over Q between C_{pair} and a Weierstrass model, sending P0 to O, is a
+   homeomorphism on Q_p-points, and the group law is continuous. Let N be as in the Setting; for each p | N take U_p
+   from 16e. On a minimal Weierstrass model at p, the subgroups E_k(Q_p) = {P : v_p(x(P)) <= -2k} + {O} (k >= 1) form a
+   basis of open neighbourhoods of O (Silverman, AEC VII.2-3). So there is k_p with E_{k_p}(Q_p) contained in (the
+   image of) U_p.
+2. *Finite index.* Let K = E(Q) intersected with E_{k_p}(Q_p) for every p | N. Each quotient E(Q_p)/E_k(Q_p) is finite
+   (E/E_0 finite by the Neron model, E_0/E_1 = nonsingular points of the reduction, E_j/E_{j+1} = F_p), and E(Q)/K
+   injects into their product. So K has finite index in E(Q); since rank E(Q) >= 1, K is infinite.
+3. *Every point of K is good at every prime.* At p | N: points of K lie in U_p, so all five points are integral and
+   coprime at p (16e). At p not dividing N: Corollary 16d.
+4. *Degeneracies.* The conditions "two of the five points are the same representation ((x, y) ~ (y, x))" and "some
+   coordinate is 0" are polynomial conditions in (s, r, w): Zariski-closed subsets of the irreducible curve C_{pair}.
+   They are proper (P0 satisfies none), hence finite. Removing them leaves infinitely many points of K, each a bowtie:
+   five distinct coprime representations of its n.
+5. *Infinitely many n.* Each n != 0 has finitely many representations, hence finitely many bowties (five-element sets
+   of its representations with the line structure). A bowtie determines its base line and base triple, and a base
+   triple comes from finitely many slopes (s : r) (the slope parametrises ordered rational points of the conic of
+   Theorem 1, and there are at most 6 orderings); each slope gives at most two points (s, r, +-w). So each n arises from
+   finitely many points of K, and K, being infinite, gives infinitely many n. QED
 
 **Instance (F69).** (a, b, i, a2, b2) = (3, 4, 1, 9, 52) (i = 1 is code index 0), P0 = Bernstein's
 506433677359393, rank 5, torsion Z/2, N's primes 37, 43, 3253. Numerically k = 1 works at 37 and 43 within 2E(Q):
 all 38 points of 2E(Q) n E_1(Q_37) n E_1(Q_43) with |c_k| <= 4 are bowties, and the multiples j c,
 c = (0, 1, 1, -2, -2), j = 1..10 (n of 1,260 to 129,340 digits).
 
-**To finish:** write 16e in full (choice of models; the map P -> (s : r) near P0; the branch of w); check the
-claim in step 4 that (s : r) -> base triple is injective; confirm the rank-5 generators (PARI ellrank gives 5 = 5;
-for the theorem rank >= 1 suffices, witnessed by any non-torsion point, e.g. a second bowtie). Literature: no prior
+**Checks for the instance (8 Nov):** Delta irreducible, disc(Delta) != 0 (genus 1, irreducible); Delta = B~^2 - 4AC~
+on raw coordinates (ratio 1 at six slopes); torsion Z/2 (PARI elltors), so each of the five generators (canonical
+heights 5.5 - 18.9, regulator 75,786) has infinite order: rank >= 1 (indeed >= 5).
+**Remaining for a referee:** (i) state Delta = B~^2 - 4AC~ as a lemma from the definitions (F53 / bowtie_mine);
+(ii) the conic-ordering count in step 5 (cite Theorem 4); (iii) the claim that U_p pulls back to a neighbourhood of
+O uses only that the isomorphism C_{pair} -> E is continuous on Q_p-points. Literature: no prior
 infinitude result for coprime >= 3-, 4- or 5-ways found (UlasPaperPlan A0d).
 
 ---
