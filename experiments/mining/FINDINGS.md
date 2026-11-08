@@ -2276,6 +2276,36 @@ included).
   with more generators from the ellrank effort-3 fallback, so a larger box). v3 bundle: `--gptime 3600`; a resume
   reruns only the unfinished curves.
 
+## F67 (8 November 2026): triangles = six-ways; chord near-misses; a polynomial triangle decider
+
+**Set-up.** Representations are points of x^3 + y^3 = n (both (x, y) and (y, x)); with the flex at infinity as origin,
+A, B, C are collinear iff A + B + C = 0. A **triangle** -- three lines of three, pairwise sharing a point -- has
+6 points (3 corners, 3 third points), so it is a six-way. A bowtie is a triangle missing one side; the side through
+P (line 1) and Q (line 2) meets the cubic again in R = -(P + Q), always rational.
+
+**Step 1: chord near-misses** (`triangles/near_miss.py`, all 1,717 five-ways incl. v2 stage 1, all 22,681 catalogue
+four-ways; every chord between two known points not on a known line, R's denominator d):
+- d = 1 cannot occur in exactly counted numbers (an integral R would be a known point on a known line), so this
+  measures closeness only. Best chord per number: median d ~ n^(1/8) (huge cancellation: all s-values divide n).
+- Four-ways: smooth tail down to d = 2 (720 chords with d <= 2; count(d <= D) ~ 1000 D^0.5).
+- **Five-ways (bowties): nothing below d = 6.** 1,316 of the 1,330 chords with d <= 1e6 have 6 | d (smallest exactly
+  6 = 2 x 3, 88 times); gcd(d, 6) is 1 or 6, almost never 2 or 3 (four-ways: all four). Smallest d prime to 6: 19.
+  So bowtie chords carry a forced factor 6 (likely 2-adic from n odd -- every s odd -- and 3-adic mod 9; to prove).
+
+**Step 2: triangles with fixed directions are finite and decidable by a quartic** (`triangles/tri_decide.gp`).
+Lines a_i x + b_i y = c_i; corners on one cubic <=> f(V12) = f(V13) = f(V23), two cubic forms in (c1 : c2 : c3). Both
+contain the concurrency line (checked: it is exactly their gcd); the residual conics meet in <= 4 points. So per
+direction triple there are at most 4 triangles up to scaling, found as rational roots of a quartic resultant; then
+one checks distinctness and that a single scaling makes all six points coprime integers.
+- Examples (3,4),(27,28),(9,52) / (3,4),(27,28),(75,76) / (1,12),(49,192),(13,16): quartic irreducible, **no rational
+  triangle at all**.
+- **All 15,180 triples of the 23 lf36 base directions and their swaps (1.6 s): 18 rational triangles, none a coprime
+  six-way** (3-6 distinct denominators among the six points; 6 of them also repeat a representation).
+- No elliptic curves needed: a direction-triple scan costs ~0.1 ms per triple, so ~1e8 triples (about 460 directions)
+  is a few hours on 7of9. Complete for triangle six-ways whose three directions are all in the scanned set.
+- Inside a bowtie family (fixed pair, genus-1 curve) the third side is determined by the bowtie, so triangle
+  completions are the step-1 chords; heuristically (Siegel on the genus-1 curve) only finitely many per family.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
