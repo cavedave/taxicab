@@ -1,0 +1,23 @@
+count5_v1 -- exact counts of the 1,188 uncounted five-ways (151-300 digits) of results/five_ways_all.txt
+Made 9 Nov 2026 (servers down: run when 7of9 is back). Bundle: count5_v1.tar.gz (repo root).
+The 277 up to 150 digits were done on the laptop (all k = 5): experiments/mining/count5/counted_le150_laptop.txt
+
+On 7of9:
+  scp count5_v1.tar.gz 7of9:/mnt/scratch/dcurran/
+  ssh 7of9
+  cd /mnt/scratch/dcurran && tar xzf count5_v1.tar.gz && cd count5_v1
+  echo 'print(factor(2^67-1))' | ~/pari/bin/gp -q          # gp works
+  PROCS=48 nohup ./run.sh > run.out 2>&1 &
+  tail -f counted_part1.log                                 # "i/1188 done, k counts {...}"; k >= 6 prints *** SIX-WAY
+
+If it stops at the 14.5 h limit, resume (skips everything already counted):
+  RESUME=1 PROCS=48 nohup ./run.sh > run2.out 2>&1 &
+
+Stop early:  pkill -f count_bowties     (only this job uses count_bowties.py)
+
+Collect:
+  tar czf ~/count5_out.tar.gz counted_part*.txt counted_part*.txt.unk counted_part*.log run*.out
+
+Expected: F63 took ~75 min on 48 processes for 416 numbers of 177-300 digits, so roughly 3-4 h; numbers whose
+s-values do not factor in 30 min, or with too many split primes, go to counted_part*.txt.unk with the reason.
+Afterwards (laptop): update results/five_ways_all.txt (k >= 5 -> 5) and FINDINGS.
