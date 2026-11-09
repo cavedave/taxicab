@@ -39,3 +39,9 @@
 - [ ] A023050 b-file to 1e19 (310 terms).
 - [ ] A293648, A293649, A293651 b-files (A293651: 14 missing terms).
 - [ ] New sequences: coprime in >= 4 ways (1,748 terms to 2.5e23), >= 5 ways (12 terms to 2.5e23).
+
+## Six-way shapes (9 Nov 2026; FINDINGS F76-F77, paper Table tab:sixshapes)
+- [ ] **Genus-1 curves on the two-line surfaces beyond the bowtie curves** (user wants to come back to this). Surface
+      X: F_d1(s, r) = c F_d2(s', r') (smooth sextic in P^3, general type). No lines on X among the 23 base directions
+      (F77). Next: fix one line's slope as a parameter T and view the other line as a point on an elliptic curve over
+      Q(T) -- the method of Ono and Trebat-Leder, *The 1729 K3 surface* (refs/1510.00735v5.pdf).
