@@ -2520,6 +2520,10 @@ Table tab:sixshapes ("Why no six-way?").
 - So the simplest kind of infinite family of two-disjoint-line configurations does not exist among the 23 base
   directions. Conjecturally (Bombieri-Lang) their rational points are finite per pair off the bowtie curves and any other
   low-genus curves (not yet searched: conics and genus-1 curves on X).
+- **Reference for the next step:** Ono and Trebat-Leder, *The 1729 K3 surface* (`refs/1510.00735v5.pdf`): two points
+  on x^3 + y^3 = k(T) make the twist family an elliptic surface (K3, Picard number 18, rank 2 over Q(T)). The same
+  method -- fix one line's parameter, view the other as a point on an elliptic curve over Q(T) -- is how to look for
+  genus-1 curves on X beyond the bowtie curves.
 - **Already covered by computation:** a six-way of shape "two disjoint lines" with a line in one of the 23 directions
   below 1e36 would have been counted by the certified lf36 search (F64), and with a line of cost <= 1.2e12 below
   int(1e33) by lf33 (F52); none exists.
