@@ -2418,8 +2418,8 @@ so infinitely many bowties, hence infinitely many n (finite fibres). Exactly-5 i
   **10,914 of 487,554 non-line chords have E | n** with a non-integral third point (smallest denominators 2, 4, 5).
   So F70 is not a restatement of "no third line".
 - **Rates after the F70 filters** (types orientation, ab > 0, 4 | ab): four-way chords, one line 4,286 / 86,322
-  (5.0%); no line 244 / 3,484 (7.0%); **bowtie cross chords 0 / 21,136.** At the four-way rate about 1,000 would be
-  expected: bowtie cross chords are genuinely special.
+  (5.0%); no line 244 / 3,484 (7.0%); **bowtie cross chords 0 / 21,136.** (Correction, F73: the rate depends
+  strongly on the size of E; size-adjusted only about 16 would be expected, not 1,000.)
 - **Step 1 (witnesses):** every bowtie cross chord's E_3 has a prime outside n; the outside part always divides the
   third point's denominator D. The outside primes vary (13: 1,414; 19: 1,032; 7: 912; 31: 776; 67, 61, 79, ...; a prime
   < 2000 in only 55%): **no fixed witness prime**, so no uniform congruence obstruction of Theorem 8 type.
@@ -2430,6 +2430,25 @@ so infinitely many bowties, hence infinitely many n (finite fibres). Exactly-5 i
 - **Open:** why does every bowtie cross chord have an E_3-prime outside n? Next: compare the split primes of E_3 with
   the s-values (Theorem 13 on lines 1 and 2), and test on bowtie curves whether the outside prime is forced by the
   pair's E_1, E_2 (family-level, plan step 2: finiteness route).
+
+## F73 (9 November 2026): why bowtie cross chords avoid E_3 | n -- mostly size; two structural explanations fail
+
+`triangles/eisenstein_share.py`, `e3_structure.py`, `e3_size.py`. Setting: pi_P = x + y w in Z[w], n = s_P N(pi_P),
+and E_3 = N(pi_Q - pi_P) / g^2 for the chord PQ (g = integer content of pi_Q - pi_P).
+- **Size explains most of F72's zero.** Among filtered four-way chords, the rate of E | n falls with
+  r = log E / log n: 30-40% at r = 0.1-0.2, 8% at 0.35-0.4, 2% at 0.45-0.5, 0.4% at 0.5-0.55, <= 0.03% at r >= 0.55.
+  Bowtie cross chords mostly have r = 0.6-0.7 (20,004 of 21,136), since they join points on different lines
+  (E_3 about n^(2/3) / g^2 with small g). **Size-band-adjusted expectation: 16.2, observed 0** (most of the 16 from the
+  ~340 cross chords with r = 0.3-0.5). The chords are not independent (about 8 per bowtie, bowties of one curve
+  related), so this is a modest, not overwhelming, deficit. F72's "about 1,000 expected" was wrong.
+- **Not shared Eisenstein factors:** the share log N(gcd(pi_P, pi_Q)) / log N(pi) is *higher* for bowtie cross pairs
+  (median 0.48) than for four-way chords without E | n (0.34), and like those with E | n (0.45).
+- **Not the s-differences:** with t1 = s_S - s_P, t2 = s_S - s_Q (pi_P - pi_S = t1 beta1 / (a - b) etc., beta = b - a w),
+  E_3 g^2 = N(t2 beta2 - t1 beta1) (up to the line factors); in all 10,568 cross chords (shared-point orientation, types
+  ok) E_3's outside part is coprime to t1 t2: the outside primes come from the binary quadratic form itself.
+- **Not hubs:** E | n chords are mostly single (four-ways: 4,302 single, 228 hub); five-way filtered chords are never hubs.
+- **Status:** "E_3 never divides n on bowtie cross chords" is mainly a size phenomenon with a small unexplained deficit.
+  Not a candidate for a uniform theorem; a finiteness statement per curve (plan step 2) remains the realistic target.
 
 ## Negative results
 

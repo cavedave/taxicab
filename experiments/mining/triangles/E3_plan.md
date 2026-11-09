@@ -15,6 +15,10 @@ outside n; at least 15% always.
   witness prime (13, 19, 7, 31, ... vary). So step 2 goes the finiteness route, after understanding why bowtie cross
   chords always have an outside prime (compare E_3's split primes with the s-values of lines 1 and 2).
 
+- 9 Nov later (F73): **mostly a size effect.** Size-adjusted expectation 16, observed 0 (modest deficit,
+  chords correlated). Shared Eisenstein factors, s-differences and hubs do not explain it. Step 2 (finiteness per
+  curve) stays the realistic target; a uniform theorem looks unlikely.
+
 ## Step 0 -- circularity check (do first)
 
 Theorem 2 says a line (three integer points) has E | n. **If the converse holds** -- a chord through two coprime
