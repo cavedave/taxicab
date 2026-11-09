@@ -2596,6 +2596,27 @@ times 1/2 for parity). Factorisation redone from the s-values (all 710 in 49 s).
 - Reading: free points obey every general rule and look like typical representations; the visible structure (C, E)
   comes from the line's side (Theorem 3), and one feature (B, the order skew) is still unexplained.
 
+## F81 (9 November 2026): free points -- the order skew is explained; cheap chords (D-lines) link all points of a multi-way
+
+`triangles/free_controls.py` and inline checks (catalogue: 21,947 "line + free" four-ways, 535 no-line four-ways, 172
+bowties <= 40 digits).
+- **Order skew (F80 B) explained:** a Theorem-5 candidate s chosen with weight 1/sqrt(m) (m = (4n/s - s^2)/3) falls
+  among the line's three s-values as rank 1-4 = 17.4 / 35.6 / 17.6 / 29.4% -- the free points' 23.2 / 33.7 / 15.6 /
+  27.4%. A uniform candidate gives 64 / 24 / 6 / 6%. So the skew is where a valid s can lie, not a property of F.
+- **Allowed chord directions: 50.00% for F (forced):** of F's two orientations exactly one has the line's 2-type, hence
+  4 | ab (Theorem 8 / F68), and the norm half of Theorem 1 holds automatically for chords (F68).
+- **Cheap chords.** Small directions recur among chords F -> line point -- (3,7) x40, (4,7) x35, (1,7) x32, (1,4) x29,
+  (3,4) x27, (1,3) x27 -- in numbers up to 35 digits, each with the smallest possible third-point denominator
+  (Theorem 7: D | (b - a) E; (1,3): 2, (1,4): 3, (4,7): 3, (3,7): 4, (3,4): 37). Share whose cheapest chord has cost
+  <= 1e6 / 1e9 / 1e12: **free -> line 6.6 / 21 / 46%**; bowtie cross chords 19 / 41 / 70%; **no-line four-ways (any
+  pair) 38 / 83 / 99.6%**. (A first control, line point -> swap of another line point, gave ~0% -- opposite-type chords;
+  not a fair control.)
+- **Reading:** points of the same n are pairwise linked by chords in cheap directions (D-lines, F30-F31) far more often
+  than random pairs of integers of that size would be (that needs gcd(dx, dy) ~ n^(1/3) / |direction|). Likely cause:
+  representations sharing a split prime ideal of n agree modulo it (F73: high Eisenstein gcd), so differences carry large
+  common factors. Free points are typical in this respect, not special. This shared structure is very likely what the
+  random-square model of F78 misses (F79's factor ~350).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
