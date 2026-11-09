@@ -655,7 +655,9 @@ only swaps Q_+ and Q_-, and (*) is symmetric anyway.) QED
 infinitely many n have at least five coprime representations as x^3 + y^3 (so at least four).
 *Proof.*
 1. *Topology.* An isomorphism of curves over Q between C_{pair} and a Weierstrass model, sending P0 to O, is a
-   homeomorphism on Q_p-points, and the group law is continuous. Let N be as in the Setting; for each p | N take U_p
+   homeomorphism on Q_p-points (a morphism of varieties over Q_p is continuous for the p-adic topology on Q_p-points,
+   and so is its inverse; e.g. Poonen, *Rational Points on Varieties*, Section 2.5, or Silverman AEC VII), and the
+   group law, being given by morphisms, is continuous. Let N be as in the Setting; for each p | N take U_p
    from 16e. On a minimal Weierstrass model at p, the subgroups E_k(Q_p) = {P : v_p(x(P)) <= -2k} + {O} (k >= 1) form a
    basis of open neighbourhoods of O (Silverman, AEC VII.2-3). So there is k_p with E_{k_p}(Q_p) contained in (the
    image of) U_p.
@@ -687,9 +689,8 @@ Literature: no prior infinitude result for coprime >= 3-, 4- or 5-ways found (Ul
 1. ~~**Delta = B~^2 - 4AC~ as forms.**~~ **Done (9 Nov): Lemma 16f** (the substitution identity, checked symbolically;
    Delta is the code's q by definition).
 2. ~~**The count in step 5.**~~ **Done (9 Nov): Lemma 16g** (at most 12 points per base triple, from Theorem 4).
-3. **Continuity in step 1.** State that the isomorphism C_{pair} -> E (Weierstrass model, P0 -> O) is continuous on
-   Q_p-points (a morphism of varieties), so U_p pulls back to an open neighbourhood of O. Standard; add a reference
-   (e.g. Silverman AEC, or the topology on V(Q_p) for a variety V).
+3. ~~**Continuity in step 1.**~~ **Done (9 Nov):** step 1 now states it with a reference (Poonen, *Rational Points on
+   Varieties* 2.5; Silverman AEC VII). Check the exact section numbers against the books before citing.
 4. **Independent read.** Have someone other than the author of this draft check 16a-16e and the five steps.
 
 ---
