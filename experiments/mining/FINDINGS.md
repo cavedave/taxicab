@@ -2501,6 +2501,29 @@ Table tab:sixshapes ("Why no six-way?").
   heuristically (F35 gap principle; F75 near-misses recede as n^0.48); bowtie + free point the most likely; two
   disjoint lines open (not searched for); the rest need rank >= 5.
 
+## F77 (9 November 2026): two disjoint lines -- a surface of general type; no linear families among the 23 base directions
+
+`twolines/forms23.gp`, `twolines/equiv.gp`.
+- **Set-up.** A line in direction d carries the raw triple of a slope (s, r) with n = F_d(s, r) / G^3, F_d = X^3 + Y^3
+  for a raw point (X, Y) (a binary sextic, = E S1 S2 S3 / (a - b)^2, Lemma 15). Two lines of the same n in directions
+  d1, d2 (disjoint or not) are rational points of the sextic surface **X: F_d1(s, r) = c F_d2(s', r') in P^3** (c from
+  finitely many gcd normalisations). If F_d1, F_d2 have no repeated root, X is smooth, hence of general type
+  (K = O(2)); by Bombieri-Lang its rational points lie on finitely many curves of genus <= 1 plus finitely many others.
+  The **bowtie curves** (two lines sharing a point; genus 1, F53) are such curves on X. **Two disjoint lines come in
+  infinite families only if X contains further curves of genus <= 1.**
+- **Lines on X** = rational M in GL2 with F_d1 o M proportional to F_d2. Tested on all pairs of the 23 lf36 base
+  directions (roots of the sextics, Moebius maps through three roots, rational check, exact polynomial identity):
+  - every direction has **exactly 6 rational automorphisms** -- the 6 orderings of a triple (the expected trivial
+    ones; validates the method). So **no parallel second line** (same direction, same n) in a linear family;
+  - **no two distinct directions have equivalent sextics**: no lines on any X for these pairs;
+  - no sextic has a repeated root: every X is smooth.
+- So the simplest kind of infinite family of two-disjoint-line configurations does not exist among the 23 base
+  directions. Conjecturally (Bombieri-Lang) their rational points are finite per pair off the bowtie curves and any other
+  low-genus curves (not yet searched: conics and genus-1 curves on X).
+- **Already covered by computation:** a six-way of shape "two disjoint lines" with a line in one of the 23 directions
+  below 1e36 would have been counted by the certified lf36 search (F64), and with a line of cost <= 1.2e12 below
+  int(1e33) by lf33 (F52); none exists.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
