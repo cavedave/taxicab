@@ -2471,6 +2471,21 @@ cube-free curve x^3 + y^3 = m (n0 = num/den, num den^2 = m k^3, scale den/k).
   2-adic rule of Theorem 8 / F68 (2 | d iff 4 does not divide ab) every third point is then 2-integral -- an independent
   confirmation. 3 is the most common denominator prime, then 7, 13, 37 (split primes and 3, as E's outside part | D).
 
+## F75 (9 November 2026): near-miss ranking of the j = 4 triangles (four-ways = line + free point)
+
+`triangles/j4_nearmiss.py` (`j4_nearmiss.txt`). For each of the 21,947 four-ways made of one line P1 P2 P3 and one free
+representation F, the triangles with corners F, Pi, Pj (sides: the line, F-Pi, F-Pj) have 4 integral points;
+distance to a six-way = d(R_i) d(R_j), the denominators of the two chord third points; best over the 3 pairs and both
+orientations of F.
+- **16776487 (the smallest coprime four-way) is the best near-miss of all: 185 = 5 x 37**, then 513 (1066365937),
+  2936 (442245349), 4424 (1026062947).
+- **Scaling law: distance ~ n^0.48** (median log distance / log n = 0.48 in every size band 10-39 digits; minimum
+  0.253, for a 26-digit n). Near-misses do not get relatively closer with size; in absolute terms they recede.
+- **No clustering on line directions** once size is accounted for: by absolute distance the cheap directions look
+  enriched 2-6x (they dominate small n), but ranked by log distance / log n the top 2% has (3,4), (12,13), (4,1),
+  (7,4) at 0.7-1.0x their overall share; only (36,37) (about 2x) and (108,127) (3 of 12) stand out, on small counts.
+  Unlike bowties (which concentrate on base (3,4)), near-six-way triangles of four-ways are spread evenly.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
