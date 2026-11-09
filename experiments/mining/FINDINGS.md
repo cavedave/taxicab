@@ -2530,6 +2530,10 @@ Table tab:sixshapes ("Why no six-way?").
 
 ## F78 (9 November 2026): ranking the five-ways as six-way candidates (bowtie + free point) -- the model collapses with size
 
+> **Correction (F79, same day):** calibrated on 517,972 one-line numbers, this lambda model underestimates free
+> representations about 350-fold (more for larger n and more split primes). Its absolute values and the 'collapse'
+> are not reliable; use the empirical rates instead.
+
 `triangles/free_point_rank.py` (`free_point_rank.txt`). For each exactly counted five-way <= 150 digits (710), the
 expected number of free extra representations lambda(n) = sum over Theorem 5 candidates s (s = f x split blocks,
 s <= (4n)^(1/3), not one of the five) of [m = (4n/s - s^2)/3 a positive integer] / (4 sqrt m) (density of squares
@@ -2546,6 +2550,22 @@ times 1/2 for parity). Factorisation redone from the s-values (all 710 in 49 s).
   fourth representation.
 - Reading: for "bowtie + free point" the useful candidates are the smallest five-ways, all already counted; large bowtie
   numbers essentially cannot gain a free point by chance.
+
+## F79 (9 November 2026): calibration -- "free" fourth representations are ~350x more common than random squares
+
+`triangles/calibrate_free.py`, `free_hubs.py`. All lines n <= 1e21 in the 23 cheapest directions (line_fast
+--triples: 517,976 distinct n, 3 s), each n counted exactly (collisions.all_reps).
+- 517,972 numbers have exactly one line; **271 have a free representation** (one each), 4 have two lines.
+- F78's lambda predicts 0.78 in total: **observed / predicted = 347**. The ratio grows with n (31 at 6-8 digits, 66,
+  157, 378, 463, 539 at 21-23 digits) and with the number of split-prime blocks (71 at 5 blocks ... 1,169 at 10).
+- **Empirical rate** of a free fourth representation per one-line number: 0.9% at 12-14 digits, 0.33% at 15-17,
+  0.055% at 18-20, 0.020% at 21-23 (overall 5.2e-4) -- consistent with the paper's 3e-4 (F49, to 1e30).
+- **Not hubs:** none of the 271 free points lies in a hub (two chords meeting at one rational point).
+- **Likely cause (not tested):** the model treats m = (4n/s - s^2)/3 as a random integer; but m = d^2 is equivalent to
+  t = n/s being a norm x^2 - xy + y^2 with x + y = s, and t, made of split primes, has about 2^k norm representations.
+  A model counting norm representations of t is the next thing to try.
+- Consequence: F78's ranking and its tiny absolute values are not reliable; the paper's empirical estimate (one six-way
+  per 300-1,500 five-ways, decreasing with size) stands as the better guide.
 
 ## Negative results
 
