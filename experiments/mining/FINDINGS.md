@@ -2450,6 +2450,27 @@ and E_3 = N(pi_Q - pi_P) / g^2 for the chord PQ (g = integer content of pi_Q - p
 - **Status:** "E_3 never divides n on bowtie cross chords" is mainly a size phenomenon with a small unexplained deficit.
   Not a candidate for a uniform theorem; a finiteness statement per curve (plan step 2) remains the realistic target.
 
+## F74 (9 November 2026): what the rational triangles are -- small curves, integral anchors, a ladder to six-ways
+
+`triangles/tri_props.gp` (`tri_props.out`): the 88 rational triangles of the F68 150-direction scan, each moved to its
+cube-free curve x^3 + y^3 = m (n0 = num/den, num den^2 = m k^3, scale den/k).
+- **Every one contains integral points of x^3 + y^3 = m** (coprime representations of m): 4 triangles with 4 integral
+  points, 36 with 3, 38 with 2, 10 with 1, none with 0. They sit on 26 small curves (m = 19, 91, 152551, 27937, ...).
+- **The four 4-point triangles are the smallest coprime four-way, m = 16776487** (= A047697(4)): its line of three
+  representations plus the fourth, joined to two of them; the two missing third points have denominators 5 and 37
+  (or 5 and 8917). The smallest four-way is "two points short" of a triangle six-way.
+- **Any three representations of n not on one line are the corners of a rational triangle** (their three chords are the
+  sides). So a triangle six-way is exactly: three representations whose three chord third points are all integral.
+  The 3-point triangles here are mostly three corners (16) or two corners + one third (20), never a full integral side.
+- **A ladder by the number j of integral points among the six:** j = 6 a six-way; j = 5 every bowtie (corners: the
+  shared point and one point from each line; the cross chord's third is the one rational point); j = 4 a line plus a
+  free point (four-ways); j <= 3 the small-curve triangles of the scan. The "distance" of a configuration from a six-way
+  is measured by the denominators of its non-integral points (for bowties: F67's chord denominators, >= 6, and >= 19 once
+  the orientation rule is applied).
+- **Every denominator in the 88 triangles is odd** (as is m): the scan used allowed directions only (4 | ab), and by the
+  2-adic rule of Theorem 8 / F68 (2 | d iff 4 does not divide ab) every third point is then 2-integral -- an independent
+  confirmation. 3 is the most common denominator prime, then 7, 13, 37 (split primes and 3, as E's outside part | D).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

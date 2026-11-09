@@ -757,6 +757,27 @@ nonsplit(b - a) in every case, and every line's E divides n (Corollary 13a was a
 
 ---
 
+## Lemma 19 (a chord's E outside n goes into the denominator; FINDINGS F72)
+
+**Statement.** Let P, Q be coprime integer points of x^3 + y^3 = n, not on a common known line, with chord
+a x + b y = c (gcd(a, b) = 1, a != b), and third point R = (X/D, Y/D) in lowest terms. For every prime p dividing
+E = a^2 + ab + b^2 but not n: v_p(E) <= v_p(D). (So the part of E coprime to n divides D.)
+*Proof.* Theorem 13's identities are Vieta for the line's cubic and hold for rational roots too; with s_R = (X + Y)/D
+the third gives E s_P s_Q (X + Y) = (a - b)^2 n D. Let p | E, p not dividing n. Then p divides neither s_P nor s_Q
+(both divide n, Theorem 5), and p does not divide a - b (gcd(E, a - b) divides 3, and p != 3 since E's only possible
+non-split prime is 3, and 3 | E with 3 not dividing n would need 3 | a - b, impossible as v_3 then forces ...).
+Hence v_p(E) + v_p(X + Y) = v_p(D) + v_p((a - b)^2) - ... = v_p(D) (as v_p(a - b) = 0), and v_p(X + Y) >= 0.
+QED (the p = 3 case needs one more line: to be checked)
+**Checked:** all 487,554 chords of the catalogue four-ways and the five-ways (F72): the part of E coprime to n always
+divides D.
+
+**Toolkit, observations (F74, not yet lemmas):**
+- Any three representations of n not on a line are the corners of a rational triangle; a triangle six-way = three
+  representations whose three chord third points are integral.
+- Ladder by integral points j among the six: bowties are j = 5 triangles; line + free point four-ways give j = 4.
+- With allowed side directions (4 | ab) every third point is 2-integral (Theorem 8's 2-adic rule): no even denominator
+  among the 88 rational triangles of the 150-direction scan.
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
