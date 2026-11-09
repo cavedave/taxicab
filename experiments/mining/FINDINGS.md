@@ -2640,6 +2640,25 @@ bowties <= 40 digits).
   points should count integer points on these Pell conics (by direction and lambda) instead of random squares;
   (3) coprimality and integrality of the third point are separate conditions on top (Theorems 7, 10).
 
+## F83 (9 November 2026): the Pell conic of a direction -- midpoint hyperbola, unit orbits of coprime two-ways
+
+`pell/pell_orbit.py`.
+- **Midpoint form.** Completing the square in F82's conic: the midpoint M = (P + Q)/2 of an equal-sum chord in direction
+  (a, b) with step lambda (Q = P + lambda (b, -a)) satisfies **b Mx^2 - a My^2 = -lambda^2 (b^3 - a^3) / 12**; with
+  U = 2b Mx, V = 2 My: U^2 - ab V^2 = -lambda^2 b (b^3 - a^3) / 3. Holds for all 3,024 cheap chords (cost <= 1e6,
+  ab > 0) between representations of the exhaustive k-ways (n <= 2.5e23).
+- **Unit orbits.** For ab not a square (2,788 of the 3,024), a power (T, W) of the fundamental unit of Z[sqrt(ab)] with
+  T = 1, W = 0 mod 2b preserves integrality; three steps from each real pair gave **8,364 pairs, all equal sums of two
+  cubes, 7,783 (93%) coprime in both points**. So every cheap chord of a known multi-way lies in an infinite family of
+  coprime two-ways with the same direction and step (classical in spirit: parametric families of a^3 + b^3 = c^3 + d^3).
+  No orbit number (three steps) is a catalogue k-way (k >= 4) -- they grow quickly.
+- **For a free-point model:** given P and (a, b), a partner Q in that direction exists iff the discriminant of F58.2's
+  quadratic (the bowtie condition, read for one point) is a square; treated as random this gives about log H / n^(1/3)
+  (~1e-6 at 1e21), still far below the observed 5e-4 (F79). The Pell conic explains how pairs arise, not yet how often
+  given n. Likely missing: numbers with a line are special (n = E s1 s2 s3 / (a - b)^2, Theorem 13), so their squares are
+  not random. Next: an empirical model -- per direction (a, b), measure the rate of partners and its dependence on n and
+  on n's split blocks.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
