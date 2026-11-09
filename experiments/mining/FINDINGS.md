@@ -2617,6 +2617,29 @@ bowties <= 40 digits).
   common factors. Free points are typical in this respect, not special. This shared structure is very likely what the
   random-square model of F78 misses (F79's factor ~350).
 
+## F82 (9 November 2026): pairs of representations lie on cheap chords (D-lines) -- real, and explained by Pell conics
+
+`triangles/dline_g.py` and inline checks.
+- **Real, with a fair control:** exhaustive four-ways n <= 2.5e23 (1,735; no search bias): cheapest of the 12 chords
+  between representations has cost <= 1e6 / 1e9 / 1e12 in **64.6 / 91.5 / 99.9%**; control (representations of n
+  against those of the next four-way, 32 pairs) 1.7 / 8.5 / 24.7%.
+- **Not shared prime ideals** (my first guess): g = gcd(dx, dy) satisfies g (b - a) = +-(s_P - s_Q) (Theorem 14's
+  identity), so all of g divides s_P - s_Q trivially; but g's primes are almost never primes of n (mean share of
+  log g from primes of n: 0.034, no-line four-ways <= 26 digits).
+- **Explanation (classical):** for Q = P + lambda (b, -a), the identity (checked in PARI)
+      (x + lambda b)^3 + (y - lambda a)^3 - x^3 - y^3
+        = lambda [3b x^2 - 3a y^2 + 3 lambda (b^2 x + a^2 y) + lambda^2 (b^3 - a^3)]
+  shows that **P and Q represent the same n exactly when (x, y) lies on the conic
+  3b x^2 - 3a y^2 + 3 lambda (b^2 x + a^2 y) + lambda^2 (b^3 - a^3) = 0** (the F58.2 quadratic read as a conic in P).
+  For ab > 0 (allowed directions) the conic is indefinite: Pell-type, so one integer point gives infinitely many
+  (a recurrence). Each small direction (a, b) and step lambda therefore carries an infinite family of equal sums of two
+  cubes, small directions having small coefficients and hence small n. This is why pairs of representations
+  concentrate on cheap chord directions -- the structured families that dominate the count of two-ways
+  (Heath-Brown, Hooley; refs/aa7913.pdf, Hooleybf01111429.pdf), and the Pell route of UlasPaperPlan A0c.
+- Consequences: (1) the random-square model (F78) ignores exactly this, hence F79's factor ~350; (2) a model of free
+  points should count integer points on these Pell conics (by direction and lambda) instead of random squares;
+  (3) coprimality and integrality of the third point are separate conditions on top (Theorems 7, 10).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
