@@ -45,3 +45,8 @@
       X: F_d1(s, r) = c F_d2(s', r') (smooth sextic in P^3, general type). No lines on X among the 23 base directions
       (F77). Next: fix one line's slope as a parameter T and view the other line as a point on an elliptic curve over
       Q(T) -- the method of Ono and Trebat-Leder, *The 1729 K3 surface* (refs/1510.00735v5.pdf).
+- [ ] **Pell conics of equal sums (F82).** For Q = P + lambda (b, -a):
+      (x + lambda b)^3 + (y - lambda a)^3 - x^3 - y^3 = lambda [3b x^2 - 3a y^2 + 3 lambda (b^2 x + a^2 y) + lambda^2 (b^3 - a^3)],
+      so P, Q represent the same n iff P lies on an (indefinite, for ab > 0) Pell conic. Explains why the representations
+      of a multi-way are pairwise linked by cheap chords (D-lines); basis for a correct model of free points and of the
+      per-number six-way probability (replacing F78's random-square model, off by ~350x, F79).
