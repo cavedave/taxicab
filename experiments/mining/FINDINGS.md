@@ -2411,6 +2411,26 @@ so infinitely many bowties, hence infinitely many n (finite fibres). Exactly-5 i
   (2-descent on the quartic, or a local-solubility prefilter before a deep search) rather than a blanket 1e6 search
   (~4,000 core-hours).
 
+## F72 (9 November 2026): E_3 | n on chords -- not circular; bowtie cross chords never have it; E's outside primes go to D
+
+`triangles/e3_step0.py`, `e3_rates.py`, `e3_witness.py` (plan: `triangles/E3_plan.md`, steps 0-1).
+- **Step 0 (circularity): the converse of Theorem 2 is false.** All 27,629 known lines have E | n (control), and
+  **10,914 of 487,554 non-line chords have E | n** with a non-integral third point (smallest denominators 2, 4, 5).
+  So F70 is not a restatement of "no third line".
+- **Rates after the F70 filters** (types orientation, ab > 0, 4 | ab): four-way chords, one line 4,286 / 86,322
+  (5.0%); no line 244 / 3,484 (7.0%); **bowtie cross chords 0 / 21,136.** At the four-way rate about 1,000 would be
+  expected: bowtie cross chords are genuinely special.
+- **Step 1 (witnesses):** every bowtie cross chord's E_3 has a prime outside n; the outside part always divides the
+  third point's denominator D. The outside primes vary (13: 1,414; 19: 1,032; 7: 912; 31: 776; 67, 61, 79, ...; a prime
+  < 2000 in only 55%): **no fixed witness prime**, so no uniform congruence obstruction of Theorem 8 type.
+- **General fact (all 487,554 chords): the part of E coprime to n divides D.** Proof sketch: Theorem 13's identity holds
+  for a rational third point, E s_P s_Q (X + Y) = (a - b)^2 n D; a prime p | E with p not dividing n divides neither
+  s_P s_Q (they divide n) nor a - b (gcd(E, a - b) | 3), so v_p(E) <= v_p(D). Converse fails: 9,802 of the 10,914
+  E | n chords still have D with primes outside 3n.
+- **Open:** why does every bowtie cross chord have an E_3-prime outside n? Next: compare the split primes of E_3 with
+  the s-values (Theorem 13 on lines 1 and 2), and test on bowtie curves whether the outside prime is forced by the
+  pair's E_1, E_2 (family-level, plan step 2: finiteness route).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

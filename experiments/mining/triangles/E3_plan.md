@@ -8,6 +8,13 @@ point of line 2, other than the shared point), after the orientation rule and 4 
 dividing n: 7,008 of 7,008, all with E_3 <= n (not a size effect). Typically half of log E_3 comes from primes
 outside n; at least 15% always.
 
+## Progress 9 Nov (F72)
+- Step 0 done: converse of Theorem 2 false (10,914 non-line chords with E | n); bowtie cross chords 0 of 21,136 vs
+  5-7% for four-way chords: genuinely special.
+- Step 1 done: outside part of E_3 always divides D (general, all chords; one-line proof from Theorem 13); no fixed
+  witness prime (13, 19, 7, 31, ... vary). So step 2 goes the finiteness route, after understanding why bowtie cross
+  chords always have an outside prime (compare E_3's split primes with the s-values of lines 1 and 2).
+
 ## Step 0 -- circularity check (do first)
 
 Theorem 2 says a line (three integer points) has E | n. **If the converse holds** -- a chord through two coprime
