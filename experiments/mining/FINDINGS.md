@@ -2528,6 +2528,25 @@ Table tab:sixshapes ("Why no six-way?").
   below 1e36 would have been counted by the certified lf36 search (F64), and with a line of cost <= 1.2e12 below
   int(1e33) by lf33 (F52); none exists.
 
+## F78 (9 November 2026): ranking the five-ways as six-way candidates (bowtie + free point) -- the model collapses with size
+
+`triangles/free_point_rank.py` (`free_point_rank.txt`). For each exactly counted five-way <= 150 digits (710), the
+expected number of free extra representations lambda(n) = sum over Theorem 5 candidates s (s = f x split blocks,
+s <= (4n)^(1/3), not one of the five) of [m = (4n/s - s^2)/3 a positive integer] / (4 sqrt m) (density of squares
+times 1/2 for parity). Factorisation redone from the s-values (all 710 in 49 s).
+- **Top:** 506433677359393 (Bernstein, 15 digits) lambda 8.5e-5; 137904678696613339 (18 digits, one of the three
+  "line + 2 free" five-ways) 1.7e-5; then 20-24-digit five-ways at 1e-6 - 3e-7.
+- **By size (total lambda):** < 25 digits (15 numbers) 1.1e-4; 25-49 (170) 1.5e-6; 50-74 (67) 4e-14; 75-99 1e-21;
+  100-124 7e-29; 125-149 8e-37. **Sum over all 710: 1.1e-4**, essentially all from the smallest five-ways, which are
+  exactly counted (k = 5).
+- **Calibration caveat:** far more pessimistic than the paper's empirical "one six-way per 300-1,500 five-ways" (rates
+  measured below 1e30). Local densities (m a square mod small primes) can raise lambda by a modest factor, not 1e3.
+  So either the model misses structure or the empirical rate does not extrapolate. Next: calibrate lambda on data --
+  e.g. numbers with exactly one line (three-way lines from the A023050 / lf runs) and the observed frequency of a free
+  fourth representation.
+- Reading: for "bowtie + free point" the useful candidates are the smallest five-ways, all already counted; large bowtie
+  numbers essentially cannot gain a free point by chance.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
