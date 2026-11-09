@@ -582,15 +582,43 @@ every failure to be a bowtie other than distinctness happens at a prime dividing
 dividing A. QED
 - **Data:** on (3,4)+(9,52) (N's primes 37, 43, 3253) every failure among 726 test points is at one of these (F69).
 
+**Lemma 16f (the quartic Delta; TO DO item 1).** Let (X_i(s, r), Y_i(s, r)) be the raw point i of the base line
+(binary quadratic forms with integer coefficients, from `line_enum.chord_points`: Q = s^2 + sr + r^2, the p_i and
+T = Z D Q all have degree 2). Put
+    B~ = 3(X_i b2^2 + Y_i a2^2),   C~ = 3(X_i^2 b2 - Y_i^2 a2),   A = b2^3 - a2^3,   Delta = B~^2 - 4 A C~.
+Then Delta is a binary quartic form with integer coefficients, and for a primitive (s, r) with base point
+P_i = (X_i, Y_i)/g on x^3 + y^3 = n:
+1. the points of line 2 through P_i on the curve are P_i (t = 0) and the roots of A t^2 + B t + C = 0, where
+   B = B~/g and C = C~/g^2;
+2. its other two points are rational if and only if Delta(s, r) is the square of a rational (equivalently, of an
+   integer) number.
+*Proof.* Expanding, (x + t b2)^3 + (y - t a2)^3 - x^3 - y^3 = t (A t^2 + B t + C) with B = 3(x b2^2 + y a2^2) and
+C = 3(x^2 b2 - y^2 a2) (an identity in x, y, t, a2, b2; checked symbolically in PARI). With (x, y) = (X_i, Y_i)/g, B and
+C are B~/g and C~/g^2, so the discriminant B^2 - 4AC = Delta(s, r)/g^2. A quadratic with rational coefficients and A != 0
+has rational roots iff its discriminant is a rational square; Delta(s, r) is an integer, and an integer that is a
+rational square is an integer square. Degree: B~ has degree 2 and C~ degree 4 in (s, r), so Delta is a quartic form.
+QED
+- *Code:* `bowtie_mine.Curve` sets q = 9 t1^2 - 12 A t2 with t1 = X b2^2 + Y a2^2 and t2 = X^2 b2 - Y^2 a2 (raw
+  coordinates at s = 1), which is exactly Delta(1, r); the identity q = B~^2 - 4AC~ was also checked symbolically.
+  C_{pair} is defined as w^2 = Delta(s, r), so its rational points are exactly the slopes with rational line-2 points.
+
+**Lemma 16g (finite fibres; TO DO item 2).** The map from rational points (s, r, w) of C_{pair} to the unordered base
+triple {P1, P2, P3} has fibres of at most 12 points.
+*Proof.* By Theorem 4 (i), reduced slopes (s, r) correspond one-to-one with the rational points P != P0 of the conic
+(3) (P0 itself comes from the single tangent slope, which gives no triple). By Theorem 4 (ii), points of (3)
+correspond one-to-one with ordered triples (u1, u2, u3), u = x/c; and by Theorem 4 (iii) the coprime triple
+determines (u1, u2, u3) up to order (u = x/c does not change when the triple is scaled by +-1). An unordered triple has
+at most 6 orderings, so at most 6 slopes; each slope gives at most two points (s, r, +-w). QED
+- *Used in Theorem 16 step 5:* each n has finitely many representations, hence finitely many possible base triples,
+  hence (16g) finitely many points of K mapping to it.
+
 **Lemma 16e (openness at p | N).** Let P0 be a bowtie on C_{pair}. For each prime p there is an open neighbourhood
 U_p of P0 in C_{pair}(Q_p) such that every rational point in U_p is integral and coprime at p (all five points).
 
 *Set-up.* C_{pair} is the curve w^2 = Delta(s, r) in weighted projective space P(1, 1, 2), with Delta a binary quartic
 form with integer coefficients, squarefree with nonzero discriminant (checked for the instance below: irreducible,
 disc != 0), so C_{pair} is smooth of genus 1. **Delta is exactly the discriminant of line 2 computed from raw
-coordinates:** with (X_i, Y_i) = raw point i (binary quadratic forms in (s, r)), B~ = 3(X_i b2^2 + Y_i a2^2),
-C~ = 3(X_i^2 b2 - Y_i^2 a2), we have Delta = B~^2 - 4 A C~ (an identity of forms; checked at six slopes for the
-instance, ratio exactly 1; it holds in general because the code defines Delta this way).
+coordinates** (Lemma 16f).
 A point of C_{pair}(Q_p) has a representative (s, r, w) with (s, r) in Z_p^2 primitive and w in Z_p (w^2 = Delta(s, r)
 is p-integral); the representative is unique up to (s, r, w) -> (u s, u r, u^2 w), u in Z_p^*.
 
@@ -641,10 +669,9 @@ infinitely many n have at least five coprime representations as x^3 + y^3 (so at
    They are proper (P0 satisfies none), hence finite. Removing them leaves infinitely many points of K, each a bowtie:
    five distinct coprime representations of its n.
 5. *Infinitely many n.* Each n != 0 has finitely many representations, hence finitely many bowties (five-element sets
-   of its representations with the line structure). A bowtie determines its base line and base triple, and a base
-   triple comes from finitely many slopes (s : r) (the slope parametrises ordered rational points of the conic of
-   Theorem 1, and there are at most 6 orderings); each slope gives at most two points (s, r, +-w). So each n arises from
-   finitely many points of K, and K, being infinite, gives infinitely many n. QED
+   of its representations with the line structure). A bowtie determines its base triple, and by Lemma 16g each base
+   triple comes from at most 12 points of C_{pair}. So each n arises from finitely many points of K, and K, being
+   infinite, gives infinitely many n. QED
 
 **Instance (F69).** (a, b, i, a2, b2) = (3, 4, 1, 9, 52) (i = 1 is code index 0), P0 = Bernstein's
 506433677359393, rank 5, torsion Z/2, N's primes 37, 43, 3253. Numerically k = 1 works at 37 and 43 within 2E(Q):
@@ -657,11 +684,9 @@ heights 5.5 - 18.9, regulator 75,786) has infinite order: rank >= 1 (indeed >= 5
 Literature: no prior infinitude result for coprime >= 3-, 4- or 5-ways found (UlasPaperPlan A0d).
 
 **TO DO before Theorem 16 goes into the paper (open, 8 Nov 2026):**
-1. **Delta = B~^2 - 4AC~ as forms.** Prove it from the definitions as a short lemma (F53; how `bowtie_mine.Curve`
-   builds q). At present it rests on the code's definition plus a numerical check (ratio 1 at six slopes).
-2. **The count in step 5.** Show that a base triple comes from only finitely many slopes (s : r) (at most 6
-   orderings of the conic point), citing Theorem 4 (the slope enumeration is complete) for the bijection between
-   slopes and ordered rational points of the conic.
+1. ~~**Delta = B~^2 - 4AC~ as forms.**~~ **Done (9 Nov): Lemma 16f** (the substitution identity, checked symbolically;
+   Delta is the code's q by definition).
+2. ~~**The count in step 5.**~~ **Done (9 Nov): Lemma 16g** (at most 12 points per base triple, from Theorem 4).
 3. **Continuity in step 1.** State that the isomorphism C_{pair} -> E (Weierstrass model, P0 -> O) is continuous on
    Q_p-points (a morphism of varieties), so U_p pulls back to an open neighbourhood of O. Standard; add a reference
    (e.g. Silverman AEC, or the topology on V(Q_p) for a variety V).
