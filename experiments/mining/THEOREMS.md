@@ -760,14 +760,16 @@ nonsplit(b - a) in every case, and every line's E divides n (Corollary 13a was a
 ## Lemma 19 (a chord's E outside n goes into the denominator; FINDINGS F72)
 
 **Statement.** Let P, Q be coprime integer points of x^3 + y^3 = n, not on a common known line, with chord
-a x + b y = c (gcd(a, b) = 1, a != b), and third point R = (X/D, Y/D) in lowest terms. For every prime p dividing
-E = a^2 + ab + b^2 but not n: v_p(E) <= v_p(D). (So the part of E coprime to n divides D.)
-*Proof.* Theorem 13's identities are Vieta for the line's cubic and hold for rational roots too; with s_R = (X + Y)/D
-the third gives E s_P s_Q (X + Y) = (a - b)^2 n D. Let p | E, p not dividing n. Then p divides neither s_P nor s_Q
-(both divide n, Theorem 5), and p does not divide a - b (gcd(E, a - b) divides 3, and p != 3 since E's only possible
-non-split prime is 3, and 3 | E with 3 not dividing n would need 3 | a - b, impossible as v_3 then forces ...).
-Hence v_p(E) + v_p(X + Y) = v_p(D) + v_p((a - b)^2) - ... = v_p(D) (as v_p(a - b) = 0), and v_p(X + Y) >= 0.
-QED (the p = 3 case needs one more line: to be checked)
+a x + b y = c (gcd(a, b) = 1, a != b), and third point R = (X/D, Y/D) in lowest terms. For every prime p != 3
+dividing E = a^2 + ab + b^2 but not n: v_p(E) <= v_p(D). (So the part of E coprime to 3n divides D.)
+*Proof.* Theorem 13's identities are Vieta for the line's cubic and hold for a rational third root as well; with
+s_R = (X + Y)/D the third reads E s_P s_Q (X + Y) = (a - b)^2 n D. Let p != 3, p | E, p not dividing n.
+- p does not divide s_P or s_Q: they divide n (n = s t).
+- p does not divide a - b: E = (a - b)^2 + 3ab, so p | E and p | a - b give p | 3ab, so p | a or p | b, and then
+  p | a and p | b (as p | a - b): against gcd(a, b) = 1.
+Comparing p-adic valuations: v_p(E) + v_p(X + Y) = v_p(D), and v_p(X + Y) >= 0. QED
+- *p = 3:* 3 | E exactly when 3 | a - b, so the argument above does not apply; the data say the statement holds at 3 as
+  well (to prove separately).
 **Checked:** all 487,554 chords of the catalogue four-ways and the five-ways (F72): the part of E coprime to n always
 divides D.
 
