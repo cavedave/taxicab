@@ -2486,6 +2486,21 @@ orientations of F.
   (7,4) at 0.7-1.0x their overall share; only (36,37) (about 2x) and (108,127) (3 of 12) stand out, on small counts.
   Unlike bowties (which concentrate on base (3,4)), near-six-way triangles of four-ways are spread evenly.
 
+## F76 (9 November 2026): the shapes of a six-way, and a census of the known four- and five-ways
+
+`triangles/shape_census.py`. A line carries three representations and two lines share at most one, so six
+representations carry at most four lines: complete quadrilateral (4 lines, rank 3), triangle (3, rank 3), bowtie + free
+point (2, rank 4), two disjoint lines (2, rank 4), line + three free (1, rank 5), six free (0, rank 6). Paper:
+Table tab:sixshapes ("Why no six-way?").
+- **Census of the known coprime k-ways:** four-ways 21,947 = one line + one free point, 535 with no line; five-ways
+  2,642 bowties, **3 = one line + two free points**, 0 with no line.
+- **Two disjoint lines, one step away:** only those 3 five-ways (a chord F-G of the two free points would be a second,
+  disjoint line). One has no admissible chord (types); best missing denominator 194,271,019 (about n^0.32, n of 27
+  digits); next 1.1e15.
+- Status by shape: quadrilateral impossible (Theorem 8c + Theorem 12: any n with a line is odd); triangle excluded
+  heuristically (F35 gap principle; F75 near-misses recede as n^0.48); bowtie + free point the most likely; two
+  disjoint lines open (not searched for); the rest need rank >= 5.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
