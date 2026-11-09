@@ -2575,6 +2575,27 @@ times 1/2 for parity). Factorisation redone from the s-values (all 710 in 49 s).
   (line points 100%, Lemma 17 check). So free points are typical representations of n, with a random class: the 350x
   excess is about the counting model (how often t = n/s is a norm with x + y = s), not a special kind of point.
 
+## F80 (9 November 2026): a battery of checks on the free points -- structure, mostly explained by Theorems 3 and 5
+
+`triangles/free_battery.py`, `free_E.py`: all 21,953 free representations of the catalogue (21,947 four-ways
+"line + 1 free", the 3 five-ways "line + 2 free"); control: the 535 four-ways with no line.
+- **A. Proven rules: 100%** -- non-split part of s (Theorem 5), x y mod 3 (Lemma 6), one even coordinate, Theorem 14
+  on every chord F-P.
+- **B. Order is not uniform:** s_F is the 2nd smallest of the four s-values in 33.7%, 3rd in only 15.6% (1st 23.2%,
+  4th 27.4%; uniform would be 25% each, s.e. 0.3%); sizes mirror it. Free points tend to fall between the line's
+  smallest and middle s-values. Open: may be a property of how a line's three s-values are spaced (Theorem 13's
+  cubic); needs a control (e.g. a random representation of numbers with two known non-line points, or a model).
+- **C. Shared factors:** median log gcd(s_F, s_P) / log n = 0.103 against 0.050 between the line's own points.
+- **E. Relations:** no exact s_F s_Pi = +- s_Pj s_Pk; s_F | s_P1 s_P2 s_P3 (= (a - b)^2 n / E, Theorem 13) in 43%.
+- **The line's E-primes:** in s for line points **never** (100%: Theorem 3, E | t on every point of a line); for free
+  points **all-or-nothing** per prime: none 63.1%, all of n's power 36.9%, never part (Theorem 5: s takes whole
+  split blocks). So free points put the line's E-blocks into s about a third of the time, which line points never do;
+  this, and the near-coprimality of a line's three s-values, explains C and E2.
+- **D. Nearly on a line:** best chord from F has denominator ~ n^0.14 (median; min n^0.008); the no-line control is not
+  comparable (12 chords per number against 6).
+- Reading: free points obey every general rule and look like typical representations; the visible structure (C, E)
+  comes from the line's side (Theorem 3), and one feature (B, the order skew) is still unexplained.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
