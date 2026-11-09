@@ -2566,6 +2566,14 @@ times 1/2 for parity). Factorisation redone from the s-values (all 710 in 49 s).
   A model counting norm representations of t is the next thing to try.
 - Consequence: F78's ranking and its tiny absolute values are not reliable; the paper's empirical estimate (one six-way
   per 300-1,500 five-ways, decreasing with size) stands as the better guide.
+- **Are free points constrained?** Proven for every representation (so for free points too): s = f x split blocks
+  (Theorem 5), x y mod 3 common (Lemma 6), n odd so one even coordinate (Theorem 12), chord directions obey Theorem 14,
+  chord thirds primitive (Theorem 10) with E's outside part in the denominator (Lemma 19), gap principle (heights,
+  angles >= 60 deg). Not forced: the class (Lemma 17). Profile (`free_profile.py`, 271 free vs 813 line points of the
+  same numbers): s / n^(1/3) median 0.58 vs 0.55; largest coordinate / n^(1/3) median 1.03 vs 1.04 (90%: 4.69 vs 3.48);
+  both coordinates positive 32% vs 29%; share of n's split blocks in s 0.33 vs 0.29; **same class as the line 54.5%**
+  (line points 100%, Lemma 17 check). So free points are typical representations of n, with a random class: the 350x
+  excess is about the counting model (how often t = n/s is a norm with x + y = s), not a special kind of point.
 
 ## Negative results
 
