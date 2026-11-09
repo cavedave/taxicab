@@ -2659,6 +2659,26 @@ bowties <= 40 digits).
   not random. Next: an empirical model -- per direction (a, b), measure the rate of partners and its dependence on n and
   on n's split blocks.
 
+## F84 (9 November 2026): the empirical free-point law, rate ~ 19.5 n^(-0.24), validated one level up
+
+`pell/free_rate.py`. Numerator: lf36 (certified; every n <= 1e36 with a line in the 23 cheapest directions counted
+exactly) -- numbers whose representations are one line + free points, per decade. Denominator: numbers with such a line,
+N(X) = 517,976 (X / 1e21)^(1/3) (51,828 at 1e18, 517,976 at 1e21; matches lf36's 5.18e10 triples at 1e36).
+- **Rate of a free extra representation per number with a line:** 9.0e-3 (1e14), 6.5e-4 (1e18), 1.4e-4 (1e21),
+  1.5e-5 (1e25), 1.0e-6 (1e30), 5.1e-8 (1e35); hundreds of events per decade. Least squares over the 22 decades with
+  >= 20 events: **rate ~ 10^1.29 n^(-0.240) = 19.5 n^(-0.24)**. (Count of "line + free" numbers <= X ~ X^0.09.)
+- **Validation one level up:** the law predicts **2.58** of the 21,947 "line + 1 free" four-ways gain a second free
+  point; observed: **3** ("line + 2 free" five-ways, F76).
+- **Applied to the 2,645 five-ways (bowtie + free point):** expected free sixth representations about 0.01 in total
+  (0.0096 from < 25 digits, 3e-4 from 25-49 digits, < 1e-9 beyond -- extrapolated). Factor-of-a-few uncertainty for
+  bowties (5 points instead of 3 to attach to; more structure).
+- **Total over all n (heuristic):** five-ways grow about as n^0.10 (F52), the free rate falls as n^-0.24, so the expected
+  number of "bowtie + free point" six-ways over all n converges and is dominated by small n; with the exhaustive range
+  complete to 2.5e23 (12 five-ways, none a six-way), the remainder is about 12 x 0.1 x rate(2.5e23) / 0.14 = 4e-4.
+  So this shape of six-way is expected to be finite in number, and probably absent.
+- Compared with the paper's "one six-way per 300-1,500 five-ways": right order at n ~ 1e17-1e20 (1 per 1,500-5,000)
+  but not constant -- it falls as n^-0.24.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
