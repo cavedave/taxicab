@@ -50,3 +50,31 @@
       so P, Q represent the same n iff P lies on an (indefinite, for ab > 0) Pell conic. Explains why the representations
       of a multi-way are pairwise linked by cheap chords (D-lines); basis for a correct model of free points and of the
       per-number six-way probability (replacing F78's random-square model, off by ~350x, F79).
+
+### Methods to borrow: geometry-based computational searches (9 Nov 2026; get PDFs into refs/)
+- **Elkies, "On A^4 + B^4 + C^4 = D^4", Math. Comp. 51 (1988) 825-835.** Found the counterexample to Euler's
+  conjecture by searching an elliptic fibration of the K3 surface, with local conditions to prune. -> two-line
+  surfaces (genus-1 curves; fibre the surface by one line's slope).
+- **Swinnerton-Dyer, "A^4 + B^4 = C^4 + D^4 revisited", J. London Math. Soc. 43 (1968).** Elliptic fibration of a
+  quartic surface giving families of solutions. -> same.
+- **Elkies, "Three lectures on elliptic surfaces and curves of high rank", arXiv:0709.2908.** Elliptic K3 surfaces,
+  Neron-Severi rank, Shioda-Tate, specialisation: the toolkit for "which fibres have points". -> same; also with
+  Ono-Trebat-Leder (refs/1510.00735v5.pdf).
+- **Elkies, "Rational points near curves and small nonzero |x^3 - y^2| via lattice reduction", ANTS IV (2000).**
+  Finds points close to a curve by lattice reduction. -> near-miss searches (near-lines, near-triangles, F67-F75).
+- **Cremona, Fisher, Stoll, "Minimisation and reduction of 2-, 3- and 4-coverings of elliptic curves", Algebra &
+  Number Theory 4 (2010).** Make quartics small before searching, so large-height points become small. -> the decider's
+  seed problem (F65, F71: missed curves with points of height 7,349 and 224,967).
+- **Bruin, Stoll, "Two-cover descent on hyperelliptic curves", Math. Comp. 78 (2009).** Prove a curve has no
+  rational points. -> turning "no point found" into "no point exists".
+- **Booker, "Cracking the problem with 33", Res. Number Theory 5 (2019); Booker, Sutherland, "On a question of
+  Mordell", PNAS 118 (2021).** Sums of three cubes: x + y divides z^3 - k, a divisor-driven search. -> our s = x + y
+  method (Theorem 5); speed ideas for count_bowties and the GPU search.
+- **Elsenhans, Jahnel, "On the smallest point on a diagonal cubic surface", Exp. Math. 19 (2010) 181-193** (and their
+  Tamagawa-number estimates). Point counts on diagonal cubic surfaces against Peyre's constant. -> x^3 + y^3 = u^3 + v^3
+  is a diagonal cubic surface; our Pell conics (F82-F83) are its accumulating curves; Manin-Peyre counting of the points
+  off them might predict the free-point exponent -0.24 (F84).
+- **Heath-Brown, Acta Arith. 79 (1997) (refs/aa7913.pdf); Hooley, Math. Z. 82 (1963) (refs/Hooleybf01111429.pdf).**
+  Already here: lines and structured families dominate the count of equal sums of two cubes. -> F82.
+- **Bremner, "A geometric approach to equal sums of sixth powers", PLMS (1981)** (sixes/). Geometry of the surface
+  guiding the search. -> same spirit.
