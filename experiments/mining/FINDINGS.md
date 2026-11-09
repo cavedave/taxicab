@@ -2391,6 +2391,26 @@ so infinitely many bowties, hence infinitely many n (finite fibres). Exactly-5 i
   points, and suggests a search shape: a third side is a direction whose norm divides n -- i.e. built from n's split
   primes (and 3).
 
+## F71 (9 November 2026): decider stage 2 (300 <= max(a2, b2) < 1000) -- 58 bowtie curves; the seed limit again
+
+`night_7of9/decide1000/` v3 stage 2 (7of9, 44 processes, 8 Nov 18:59 - 9 Nov 02:12, ~7 h of the 14.5 h slot;
+`results_stage2a/`): 2,093,527 of 2,093,530 curves logged (3 still running when collected).
+- 2,091,788 no point of height <= 1e5; 1,618 obstructed; 79 feasible and searched; 41 undecided (gp over 1 h);
+  1 no generators.
+- **58 curves with bowties** (54 with bowties < 1e300; 4 only larger). Largest families: (3,4)+(363,364) 147 bowties
+  < 1e300 from 4.51e37; (3,4)+(387,388) 124 from 2.40e47; (3,4)+(129,412) 62 from 4.82e37; (4,21)+(28,351) 51;
+  (3,4)+(309,316) 41; (36,37)+(876,877) 39. Base (3,4) dominates again (17 of 58).
+- 966 bowtie numbers < 1e300; **890 not in results/five_ways_all.txt**, added as k >= 5 (list: 2645 = 1180 exact
+  k = 5 + 1465 k >= 5).
+- **Rediscovery: 7 of 8** lf36 bowties with second direction in [300, 1000) found. **Missed: (3,4)+(453,964), 7.37e35**:
+  its known point has height 224,967 > 1e5, so the curve was "no point found". Seeded with that point, the decider
+  gives rank 3 and 13 bowties < 1e300 including 7.37e35. On the reduced quartic the first point appears between
+  heights 2e5 and 3e5; a point-free search costs 0.28 s at 2e5 (vs 33 ms at 1e5), growing about as height^2.
+- So, as in F65 v1, **"no point found" means "no point of height <= 1e5"**. Stages 1 + 2 together: 86 bowtie curves
+  with second direction < 1000. Completeness would need a better point finder for everywhere locally soluble curves
+  (2-descent on the quartic, or a local-solubility prefilter before a deep search) rather than a blanket 1e6 search
+  (~4,000 core-hours).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
