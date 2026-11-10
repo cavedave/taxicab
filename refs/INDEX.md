@@ -152,4 +152,5 @@ Still wanted (optional): D. Zagier, G. Kramarz, J. Indian Math. Soc. 52 (1987); 
 
 **Still missing:** N. D. Elkies, *On A^4 + B^4 + C^4 = D^4*, Math. Comp. 51 (1988) 825-835 (free on the AMS site, but
 the direct download returned a web page); H. P. F. Swinnerton-Dyer, *A^4 + B^4 = C^4 + D^4 revisited*, J. London
-Math. Soc. 43 (1968) 149-151 (paywalled).
+Math. Soc. s1-43 (1968) 155, doi:10.1112/jlms/s1-43.1.155a (paywalled). Elkies 1988: doi:10.1090/S0025-5718-1988-0930224-9,
+https://www.ams.org/journals/mcom/1988-51-184/S0025-5718-1988-0930224-9/ (free; JSTOR 2008781).

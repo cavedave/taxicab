@@ -55,7 +55,7 @@
 - **Elkies, "On A^4 + B^4 + C^4 = D^4", Math. Comp. 51 (1988) 825-835.** Found the counterexample to Euler's
   conjecture by searching an elliptic fibration of the K3 surface, with local conditions to prune. -> two-line
   surfaces (genus-1 curves; fibre the surface by one line's slope).
-- **Swinnerton-Dyer, "A^4 + B^4 = C^4 + D^4 revisited", J. London Math. Soc. 43 (1968).** Elliptic fibration of a
+- **Swinnerton-Dyer, "A^4 + B^4 = C^4 + D^4 revisited", J. London Math. Soc. s1-43 (1968) 155.** Elliptic fibration of a
   quartic surface giving families of solutions. -> same.
 - **Elkies, "Three lectures on elliptic surfaces and curves of high rank", arXiv:0709.2908.** Elliptic K3 surfaces,
   Neron-Severi rank, Shioda-Tate, specialisation: the toolkit for "which fibres have points". -> same; also with
