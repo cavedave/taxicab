@@ -780,6 +780,54 @@ divides D.
 - With allowed side directions (4 | ab) every third point is 2-integral (Theorem 8's 2-adic rule): no even denominator
   among the 88 rational triangles of the 150-direction scan.
 
+## Proposition 20 (six-ways are finite for each fixed set of chord directions; FINDINGS F86) -- 10 Nov 2026, draft
+
+**Setting.** A *configuration* is a finite set of points of x^3 + y^3 = n (n free) with prescribed incidences: some
+triples collinear (lines) and some pairs joined by chords in prescribed primitive directions d = (a, b). Rational
+configurations are taken up to scaling (any rational configuration scales to an integral one), so a configuration is
+determined by one point P up to scaling, (x : y) in P^1, and by square roots.
+
+**Lemma 20a (branch form).** For a point P = (x, y) and a direction d = (a, b) with b^3 != a^3, the points
+Q = P + lambda (b, -a) != P on the curve of P are the roots of A lambda^2 + B lambda + C = 0 (A = b^3 - a^3,
+B = 3(x b^2 + y a^2), C = 3(x^2 b - y^2 a); Lemma 16f), and they are rational iff
+    Delta_d(x, y) = 3 [b(4a^3 - b^3) x^2 + 6 a^2 b^2 x y + a(4b^3 - a^3) y^2]
+is a rational square. The bracket has discriminant 16 ab (b^3 - a^3)^2, so for ab > 0 its two roots are real, distinct
+and conjugate in Q(sqrt(ab)). (Identities checked symbolically, `shapes/delta_form.gp`.) A line through P in direction
+d gives both roots, i.e. two points for one square condition.
+
+**Lemma 20b (stars).** For m directions from one point P with pairwise distinct branch points (no two Delta's share a
+root), the curve w_i^2 = Delta_{d_i}(x, y) (i = 1..m) over P^1 is irreducible (the Delta's are independent modulo
+squares) and, by Riemann-Hurwitz for a (Z/2)^m cover branched simply over 2m points, has genus
+    g = 1 + 2^(m-1) (m - 2):   0, 1, 5, 17, 49 for m = 1, ..., 5.
+- m = 2 with two lines through P is the bowtie curve (genus 1, F53); a line and a chord give "line + free" four-ways.
+- **Checked:** branch points distinct on all 2,642 bowties, 21,947 line + free four-ways and 535 no-line four-way stars
+  (`shapes/branch_check.py`).
+
+**Lemma 20c (two disjoint lines).** Line 1 through P (direction d1), a chord P -> Q (direction d3), line 2 through Q
+(direction d2): the first two conditions give a genus-1 curve C13; the third is w2^2 = Delta_{d2}(Q) = alpha + beta w3, a
+double cover of C13 branched at the zeros of the norm alpha^2 - beta^2 Delta_{d3}, a quartic form. When the quartic has
+four distinct roots, none shared with Delta_{d1} or Delta_{d3}, there are r = 8 branch points and the genus is
+1 + r/2 = 5. **Checked:** all 10,626 ordered triples of distinct directions among the 23 lf36 base directions
+(`shapes/twolines_cover.gp`).
+
+**Proposition 20.** Fix the incidence pattern of a six-way and all chord directions involved, and assume the branch
+points are distinct (Lemmas 20b, 20c; true in every case checked). Then:
+1. **bowtie + free point, two disjoint lines, line + three free points, six free points:** the rational configurations
+   are the rational points of a curve of genus 5, >= 5, 17, 49 respectively, hence **finite** (Faltings);
+2. **complete quadrilateral:** no integral coprime configuration at all (Theorem 8c, with Theorem 12);
+3. **triangle:** the rational configurations are the points of the bowtie curve (genus 1; the sixth point, the third
+   intersection of the chord through the two outer corners, is automatically rational), so there can be infinitely many
+   rational triangles; but the sixth point is integral only where a non-constant function on the bowtie curve takes
+   S-integral values (its denominator's primes are not bounded: Lemma 19), so **finitely many integral ones** per curve
+   (Siegel). *(Sketch: the reduction to S-integral points of a fixed function needs writing out.)*
+
+So **for every fixed set of chord directions, there are only finitely many six-ways of each shape.** This does not bound
+the number of six-ways overall: directions are unbounded (F85: chord direction coefficients grow about as n^0.19).
+
+**Status.** 20a: proved (identities). 20b: proved given distinct branch points (a checkable condition). 20c: genus
+proved given the stated root conditions, checked for the 23 base directions; the general case needs the quartic's
+discriminant as a polynomial in the directions. Part 3: sketch. Faltings' theorem is ineffective: finiteness, not a list.
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
