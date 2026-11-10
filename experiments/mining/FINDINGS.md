@@ -2796,6 +2796,25 @@ linear-algebra test (`shapes/line_patterns.py`, `shapes/max_lines.py`).
 - Answers "can a 10-way of a given class be ruled out?": yes -- e.g. no 10-way whose representations form the Desargues
   configuration; any k-way whose lines contain an excluded pattern is impossible.
 
+## F91 (10 November 2026): generating certified multi-ways from bowtie curves -- 4,258 five-ways in 6.4 CPU-hours
+
+Each bowtie in `results/five_ways_all.txt` gives a genus-1 curve (direction pair + shared point; F87); on it, the points
+sum c_k G_k with |c_1| + ... + |c_r| <= 3 (G_k the generators PARI's ellrank finds) each give a base triple and a second line.
+A second line with two coprime integral points is a bowtie (k >= 5), with one a line + free point (k >= 4). Every listed
+representation is checked directly, so each number is certified without counting (`shapes/generate_multiways.py`,
+log `shapes/generated.jsonl`, summary `shapes/summarise_generated.py`; laptop, 6 processes, 15 min cap per PARI call).
+- **412 curves:** rank 2 (15), 3 (228), 4 (79), 5 (76); 14 hit the time cap and gave nothing.
+- **Five-ways (k >= 5): 4,258 distinct, 2,851 new**; 175 below 50 digits, 371 below 100, 1,140 below 200; 2,375 above 300.
+  Smallest new: 52 digits. 482 new ones of <= 300 digits added to `five_ways_all.txt` as '>=5' (source 'F91').
+- **Four-ways (k >= 4, line + free point): 2,101 distinct, 2,080 new** -> `results/four_ways_generated.txt`
+  (not the catalogue: exact counts only there). Smallest new: 37 digits.
+- **Throughput: 6.42 CPU-hours in all = 663 five-ways (444 new) and 327 four-ways per CPU-hour** on one laptop core.
+  The 14 timed-out curves cost 3.4 of the 6.42 hours; the other 398 curves alone give about 1,400 five-ways per CPU-hour.
+- **Rediscovery:** 1,407 of the 2,645 known five-ways reappear, including 336 of the 364 with <= 100 digits -- the method
+  sees almost all small known five-ways from a few generator combinations per curve.
+- For the paper: "generating points on the 412 bowtie curves finds about 660 certified five-ways per CPU-hour".
+- Cheaper next time: lower cap or fewer combinations on rank-5 curves (the timeouts were half the cost).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
