@@ -165,6 +165,9 @@ code.
 \item Saturation below $10^{30}$: every direction of cost $\le1.2\cdot10^{12}$ searched; most new five-way finds became rediscoveries.
 \item Recall against the exhaustive data (50--70\% of four-ways below $10^{16}$, falling with $n$; higher for five-ways).
 \end{points}
+\begin{points}{generating on bowtie curves: the rate of detection}
+\item [Draft paragraph by Claude, 10 Nov 2026 -- to rewrite.] Once a bowtie is known, its curve (base direction, second direction and shared point; Section~3) is an elliptic curve whose rational points are all the configurations of the same shape, so further multi-ways can be generated rather than searched for. For each of the 412 bowtie curves of our five-ways we took the generators found by PARI's \texttt{ellrank} (ranks 2 to 5) and every point $\sum c_iG_i$ with $\sum|c_i|\le3$. Each point gives a base line of three coprime representations and a second line through the shared point; if the second line has two coprime integral points the number is a five-way (bowtie), if it has one, a four-way (line plus free point). Every representation is checked directly, so each number is certified without counting its representations. In 6.4 CPU-hours on a laptop this gave 4,258 five-ways (2,851 new; 175 below 50 digits, 371 below 100) and 2,101 four-ways (2,080 new): about 660 certified five-ways and 330 four-ways per CPU-hour. Fourteen curves exceeded the 15-minute limit per PARI call and gave nothing, at a cost of 3.4 of the 6.4 hours; the remaining 398 curves alone give about 1,400 five-ways per CPU-hour. The method rediscovers 336 of the 364 known five-ways below $10^{100}$. Unlike the line search it finds only numbers of these two shapes, and the exact number of representations of the new numbers is not yet counted. (FINDINGS F91.)
+\end{points}
 
 \section{Results}
 \begin{points}{the catalogue}
