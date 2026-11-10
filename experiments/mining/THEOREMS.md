@@ -802,6 +802,11 @@ squares) and, by Riemann-Hurwitz for a (Z/2)^m cover branched simply over 2m poi
 - m = 2 with two lines through P is the bowtie curve (genus 1, F53); a line and a chord give "line + free" four-ways.
 - **Checked:** branch points distinct on all 2,642 bowties, 21,947 line + free four-ways and 535 no-line four-way stars
   (`shapes/branch_check.py`).
+- **When can branch points coincide? (F87)** The resultant of the bracket forms of d1, d2 is (a1 b2 - a2 b1)^2 S(d1, d2)
+  for an explicit sextic S. *Both* branch points shared means proportional forms; with t = a/b the coefficient ratios
+  give (u - t)(4 + ut(t + u)) = 0, so for allowed directions (t, u > 0) u = t: **distinct allowed directions never share
+  both branch points (proved).** One shared branch point is rational, so it needs ab and a'b' both perfect squares;
+  S != 0 for all 2,423,301 such pairs with a, b <= 3600 (not proved in general).
 
 **Lemma 20c (two disjoint lines).** Line 1 through P (direction d1), a chord P -> Q (direction d3), line 2 through Q
 (direction d2): the first two conditions give a genus-1 curve C13; the third is w2^2 = Delta_{d2}(Q) = alpha + beta w3, a
@@ -819,7 +824,10 @@ points are distinct (Lemmas 20b, 20c; true in every case checked). Then:
    intersection of the chord through the two outer corners, is automatically rational), so there can be infinitely many
    rational triangles; but the sixth point is integral only where a non-constant function on the bowtie curve takes
    S-integral values (its denominator's primes are not bounded: Lemma 19), so **finitely many integral ones** per curve
-   (Siegel). *(Sketch: the reduction to S-integral points of a fixed function needs writing out.)*
+   (Siegel). *(Sketch, made concrete for (3,4)+(9,52) in F87: R's denominator comes from Den = x_B y_B - x_C y_C
+   (Theorem 8a), a form alpha + beta w; after cancelling the factor it shares with R's numerators, its norm has 6
+   distinct roots, so each equation Den = c is a plane curve with >= 3 points at infinity -- finitely many integral
+   points (Siegel). Remaining: bound the gcd of the values, not only of the forms.)*
 
 So **for every fixed set of chord directions, there are only finitely many six-ways of each shape.** This does not bound
 the number of six-ways overall: directions are unbounded (F85: chord direction coefficients grow about as n^0.19).

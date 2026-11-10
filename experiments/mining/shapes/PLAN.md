@@ -26,7 +26,8 @@ Bombieri-Lang). Lines are "cheaper" (two points per condition), which is how bow
    branch loci, genus / Kodaira dimension. Goal: a "geometry" column (rational / K3 / general type) proved, not
    hand-waved. A shape whose variety is not of general type is where infinite rational families of six-ways would live;
    Theorem 16's congruence argument could then make them integral and coprime.
-3. **Elkies-style test on one K3** (refs/shape: Elkies 1988 and 2007): take a four-way's three chord directions, write
+3. **Done (F87), in corrected form:** 'line + free' four-ways generated from the genus-1 bowtie curve (3,4)+(9,52):
+   343 candidates, all 19 counted are exactly four-ways. (Original K3 wording, superseded:) **Elkies-style test on one K3** (refs/shape: Elkies 1988 and 2007): take a four-way's three chord directions, write
    down the K3, find an elliptic fibration, generate new four-ways from it -- a check that the geometry predicts real
    objects.
 4. **Practical, separately:** Cremona-Fisher-Stoll minimisation (refs/shape/0908.1741v1.pdf) for the decider's missed

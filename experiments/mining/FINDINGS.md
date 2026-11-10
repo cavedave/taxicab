@@ -2721,6 +2721,26 @@ scaling, (x : y) in P^1, not a plane. The "K3 for four-ways" there was wrong.)
   often (Faltings for genus >= 2 -- unconditional; Theorem 8c; Siegel for the triangle). Directions are not bounded,
   so this is "finite per direction set", not "finitely many six-ways".
 
+## F87 (10 November 2026): shape route open items -- branch points, the triangle's Siegel step, four-ways generated from a genus-1 curve
+
+`shapes/exceptional.gp`, `shapes/triangle_norm.gp`, `shapes/gen_fourways.py`.
+- **(A) Lemma 20b's hypothesis.** Resultant of the bracket forms of d1, d2 = (a1 b2 - a2 b1)^2 S(d1, d2), S an explicit
+  sextic (PARI). Two allowed directions sharing *both* branch points have proportional forms; with t = a/b that forces
+  (u - t)(4 + ut(t + u)) = 0, impossible for t, u > 0 unless u = t -- **proved**. A single shared (rational) branch point
+  needs ab and a'b' both squares; S != 0 on all 2,423,301 such pairs with a, b <= 3600; no proportional forms among
+  97,034 directions with a, b < 400.
+- **(B) Triangle, Siegel step, on (3,4)+(9,52)** (shared point = raw point 0): the sixth point R (third point of the
+  chord B -> C, B a base point, C a line-2 point) has denominator from Den = x_B y_B - x_C y_C (Theorem 8a); Den, x- and
+  y-numerators share one irreducible quadratic factor (8251 r^2 + 11059 r + 13867, via norms); the **reduced
+  denominator's norm has degree 6 with 6 distinct roots** (both choices of B): >= 3 points at infinity, so R is integral
+  at only finitely many points of the curve (Siegel). Caveat: the common factor is found through norms; bounding the gcd
+  of the actual values needs one more resultant check -- still a sketch.
+- **(C) Step 3: four-ways generated from a genus-1 curve.** A "line + free" four-way is a bowtie-curve point whose second
+  line is half integral (one root an integral coprime point, the other not). On (3,4)+(9,52), the 3,124 points
+  sum c_k G_k (|c_k| <= 2): 800 bowties, **343 "line + free" candidates (251 distinct n)**, 384 base line only, 1,597 base
+  not coprime. **All 19 candidates counted (3 up to 45 digits, 16 of 46-120 digits) are exactly four-ways with one line.**
+  So the configuration curves predict real objects, and they generate four-ways as well as five-ways.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
