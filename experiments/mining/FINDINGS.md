@@ -2757,6 +2757,31 @@ Nx = x_C^2 y_B - x_B^2 y_C, Ny = x_B y_C^2 - x_C y_B^2 (Theorem 8a), raw coordin
 - **Remaining lemma:** gcd(Den, Nx, Ny) | M G(s, r) for all points (verified on 6,248; to prove from resultants of the
   reduced forms, the standard bound for coprime (s, r)).
 
+## F89 (10 November 2026): the geometry predicts the census of four- and five-way shapes
+
+With all chord directions fixed, a k-way shape is a configuration curve of genus 1 + 2^(m-1)(m-2) (m square conditions;
+Proposition 20, F86). Genus 1 means infinite families can exist; genus >= 2 means finitely many per direction set
+(Faltings). The census (F76) follows the genus:
+
+| k | shape | m | genus | known |
+| --- | --- | --- | --- | --- |
+| 4 | line + free point | 2 | **1** | **21,947** |
+| 4 | no line (star of 3 chords) | 3 | 5 | 535 |
+| 5 | bowtie | 2 | **1** | **2,642** |
+| 5 | line + 2 free points | 3 | 5 | 3 |
+| 5 | no line | 4 | 17 | 0 |
+
+- **The three "line + 2 free" five-ways** (137904678696613339, 236191447138323830299237, 153461072317103291251148239):
+  each is a line plus two chords from one line point (chord costs up to 1e13), branch points distinct -> **genus 5**
+  (checked).
+- So the genus-1 shapes (line + free, bowtie) dominate the census, the genus-5 shapes are rare, and genus 17 is absent.
+  Bowties are the only five-way shape with infinite families per direction set -- which is why every scalable
+  five-way construction (the decider, Theorem 16) goes through bowtie curves; "line + 2 free" five-ways cannot be
+  generated in families with fixed directions.
+- Caveat: the counts mix exhaustive data (<= 2.5e23) and targeted searches (lines, bowtie curves), which favour the
+  genus-1 shapes; the exhaustive range alone shows the same order (F76; F49: bowtie rate 7e-3 per line + free four-way,
+  free point 3e-4).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
