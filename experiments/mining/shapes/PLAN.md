@@ -16,7 +16,10 @@ Bombieri-Lang). Lines are "cheaper" (two points per condition), which is how bow
 **Steps.**
 1. **Done (F85):** four-ways are stars of relatively cheap chords (91.5% / 53% within cost 1e12 for line+free / no-line,
    against 3.8% control). Refinement: directions grow ~ n^0.19 per coefficient; counts must sum over directions.
-2. **Started (F86):** genus formula and branch form verified, all real configurations have distinct branch points;
+2. **Done (10 Nov): Proposition 20 in THEOREMS.md, table column in the paper.** Two disjoint lines: genus 5 on all
+   10,626 base-direction triples (Lemma 20c). Open in it: Lemma 20c in general (the quartic's discriminant as a
+   polynomial in the directions); the triangle's Siegel step written out.
+   Earlier note -- **Started (F86):** genus formula and branch form verified, all real configurations have distinct branch points;
    six-way shapes: finite per direction set (Faltings / Theorem 8c / Siegel for the triangle). Remaining: the two
    disjoint lines cover; write the per-direction-set finiteness as a proposition.
    Original step: **Compute the varieties** in PARI for one example of each six-way shape (paper Table tab:sixshapes): equations,
