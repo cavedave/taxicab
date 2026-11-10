@@ -2741,6 +2741,22 @@ scaling, (x : y) in P^1, not a plane. The "K3 for four-ways" there was wrong.)
   not coprime. **All 19 candidates counted (3 up to 45 digits, 16 of 46-120 digits) are exactly four-ways with one line.**
   So the configuration curves predict real objects, and they generate four-ways as well as five-ways.
 
+## F88 (10 November 2026): the triangle's Siegel step -- the gcd of denominator and numerators is G(s, r) times a fixed M
+
+`shapes/triangle_H.gp`, `shapes/triangle_values.py`. Bowtie curve (3,4)+(9,52), sixth point R of the triangle = third
+point of the chord B -> C (B a base point, C a line-2 point): R = (Nx/Den, Ny/Den), Den = x_B y_B - x_C y_C,
+Nx = x_C^2 y_B - x_B^2 y_C, Ny = x_B y_C^2 - x_C y_B^2 (Theorem 8a), raw coordinates scaled by 2A.
+- The shared factor of Den and the numerators (norm 8251 r^2 + 11059 r s + 13867 s^2 =: G(s, r), F87) is not a simple
+  geometric quantity: none of x_B - x_C, y_B - y_C, s_B - s_C, x_B y_C - x_C y_B, s_B, s_C, x_C, y_C has it in its norm.
+- **At the 6,248 actual (point, B) cases on the curve (3,124 points, two choices of B): gcd(Den, Nx, Ny) always divides
+  M G(s, r) with M = 2^8 3^2 5 37^3 43^3 3253^3** -- only 2, 3, 5 and the bowtie's primes N = 37, 43, 3253 (Theorem 16),
+  to bounded powers. The reduced denominator |Den| / gcd is never 1 (min 30,239; median 147 digits): no six-way.
+- **The argument:** R integral => Den | Nx, Ny => Den | gcd => Den | M G(s, r) => f = M G / Den is an integer at that
+  point. f is a fixed non-constant rational function on the genus-1 curve (poles at the zeros of Den: 6 distinct after
+  the common factor, F87), so such points are integral points w.r.t. those poles: **finitely many (Siegel).**
+- **Remaining lemma:** gcd(Den, Nx, Ny) | M G(s, r) for all points (verified on 6,248; to prove from resultants of the
+  reduced forms, the standard bound for coprime (s, r)).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

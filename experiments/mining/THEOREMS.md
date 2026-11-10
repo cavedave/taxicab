@@ -827,7 +827,9 @@ points are distinct (Lemmas 20b, 20c; true in every case checked). Then:
    (Siegel). *(Sketch, made concrete for (3,4)+(9,52) in F87: R's denominator comes from Den = x_B y_B - x_C y_C
    (Theorem 8a), a form alpha + beta w; after cancelling the factor it shares with R's numerators, its norm has 6
    distinct roots, so each equation Den = c is a plane curve with >= 3 points at infinity -- finitely many integral
-   points (Siegel). Remaining: bound the gcd of the values, not only of the forms.)*
+   points (Siegel). F88: at all 6,248 points tested, gcd(Den, Nx, Ny) | M G(s, r) with M = 2^8 3^2 5 37^3 43^3 3253^3
+   (primes of N only) and G the shared factor's norm; then R integral => f = M G / Den is integral at the point, and
+   Siegel for the non-constant f gives finiteness. Remaining: prove the gcd bound for all points (resultants).)*
 
 So **for every fixed set of chord directions, there are only finitely many six-ways of each shape.** This does not bound
 the number of six-ways overall: directions are unbounded (F85: chord direction coefficients grow about as n^0.19).
