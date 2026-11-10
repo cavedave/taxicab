@@ -2683,6 +2683,19 @@ N(X) = 517,976 (X / 1e21)^(1/3) (51,828 at 1e18, 517,976 at 1e21; matches lf36's
   F52's n^0.10. The convergence argument holds with margin (0.09 < 0.24); tail beyond 2.5e23 about 12 x 0.087 x
   rate(2.5e23) / 0.153 = 3e-4. Paper Table tab:sixshapes, row "bowtie + free point", updated (9 Nov).
 
+## F85 (10 November 2026): four-ways are stars of relatively cheap chords (shape route, step 1)
+
+`shapes/star_check.py`. Exhaustive four-ways n <= 2.5e23; statistic: min over centres P (both orientations) of the max
+over the other three representations (best orientation) of the chord cost |b^3 - a^3|.
+- **One line + free (1,509):** all three chords from one centre cost <= 1e6 / 1e9 / 1e12 in 11.4 / 49.0 / **91.5%**;
+  median log(worst cost) / log n = 0.448. (From a line point two of the three chords are the line itself.)
+- **No line (227):** 0 / 13.2 / **53.3%**; median 0.573.
+- **Control** (partners from the next three four-ways, not on the same curve): 0 / 0.6 / 3.8%; median 0.909.
+- So four-ways are "stars": from a good centre every chord is far cheaper than random (worst ~ n^0.45-0.57 against
+  n^0.91), supporting the configuration-variety picture (shapes/PLAN.md). **Refinement:** cheap is relative -- worst
+  cost ~ n^0.57 means direction coefficients ~ n^0.19 -- so counts must sum over directions growing with n, as for the
+  bowtie second directions (stage 2), not use one fixed surface per direction triple.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
