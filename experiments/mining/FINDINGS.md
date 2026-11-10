@@ -2782,6 +2782,20 @@ Proposition 20, F86). Genus 1 means infinite families can exist; genus >= 2 mean
   genus-1 shapes; the exhaustive range alone shows the same order (F76; F49: bowtie rate 7e-3 per line + free four-way,
   free point 3e-4).
 
+## F90 (10 November 2026): which line patterns can coprime representations carry? (Theorem 21)
+
+With every representation oriented to 2-type +1 (n odd since it has a line; Theorem 8), each line is q_a + q_b + q_c = 0
+in a torsion-free group, so a line pattern is excluded exactly when its relations force a coincidence -- a finite
+linear-algebra test (`shapes/line_patterns.py`, `shapes/max_lines.py`).
+- Possible (not excluded): line, bowtie, two disjoint lines, triangle, three concurrent lines.
+- **Impossible:** complete quadrilateral (= Theorem 8c), Fano plane, Moebius-Kantor 8_3, Pappus 9_3, Hesse AG(2,3),
+  Desargues 10_3 (configurations validated: linear, regular). Moebius-Kantor, Pappus and Hesse contain no complete
+  quadrilateral -- a new obstruction beyond Theorem 8c.
+- **Most lines among k coprime representations:** 1, 1, 2, 3, 4, 6 for k = 3..8 (combinatorial maximum 1, 1, 2, 4, 7, 8);
+  k = 9: >= 8 not excluded (search incomplete).
+- Answers "can a 10-way of a given class be ruled out?": yes -- e.g. no 10-way whose representations form the Desargues
+  configuration; any k-way whose lines contain an excluded pattern is impossible.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the

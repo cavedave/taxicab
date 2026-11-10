@@ -838,6 +838,39 @@ the number of six-ways overall: directions are unbounded (F85: chord direction c
 proved given the stated root conditions, checked for the 23 base directions; the general case needs the quartic's
 discriminant as a polynomial in the directions. Part 3: sketch. Faltings' theorem is ineffective: finiteness, not a list.
 
+## Theorem 21 (line patterns of coprime representations are decided by linear algebra; FINDINGS F90) -- 10 Nov 2026
+
+**Statement.** Let n have k >= 3 coprime representations, some three of them collinear, with cube-free part not 1 or 2,
+and let L be the set of lines (triples of representations on one line). For each representation choose the orientation
+q_i (the point (x, y) or its swap (y, x)) whose 2-type is +1. Then
+    q_a + q_b + q_c = 0   for every line {a, b, c} in L,
+in the group of the curve x^3 + y^3 = n (flex at infinity as zero). Consequently, if the rational span of these
+relations contains e_i, e_i - e_j or e_i + e_j for some i != j, no such n exists: **a pattern of lines whose relations
+force q_i = 0, q_i = q_j or q_i = -q_j cannot occur among coprime representations.**
+
+*Proof.* n has a line, so n is odd (Theorem 12); hence every coprime representation has exactly one even coordinate
+and a 2-type (Theorem 8). By Corollary 8b the three points of a line, as they lie on it, have one 2-type; they sum to 0
+(collinear points sum to zero). If that type is -1, negate all three: -P is the swap of P and has the opposite type, and
+the relation stays a sum equal to 0. So every line gives q_a + q_b + q_c = 0 with the type-+1 representatives. The
+torsion subgroup is trivial (cube-free part not 1, 2; Theorem 8c's proof). If d e_i - d e_j (d a positive integer) is an
+integer combination of the line relations, then d (q_i - q_j) = 0, so q_i = q_j -- the same representation twice; likewise
+q_i = 0 (impossible for a point of the affine curve) and q_i = -q_j (a representation and its own swap, i.e. the same
+representation). QED
+- **Theorem 8c is the case of the complete quadrilateral:** adding A+B+C = A+D+E = 0 and B+D+X = C+E+X = 0 gives 2A = 2X.
+- "Possible" below only means "not excluded by this criterion".
+
+**Corollary 21a (classical configurations; `shapes/line_patterns.py`, configurations validated).** No coprime
+representations of any n carry the line pattern of the complete quadrilateral (Pasch, 6 points), the Fano plane (7),
+the Moebius-Kantor configuration (8), the Pappus configuration (9), the Hesse configuration AG(2,3) (9 points, 12 lines),
+or the Desargues configuration (10). **Moebius-Kantor, Pappus and Hesse contain no complete quadrilateral**, so the
+criterion is strictly stronger than Theorem 8c. (In particular: no 10-way whose representations form the Desargues
+configuration of lines; no 9-way forming the Pappus or Hesse configuration.)
+
+**Corollary 21b (most lines; `shapes/max_lines.py`, exhaustive DFS -- realisability is closed under removing lines).**
+k coprime representations carry at most 1, 1, 2, 3, 4, 6 lines for k = 3, 4, 5, 6, 7, 8 (combinatorial maxima for
+linear 3-uniform hypergraphs: 1, 1, 2, 4, 7, 8); for k = 9 at least 8 are not excluded (search incomplete at 300 s;
+combinatorial maximum 12).
+
 ## Already proved in TOPROVE.md (to be copied here in full later)
 
 - **Item 4:** no three positive points are collinear (convexity).
