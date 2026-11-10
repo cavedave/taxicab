@@ -51,7 +51,7 @@
       of a multi-way are pairwise linked by cheap chords (D-lines); basis for a correct model of free points and of the
       per-number six-way probability (replacing F78's random-square model, off by ~350x, F79).
 
-### Methods to borrow: geometry-based computational searches (9 Nov 2026; PDFs in refs/shape/, see refs/INDEX.md; still missing: Elkies 1988, Swinnerton-Dyer 1968)
+### Methods to borrow: geometry-based computational searches (9 Nov 2026; PDFs in refs/shape/, see refs/INDEX.md; Swinnerton-Dyer 1968 not obtainable, not needed)
 - **Elkies, "On A^4 + B^4 + C^4 = D^4", Math. Comp. 51 (1988) 825-835.** Found the counterexample to Euler's
   conjecture by searching an elliptic fibration of the K3 surface, with local conditions to prune. -> two-line
   surfaces (genus-1 curves; fibre the surface by one line's slope).

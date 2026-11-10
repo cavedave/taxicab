@@ -144,13 +144,13 @@ Still wanted (optional): D. Zagier, G. Kramarz, J. Indian Math. Soc. 52 (1987); 
 | `refs/shape/0908.1741v1.pdf` | J. E. Cremona, T. A. Fisher, M. Stoll, *Minimisation and reduction of 2-, 3- and 4-coverings of elliptic curves*, Algebra & Number Theory 4 (2010) | make quartics small before point search: the decider's seed problem (F65, F71) |
 | `refs/shape/Download.pdf` | A.-S. Elsenhans, J. Jahnel, *On the smallest point on a diagonal cubic surface*, Exp. Math. 19 (2010) 181-193 | Peyre's constant on diagonal cubic surfaces (x^3 + y^3 = u^3 + v^3): Manin-Peyre counting off the Pell conics (F82-F84) |
 | `refs/shape/elkies_2000_points_near_curves_lattice_reduction.pdf` | N. D. Elkies, *Rational points near curves and small nonzero \|x^3 - y^2\| via lattice reduction*, ANTS IV (2000), arXiv:math/0005139 | near-miss searches (near-lines, near-triangles) |
-| `refs/shape/booker_2019_cracking_33.pdf` | A. R. Booker, *Cracking the problem with 33*, Res. Number Theory 5 (2019), arXiv:1903.04284 | divisor-driven cube searches (x + y divides z^3 - k): compare Theorem 5's s-method |
-| `refs/shape/booker_sutherland_2021_question_of_mordell.pdf` | A. R. Booker, A. V. Sutherland, *On a question of Mordell*, PNAS 118 (2021), arXiv:2007.01209 | the same, at scale (42 and 3) |
+| `refs/shape/1903.04284v2.pdf` | A. R. Booker, *Cracking the problem with 33*, Res. Number Theory 5 (2019), arXiv:1903.04284 | divisor-driven cube searches (x + y divides z^3 - k): compare Theorem 5's s-method |
+| `refs/shape/2007.01209v3.pdf` | A. R. Booker, A. V. Sutherland, *On a question of Mordell*, PNAS 118 (2021), arXiv:2007.01209 | the same, at scale (42 and 3) |
+| `refs/shape/on-a-sp-4-b-sp-4-c-sp-4-d-sp-4-4c4gjgej2f.pdf` (text), `refs/shape/ computation.pdf` (scan; note the leading space) | N. D. Elkies, *On A^4 + B^4 + C^4 = D^4*, Math. Comp. 51 (1988) 825-835 | **template for the two-line surfaces:** r^4 + s^4 + t^2 = 1 as a pencil of conics -> r^4 + s^4 + t^4 = 1 as a pencil of genus-1 curves; search the simplest member that can have a point, with local conditions (cf. our Pell-conic pencil, F82-F83) |
 | `refs/shape/1805.05862v2.pdf` | R. van Bommel, *The Birch and Swinnerton-Dyer conjecture for an elliptic curve over Q(5^(1/4))*, arXiv:1805.05862 | BSD background |
 | `refs/shape/BSD-conjecture.pdf` | Y. Kezuka, D. Zagier, *The conjecture of Birch and Swinnerton-Dyer* (survey) | BSD background: ranks and L-functions (rank questions of F44, F60) |
 | `refs/shape/BSD 18310353 James Bourke.pdf` | J. Bourke, *History of the Birch and Swinnerton-Dyer Conjecture*, M.Sc. thesis, Maynooth University (2023) | BSD history |
 
-**Still missing:** N. D. Elkies, *On A^4 + B^4 + C^4 = D^4*, Math. Comp. 51 (1988) 825-835 (free on the AMS site, but
-the direct download returned a web page); H. P. F. Swinnerton-Dyer, *A^4 + B^4 = C^4 + D^4 revisited*, J. London
+**Still missing (not needed: Elkies 1988 covers the fibration idea):** H. P. F. Swinnerton-Dyer, *A^4 + B^4 = C^4 + D^4 revisited*, J. London
 Math. Soc. s1-43 (1968) 155, doi:10.1112/jlms/s1-43.1.155a (paywalled). Elkies 1988: doi:10.1090/S0025-5718-1988-0930224-9,
 https://www.ams.org/journals/mcom/1988-51-184/S0025-5718-1988-0930224-9/ (free; JSTOR 2008781).
