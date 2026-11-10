@@ -2815,6 +2815,23 @@ log `shapes/generated.jsonl`, summary `shapes/summarise_generated.py`; laptop, 6
 - For the paper: "generating points on the 412 bowtie curves finds about 660 certified five-ways per CPU-hour".
 - Cheaper next time: lower cap or fewer combinations on rank-5 curves (the timeouts were half the cost).
 
+## F92 (10 November 2026): the line search finds all 12 exhaustive five-ways -- but the production filter keeps only 5
+
+The 12 coprime five-ways n <= 2.5e23 (complete, from the exhaustive search) have 19 line directions between them.
+`line_enum.py` on just those directions (slope height 2,000, n <= 2.5e23, no filter; 42 s wall, 4 CPU-minutes, 3.0 M
+triples, 1.3 M distinct n) finds **all 12**, and for each bowtie both of its lines. Each recounts to exactly 5 coprime
+representations from n alone (PARI divisor test). Scripts: `shapes/recall12/`.
+- **Bowtie-curve generator (F91): 10 of 12** -- all 10 bowties; the 2 misses (137904678696613339 and
+  236191447138323830299237) have one line only (line + two free points), outside the method by construction.
+- **Production filter (>= 7 split primes < 1,000 and >= 2 of {7, 13, 19, 37}) keeps only 5 of 12:** 506433677359393,
+  137904678696613339, 2724248230569896697541, 5306775242131114520041, 236191447138323830299237. The other 7 have 4-6
+  split primes below 1,000 (each has 2 or 3 of {7, 13, 19, 37}). The threshold was set for n up to 10^30, where five-ways
+  have 11-14 split primes (F34); small five-ways have fewer, so a fixed 7 is too strict below about 10^22.
+- **Consequence:** for n <= 2.5e23 the line method's misses come from the filter, not from the lines. Unfiltered
+  counting is cheap at this size (1.3 M candidates, about 2 CPU-minutes at 10^4 per second).
+- Untested idea: a threshold growing with n (about 4 near 10^15 to 11 near 10^30); check it on the exhaustive four-ways
+  before using it.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
