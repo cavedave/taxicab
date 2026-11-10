@@ -6,7 +6,9 @@ conditions: a new point along a fixed direction from an existing point costs one
 F58.2's quadratic, quadratic in (x, y)); a whole line costs one condition for two new points. The geometry of the
 resulting variety decides whether rational configurations come in infinite families.
 
-**Dimension count (to verify, not computed):** star of cheap chords from one point --
+**CORRECTED 10 Nov (F86):** configurations are up to scaling, so the base is P^1, not a plane: m square conditions give a
+curve of genus 1 + 2^(m-1)(m-2) (0, 1, 5, 17, 49 for m = 1..5); no K3 for four-ways. The old count, kept for the record:
+**Dimension count (superseded):** star of cheap chords from one point --
 k = 2: conic bundle (rational; Pell families, F83); k = 3: two quadrics, del Pezzo of degree 4 (rational points dense
 once one exists); **k = 4: three quadrics, K3 surface (Elkies' territory)**; k = 5, 6: general type (finitely many by
 Bombieri-Lang). Lines are "cheaper" (two points per condition), which is how bowtie five-ways come in infinite families.
@@ -14,7 +16,10 @@ Bombieri-Lang). Lines are "cheaper" (two points per condition), which is how bow
 **Steps.**
 1. **Done (F85):** four-ways are stars of relatively cheap chords (91.5% / 53% within cost 1e12 for line+free / no-line,
    against 3.8% control). Refinement: directions grow ~ n^0.19 per coefficient; counts must sum over directions.
-2. **Compute the varieties** in PARI for one example of each six-way shape (paper Table tab:sixshapes): equations,
+2. **Started (F86):** genus formula and branch form verified, all real configurations have distinct branch points;
+   six-way shapes: finite per direction set (Faltings / Theorem 8c / Siegel for the triangle). Remaining: the two
+   disjoint lines cover; write the per-direction-set finiteness as a proposition.
+   Original step: **Compute the varieties** in PARI for one example of each six-way shape (paper Table tab:sixshapes): equations,
    branch loci, genus / Kodaira dimension. Goal: a "geometry" column (rational / K3 / general type) proved, not
    hand-waved. A shape whose variety is not of general type is where infinite rational families of six-ways would live;
    Theorem 16's congruence argument could then make them integral and coprime.

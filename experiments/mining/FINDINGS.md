@@ -2696,6 +2696,31 @@ over the other three representations (best orientation) of the chord cost |b^3 -
   cost ~ n^0.57 means direction coefficients ~ n^0.19 -- so counts must sum over directions growing with n, as for the
   bowtie second directions (stage 2), not use one fixed surface per direction triple.
 
+## F86 (10 November 2026): configuration curves with fixed directions -- genus 1 + 2^(m-1)(m-2); six-ways finite per direction set
+
+`shapes/delta_form.gp`, `shapes/branch_check.py`. (Correction of the dimension count in shapes/PLAN.md: configurations
+are taken up to scaling -- any rational configuration scales to an integral one -- so the base is the point P up to
+scaling, (x : y) in P^1, not a plane. The "K3 for four-ways" there was wrong.)
+- **Branch form.** Q = P + lambda (b, -a) lies on the curve of P iff A lambda^2 + B lambda + C = 0 (F58.2), with
+  discriminant **Delta_d(x, y) = 3 [b(4a^3 - b^3) x^2 + 6 a^2 b^2 xy + a(4b^3 - a^3) y^2]**, a binary quadratic form of
+  discriminant **16 ab (b^3 - a^3)^2** (both identities checked symbolically): for ab > 0, two real branch points,
+  conjugate in Q(sqrt(ab)).
+- **Genus.** m square conditions w_i^2 = Delta_{d_i}(x, y) over P^1 with distinct branch points give a (Z/2)^m cover of
+  genus **g = 1 + 2^(m-1)(m - 2)**: m = 1: 0 (a line: Theorem 1's conic), m = 2: 1, m = 3: 5, m = 4: 17, m = 5: 49.
+  A line through P costs one condition for two points.
+- **Checked on all real configurations: branch points distinct** (pairwise resultants nonzero): 2,642 bowties (m = 2,
+  genus 1 = F53's bowtie curves), 21,947 line + free four-ways (m = 2, genus 1), 535 no-line four-ways as stars from the
+  best centre (m = 3, **genus 5**: finitely many per direction triple, Faltings -- consistent with their rarity,
+  535 against 21,947).
+- **Six-way shapes, all directions fixed:** quadrilateral = bowtie curve + a coincidence (finitely many rational; no
+  integral, Theorem 8c); **triangle = the bowtie curve itself (genus 1; the sixth point is automatically rational,
+  F74)** -- infinitely many rational triangles, integral ones finite per curve (the sixth point's denominator is
+  unbounded, Lemma 19; Siegel -- sketch); bowtie + free point m = 3, genus 5; two disjoint lines three conditions,
+  genus >= 5 (cover more complex, to verify); line + 3 free m = 4, genus 17; six free m = 5, genus 49.
+- **Statement in progress:** for every fixed choice of chord directions, every shape of six-way occurs only finitely
+  often (Faltings for genus >= 2 -- unconditional; Theorem 8c; Siegel for the triangle). Directions are not bounded,
+  so this is "finite per direction set", not "finitely many six-ways".
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
