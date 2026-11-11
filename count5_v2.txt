@@ -1,0 +1,32 @@
+count5_v2 -- exact counts of every uncounted five-way and four-way (151-300 digits): are any of them six-ways (or five-ways)?
+Made 11 Nov 2026. Bundle: count5_v2.tar.gz (repo root). Replaces count5_v1 (its 1,188 numbers are included).
+  1,546 five-ways listed '>=5' in results/five_ways_all.txt (decider F65/F66/F71, generation F91/F94)
+  3,810 four-ways listed '>=4' in results/four_ways_generated.txt (F91/F94)
+Everything up to 150 digits is already counted on the laptop (835 numbers, no upgrades). A laptop test did the 111
+smallest five-ways here in 72 s, but F63 found numbers above ~175 digits much slower (factoring the s-values).
+
+On 7of9:
+  scp count5_v2.tar.gz 7of9:/mnt/scratch/dcurran/
+  ssh 7of9
+  cd /mnt/scratch/dcurran && tar xzf count5_v2.tar.gz && cd count5_v2
+  echo 'print(factor(2^67-1))' | ~/pari/bin/gp -q             # gp works
+  sensors | grep -i tctl                                         # CPU temperature before starting
+
+Pass 1, five-ways first (32 processes = one per physical core: cooler, ~80% of the 64-thread speed):
+  PASS=1 KIND=5 PROCS=32 nohup ./run.sh > pass1_k5.out 2>&1 &
+  tail -f pass1_k5.out              # "i/1546: (listed, counted) {...}"; a six-way prints *** SIX-WAY OR MORE
+  sensors | grep -i tctl            # after ~10 min: if too hot, stop and restart with PROCS=24 (it resumes)
+
+Then the four-ways (can run at the same time if the machine stays cool, e.g. 16 + 16):
+  PASS=1 KIND=4 PROCS=32 nohup ./run.sh > pass1_k4.out 2>&1 &
+
+Pass 2, the numbers pass 1 left unknown (2 h limits each, fewer processes: hard numbers use more memory):
+  PASS=2 PROCS=16 nohup ./run.sh > pass2.out 2>&1 &
+
+Each start stops itself after 14.5 h (HOURS=...); starting again with the same PASS/KIND resumes where it stopped.
+Stop early:  pkill -f count_multi; pkill -f "gp -q"       (only this job uses count_multi.py)
+
+Collect:
+  tar czf ~/count5_v2_out.tar.gz counted_pass*.txt counted_pass*.txt.unk pass*.out
+Afterwards (laptop): mark the counted numbers exact in results/five_ways_all.txt and four_ways_generated.txt (as for the
+<= 150 digit pass, 11 Nov), report any upgrade (four-way -> five-way, anything -> six-way), FINDINGS.

@@ -3,6 +3,7 @@
 (results/five_ways_all.txt, '>=5'), using count_bowties.job: n is factored from the s = x + y of the known representations
 and the E of every line among them (Theorem 13: one line suffices), then counted exactly (Theorem 5).
 Easy first: short limits; numbers that time out go to OUT.unk for a later pass with longer limits.
+Resume: --skip the earlier outputs (output files are appended to). Pass 2: --only pass1.txt.unk with longer limits.
 Usage: python3 count5/count_multi.py --maxdig 150 --tlim 120 --tcount 120 --procs 6 --out count5/counted_multi_le150.txt"""
 import argparse, sys, time
 from multiprocessing import Pool
@@ -22,16 +23,28 @@ def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--out", required=True); ap.add_argument("--maxdig", type=int, default=150)
     ap.add_argument("--mindig", type=int, default=0); ap.add_argument("--tlim", type=int, default=120)
     ap.add_argument("--tcount", type=int, default=120); ap.add_argument("--procs", type=int, default=6); ap.add_argument("--gp", default="gp")
+    ap.add_argument("--skip", nargs="*", default=[], help="earlier outputs: numbers with a k there are skipped (resume)")
+    ap.add_argument("--kind", default="both", choices=["5", "4", "both"], help="which list: five-ways, four-ways or both")
+    ap.add_argument("--only", default="", help="a .unk file: count only the numbers listed there (pass 2)")
     A = ap.parse_args(); t0 = time.time()
+    done = set()
+    for fn in A.skip:
+        if Path(fn).exists():
+            for l in open(fn):
+                g = l.split(";")
+                if g[0].isdigit() and len(g) > 1 and g[1] != "?": done.add(int(g[0]))
+    only = {int(l.split(";")[0]) for l in open(A.only) if l[0].isdigit()} if A.only else None
     todo = {}
     for fn, tag, kmin in ((ROOT / "results/five_ways_all.txt", ">=5", 5), (ROOT / "results/four_ways_generated.txt", ">=4", 4)):
+        if A.kind != "both" and str(kmin) != A.kind: continue
         for n, reps, src in read(fn, tag):
+            if n in done or (only is not None and n not in only): continue
             if A.mindig <= len(str(n)) <= A.maxdig: todo.setdefault(n, (reps, f"{kmin}|{src}"))
     jobs = [(n, reps, key, A.tlim, A.tcount, A.gp) for n, (reps, key) in sorted(todo.items())]
     print(f"{len(jobs)} numbers ({sum(k.startswith('5') for _, (r, k) in todo.items())} listed >=5, "
-          f"{sum(k.startswith('4') for _, (r, k) in todo.items())} listed >=4), {A.mindig}-{A.maxdig} digits", flush=True)
+          f"{sum(k.startswith('4') for _, (r, k) in todo.items())} listed >=4), {A.mindig}-{A.maxdig} digits, {len(done)} skipped", flush=True)
     hist, unk, up = {}, 0, []
-    with open(A.out, "w") as f, open(A.out + ".unk", "w") as fu, Pool(A.procs) as pool:
+    with open(A.out, "a") as f, open(A.out + ".unk", "a") as fu, Pool(A.procs) as pool:
         f.write("# count_multi.py: n;k;x:y,...;listed k|source\n"); fu.write("# n;reason;listed k|source\n")
         for i, (n, reps, known, key, dt, why) in enumerate(pool.imap_unordered(job, jobs), 1):
             kmin = int(key[0])
