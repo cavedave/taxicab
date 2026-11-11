@@ -136,6 +136,7 @@ def main():
     ap.add_argument("--seedh", type=int, default=60); ap.add_argument("--count", action="store_true")
     ap.add_argument("--alli", action="store_true", help="all three shared points (F61: they give the same bowties)")
     ap.add_argument("--log", default=""); ap.add_argument("--resume", action="store_true")
+    ap.add_argument("--gap", type=int, default=0, help="only second directions (a2, a2 + GAP), a2 in [amin, amax) (F93: gap 1 is ~15x richer)")
     ap.add_argument("--gptime", type=int, default=900, help="seconds per gp call (the periodicity box (2M+1)^r can take minutes)")
     A = ap.parse_args()
     jobs = [(tuple(map(int, s.split(","))), []) for s in A.pairs]
@@ -145,7 +146,7 @@ def main():
     for base in A.base:
         a, b = map(int, base.split(","))
         for a2 in range(1, A.amax):
-            for b2 in range(1, A.amax):
+            for b2 in ((a2 + A.gap,) if A.gap else range(1, A.amax)):
                 if max(a2, b2) < A.amin: continue
                 if a2 != b2 and math.gcd(a2, b2) == 1 and {a2, b2} != {a, b} and ns(b2 - a2) <= ns(b - a) and ns(b - a) <= ns(b2 - a2) | {3}:
                     bj += [((a, b, i, a2, b2), []) for i in (range(3) if A.alli else (0,))]

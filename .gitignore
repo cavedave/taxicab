@@ -9,3 +9,12 @@ seedgen
 cabtaxi
 __pycache__/
 experiments/mining/lc_fast
+# run logs and archived run output stay local (11 Nov 2026); four-/five-way lists and catalogues are tracked
+*.log
+*.out
+*.log.gz
+*.jsonl
+/lf_all.tar.gz
+/stage1.tar.gz
+/v2_stage1.tar.gz
+/v2_stage2a.tar.gz

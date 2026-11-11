@@ -2832,6 +2832,38 @@ representations from n alone (PARI divisor test). Scripts: `shapes/recall12/`.
 - Untested idea: a threshold growing with n (about 4 near 10^15 to 11 near 10^30); check it on the exhaustive four-ways
   before using it.
 
+## F93 (10 November 2026): second directions (a, a+1) beyond 1,000 -- a dead end for the decider
+
+In the stage 1 + 2 decider logs (F66, F71), second directions (a, a+1) gave a bowtie curve about once per 1,800 curves
+(9 of 15,963 below 1,000; including (3,4)+(363,364), (3,4)+(387,388), (36,37)+(876,877)), about 15x the average, and the
+rate was flat across 0-1,000. Those runs stopped at max(a2, b2) = 1,000, but (a, a+1) stays cheap (cost ~3a^2) far beyond.
+`bowtie_decide.py --gap 1` (new option; reproduces 15,979 gap-1 curves below 1,000), same 23 bases, laptop, 6 processes:
+- a in [1000, 1500), seed height 1e5: 8,016 curves in 3.5 min (0.13 s each); a point on 2, both obstructed; **no bowtie
+  curve** (about 5 expected at the old rate).
+- a in [1000, 1100), seed height 1e6: 1,369 of 1,616 curves in 30 min (~8 s each); 1 point, obstructed.
+- So the gap-1 curves below 1,000 were rich because their points happen to be small; beyond 1,000 a blind point search
+  costs too much per curve found. More curves need a local-solubility prefilter or 2-descent first (as F71 concluded).
+
+## F94 (10-11 November 2026): height-bounded generation on the bowtie curves -- five-ways below 300 digits nearly exhausted
+
+`shapes/height_enum.py`: as F91, but every point sum c_k G_k up to a canonical-height bound (qfminim on the height-pairing
+matrix), the bound doubled in shells until a whole shell gives only n above 320 digits (a first version fitted digits
+against height and lost points on curves whose smallest points already have 200+ digits). It reaches every point with
+n <= 300 digits (up to 40,000 vectors per curve; rank-5 curves hit that cap) and never computes the huge points that
+timed out in F91. Pilot on 5 curves: nothing lost against F91, +140 five-ways and +222 four-ways.
+- **Run: 290 of 489 curves, 20.4 CPU-hours** (laptop, 6 processes; 12 curves over the 15 min PARI limit). Stopped by
+  choice: the yield had fallen to about 1 new five-way per 4 CPU-hours. Resumable from `shapes/height_enum.jsonl` (local).
+- **Five-ways <= 300 digits: 2,551 distinct, only 44 new** (all 101-300 digits; smallest new 137 digits). The rest were
+  already listed: the decider (F65/F66/F71) had found nearly all bowties below 300 digits on these curves, e.g. 147 on
+  (3,4)+(363,364). The comparison with F91 alone (24 -> 147 on that curve) had suggested several thousand new; wrong
+  baseline.
+- **Four-ways (line + free point): 2,397 new** (2,055 in the first 191 curves, then 124, then 218).
+- Rate: about 125 five-ways per CPU-hour found, about 2 new per CPU-hour.
+- Saved: `results/five_ways_all.txt` 3,171 (1,457 exact k = 5, 1,714 '>=5', source F91/F94); `results/four_ways_generated.txt`
+  4,477. Summary script `shapes/summarise_height_enum.py`.
+- **Lesson:** on the known bowtie curves the five-ways below 300 digits are essentially all found. More five-ways need
+  new curves (F93: not cheaply from gap-1 directions), not deeper generation.
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
