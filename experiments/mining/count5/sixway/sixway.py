@@ -3,12 +3,13 @@
 (the two 35-prime numbers count_multi.py could not finish, count5/v2/counted_pass2.txt.unk; 20 Nov 2026).
 
 A coprime representation n = x^3 + y^3 is s = x + y with s | n, s^3 <= 4n and (4n/s - s^2)/3 = (x - y)^2 a square.
-Here n is coprime to 6 and all its primes are = 1 (mod 3), so each prime power lies wholly in s or in t = n/s
-(gcd(s, t) | 3): s is the product of a subset of the prime powers. All 2^k subsets are searched by mitm.c
+Each prime power p^e = 1 (mod 3) of n lies wholly in s or in t = n/s (gcd(s, t) | 3); primes p = 2 or = 2 (mod 3) lie
+wholly in s, and 3 | n puts 3^(e-1) in s (Theorem 5): s = f * (a subset of the split prime powers), f fixed. All 2^k subsets are searched by mitm.c
 (two halves, a size bound, and K quadratic-residue tests mod small primes q via discrete logs); the survivors are
 checked exactly here. The listed representations must all be found (a check on the search).
 
-Usage: python3 sixway.py N_INDEX [--procs 8] [--K 48]   (N_INDEX 0 or 1: the 'count:' lines of the .unk file)
+Usage: python3 sixway.py N_INDEX [--unk FILE] [--procs 8] [--K 48]   (N_INDEX: which 'count:' line of the .unk file;
+       --all: every 'count:' line, one summary line each)
 """
 import argparse, re, subprocess, sys, time
 from math import gcd, isqrt, log
@@ -24,22 +25,35 @@ def primroot(q):
         if all(pow(g, (q - 1) // p, q) != 1 for p in fs): return g
 
 def main():
-    ap = argparse.ArgumentParser(); ap.add_argument("idx", type=int)
+    ap = argparse.ArgumentParser(); ap.add_argument("idx", type=int, nargs="?", default=0)
+    ap.add_argument("--unk", default=str(UNK)); ap.add_argument("--all", action="store_true")
     ap.add_argument("--procs", type=int, default=8); ap.add_argument("--K", type=int, default=48)
-    A = ap.parse_args(); t0 = time.time()
-    L = [l.split(";") for l in open(UNK) if ";count:" in l][A.idx]
-    n = int(L[0]); pp = [int(q) ** int(e) for q, e in re.findall(r"(\d+)\^(\d+)", L[2])]
+    A = ap.parse_args()
+    LL = [l.split(";") for l in open(A.unk) if ";count:" in l]
+    for L in (LL if A.all else [LL[A.idx]]):
+        run(L, A)
+
+def run(L, A):
+    t0 = time.time()
+    n = int(L[0]); fac = [(int(q), int(e)) for q, e in re.findall(r"(\d+)\^(\d+)", L[2])]
     prod = 1
-    for v in pp: prod *= v
-    assert prod == n and n % 6 and all(int(q) % 3 == 1 for q, e in re.findall(r"(\d+)\^(\d+)", L[2]))
-    known = None
-    for l in open(ROOT / "results/five_ways_all.txt"):
-        if l.startswith(L[0] + ";"):
-            known = {tuple(sorted(map(int, t.split(":")))) for t in l.split(";")[2].split(",")}
-    print(f"n = {L[0][:20]}... ({len(L[0])} digits), {len(pp)} prime powers, {len(known)} listed representations", flush=True)
+    for q, e in fac: prod *= q ** e
+    assert prod == n, "incomplete factorisation"
+    f = 1; pp = []
+    for q, e in fac:
+        if q % 3 == 1: pp.append(q ** e)
+        elif q == 3: f *= 3 ** (e - 1)
+        else: f *= q ** e
+    known = set()
+    for fn in ("results/five_ways_all.txt", "results/four_ways_generated.txt"):
+        for l in open(ROOT / fn):
+            if l.startswith(L[0] + ";"):
+                known = {tuple(sorted(map(int, t.split(":")))) for t in l.split(";")[2].split(",")}
+    print(f"n = {L[0][:20]}... ({len(L[0])} digits), {len(pp)} split prime powers, fixed part of s {f}, "
+          f"{len(known)} listed representations", flush=True)
     pp.sort(); half_a = pp[0::2]; half_b = pp[1::2]           # alternate sizes between the halves
     order = half_a + half_b; nA, nB = len(half_a), len(half_b)
-    LB = log(4 * n) / 3 + 1e-6
+    LB = log(4 * n) / 3 - log(f) + 1e-6
     qs = []; q = 5
     while len(qs) < A.K:
         if all(q % r for r in range(2, isqrt(q) + 1)) and n % q: qs.append(q)
@@ -52,7 +66,8 @@ def main():
         inv3 = pow(3, -1, q); nq = n % q; t = []
         x = 1
         for k in range(q - 1):
-            v = (4 * nq * pow(x, -1, q) - x * x) * inv3 % q
+            sq = f * x % q                                     # s = f * (subset) mod q
+            v = (4 * nq * pow(sq, -1, q) - sq * sq) * inv3 % q
             t.append(1 if v == 0 or pow(v, (q - 1) // 2, q) == 1 else 0); x = x * g % q
         lines.append(f"{q} " + " ".join(map(str, t))); dl.append(D)
     for v in order: lines.append(f"{log(v)!r} " + " ".join(str(dl[k][v % q]) for k, q in enumerate(qs)))
@@ -70,7 +85,7 @@ def main():
           f"{len(qs)} residue tests; {time.time() - t0:.0f} s", flush=True)
     found = set()
     for ma, mb in surv:
-        s = 1
+        s = f
         for i in range(nA):
             if ma >> i & 1: s *= half_a[i]
         for i in range(nB):
@@ -87,6 +102,7 @@ def main():
         print(f"  {'listed' if r in known else '*** NEW'}  s = x + y = {r[0] + r[1]}")
     if len(found) >= 6: print("*** SIX-WAY OR MORE")
     print(f"total {time.time() - t0:.0f} s")
+    return found, known
 
 if __name__ == "__main__":
     main()

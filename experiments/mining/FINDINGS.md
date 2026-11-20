@@ -2880,6 +2880,12 @@ timed out in F91. Pilot on 5 curves: nothing lost against F91, +140 five-ways an
   five-ways has a sixth representation (95% upper bound about 0.1% per bowtie). Left: 11 five-ways of 280-300 digits
   with an unfactored ~100-digit cofactor (a job for YAFU/CADO-NFS); 245 four-ways (151-300 digits) for pass 2; 901
   four-ways of 301-320 digits never counted.
+- **Update 20 Nov:** sixway.py generalised (any .unk file; 2, 3 and primes = 2 (mod 3) go into s as a fixed part f,
+  Theorem 5). The 49 four-way leftovers with 30-36 split primes: all exactly 4 (1-5 s each). Four-ways now 3,380 exact,
+  1,097 uncounted (196 with an unfactored cofactor, sent to 7of9 pass 2 as `count5/v2/k4_unk_for_7of9.unk`; 901 of
+  301-320 digits).
+- Picture of the largest listed five-way (300 digits, exactly 5; F63, curve (13,16)+(121,124)):
+  `out/a047697/a047697_5way_largest_300digits.png`, made by `experiments/render_largest_fiveway.py`.
 
 **Counterexample search** (`check_big_lists.py`, 4 s for both lists; no factoring of n: exact rational arithmetic, small
 primes < 10^5 only where a statement is about primes of n). Collinear triples are found from the points, not taken
