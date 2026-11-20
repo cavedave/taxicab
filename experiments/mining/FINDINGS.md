@@ -2864,6 +2864,39 @@ timed out in F91. Pilot on 5 curves: nothing lost against F91, +140 five-ways an
 - **Lesson:** on the known bowtie curves the five-ways below 300 digits are essentially all found. More five-ways need
   new curves (F93: not cheaply from gap-1 directions), not deeper generation.
 
+## F95 (11-20 November 2026): exact counts of the big lists -- 3,160 five-ways all exactly 5; no counterexamples
+
+**Counting** (`count5/count_multi.py`, Theorem 13 factoring from the s of the known representations):
+- <= 150 digits on the laptop (11 Nov): 168 '>=5' all exactly 5, 667 '>=4' all exactly 4.
+- 151-300 digits, count5_v2 on 7of9 (18-19 Nov; `count5/v2/`). Pass 1 (10 min per number, 32 processes): 1,433 of 1,546
+  five-ways exactly 5 in 2.1 h; 2,664 of 2,909 four-ways exactly 4 in 2.5 h. Pass 2 (2 h per number, 24 processes,
+  five-ways only): 100 of the 113 leftovers exactly 5 in 6.1 h.
+- The 2 left with 35 split primes each (294, 295 digits; too many divisors for the counter) were counted by a new
+  meet-in-the-middle search, `count5/sixway/` (mitm.c + sixway.py): each prime power goes wholly into s or n/s, so s
+  is one of 2^35 subsets; the size bound s^3 <= 4n leaves 2.7e9 and 3.1e9, 48 quadratic-residue tests (discrete logs,
+  small q) leave 5 each, and the exact check finds exactly the 5 listed representations. 15-17 s each on the laptop.
+  General fast counter for fully factored n; at present only n coprime to 6 with all primes = 1 (mod 3).
+- **Totals: 3,160 of 3,171 five-ways exactly 5; 3,331 four-ways exactly 4. No upgrade, no six-way.** 0 of 3,160 bowtie
+  five-ways has a sixth representation (95% upper bound about 0.1% per bowtie). Left: 11 five-ways of 280-300 digits
+  with an unfactored ~100-digit cofactor (a job for YAFU/CADO-NFS); 245 four-ways (151-300 digits) for pass 2; 901
+  four-ways of 301-320 digits never counted.
+
+**Counterexample search** (`check_big_lists.py`, 4 s for both lists; no factoring of n: exact rational arithmetic, small
+primes < 10^5 only where a statement is about primes of n). Collinear triples are found from the points, not taken
+from the generator. 7,648 numbers up to 320 digits, 234,288 chords, 21,632 lines (with mirror images):
+- **Proved statements, 0 failures:** Theorems 1-3 (every line's ab small enough to factor), 5, 7 (351k chords), 8a/8b,
+  9, 10, 12, 13 (s-cubic identities on all chords, rational third roots too), 13a, 14, 14a; Lemmas 6, 17, 18, 19;
+  Prop 11; TOPROVE 4 (no line with three positive points).
+- **Believed, not proved, 0 failures:** TOPROVE 11 (chord P, swap(Q) for P, Q on a line has 3 | D): 129,792 chords,
+  four times the original evidence and at up to 320 digits, the strongest candidate to finish proving; TOPROVE 5 (no
+  integral tangent third point): 67,526 tangents; chords with a, b odd and D > 1 have D even: 117,144; F31's D-line
+  direction rule: 80 chords with D = 2-6 (thin).
+- A mutation test shows the checker detects failures (a corrupted point: 85 failures in 7 checks; false claims of the
+  same shape: 3 | D holds for 640/914 non-line chords, D | b - a for 64/914).
+- Statistics (generator-biased): n = 1 (mod 9) for 82% of five-ways and 88% of four-ways; 7 | n for 87% and 81%.
+- **Use of the big lists:** good for counterexamples to universal claims and for the six-way rate; not for densities,
+  direction or split-prime statistics (fixed by the generator; F92).
+
 ## Negative results
 
 - **N5 (7 November 2026): two picture-suggested bowtie patterns are not rules** (165 bowties; from the
