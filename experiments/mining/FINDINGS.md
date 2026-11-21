@@ -2884,6 +2884,10 @@ timed out in F91. Pilot on 5 curves: nothing lost against F91, +140 five-ways an
   Theorem 5). The 49 four-way leftovers with 30-36 split primes: all exactly 4 (1-5 s each). Four-ways now 3,380 exact,
   1,097 uncounted (196 with an unfactored cofactor, sent to 7of9 pass 2 as `count5/v2/k4_unk_for_7of9.unk`; 901 of
   301-320 digits).
+- **Update 21 Nov (7of9 pass 2 for the 196, 2 h limit each, 24 processes, 10.3 h):** 162 exactly 4 (each re-checked
+  here: counted set = listed set, cube sums, coprime), 34 unfinished (unfactored ~95-100-digit cofactor), no upgrades.
+  Four-ways now 3,542 exact (all exactly 4), 935 uncounted (34 + 901 of 301-320 digits). Leftovers with the 13
+  five-way ones in `count5/v2/counted_pass2.txt.unk`; YAFU/CADO-NFS on the cofactors, then sixway.py, would finish them.
 - Picture of the largest listed five-way (300 digits, exactly 5; F63, curve (13,16)+(121,124)):
   `out/a047697/a047697_5way_largest_300digits.png`, made by `experiments/render_largest_fiveway.py`.
 
