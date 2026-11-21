@@ -2888,6 +2888,14 @@ timed out in F91. Pilot on 5 curves: nothing lost against F91, +140 five-ways an
   here: counted set = listed set, cube sums, coprime), 34 unfinished (unfactored ~95-100-digit cofactor), no upgrades.
   Four-ways now 3,542 exact (all exactly 4), 935 uncounted (34 + 901 of 301-320 digits). Leftovers with the 13
   five-way ones in `count5/v2/counted_pass2.txt.unk`; YAFU/CADO-NFS on the cofactors, then sixway.py, would finish them.
+- **Update 21 Nov, the 45 'factor:' leftovers (11 five-ways, 34 four-ways)** (`count5/leftovers/`): the pieces that timed
+  out on 7of9 were whole s-values or E's. A coprime basis (gcds) of n and the pieces splits each n into proved primes and
+  2-5 composites (125 in all, 26-100 digits; `strip.py`); PARI `factor` with a 15 min limit, 8 at a time (`factor_parts.py`),
+  finished all 80 under 70 digits and 28 of 45 of 70-100 digits (often n's share of a hard piece is easy). 28 numbers then
+  fully factored (`assemble.py` -> `ready.unk`, products checked) and counted by sixway.py (15-30 split primes, seconds
+  each): **6 five-ways exactly 5, 22 four-ways exactly 4**, every listed representation found, nothing new.
+  Totals: five-ways 3,166 of 3,171 exactly 5 (5 left), four-ways 3,564 exact, 913 uncounted (12 + 901 of 301-320 digits).
+  The 17 left (`hard.txt`) each have one composite of 88-100 digits (five-ways: 91-94): CADO-NFS/YAFU territory.
 - Picture of the largest listed five-way (300 digits, exactly 5; F63, curve (13,16)+(121,124)):
   `out/a047697/a047697_5way_largest_300digits.png`, made by `experiments/render_largest_fiveway.py`.
 

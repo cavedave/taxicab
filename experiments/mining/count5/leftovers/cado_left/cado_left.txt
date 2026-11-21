@@ -1,0 +1,21 @@
+cado_left: factor the 17 hard composites (88-100 digits) so the last 5 five-ways and 12 four-ways can be counted.
+
+ON THE MAC (taxicab folder):
+  scp cado_left.tar.gz 7of9:/mnt/scratch/dcurran/
+
+ON 7of9:
+  cd /mnt/scratch/dcurran && tar xzf cado_left.tar.gz && cd cado_left
+
+  # once only, if CADO-NFS is not built yet (needs git, cmake, gcc/g++, libgmp-dev, python3; ~20-30 min):
+  cd ~ && git clone https://gitlab.inria.fr/cado-nfs/cado-nfs.git && cd cado-nfs && make -j 32
+  # quick test (a 60-digit number, a minute or two):
+  ./cado-nfs.py 90377629292003121684002147101760858109247336549001090677693 -t 32
+  cd /mnt/scratch/dcurran/cado_left
+
+  # the run (smallest first, 3 h limit each, resumable: just start it again):
+  THREADS=32 nohup ./run.sh > run.out 2>&1 &
+  tail -f run.out
+
+WHEN DONE:
+  tar czf ~/cado_left_out.tar.gz factors.txt run.out
+  # on the Mac:  scp 7of9:~/cado_left_out.tar.gz .
